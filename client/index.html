@@ -28,6 +28,7 @@
 
 
         <a href="#sign_in" data-rel="dialog"  data-transition="flip">Sign In</a>
+
         <h1 class="ui-title" role="heading">LlamaBucket</h1>
         <div data-role="controlgroup" class="ui-btn-right" data-type="horizontal">
           <a href="#"  data-theme="" id="bucket"><img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Bucket_with_Soap-128.png" width="26" height="26" border= "0"></a>
@@ -46,13 +47,12 @@
 
 
         </div>
-        <a href="index.html" data-role="button" data-icon="arrow-r" data-iconpos="left">Shop By Category</a>
          
 
 
 <ul data-role="listview" data-inset="true">
   <li data-role="list-divider">Deals of the Day</li>
-  <li><a href="#second">Featured Items</a></li>
+  <li><a href="#featuredItems">Featured Items</a></li>
   <li><a href="#">Top Rate</a></li>
   <li><a href="#">Best Sellers</a></li>
 </ul>
@@ -69,8 +69,7 @@
       <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
       <li><a href="#" data-icon="refresh">Bid</a></li>
       <li><a href="#" data-icon="bars">More</a></li>
-      <li><a href="#" data-icon=""><img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Bucket_with_Soap-128.png" width="26" height="26" ></br>Bucket</a></li>
-
+    
     </ul>
   </div>
 </div>
@@ -96,13 +95,27 @@
 
 <!-- End -->
 
+<!--Featured Items -->
+
+<div data-role="page" id="featuredItems">
+
+  <div data-role="header">
+    <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+    <h2> Featured Items </h2>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview" id="featured">
+      <!-- Content will be generated here by the function in search.js file. --> 
+    </ul>
+  </div>
 
 
+</div>
+<!--Featured Items End -->
 
 
 <!--Sign In - Dialog -->
 
-</div>
 <div data-role="page" id="sign_in">
   <div data-role="header">
     <h1>Sign In</h1>
