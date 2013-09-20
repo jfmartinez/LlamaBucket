@@ -13,7 +13,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 			for(var i = 0; i < length; i++)
 			{
-				list.append("<li>" +data.content[i].name +"</li>");
+				list.append("<li><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+ data.content[i].image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+data.content[i].name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+data.content[i].price+"</h6></div></div></li>");
 			}
 
 			//Refresh the ul so that all elements are views properly.
