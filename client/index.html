@@ -47,7 +47,7 @@
 
 
         </div>
-        <a href="index.html" data-role="button"  data-icon="arrow-r" data-iconpos="right">Shop By Category</a>
+        <a href="#categoriesView" data-role="button"  data-icon="arrow-r" data-iconpos="right">Shop By Category</a>
          
 
 
@@ -106,24 +106,30 @@
     <h1>Sign In</h1>
   </div>
   <div data-role="content">
-    <form action="form.php" method="post"> 
-      <label for="basic"></label>
-<input type="text" name="name" id="basic" placeholder="Username" />
-<input type="text" name="name" id="basic" placeholder="Password" />
-<a href="#"> Forgot Password?</a>
-  <div class="ui-grid-a">
-          <div class="ui-block-a"><a href="#searchResults" data-role="button" data-icon="star">Register</a></div>
-          <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="check">Log In</a></div>
-
-
+      <form action="form.php" method="post"> 
+        <label for="basic"></label>
+        <input type="text" name="name" id="basic" placeholder="Username" />
+        <input type="text" name="name" id="basic" placeholder="Password" />
+        <a href="#"> Forgot Password?</a>
+        <div class="ui-grid-a">
+            <div class="ui-block-a"><a href="#searchResults" data-role="button" data-icon="star">Register</a></div>
+            <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="check">Log In</a></div>
         </div>
-
-
-  </form>
-
-
-
+      </form>
   </div>
+</div>
+
+<div data-role="page" id="categoriesView">
+    
+    <div data-role="header">
+        <h3>Categories</h3>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" id="categories">
+        </ul>
+        </div>
+    </div>
 </div>
 
 <!-- End -->

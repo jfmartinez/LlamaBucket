@@ -56,9 +56,26 @@ var items = {
 	}]
 }
 
+var categories = {
+	content : [
+	"Books",
+	"Electronics",
+	"Computers",
+	"Clothing",
+	"Shoes",
+	"Sports"
+	]
+}
+
 var get_results = function(req, res, next)
 {
 	res.send(items);
 }
 
+var get_categories = function(req, res, next)
+{
+	res.send(categories);
+}
+
 exports.get_results = get_results;
+exports.get_categories = get_categories;

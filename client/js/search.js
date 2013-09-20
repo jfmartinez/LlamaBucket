@@ -3,7 +3,6 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 		url : "http://localhost:3000/search_results",
 		contentType : "application/json",
 		success : function(data){
-			console.log(data);
 			var list = $('#results');
 			var length = data.content.length;
 			
@@ -23,4 +22,31 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 			console.log("No brego");
 		}
 	});
+});
+
+$(document).on('pagebeforeshow', '#categoriesView', function(event)
+{
+	$.ajax
+	({
+		url : "http://localhost:3000/categories",
+		contentType : "application/json",
+		success : function(data)
+		{
+			var list = $('#categories');
+
+			//Clear the list
+			list.empty();
+
+			for(var i = 0; i < data.content.length; i++)
+			{
+				list.append('<li data-icon=\"arrow-r\" data-iconpos=\"right\"><a href=\"#\">'+data.content[i]+'</a></li>')
+			}
+
+			list.listview('refresh');
+		},
+		error : function(data)
+		{
+			console.log("error en categorias");
+		}
+	})
 });
