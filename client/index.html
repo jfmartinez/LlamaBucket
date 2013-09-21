@@ -136,8 +136,8 @@
             <li data-role="fieldcontain">   <input type="text" name="firstName" id="firstName" placeholder="First Name"/></li>
             <li data-role="fieldcontain"> <input type="text" name="lastName" id="lastName" placeholder="Last Name"/></li>
             <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="Email"/></li>
-            <li data-role="fieldcontain"><input type="text" name="password" id="password" placeholder="Password"/></li>
-            <li data-role="fieldcontain"><input type="text" name="password" id="password" placeholder="Verify Password"/></li>
+            <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Password"/></li>
+            <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Verify Password"/></li>
           </ul>
 
 
@@ -147,11 +147,11 @@
           <ul data-role="listview" data-inset="true">
 
             <li data-role="list-divider">Mailing Address</li>
-            <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
-            <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
-            <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="City" /></li>
-            <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
-            <li data-role="fieldcontain"><select name="country" id="country" >
+            <li data-role="fieldcontain"><input ng-model="addressOne" type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
+            <li data-role="fieldcontain"><input ng-model="addressTwo" type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
+            <li data-role="fieldcontain"><input  ng-model="theCity" type="text" name="city" id="cityForm" placeholder="City" /></li>
+            <li data-role="fieldcontain"><input ng-model="theZipcode" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
+            <li data-role="fieldcontain"><select ng-model="theCountry" name="country" id="country" >
 
               <option value="">United States</option>
               <option value="Afganistan">Afghanistan</option>
