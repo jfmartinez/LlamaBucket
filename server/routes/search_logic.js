@@ -119,5 +119,30 @@ var get_categories = function(req, res, next)
 	res.send(categories);
 }
 
+//Fetch the subcategories from the categories table
+var get_subcategories = function(req, res, next)
+{
+	var send_data = { content : [], parent_name : null};
+
+	//Choose only the categories that have the current category as a parent.
+	for(var i = 0; i < categories.content.length; i++)
+	{
+		if(categories.content[i].parent == req.param('parent_id'))
+		{
+			send_data.content.push(categories.content[i]);
+		}
+		//Send the parent category list to the client.
+		if(categories.content[i].id == req.param('parent_id'))
+		{
+			send_data.parent_name = categories.content[i].category;
+		}	
+	}
+
+	res.send(send_data);
+}
+
 exports.get_results = get_results;
 exports.get_categories = get_categories;
+exports.get_subcategories = get_subcategories;
+
+
