@@ -37,6 +37,37 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 
 	}
+	else if(localStorage.getItem('search_parameter'))
+	{
+		var search_parameter = localStorage.getItem('search_parameter');
+		localStorage.clear();
+
+		$.ajax({
+			url : "http://localhost:3000/search/item_name="+search_parameter,
+			contentType : "application/json",
+			success : function(data)
+			{
+				var list = $('#results');
+				var length = data.content.length;
+				
+				//Clear the list beforehand
+				list.empty();
+
+				//Go over all the items that were fetched and create the appropiate list items
+				for(var i = 0; i < length; i++)
+				{
+					list.append("<li><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+ data.content[i].image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+data.content[i].name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+data.content[i].price+"</h6></div></div></li>");
+				}
+
+				//Refresh the ul so that all elements are views properly.
+				list.listview('refresh');
+			},
+			error : function(data)
+			{
+				console.log('Dios da y Dios quita, aqui te quito.')
+			}
+		});
+	}
 });
 
 //Fetch the categories before loading the page
@@ -71,6 +102,18 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 	})
 });
 
+//Search by name
+$(document).on('click', '#search_button', function(event)
+{
+	//get the user input, remove the whitespaces and convert to lower case.
+	var user_input = $("#search_basic").val().toLowerCase().replace(/\s/g, '');
+	localStorage.setItem('search_parameter', user_input);
+	$.mobile.changePage('#searchResults');
+	
+});
+
+
+//Show the subcategories, no matter how many there are.
 $(document).on('click', '#categories-list li', function()
 {
 	var parent_category = $(this).attr('value');

@@ -238,15 +238,17 @@ var categories = {
 var get_results = function(req, res, next)
 {
 	//Regular expression for matching a category
-	var re_category = /category/
+	var re_category = /category/;
+	var re_search_by_name = /item_name/;
+
+	//Regular expression to separate the category number.
+	var separator = /=/;
 
 	//Determine if its a category or a name
 	var query_parameter = req.params.parameter;
 
 	if(query_parameter.search(re_category) >= 0)
 	{
-		//Regular expression to separate the category number.
-		var separator = /=/;
 
 		//Get the actual category.
 		var category_id = query_parameter.split(separator);
@@ -261,6 +263,22 @@ var get_results = function(req, res, next)
 			if(items.content[i].category == cat)
 			{
 				//Push the items that belong to the selected category into the array.
+				send_data.content.push(items.content[i]);
+			}
+		};
+		res.send(send_data);
+	}
+
+	else if(query_parameter.search(re_search_by_name) >= 0)
+	{
+		var search_terms = query_parameter.split(separator);
+		var item_name = new RegExp(search_terms[1]);
+
+		var send_data = { content : []};
+
+		for (var i = items.content.length - 1; i >= 0; i--) {
+			if(items.content[i].name.toLowerCase().replace(/\s/g, '').search(item_name) >= 0)
+			{
 				send_data.content.push(items.content[i]);
 			}
 		};
