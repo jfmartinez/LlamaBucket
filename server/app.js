@@ -46,7 +46,7 @@ if ('development' == app.get('env')) {
 }
 
 //Routes
-app.get('/search_results', search.get_results);
+app.get('/search/:parameter', search.get_results);
 app.get('/categories', search.get_categories);
 app.get('/categories/:parent_id', search.get_subcategories);
 

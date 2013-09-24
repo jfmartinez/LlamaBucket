@@ -1,7 +1,18 @@
 //Find search results and display them as a list
 $(document).on('pagebeforeshow', '#searchResults', function(event){
-	$.ajax({
-		url : "http://localhost:3000/search_results",
+
+	//Check to see if there is a parameter being passed from the localStorage
+	if(localStorage.getItem('parameter'))
+	{
+		//Filtering by categories.
+		var parameter = localStorage.getItem('parameter');
+
+		//Reset the local storage, for later user. 
+		localStorage.clear();
+
+		
+		$.ajax({
+		url : "http://localhost:3000/search/category="+parameter,
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#results');
@@ -23,6 +34,9 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 			console.log("No brego");
 		}
 	});
+
+
+	}
 });
 
 //Fetch the categories before loading the page
@@ -71,7 +85,9 @@ $(document).on('click', '#categories-list li', function()
 			if(data.content.length == 0)
 			{
 				//There are no more subcategories, go to the search results.
-				console.log('awesome sauce');
+				localStorage.setItem('parameter', parent_category);
+				$.mobile.changePage($('#searchResults'));
+
 			}
 			//If there are more subcategories, create the page,
 			// Inject it into the index.html page, and display it.
@@ -116,11 +132,5 @@ $(document).on('click', '#categories-list li', function()
 	})
 });
 
-//For Debuggin purposes 
- // $( window ).on( "navigate", function( event, data ){
- //    console.log( data.state.info );
- //    console.log( data.state.direction );
- //    console.log( data.state.url );
- //    console.log( data.state.hash );
- //  });
+
 

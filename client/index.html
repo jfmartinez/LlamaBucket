@@ -42,7 +42,7 @@
       <div data-role="content" data-theme="c" >
         <input type="search" name="search" id="search-basic" value="" />
         <div class="ui-grid-a">
-          <div class="ui-block-a"><a href="search.html" rel="external" data-role="button" data-icon="search">Search</a></div>
+          <div class="ui-block-a"><a href="#searchResults" data-role="button" data-icon="search">Search</a></div>
           <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="cancel">Clear</a></div>
 
 
@@ -708,6 +708,27 @@
     </div>
   </div>
 <!-- End of Categories -->
+
+<!-- Search Results -->
+
+<div data-role="page" id="searchResults">
+    <div data-role="header" data-position="fixed">
+      <a href="index.html" rel="external"> Home </a>
+      <h2> Search Results </h2>
+    </div>
+
+    <div data-role="content">
+      <ul data-role="listview" id="results">
+        <!-- Content will be generated here by the function in search.js file. --> 
+      </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <a href="#" data-role="button" data-inline="false" data-icon="search"> Refine Search</a>
+    </div>
+  </div>
+
+  <!-- End of Search Results -->
 
   <!-- End -->
 
