@@ -56,6 +56,9 @@
           <li><a href="#featuredItems">Featured Items</a></li>
           <li><a href="#">Top Rate</a></li>
           <li><a href="#">Best Sellers</a></li>
+          <!--Some test stuff-->
+          <li><a href="#itemlist">Item List</a></li>
+          <li><a href="#itemview">Item View</a></li>
         </ul>
       </div>
 
@@ -123,6 +126,7 @@
         <a href="#home" data-icon="back" data-iconpos="notext">  </a>
         <h2> Featured Items </h2>
       </div>
+
       <div data-role="content">
         <ul data-role="listview" id="featured">
           <!-- Content will be generated here by the function in search.js file. --> 
@@ -132,6 +136,58 @@
 
     </div>
     <!--Featured Items End -->
+
+
+    <!--Generic Item List -->
+    <div data-role="page" id="itemlist">
+      
+      <div data-role="header">
+        <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+        <h2> Item List </h2>
+      </div>
+      
+      <div data-role="content">
+        <ul id="itemlist_content" data-role="listview" data-inset="true"></ul>
+      </div>
+
+
+    </div>
+
+
+    <!--Generic Item List End -->
+
+    <!--Item View -->
+    <div data-role="page" id="itemview">
+
+      <div data-role="header">
+        <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+        <h2> Item List </h2>
+
+      </div>
+      <div data-role="content">
+        <ul id="iteminfo" data-role="listview" data-inset="true">
+        <!-- Hardcoded into html: -->
+        <img src="http://cdn.bulbagarden.net/upload/thumb/7/7e/006Charizard.png/256px-006Charizard.png" alt="so bad">
+        <li>Charizard</li>
+        <li>The original badass (sneaky pebbles not included)</li>
+        <li>Year: 1999</li>
+        <li>Brand: Silph Co.</li>
+        <li><a href="#">Category</a></li>
+        <li>Buy it now Price: $799999.99 <button id="buybutton" onclick="buy()">Buy it now!</button></li>
+        <li>Starting Price: $10.00</li>
+        <li>Enter your bid amount: <input type="number" name="bid"> <button id="bidbutton" onclick="bid()">Bid!</button></li>
+        </ul>
+        <br></br>
+              
+      </div>
+
+
+    </div>
+
+
+
+    <!--Item View End -->
+
 
 
     <!--Sign In - Dialog -->
