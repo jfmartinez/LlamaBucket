@@ -197,6 +197,7 @@ var categories = {
 	{ id : 5, category : "Shoes", parent : null},
 	{ id : 6, category : "Sports", parent : null},
 	{ id : 7, category :  "Toys", parent : null},
+	{ id : 43, category : "Bobos", parent : null},
 	{ id : 8, category : "Children", parent : 1},
 	{ id : 9, category : "Fiction", parent : 1},
 	{ id : 10, category : "Technology", parent : 1},
