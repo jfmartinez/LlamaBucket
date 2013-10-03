@@ -50,6 +50,10 @@ app.get('/search/:parameter', search.get_results);
 app.get('/categories', search.get_categories);
 app.get('/categories/:parent_id', search.get_subcategories);
 
+app.get('/user', user.get_user_page);
+app.post('/user', user.add_new_user);
+app.put('/user', user.modify_user);
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
