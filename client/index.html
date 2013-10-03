@@ -11,7 +11,8 @@
 
     <!--Home Page -->
     <div data-role="page" id="home">
-      <!--Header -->
+
+
       <div data-role="panel" id="side_panel">
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Username</li>
@@ -21,14 +22,11 @@
         </ul>
       </div>
 
-
       <!--Header -->
 
       <div data-role="header">
 
-
-        <a href="#sign_in" data-rel="dialog"  data-transition="flip">Sign In</a>
-
+        <a href="#sign_in" data-rel="dialog">Sign In</a>
         <h1 class="ui-title" role="heading">LlamaBucket</h1>
         <div data-role="controlgroup" class="ui-btn-right" data-type="horizontal">
           <a href="#bucket"  data-theme="" id="bucket"><img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Bucket_with_Soap-128.png" width="26" height="26" border= "0"></a>
@@ -41,21 +39,17 @@
       <!--Homepage Content -->
       <div data-role="content" data-theme="c" >
         <input type="search" name="search" id="search_basic"/>
-        <!-- <div class="ui-grid-a"> -->
-          <!-- <div class="ui-block-a"> --><a href="#" data-role="button" data-icon="search" id="search_button">Search</a><!-- </div> -->
-          <!-- <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="cancel">Clear</a></div>
- -->
 
-       <!--  </div> -->
+        <a href="#" data-role="button" data-icon="search" id="search_button">Search</a>
         <a href="#categories" data-role="button"  data-icon="arrow-r" data-iconpos="right">Shop By Category</a>
-
-
-
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Deals of the Day</li>
           <li><a href="#featuredItems">Featured Items</a></li>
           <li><a href="#">Top Rate</a></li>
           <li><a href="#">Best Sellers</a></li>
+          <!--Some test stuff-->
+          <li><a href="#itemlist">Item List</a></li>
+          <li><a href="#itempage">Item View</a></li>
         </ul>
       </div>
 
@@ -67,7 +61,7 @@
       <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
           <ul>
-            <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+            <li><a href="#user_profile" data-icon="home">My Profile</a></li>
             <li><a href="#" data-icon="refresh">Bids</a></li>
             <li><a href="#" data-icon="bars">More</a></li>
 
@@ -80,6 +74,7 @@
 
     <!-- Cart List -->
     <div data-role="page" id="bucket">
+      
       <div data-role="header">
         <a href="#home" data-icon="back" data-iconpos="notext"></a>
         <h2> My Bucket </h2>
@@ -87,18 +82,58 @@
       </div>
 
     
-          <div data-role="content">
+      <div data-role="content">
         <ul data-role="listview" id="checkout" data-split-icon="gear">
           <!-- Content will be generated here by the function in search.js file. -->
-   <!--        <li><a href="#editItems" data-transition="pop" ><img src="http://goo.gl/h6GYBh" />Wallet</a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop"></a><a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop">$9.00</a></li> -->
           
-      <li><a href="#"><div class="ui-grid-b"><div class="ui-block-a"><img src="http://goo.gl/h6GYBh" height="60" width="60"></div><div class="ui-block-b"><h5>Wallet</h5><p>New and improved Apple Leather iWallet</p></div><div class="ui-block-c"><h6 align="center"> Buy: $200</h6></div></div><a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a></li>
+          <li><a href="#"></a>
+            <div class="ui-grid-b">
+              <div class="ui-block-a">
+                <img src="http://goo.gl/h6GYBh" height="60" width="60">
+              </div>
+              <div class="ui-block-b">
+                <h5>Wallet</h5>
+                <p>New and improved Apple Leather iWallet</p>
+              </div>
+              <div class="ui-block-c">
+                <h6 align="center"> Buy: $200</h6>
+              </div>
+            </div>
+            <a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a>
+          </li>
 
-       <li><a href="#"><div class="ui-grid-b"><div class="ui-block-a"><img src="http://goo.gl/ffICmz" height="60" width="60"></div><div class="ui-block-b"><h5>Baby Sloth</h5><p>Baby sloth up for adoption, sign in your papers today!</p></div><div class="ui-block-c"><h6 align="center"> Buy: $40</h6></div></div><a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a></li>
+          <li><a href="#"></a>
+            <div class="ui-grid-b">
+              <div class="ui-block-a">
+                <img src="http://goo.gl/ffICmz" height="60" width="60">
+              </div>
+              <div class="ui-block-b">
+                <h5>Baby Sloth</h5>
+                <p>Baby sloth up for adoption, sign in your papers today!</p>
+              </div>
+              <div class="ui-block-c">
+                <h6 align="center"> Buy: $40</h6>
+              </div>
+            </div>
+            <a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a>
+          </li>
 
-
-        <li><a href="#"><div class="ui-grid-b"><div class="ui-block-a"><img src="http://goo.gl/7Eybg7" height="60" width="60"></div><div class="ui-block-b"><h5>Bucket</h5><p>Buckets are useful for carrying water and dirt (in some cases Llamas)</p></div><div class="ui-block-c"><h6 align="center"> Buy: $150</h6></div></div><a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a></li>
-
+          <li>
+            <a href="#"></a>
+              <div class="ui-grid-b">
+                <div class="ui-block-a">
+                  <img src="http://goo.gl/7Eybg7" height="60" width="60">
+                </div>
+                <div class="ui-block-b">
+                  <h5>Bucket</h5>
+                  <p>Buckets are useful for carrying water and dirt (in some cases Llamas)</p>
+                </div>
+                <div class="ui-block-c">
+                  <h6 align="center"> Buy: $150</h6>
+                </div>
+              </div>
+              <a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a>
+            </li>
         </ul>
       </div>
     </div>
@@ -116,26 +151,78 @@
 
 
     <!--Featured Items -->
-
     <div data-role="page" id="featuredItems">
 
       <div data-role="header">
         <a href="#home" data-icon="back" data-iconpos="notext">  </a>
         <h2> Featured Items </h2>
       </div>
+
       <div data-role="content">
         <ul data-role="listview" id="featured">
           <!-- Content will be generated here by the function in search.js file. --> 
         </ul>
       </div>
 
-
     </div>
     <!--Featured Items End -->
 
 
-    <!--Sign In - Dialog -->
+    <!--Generic Item List -->
+    <div data-role="page" id="itemlist">
+      
+      <div data-role="header">
+        <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+        <h2> Item List </h2>
+      </div>
+      
+      <div data-role="content">
+        <ul id="itemlist_content" data-role="listview" data-inset="true"></ul>
+      </div>
 
+
+    </div>
+
+
+    <!--Generic Item List End -->
+
+    <!--Item View -->
+    <div data-role="page" id="itempage">
+
+      <div data-role="header">
+        <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+        <h2> Item List </h2>
+
+      </div>
+      <div data-role="content">
+        <ul id="iteminfo" data-role="listview">
+        <!-- Hardcoded into html: -->
+        
+        <img src="http://cdn.bulbagarden.net/upload/thumb/7/7e/006Charizard.png/256px-006Charizard.png" alt="so bad">
+        <li>Charizard</li>
+        <li>The original badass (sneaky pebbles not included)</li>
+        <li>Year: 1999</li>
+        <li>Brand: Silph Co.</li>
+        <li><a href="#">Category</a></li>
+        <li>Buy it now Price: $799999.99 <button id="buybutton" onclick="buy()">Buy it now!</button></li>
+        <li>Starting Price: $10.00</li>
+        <li>Enter your bid amount: <input type="number" name="bid"> <button id="bidbutton" onclick="bid()">Bid!</button></li>
+      
+        </ul>
+        <br></br>
+              
+      </div>
+
+
+    </div>
+
+
+
+    <!--Item View End -->
+
+
+
+    <!--Sign In - Dialog -->
     <div data-role="page" id="sign_in">
       <div data-role="header">
         <h1>Sign In</h1>
@@ -729,7 +816,6 @@
 
 
 <!-- Categories page -->
-
     <div data-role="page" id="categories">
       <div data-role="header">
         <h3>Categories</h3>
@@ -741,11 +827,11 @@
         </ul>
       </div>
     </div>
-  </div>
 <!-- End of Categories -->
 
-<!-- Search Results -->
 
+
+<!-- Search Results -->
 <div data-role="page" id="searchResults">
     <div data-role="header" data-position="fixed">
       <a href="index.html" rel="external"> Home </a>
@@ -761,24 +847,92 @@
     <div data-role="footer" data-position="fixed">
       <a href="#" data-role="button" data-inline="false" data-icon="search"> Refine Search</a>
     </div>
+
+  </div>
+<!-- End of Search Results -->
+
+<!-- user page -->
+<div data-role="page" id="user_profile">
+  
+  <div data-role="header">
+    <a href="#home">Home</a>
+    <h2> My profile</h2>
+    <a href="#edit_user">Edit</a>
   </div>
 
-  <!-- End of Search Results -->
+  <div data-role="content">
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <img src="http://3.bp.blogspot.com/-Fo7AHLKOH5M/T8WeqUcZFKI/AAAAAAAAFCc/cQdII_3xu7k/s320/sloth.jpg" height="150" width="175">
+      </div>
+      <div class="ui-block-b">
+        <h4> Cesar I. Cruz Martinez </h4>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <h2> Rank </h2>
+          </div>
+          <div class="ui-block-b">
+            <img src="css/images/glyphicons_049_star.png">
+            <img src="css/images/glyphicons_049_star.png">
+            <img src="css/images/glyphicons_049_star.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <p><strong>Email: </strong>cesarcruz91@gmail.com</p>
+    <strong>Mailling Information:</strong>
+    <p>#311 Calle Ext. Los Robles</p>
+    <p>Rincon, PR 00677</p>
+    <p>United States</p>
 
-  <!-- End -->
+  </div>
 
-  <!-- Item List -->
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li class="ui-block-c"><a href="#bucket">My Bucket</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <div data-role="page" id="item_list">
+</div>
+<!-- end user page -->
 
-    <div data-role="panel" id="sortingPanel">
+<!-- edit user -->
+<div data-role="page" id="edit_user">
+  <div data-role="header">
+    <h2>Edit</h2>
+  </div>
+  <div data-role="body">
+    <ul data-role="listview" data-inset="true">
+            <li style="text-align : center"> Personal Information</li>
+            <li data-role="fieldcontain"> <strong> First Name:</strong>   <input type="text" name="firstName" id="firstName" placeholder="Cesar"/></li>
+            <li data-role="fieldcontain"> <input type="text" name="lastName" id="lastName" placeholder="Cruz"/></li>
+            <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="cesarcruz91@gmail.com"/></li>
+            <li style="text-align : center"> Mailling Address</li>
+           <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="#311 Calle Ext. Los Robles"/></li>
+           <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder=""/></li>
+           <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="Rincon" /></li>
+           <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="00677" /></li>
+           <li style="text-align : center"> Credit Card Info </li>
+           <li data-role="fieldcontain"><input type="text" name="creditCard" id="creditCard"></li>
 
 
-      <div data-role="header">
-        <a href="#sortingPanel" data-role="button">Sort</a>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+    <ul class="ui-grid-a">
+      <li class="ui-block-a"><a href="#user_profile">Cancel</a></li>
+      <li class="ui-block-b"><a href="#">Done</a></li>
+    </ul>   
+    </div>
+  </div>
+</div>
+<!-- end edit user -->
 
-        <h3 id="category_title"></h3>
+<!-- End -->
 
 
-      </body>
-      </html>
+</body>
+</html>
