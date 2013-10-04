@@ -1,14 +1,14 @@
 //Find search results and display them as a list
 $(document).on('pagebeforeshow', '#searchResults', function(event){
 
-	//Check to see if there is a parameter being passed from the localStorage
-	if(localStorage.getItem('parameter'))
+	//Check to see if there is a parameter being passed from the sessionStorage
+	if(sessionStorage.getItem('parameter'))
 	{
 		//Filtering by categories.
-		var parameter = localStorage.getItem('parameter');
+		var parameter = sessionStorage.getItem('parameter');
 
 		//Reset the local storage, for later user. 
-		localStorage.clear();
+		sessionStorage.clear();
 
 		
 		$.ajax({
@@ -37,10 +37,10 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 
 	}
-	else if(localStorage.getItem('search_parameter'))
+	else if(sessionStorage.getItem('search_parameter'))
 	{
-		var search_parameter = localStorage.getItem('search_parameter');
-		localStorage.clear();
+		var search_parameter = sessionStorage.getItem('search_parameter');
+		sessionStorage.clear();
 
 		$.ajax({
 			url : "http://localhost:3000/search/item_name="+search_parameter,
@@ -107,7 +107,7 @@ $(document).on('click', '#search_button', function(event)
 {
 	//get the user input, remove the whitespaces and convert to lower case.
 	var user_input = $("#search_basic").val().toLowerCase().replace(/\s/g, '');
-	localStorage.setItem('search_parameter', user_input);
+	sessionStorage.setItem('search_parameter', user_input);
 	$.mobile.changePage('#searchResults');
 	
 });
@@ -128,7 +128,7 @@ $(document).on('click', '#categories-list li', function()
 			if(data.content.length == 0)
 			{
 				//There are no more subcategories, go to the search results.
-				localStorage.setItem('parameter', parent_category);
+				sessionStorage.setItem('parameter', parent_category);
 				$.mobile.changePage($('#searchResults'));
 
 			}
