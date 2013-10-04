@@ -159,7 +159,15 @@ $(document).on('click', '#categories-list li', function()
 				}
 
 				//Refresh the list, this is so jQuery Mobile can apply its proper classes. 
-				list.listview('refresh');
+				if ( list.hasClass('ui-listview')) {
+					list.listview('refresh');
+     			} 
+				else {
+
+    				list.trigger('create');
+     			}
+
+
 
 				//Change the ul ID, this is done in order for the function to work again.
 				list.attr('id', 'categories-list');
