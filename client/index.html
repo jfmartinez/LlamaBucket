@@ -4,6 +4,7 @@
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/jquery.mobile-1.3.2.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/item.js"></script>  
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> <script src="js/home.js"></script>
   </head>
@@ -49,7 +50,7 @@
           <li><a href="#">Best Sellers</a></li>
           <!--Some test stuff-->
           <li><a href="#itemlist">Item List</a></li>
-          <li><a href="#itemview">Item View</a></li>
+          <li><a href="#itempage">Item View</a></li>
         </ul>
       </div>
 
@@ -192,27 +193,10 @@
       <div data-role="header">
         <a href="#home" data-icon="back" data-iconpos="notext">  </a>
         <h2> Item List </h2>
-
-      </div>
-      <div data-role="content">
-        <ul id="iteminfo" data-role="listview" data-inset="true">
-        <!-- Hardcoded into html: -->
-        <img src="http://cdn.bulbagarden.net/upload/thumb/7/7e/006Charizard.png/256px-006Charizard.png" alt="so bad">
-        <li>Charizard</li>
-        <li>The original badass (sneaky pebbles not included)</li>
-        <li>Year: 1999</li>
-        <li>Brand: Silph Co.</li>
-        <li><a href="#">Category</a></li>
-        <li>Buy it now Price: $799999.99 <button id="buybutton" onclick="buy()">Buy it now!</button></li>
-        <li>Starting Price: $10.00</li>
-        <li>Enter your bid amount: <input type="number" name="bid"> <button id="bidbutton" onclick="bid()">Bid!</button></li>
-        </ul>
-        <br></br>
-              
       </div>
 
 
-    </div>
+      <div data-role="content" id="itemcontent"></div>
 
 
 

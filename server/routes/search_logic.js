@@ -318,5 +318,6 @@ var get_subcategories = function(req, res, next)
 exports.get_results = get_results;
 exports.get_categories = get_categories;
 exports.get_subcategories = get_subcategories;
+exports.items = items;
 
 
