@@ -55,8 +55,10 @@
         <div data-role="navbar">
           <ul>
             <li><a href="#user_profile" data-icon="home">My Profile</a></li>
-            <li><a href="#" data-icon="refresh">Bids</a></li>
+            <li><a href="#" data-icon="refresh"></a></li>
             <li><a href="#" data-icon="bars">More</a></li>
+            <li><a href="#" data-icon="search">Search</a></li>
+
 
           </ul>
         </div>
@@ -64,6 +66,9 @@
     </div>
 
     <!-- Home Page End -->
+
+
+
     <!-- Invoice list -->
     <div data-role="page" id="invoicelistpage">
       <div data-role="header" id="invoiceheader">
@@ -118,10 +123,19 @@
     
       <div data-role="content">
         <ul data-role="listview" id="bucket_list" data-split-icon="gear">
-          <!-- Content will be generated here by the function in search.js file. -->
           
-         
+         </ul>
+
+
+          
       </div>
+
+      <div data-role="footer" data-position="fixed">
+         <div id="cart_total">
+         </div>
+       </div>
+
+
     </div>
 
     <!-- Edit Cart Items -->
@@ -133,6 +147,7 @@
           </div>
         </div>
       </div>
+
 
 
 
@@ -198,10 +213,10 @@
         <form> 
           <label for="basic"></label>
           <input type="text" name="username" id="username" placeholder="Username" />
-          <input type="password" name="password" id="password" placeholder="Password" />
+          <input type="password" name="parssword" id="password" placeholder="Password" />
           <a href="#"> Forgot Password?</a>
           <div class="ui-grid-a">
-            <div class="ui-block-a"><a href="#registerForm" data-role="button" data-icon="star">Register</a></div>
+            <div class="ui-block-a"><a href="#registerForm" data-role="button">Register</a></div>
             <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check">Log In</a></div>
           </div>
         </form>
@@ -214,11 +229,14 @@
     <!-- Register Form -->
     <div data-role="page" id="registerForm">
       <div data-role="header">
+             <a href="#home">Cancel </a>
+       
         <h1> Register </h1>
+        <a href="#thanks_note">Save</a>
       </div>
       <div data-role="content">
         <form action="FILLOUTLATER.PHP" method="post">
-
+        
           <!-- Personal Information -->
           <ul data-role="listview" data-inset="true">
             <li data-role="list-divider">  Personal Information</li>
@@ -773,13 +791,27 @@
 
         </form>
 
-        <div class="ui-grid-a">
+       <!--  <div class="ui-grid-a">
           <div class="ui-block-a"><a href="#sign_in" data-role="button" data-icon="delete">Cancel</a></div>
           <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="arrow-r">Next</a></div>
-        </div>
+        </div> -->
       </div>
     </div>
 
+    <!-- Thanks Note -->
+
+    <div data-role="dialog" id="thanks_note">
+      <div data-role="header">
+        <h1></h1>
+      </div>
+      <div data-role="content">
+        <h3>Thanks for registering!</h3>
+         <div class="ui-grid-a">
+          <div class="ui-block-a"><a href="#sign_in" data-role="button" data-icon="star">Shop</a></div>
+          <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="home">Home</a></div>
+        </div>
+      </div>
+    </div>
 
 
 <!-- Categories page -->
