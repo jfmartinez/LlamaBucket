@@ -12,6 +12,8 @@ $(document).on('click', '#sign_in_submit', function(event)
 			localStorage.setItem('last_name', data.last_name);
 			localStorage.setItem('email', data.email);
 			localStorage.setItem('image', data.image);
+      $('#sign_in_button').replaceWith('<a href="#user_profile" data-role="button" id="my_profile_home">'+localStorage.getItem('first_name')+'</a>')
+      $('#home').page();
 			$.mobile.changePage('#home')
 		},
 		error : function(data)
