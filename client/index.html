@@ -32,7 +32,7 @@
 
 
       <!--Homepage Content -->
-      <div data-role="content" data-theme="c" >
+      <div data-role="content" >
         <input type="search" name="search" id="search_basic"/>
 
         <a href="#" data-role="button" data-icon="search" id="search_button">Search</a>
@@ -55,9 +55,7 @@
         <div data-role="navbar">
           <ul>
             <li><a href="#user_profile" data-icon="home">My Profile</a></li>
-            <li><a href="#" data-icon="refresh">Bids</a></li>
-            <li><a href="#" data-icon="bars">More</a></li>
-
+            <li><a href="#" data-icon="bars">Settings</a></li>
           </ul>
         </div>
       </div>
@@ -844,33 +842,36 @@
 
 <!-- edit user -->
 <div data-role="page" id="edit_user">
+
   <div data-role="header">
     <h2>Edit</h2>
   </div>
-  <div data-role="body">
-    <ul data-role="listview" data-inset="true">
-            <li style="text-align : center"> Personal Information</li>
-            <li data-role="fieldcontain"> <strong> First Name:</strong>   <input type="text" name="firstName" id="firstName" placeholder="Cesar"/></li>
-            <li data-role="fieldcontain"> <input type="text" name="lastName" id="lastName" placeholder="Cruz"/></li>
-            <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="cesarcruz91@gmail.com"/></li>
-            <li style="text-align : center"> Mailling Address</li>
-           <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="#311 Calle Ext. Los Robles"/></li>
-           <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder=""/></li>
-           <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="Rincon" /></li>
-           <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="00677" /></li>
-           <li style="text-align : center"> Credit Card Info </li>
-           <li data-role="fieldcontain"><input type="text" name="creditCard" id="creditCard"></li>
 
+  <div data-role="content">
+    <form method="POST" action="/updateUser">
+        <h4 style="text-align: center;"> Personal Information</h4>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First name"/>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last name"/>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" placeholder="Email" data-mini="true"/>
 
-    </ul>
+        <h4 style="text-align : center;">Password Settings</h4>
+        <label for="old_password">Old Password</label>
+        <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
+        <label for="new_password">New Password</label>
+        <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
+
+    </form>
   </div>
   <div data-role="footer" data-position="fixed">
     <div data-role="navbar">
-    <ul class="ui-grid-a">
-      <li class="ui-block-a"><a href="#user_profile">Cancel</a></li>
-      <li class="ui-block-b"><a href="#">Done</a></li>
-    </ul>   
-    </div>
+          <ul>
+            <li><a data-role="button" data-inline="true">Save</a></li>
+            <li><a data-role="button" data-inline="true">Cancel</a></li>
+          </ul>
+        </div>
   </div>
 </div>
 <!-- end edit user -->
