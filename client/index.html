@@ -44,20 +44,20 @@
 
         <a href="#" data-role="button" data-icon="search" id="search_button">Search</a>
         <a href="#categories" data-role="button"  data-icon="arrow-r" data-iconpos="right">Shop By Category</a>
-        <ul data-role="listview" data-inset="true">
+        <!-- <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Deals of the Day</li>
           <li><a href="#featuredItems">Featured Items</a></li>
           <li><a href="#">Top Rate</a></li>
           <li><a href="#">Best Sellers</a></li>
           
-        </ul>
+        </ul> -->
+
+        <a href='#invoicepage' data-role="button">Invoice Test</a>
       </div>
 
       <!-- Home Page Content End -->
 
-
-
-      <!-- Footer -->
+            <!-- Footer -->
       <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
           <ul>
@@ -71,6 +71,47 @@
     </div>
 
     <!-- Home Page End -->
+    <!-- Invoice list -->
+    <div data-role="page" id="invoicelistpage">
+      <div data-role="header" id="invoiceheader">
+
+      </div>
+
+      <div data-role="content" id="invoicecontent">
+        <ul data-role="listview" id="invoicelist"></ul>
+      </div>
+
+
+
+    </div>
+
+
+
+    <!-- Invoice list end -->
+
+    <!-- Invoice -->
+    <div data-role="page" id="invoicepage">
+      <div data-role="header" id="invoiceheader">
+        <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+        <h2>Invoice</h2>
+      </div>
+
+      <div data-role="content" id="invoicecontent">
+        <ul data-role="listview" id="invoiceinfo">
+          <li>Invoice Number: </li>
+          <li>Buyer:</li>
+          <li>Seller:</li>
+          <li>Listing ID:</li>
+          <li>Item:</li>
+          <li>Price:</li>
+          <li>Date:</li>
+          <li>Time:</li>
+        </ul>
+      </div>
+    </div>
+
+
+      <!-- Invoice End -->
 
     <!-- Cart List -->
     <div data-role="page" id="bucket">
