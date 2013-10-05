@@ -5,9 +5,14 @@
     <script src="js/jquery.mobile-1.3.2.js"></script>
     <script src="js/search.js"></script>
     <script src="js/item.js"></script>  
+<<<<<<< HEAD
+    <script src="js/cart.js"></script>
+=======
+    <script src="js/user.js"></script> 
+    <script src="js/home.js"></script> 
+>>>>>>> 84f9a8c5c9bf1b5019cb7b0c6ffb162aa8467c39
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> 
-    <script src="js/home.js"></script>
   </head>
   <body>
 
@@ -15,23 +20,14 @@
     <div data-role="page" id="home">
 
 
-      <div data-role="panel" id="side_panel">
-        <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider">Username</li>
-          <li data-role="list-divider"><a href="#second">Item 1</a></li>
-          <li><a href="#">Item 2</a></li>
-          <li><a href="#">Item 3</a></li>
-        </ul>
-      </div>
-
       <!--Header -->
 
       <div data-role="header">
 
-        <a href="#sign_in" data-rel="dialog">Sign In</a>
-        <h1 class="ui-title" role="heading">LlamaBucket</h1>
+        <a href="#sign_in" data-rel="dialog" id="sign_in_button">Sign In</a>
+        <h2 class="ui-title" role="heading">LlamaBucket</h2>
         <div data-role="controlgroup" class="ui-btn-right" data-type="horizontal">
-          <a href="#bucket"  data-theme="" id="bucket"><img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Bucket_with_Soap-128.png" width="26" height="26" border= "0"></a>
+          <a href="#user_bucket"  data-theme="" id="bucket"><img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Bucket_with_Soap-128.png" width="26" height="26" border= "0"></a>
         </div>
       </div>
 
@@ -114,7 +110,7 @@
       <!-- Invoice End -->
 
     <!-- Cart List -->
-    <div data-role="page" id="bucket">
+    <div data-role="page" id="user_bucket">
       
       <div data-role="header">
         <a href="#home" data-icon="back" data-iconpos="notext"></a>
@@ -124,58 +120,10 @@
 
     
       <div data-role="content">
-        <ul data-role="listview" id="checkout" data-split-icon="gear">
+        <ul data-role="listview" id="bucket_list" data-split-icon="gear">
           <!-- Content will be generated here by the function in search.js file. -->
           
-          <li><a href="#"></a>
-            <div class="ui-grid-b">
-              <div class="ui-block-a">
-                <img src="http://goo.gl/h6GYBh" height="60" width="60">
-              </div>
-              <div class="ui-block-b">
-                <h5>Wallet</h5>
-                <p>New and improved Apple Leather iWallet</p>
-              </div>
-              <div class="ui-block-c">
-                <h6 align="center"> Buy: $200</h6>
-              </div>
-            </div>
-            <a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a>
-          </li>
-
-          <li><a href="#"></a>
-            <div class="ui-grid-b">
-              <div class="ui-block-a">
-                <img src="http://goo.gl/ffICmz" height="60" width="60">
-              </div>
-              <div class="ui-block-b">
-                <h5>Baby Sloth</h5>
-                <p>Baby sloth up for adoption, sign in your papers today!</p>
-              </div>
-              <div class="ui-block-c">
-                <h6 align="center"> Buy: $40</h6>
-              </div>
-            </div>
-            <a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a>
-          </li>
-
-          <li>
-            <a href="#"></a>
-              <div class="ui-grid-b">
-                <div class="ui-block-a">
-                  <img src="http://goo.gl/7Eybg7" height="60" width="60">
-                </div>
-                <div class="ui-block-b">
-                  <h5>Bucket</h5>
-                  <p>Buckets are useful for carrying water and dirt (in some cases Llamas)</p>
-                </div>
-                <div class="ui-block-c">
-                  <h6 align="center"> Buy: $150</h6>
-                </div>
-              </div>
-              <a href="#editItems" data-rel="dialog" data-position-to="window" data-transition="pop"></a>
-            </li>
-        </ul>
+         
       </div>
     </div>
 
@@ -250,14 +198,14 @@
         <h1>Sign In</h1>
       </div>
       <div data-role="content">
-        <form action="form.php" method="post"> 
+        <form> 
           <label for="basic"></label>
-          <input type="text" name="name" id="basic" placeholder="Username" />
-          <input type="text" name="name" id="basic" placeholder="Password" />
+          <input type="text" name="username" id="username" placeholder="Username" />
+          <input type="password" name="password" id="password" placeholder="Password" />
           <a href="#"> Forgot Password?</a>
           <div class="ui-grid-a">
             <div class="ui-block-a"><a href="#registerForm" data-role="button" data-icon="star">Register</a></div>
-            <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="check">Log In</a></div>
+            <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check">Log In</a></div>
           </div>
         </form>
       </div>
@@ -882,37 +830,14 @@
     <a href="#edit_user">Edit</a>
   </div>
 
-  <div data-role="content">
-    <div class="ui-grid-a">
-      <div class="ui-block-a">
-        <img src="http://3.bp.blogspot.com/-Fo7AHLKOH5M/T8WeqUcZFKI/AAAAAAAAFCc/cQdII_3xu7k/s320/sloth.jpg" height="150" width="175">
-      </div>
-      <div class="ui-block-b">
-        <h4> Cesar I. Cruz Martinez </h4>
-        <div class="ui-grid-a">
-          <div class="ui-block-a">
-            <h2> Rank </h2>
-          </div>
-          <div class="ui-block-b">
-            <img src="css/images/glyphicons_049_star.png">
-            <img src="css/images/glyphicons_049_star.png">
-            <img src="css/images/glyphicons_049_star.png">
-          </div>
-        </div>
-      </div>
-    </div>
-    <p><strong>Email: </strong>cesarcruz91@gmail.com</p>
-    <strong>Mailling Information:</strong>
-    <p>#311 Calle Ext. Los Robles</p>
-    <p>Rincon, PR 00677</p>
-    <p>United States</p>
+  <div data-role="content" id="user_content">
 
   </div>
 
   <div data-role="footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-        <li class="ui-block-c"><a href="#bucket">My Bucket</a></li>
+        <li class="ui-block-c"><a href="#user_bucket">My Bucket</a></li>
       </ul>
     </div>
   </div>
