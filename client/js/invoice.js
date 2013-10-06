@@ -1,11 +1,11 @@
 //Loads a page containing the invoice
 $(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
-	//var invoice_id = localStorage.getItem('invoice_id');
-	//localStorage.clear();
+	var invoice_id = localStorage.getItem('invoice_id');
+	localStorage.clear();
 
 	$.ajax({
-		url : "http://localhost:3000/invoice/1",
-		//url : "http://localhost:3000/invoice"+invoice_id,
+		//url : "http://localhost:3000/invoice/1",
+		url : "http://localhost:3000/invoice/"+invoice_id,
 		contentType : "application/json",
 		success : function(data){
 			var invoice = $('#invoiceinfo');
@@ -26,12 +26,13 @@ $(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
 	});
 });
 
-$(document).on('click', '#invoiceinfo li', function(event, ui){
+$(document).on('click', '#invoicelist li', function(event, ui){
 	var parameter = $(this).attr('id');
 	localStorage.setItem('invoice_id', parameter);
 	$.mobile.changePage('#invoicepage');
 
 });
+
 //Loads a page containing a list of invoices
 $(document).on('pagebeforeshow', '#invoicelistpage', function(event, ui){
 	$.ajax({
@@ -43,7 +44,7 @@ $(document).on('pagebeforeshow', '#invoicelistpage', function(event, ui){
 
 			for(var i=0; i<data.length; i++){
 				var entry = data[i];
-				list.append('<li><a href="#"><h2>Listing: ' + entry.item + '</h2>' + 
+				list.append('<li  id=\"' + entry.invoiceId + '\"><a href="#"><h2>Listing: ' + entry.item + '</h2>' + 
 							'<p>Seller: ' + entry.seller + '</p>' + 
 							'<p>' + entry.date + '</p>' + 
 							'<p>' + entry.time + '</p>' + 
