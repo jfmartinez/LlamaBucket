@@ -98,7 +98,7 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
 
         for(var i = 0; i < data.content.length; i++)
         {
-            list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].mail_address1+'">'+data.content[i].mail_address1+'</a></li>');
+            list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].mail_address1+'"">'+data.content[i].mail_address1+'</a></li>');
         }
 
         list.listview('refresh');
@@ -128,7 +128,26 @@ $(document).on('click', '#add_mail_address', function(event)
   });
 });
 
-
+$(document).on('click', '#user_address_list li', function(event)
+{
+  var address_to_delete = $(this).children().children().children().attr('placeholder');
+  $('#delete_address').on('click', function()
+  {
+    $.ajax({
+      type : "POST",
+      url : "http://localhost:3000/delete_address",
+      data : { address1 : address_to_delete},
+      success : function(data)
+      {
+        $.mobile.changePage('#address_list');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+  });
+});
 
 
 

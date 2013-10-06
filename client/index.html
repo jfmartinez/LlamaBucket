@@ -849,7 +849,7 @@
 
     <!-- Categories page -->
     <div data-role="page" id="categories">
-      <div data-role="header">
+      <div data-role="header" data-position="fixed">
         <h3>Categories</h3>
         <a href="#" data-rel="back"> Back</a>
       </div>
@@ -886,7 +886,7 @@
       <!-- user page -->
       <div data-role="page" id="user_profile">
 
-        <div data-role="header">
+        <div data-role="header" data-position="fixed">
           <a href="#home">Home</a>
           <h2> My profile</h2>
         </div>
@@ -947,7 +947,7 @@
     <!-- edit user -->
     <div data-role="page" id="edit_user">
 
-        <div data-role="header">
+        <div data-role="header" data-position="fixed">
           <a href="#" data-rel="back">Back</a>
           <h2>Edit</h2>
         </div>
@@ -984,8 +984,7 @@
 
     <div data-role="page" id="add_user_mail">
 
-      <div data-role="header">
-        <a href="#" data-rel="back">Back</a>
+      <div data-role="header" data-position="fixed">
         <h2>Add a mail address</h2>
       </div>
 
@@ -1265,17 +1264,14 @@
 
     <div data-role="page" id="address_list">
 
-      <div data-role="header">
-        <a href="#" data-rel="back">Back</a>
+      <div data-role="header" data-position="fixed">
+        <a href="#user_profile">Back</a>
         <h2> Addresses </h2>
       </div>
 
       <div data-role="content">
         <div>
           <ul data-role="listview" id="user_address_list">
-            <li>
-              <a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder=""></a>
-            </li>
           </ul>
         </div>
 
@@ -1294,7 +1290,7 @@
         <h3 style="text-align : center;">Delete this address?</h3>
         <br>
         <div class="ui-grid-a">
-          <div class="ui-block-a"><button data-role="button" data-icon="delete">Yes</button></div>
+          <div class="ui-block-a"><button data-role="button" data-icon="delete" id="delete_address">Yes</button></div>
           <div class="ui-block-b"><a href="#address_list" data-role="button" data-icon="minus">Cancel</a></div>
         </div> 
       </div>
