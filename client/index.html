@@ -51,6 +51,7 @@
       <!-- Home Page Content End -->
 
             <!-- Footer -->
+      <!-- Footer -->
       <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
           <ul>
@@ -110,33 +111,55 @@
 
 
       <!-- Invoice End -->
+    <!-- Invoice End -->
 
     <!-- Cart List -->
     <div data-role="page" id="user_bucket">
       
+
       <div data-role="header">
         <a href="#home" data-icon="back" data-iconpos="notext"></a>
         <h2> My Bucket </h2>
         <a href="#checkout" data-role="button">Checkout</a>
+        <a href="#checkout_address" data-role="button">Checkout</a>
       </div>
 
     
+      
       <div data-role="content">
         <ul data-role="listview" id="bucket_list" data-split-icon="gear">
           
          </ul>
 
+        </ul>
 
           
+
+        
       </div>
 
       <div data-role="footer" data-position="fixed">
          <div id="cart_total">
          </div>
        </div>
-
-
+       <div class="ui-grid-b">
+        <div class="ui-block-a" id="item_count"></div>
+        <div class="ui-block-b"></div>
+        <div class="ui-block-c" id="cart_total"></div>     
+      </div>
+      
     </div>
+
+
+  </div>
+  <!-- Checkout -->
+  <div data-role="page" id="checkout_address">
+    <div data-role="header">
+      <a href="#user_bucket" data-icon="back" data-role="button" data-iconpos="notext"></a>
+      <h2>Checkout</h2>
+      <a href="#checkout_payment" data-role="button">Place Order</a>
+    </div>
+    <div data-role="content">
 
     <!-- Edit Cart Items -->
     <div data-role="dialog" id="editItems">
@@ -146,18 +169,46 @@
             <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="check">Log In</a></div>
           </div>
         </div>
+      <div class="ui-body">
+        <ul data-role="listview" data-inset="true" id="checkout_total">
+          <li data-role="fieldcontain">
+
+            <div class="ui-grid-a">
+              <div class="ui-block-a" id="sub_total"></div>
+              <div class="ui-block-b" id="values" style="text-align: right;"></div>
+            </div>
+                          <p><hr></p>
+
+            <div class="ui-grid-a">
+              <div class="ui-block-a" id="total_id"></div>
+              <div class="ui-block-b" id="total" style="text-align: right;"></div>
+            </div>
+
+          </li>
+        </ul>
       </div>
 
 
+       <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider">Payment</li>
+      <li><a href="#payment_option"><h3>Method:</h3><p class="ui-li-aside">Select your payment method</p></a></li>
+      <li><a href="#coupon_option"><h3>Coupon, Gift codes</h3></a></li>
+    
+    </ul>
 
 
     <!--Featured Items -->
     <div data-role="page" id="featuredItems">
+    
+    
 
       <div data-role="header">
         <a href="#home" data-icon="back" data-iconpos="notext">  </a>
         <h2> Featured Items </h2>
       </div>
+        <ul data-role="listview" data-inset="true" id="current_address" >
+          <li data-role="list-divider" id="address_title">Current Shipping Address</li>
+          <li ><a href="shipping_address" id="user_address"></a></li>
 
       <div data-role="content">
         <ul data-role="listview" id="featured">
@@ -165,8 +216,13 @@
         </ul>
       </div>
 
+        <ul data-role="listview" data-inset="true" id="checkout_items">
+          <li data-role="list-divider">Items</li>
+
+        </ul>
     </div>
     <!--Featured Items End -->
+  </div>
 
 
     <!--Generic Item List -->
@@ -182,7 +238,15 @@
       </div>
 
 
+  <!-- Edit Cart Items -->
+  <div data-role="dialog" id="editItems">
+    <div data-role="content">
+     <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="#registerForm" data-role="button" data-icon="star"></a></div>
+      <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="check">Log In</a></div>
     </div>
+  </div>
+</div>
 
 
     <!--Generic Item List End -->
@@ -194,15 +258,36 @@
         <a href="#home" data-icon="back" data-iconpos="notext">  </a>
         <h2> Item List </h2>
       </div>
+<div data-role="page" id="featuredItems">
 
+  <div data-role="header">
+    <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+    <h2> Featured Items </h2>
+  </div>
 
       <div data-role="content" id="itemcontent"></div>
     </div>
+  <div data-role="content">
+    <ul data-role="listview" id="featured">
+      <!-- Content will be generated here by the function in search.js file. --> 
+    </ul>
+  </div>
 
+</div>
+<!--Featured Items End -->
 
     <!--Item View End -->
 
+<!--Generic Item List -->
+<div data-role="page" id="itemlist">
 
+  <div data-role="header">
+    <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+    <h2> Item List </h2>
+  </div>
+  
+  <div data-role="content">
+    <ul id="itemlist_content" data-role="listview" data-inset="true"></ul>
 
     <!--Sign In - Dialog -->
     <div data-role="page" id="sign_in">
@@ -224,6 +309,7 @@
     </div>
 
     <!-- End -->
+</div>
 
 
     <!-- Register Form -->
@@ -233,6 +319,13 @@
        
         <h1> Register </h1>
         <a href="#thanks_note">Save</a>
+<!--Generic Item List End -->
+<!--Item View -->
+<div data-role="page" id="itempage">
+  <div data-role="header">
+    <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+    <h2> Item List </h2>
+  </div>
       </div>
       <div data-role="content">
         <form action="FILLOUTLATER.PHP" method="post">
