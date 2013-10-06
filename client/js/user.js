@@ -1,3 +1,4 @@
+//Sign in the user.
 $(document).on('click', '#sign_in_submit', function(event)
 {
 
@@ -24,21 +25,34 @@ $(document).on('click', '#sign_in_submit', function(event)
 	})
 });
 
+
+//Show the user information on the user page.
 $(document).on('pagebeforeshow', '#user_profile', function(event)
 {
-	if(localStorage.getItem('email'))
-	{
-		//Clear the div before adding the new information.
-		$('#user_content').empty();
-		$('#user_content').append('<div class="ui-grid-a"><div class="ui-block-a"><img src="'+localStorage.getItem('image')+'" height="150" width="175"></div><div class="ui-block-b"><h4></h4><div class="ui-grid-a"><div class="ui-block-a"><h2> Rank </h2></div><div class="ui-block-b"><h2> 3 Stars </h2></div></div></div></div><p><strong>Email: </strong>'+localStorage.getItem('email')+'</p><strong>Mailling Information:</strong><p>#311 Calle Ext. Los Robles</p><p>Rincon, PR 00677</p><p>United States</p>');
-	}
-	else
-	{
-		$('#user_content').empty();
-		$('#user_content').append('<div class="ui-grid-a"><div class="ui-block-a"><img src="http://3.bp.blogspot.com/-Fo7AHLKOH5M/T8WeqUcZFKI/AAAAAAAAFCc/cQdII_3xu7k/s320/sloth.jpg" height="150" width="175"></div><div class="ui-block-b"><h4></h4><div class="ui-grid-a"><div class="ui-block-a"><h2> Rank </h2></div><div class="ui-block-b"><h2> 3 Stars </h2></div></div></div></div><p><strong>Email: </strong>cesarcruz91@gmail.com</p><strong>Mailling Information:</strong><p>#311 Calle Ext. Los Robles</p><p>Rincon, PR 00677</p><p>United States</p>');
-	}
+	$('#profile_name').html(localStorage.getItem('first_name'));
+  $('#profile_image').attr('src',localStorage.getItem('image'));
+  $('#user_profile_name').html(''+localStorage.getItem('first_name') +' '+ localStorage.getItem('last_name'));
+  $('#user_profile_email').html(localStorage.getItem('email'));
+  $('#user_profile_phone').html(localStorage.getItem('phone'));
+
+  
+
 });
 
+//Properly redirect the user depending on his status on the page.
+$(document).on('click', '#my_profile', function(event)
+{
+  if(localStorage.getItem('email'))
+  {
+    $.mobile.changePage('#user_profile');
+  }
+  else
+  {
+    $.mobile.changePage('#registerForm');
+  }
+});
+
+//Before showing the edit user page, load the placeholders with the user data.
 $(document).on('pagebeforeshow', '#edit_user', function(event)
 {
   $('#first_name').attr('placeholder', localStorage.getItem('first_name'));
@@ -46,6 +60,7 @@ $(document).on('pagebeforeshow', '#edit_user', function(event)
   $('#email').attr('placeholder', localStorage.getItem('email'));
 });
 
+//Edit the user credentials
 $(document).on('click', '#edit_user_save', function(event)
 {
   $.ajax({

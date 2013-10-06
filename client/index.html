@@ -54,7 +54,7 @@
       <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
           <ul>
-            <li><a href="#user_profile" data-icon="home">My Profile</a></li>
+            <li><a href="#" data-icon="home" id="my_profile">My Profile</a></li>
             <li><a href="#" data-icon="bars">Settings</a></li>
           </ul>
         </div>
@@ -195,7 +195,7 @@
       <div data-role="content">
         <form> 
           <label for="basic"></label>
-          <input type="text" name="username" id="username" placeholder="Username" />
+          <input type="text" name="username" id="username" placeholder="Email" />
           <input type="password" name="password" id="password" placeholder="Password" />
           <a href="#"> Forgot Password?</a>
           <div class="ui-grid-a">
@@ -212,6 +212,7 @@
     <!-- Register Form -->
     <div data-role="page" id="registerForm">
       <div data-role="header">
+        <a href="#home">Back</a>
         <h1> Register </h1>
       </div>
       <div data-role="content">
@@ -821,18 +822,52 @@
   
   <div data-role="header">
     <a href="#home">Home</a>
-    <h2> My profile</h2>
-    <a href="#edit_user">Edit</a>
+    <h2 id="profile_name"> My profile</h2>
   </div>
 
   <div data-role="content" id="user_content">
+
+    <div class="ui-grid-a">
+      <div class="ui-block-a">
+        <img id="profile_image" src="" height="150" width="175">
+      </div>
+      <div class="ui-block-b">
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <h2> Rank </h2>
+        </div>
+        <div class="ui-block-b">
+          <h2> 3 Stars </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br></br>
+  <div class="ui-grid-a">
+    <h4 class="ui-block-a"><strong>Personal Information</strong></h4>
+    <a href="#edit_user" style="text-align : right;"class="ui-block-b"> Edit</a>
+  </div>
+  <p id="user_profile_name"></p>
+  <p id="user_profile_email"></p>
+  <p id="user_profile_phone"></p>
+
+
+  <div class="ui-grid-a">
+    <h4 class="ui-block-a"><strong>Mailling Information</strong></h4>
+    <a href="#" style="text-align : right;"class="ui-block-b"> Edit</a>
+  </div>
+
+  <p id="user_profile_add1">#311 Calle Ext. Los Robles</p>
+  <p id="user_profile_add2"></p>
+  <p>Rincon, PR 00677</p>
+  <p>United States</p>
 
   </div>
 
   <div data-role="footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-        <li class="ui-block-c"><a href="#user_bucket">My Bucket</a></li>
+        <li><a href="#user_bucket">My Bucket</a></li>
       </ul>
     </div>
   </div>
@@ -863,7 +898,6 @@
         <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
         <label for="new_password">New Password</label>
         <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
-
     </form>
   </div>
   <div data-role="footer" data-position="fixed">
