@@ -84,3 +84,36 @@ $(document).on('click', '#edit_user_save', function(event)
     },
   })
 });
+
+//Load the user list of addresses
+$(document).on('pagebeforeshow', '#address_list', function(event)
+{
+    $.ajax({
+      url : "http://localhost:3000/get_addresses",
+      contentType : "application/json",
+      success : function(data)
+      {
+        var list = $('#user_address_list')
+        list.empty();
+
+        for(var i = 0; i < data.content.length; i++)
+        {
+            list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].mail_address1+'">'+data.content[i].mail_address1+'</a></li>');
+        }
+
+        list.listview('refresh');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+});
+
+
+
+
+
+
+
+

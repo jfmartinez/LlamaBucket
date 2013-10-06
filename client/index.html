@@ -888,14 +888,6 @@
     </div>
     <!-- End of Search Results -->
 
-    <!-- user page -->
-    <div data-role="page" id="user_profile">
-
-      <div data-role="header">
-        <a href="#home">Home</a>
-        <h2> My profile</h2>
-        <a href="#edit_user">Edit</a>
-      </div>
       <!-- user page -->
       <div data-role="page" id="user_profile">
 
@@ -906,15 +898,6 @@
 
         <div data-role="content" id="user_content">
 
-        </div>
-
-        <div data-role="footer" data-position="fixed">
-          <div data-role="navbar">
-            <ul>
-              <li class="ui-block-c"><a href="#user_bucket">My Bucket</a></li>
-            </ul>
-          </div>
-        </div>
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <img id="profile_image" src="" height="150" width="150">
@@ -930,11 +913,14 @@
             </div>
           </div>
         </div>
+
         <br></br>
+
         <div class="ui-grid-a">
           <h4 class="ui-block-a"><strong>Personal Information</strong></h4>
           <a href="#edit_user" style="text-align : right;"class="ui-block-b"> Edit</a>
         </div>
+
         <p id="user_profile_name"></p>
         <p id="user_profile_email"></p>
         <p id="user_profile_phone"></p>
@@ -1310,22 +1296,44 @@
     </div>
 
     <div data-role="page" id="address_list">
+
       <div data-role="header">
         <a href="#" data-rel="back">Back</a>
         <h2> Addresses </h2>
       </div>
+
       <div data-role="content">
         <div>
-          <ul data-role="listview">
+          <ul data-role="listview" id="user_address_list">
             <li>
-              <a href="#" data-icon="delete">#311 Calle Ext. Los Robles</a>
+              <a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder=""></a>
             </li>
           </ul>
         </div>
-        <br></br>
+
+        <br>
+        
         <div>
           <a href="#add_user_mail" data-role="button">Add</a>
         </div>
+
+      </div>
+
+    </div>
+
+    <div data-role="page" id="address_confirmation_dialog">
+      <div data-role="header">
+      </div>
+      <div data-role="content">
+
+        <h3 style="text-align : center;">Delete this address?</h3>
+        <br>
+
+        <div class="ui-grid-a">
+          <div class="ui-block-a"><button data-role="button" data-icon="delete">Yes</button></div>
+          <div class="ui-block-b"><a href="#address_list" data-role="button" data-icon="minus">Cancel</a></div>
+        </div>
+          
       </div>
     </div>
 
