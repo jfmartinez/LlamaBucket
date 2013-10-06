@@ -1,7 +1,7 @@
 //Loads a page containing the invoice
 $(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
-	var invoice_id = localStorage.getItem('invoice_id');
-	localStorage.clear();
+	var invoice_id = sessionStorage.getItem('invoice_id');
+	sessionStorage.clear();
 
 	$.ajax({
 		//url : "http://localhost:3000/invoice/1",
@@ -28,7 +28,7 @@ $(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
 
 $(document).on('click', '#invoicelist li', function(event, ui){
 	var parameter = $(this).attr('id');
-	localStorage.setItem('invoice_id', parameter);
+	sessionStorage.setItem('invoice_id', parameter);
 	$.mobile.changePage('#invoicepage');
 
 });

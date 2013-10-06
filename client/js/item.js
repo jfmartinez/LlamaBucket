@@ -1,7 +1,7 @@
 $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	
-	var item_id = localStorage.getItem('item_id');
-	localStorage.clear();
+	var item_id = sessionStorage.getItem('item_id');
+	sessionStorage.clear();
 	$('#itemcontent').empty();
 	$.ajax({
 		url : "http://localhost:3000/item/"+item_id,
@@ -20,6 +20,6 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 $(document).on('click', '#results li', function(event)
 {
 	var parameter = $(this).attr('id');
-	localStorage.setItem('item_id', parameter);
+	sessionStorage.setItem('item_id', parameter);
 	$.mobile.changePage('#itempage');
 });
