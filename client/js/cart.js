@@ -12,6 +12,8 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 
 			var length = data.content.length;
 			var cart_total=$('#cart_total');
+
+			
 			//Clear the list beforehand
 			list.empty();
 			var cart_prices= 0;
@@ -52,6 +54,8 @@ $(document).on('pagebeforeshow', '#checkout_address', function(event){
 			var sub_total_amount = $('#values');
 			var item_count = 0;
 			var length = data.content.length;
+			var total_id = $('#total_id');
+			var total = $('#total');
 
 
 
@@ -60,12 +64,23 @@ $(document).on('pagebeforeshow', '#checkout_address', function(event){
 
 				sub_total += data.content[i].price;
 			}
-			console.log("Hello");
+			
+			sub_total_list.empty();
+			sub_total_amount.empty();
 
+
+			total_id.empty();
+			total.empty();
+
+			$('#user_address').empty();
+			$('#checkout_items').empty();
 			sub_total_list.append("<p>Subtotal ( "+length+" items ): </p><p>Shipping: </p>");
 			sub_total_amount.append("<p>$"+ sub_total+".00</p><p>$2.00</p>");
-			$('#total_id').append("<p>Total</p>");
-			$('#total').append("<p>$"+ (sub_total + 2)+".00</p>");
+
+
+
+			total_id.append("<p>Total</p>");
+			total.append("<p>$"+ (sub_total + 2)+".00</p>");
 
 			$('#user_address').append("<p>"+data.address[0].address_one + "</p><p>" + data.address[0].address_two + "</p><p>" +data.address[0].city + ", " + data.address[0].zipcode + "</p><p>" +data.address[0].country +"</p>");
 			for(var i = 0; i < length; i++)
