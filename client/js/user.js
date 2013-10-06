@@ -29,13 +29,12 @@ $(document).on('click', '#sign_in_submit', function(event)
 //Show the user information on the user page.
 $(document).on('pagebeforeshow', '#user_profile', function(event)
 {
-	$('#profile_name').html(localStorage.getItem('first_name'));
   $('#profile_image').attr('src',localStorage.getItem('image'));
   $('#user_profile_name').html(''+localStorage.getItem('first_name') +' '+ localStorage.getItem('last_name'));
   $('#user_profile_email').html(localStorage.getItem('email'));
   $('#user_profile_phone').html(localStorage.getItem('phone'));
 
-  
+
 
 });
 

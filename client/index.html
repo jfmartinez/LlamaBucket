@@ -37,13 +37,6 @@
 
         <a href="#" data-role="button" data-icon="search" id="search_button">Search</a>
         <a href="#categories" data-role="button"  data-icon="arrow-r" data-iconpos="right">Shop By Category</a>
-        <!-- <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider">Deals of the Day</li>
-          <li><a href="#featuredItems">Featured Items</a></li>
-          <li><a href="#">Top Rate</a></li>
-          <li><a href="#">Best Sellers</a></li>
-          
-        </ul> -->
 
         <a href='#invoicepage' data-role="button">Invoice Test</a>
       </div>
@@ -822,22 +815,22 @@
   
   <div data-role="header">
     <a href="#home">Home</a>
-    <h2 id="profile_name"> My profile</h2>
+    <h2> My profile</h2>
   </div>
 
   <div data-role="content" id="user_content">
 
     <div class="ui-grid-a">
       <div class="ui-block-a">
-        <img id="profile_image" src="" height="150" width="175">
+        <img id="profile_image" src="" height="150" width="150">
       </div>
       <div class="ui-block-b">
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <h2> Rank </h2>
+          <h4 style="text-align: left;"> User Rank:  </h4>
         </div>
         <div class="ui-block-b">
-          <h2> 3 Stars </h2>
+          <h3 style="text-align : right;"> ***** </h3>
         </div>
       </div>
     </div>
@@ -854,7 +847,7 @@
 
   <div class="ui-grid-a">
     <h4 class="ui-block-a"><strong>Mailling Information</strong></h4>
-    <a href="#" style="text-align : right;"class="ui-block-b"> Edit</a>
+    <a href="#address_list" style="text-align : right;"class="ui-block-b"> Edit</a>
   </div>
 
   <p id="user_profile_add1">#311 Calle Ext. Los Robles</p>
@@ -911,6 +904,47 @@
 </div>
 <!-- end edit user -->
 
+<div data-role="page" id="add_user_mail">
+
+  <div data-role="header">
+    <a href="#" data-rel="back">Back</a>
+    <h2>Add a mail address</h2>
+  </div>
+
+  <div data-role="content">
+    <form id="user_info_edit">
+        <label for="address1">Address 1:</label>
+        <input type="text" name="address1" id="address1" value="" data-mini="true" placeholder=""/>
+        <label for="address2">Address 2:</label>
+        <input type="text" name="address2" id="address2" data-mini="true" placeholder=""/>
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" placeholder="" data-mini="true"/>
+    </form>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+          <ul>
+            <li><button data-role="button" data-inline="true" id="add_mail_address" >Save</button></li>
+            <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+          </ul>
+        </div>
+  </div>
+</div>
+
+<div data-role="page" id="address_list">
+  <div data-role="header">
+    <a href="#" data-rel="back">Back</a>
+    <h2> Address </h2>
+    <a href="#add_user_mail">Add</a>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview">
+      <li>
+        <a href="#">#311 Calle Ext. Los Robles</a>
+      </li>
+    </ul>
+  </div>
+</div>
 <!-- End -->
 
 
