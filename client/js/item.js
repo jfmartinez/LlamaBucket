@@ -12,7 +12,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 		},
 
 		error : function(data){
-
+			console.log("Item could not be loaded. (item.js)");
 		}
 	});
 });
