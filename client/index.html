@@ -849,7 +849,7 @@
   </div>
 
   <div data-role="content">
-    <form method="POST" action="/updateUser">
+    <form id="user_info_edit">
         <h4 style="text-align: center;"> Personal Information</h4>
         <label for="first_name">First Name:</label>
         <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First name"/>
@@ -869,8 +869,8 @@
   <div data-role="footer" data-position="fixed">
     <div data-role="navbar">
           <ul>
-            <li><a href="#"data-role="button" data-inline="true" id="edit_user_save">Save</a></li>
-            <li><a href="#user_profile"data-role="button" data-inline="true">Cancel</a></li>
+            <li><button data-role="button" data-inline="true" id="edit_user_save" >Save</button></li>
+            <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
           </ul>
         </div>
   </div>
