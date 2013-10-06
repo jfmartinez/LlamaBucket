@@ -827,13 +827,8 @@
 
 
   </form>
-
-       <!--  <div class="ui-grid-a">
-          <div class="ui-block-a"><a href="#sign_in" data-role="button" data-icon="delete">Cancel</a></div>
-          <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="arrow-r">Next</a></div>
-        </div> -->
-      </div>
-    </div>
+</div>
+</div>
     <!-- Register Form end -->
 
     <!-- Thanks Note -->
@@ -914,7 +909,7 @@
           </div>
         </div>
 
-        <br></br>
+        <br>
 
         <div class="ui-grid-a">
           <h4 class="ui-block-a"><strong>Personal Information</strong></h4>
@@ -951,71 +946,44 @@
 
     <!-- edit user -->
     <div data-role="page" id="edit_user">
-      <div data-role="header">
-        <h2>Edit</h2>
-      </div>
-      <div data-role="body">
-        <ul data-role="listview" data-inset="true">
-          <li style="text-align : center"> Personal Information</li>
-          <li data-role="fieldcontain"> <strong> First Name:</strong>   <input type="text" name="firstName" id="firstName" placeholder="Cesar"/></li>
-          <li data-role="fieldcontain"> <input type="text" name="lastName" id="lastName" placeholder="Cruz"/></li>
-          <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="cesarcruz91@gmail.com"/></li>
-          <li style="text-align : center"> Mailling Address</li>
-          <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="#311 Calle Ext. Los Robles"/></li>
-          <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder=""/></li>
-          <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="Rincon" /></li>
-          <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="00677" /></li>
-          <li style="text-align : center"> Credit Card Info </li>
-          <li data-role="fieldcontain"><input type="text" name="creditCard" id="creditCard"></li>
-          <!-- edit user -->
-          <div data-role="page" id="edit_user">
 
-            <div data-role="header">
-              <a href="#" data-rel="back">Back</a>
-              <h2>Edit</h2>
-            </div>
-
-            <div data-role="content">
-              <form id="user_info_edit">
-                <h4 style="text-align: center;"> Personal Information</h4>
-                <label for="first_name">First Name:</label>
-                <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First name"/>
-                <label for="last_name">Last Name:</label>
-                <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last name"/>
-                <label for="email">Email:</label>
-                <input type="text" name="email" id="email" placeholder="Email" data-mini="true"/>
-
-                <h4 style="text-align : center;">Password Settings</h4>
-                <label for="old_password">Old Password</label>
-                <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
-                <label for="new_password">New Password</label>
-                <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
-              </form>
-            </div>
-            <div data-role="footer" data-position="fixed">
-              <div data-role="navbar">
-                <ul>
-                  <li><button data-role="button" data-inline="true" id="edit_user_save" >Save</button></li>
-                  <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- end edit user -->
-
-        </ul>
-      </div>
-      <div data-role="footer" data-position="fixed">
-        <div data-role="navbar">
-          <ul class="ui-grid-a">
-            <li class="ui-block-a"><a href="#user_profile">Cancel</a></li>
-            <li class="ui-block-b"><a href="#">Done</a></li>
-          </ul>   
+        <div data-role="header">
+          <a href="#" data-rel="back">Back</a>
+          <h2>Edit</h2>
         </div>
-      </div>
+
+        <div data-role="content">
+          <form id="user_info_edit">
+            <h4 style="text-align: center;"> Personal Information</h4>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First name"/>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last name"/>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Email" data-mini="true"/>
+
+            <h4 style="text-align : center;">Password Settings</h4>
+            <label for="old_password">Old Password</label>
+            <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
+            <label for="new_password">New Password</label>
+            <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
+          </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><button data-role="button" data-inline="true" id="edit_user_save" >Save</button></li>
+              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+            </ul>
+          </div>
+        </div>
+
     </div>
     <!-- end edit user -->
+
     <div data-role="page" id="add_user_mail">
+
       <div data-role="header">
         <a href="#" data-rel="back">Back</a>
         <h2>Add a mail address</h2>
@@ -1318,22 +1286,17 @@
         </div>
 
       </div>
-
     </div>
 
-    <div data-role="page" id="address_confirmation_dialog">
-      <div data-role="header">
-      </div>
-      <div data-role="content">
 
+    <div data-role="page" id="address_confirmation_dialog">
+      <div data-role="content">
         <h3 style="text-align : center;">Delete this address?</h3>
         <br>
-
         <div class="ui-grid-a">
           <div class="ui-block-a"><button data-role="button" data-icon="delete">Yes</button></div>
           <div class="ui-block-b"><a href="#address_list" data-role="button" data-icon="minus">Cancel</a></div>
-        </div>
-          
+        </div> 
       </div>
     </div>
 
