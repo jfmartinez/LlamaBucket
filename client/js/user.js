@@ -110,7 +110,23 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
     })
 });
 
-
+$(document).on('click', '#add_mail_address', function(event)
+{
+  $.ajax({
+    type : "POST",
+    url : "http://localhost:3000/add_mail_address",
+    data : $('#new_address').serializeArray(),
+    success : function(data)
+    {
+      console.log('Worked');
+     $.mobile.changePage('#address_list');
+    },
+    error : function(data)
+    {
+      console.log('no brego');
+    },
+  });
+});
 
 
 
