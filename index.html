@@ -1158,6 +1158,18 @@
         <p>Rincon, PR 00677</p>
         <p>United States</p>
 
+        <div class="ui-grid-a">
+          <h4 class="ui-block-a"><strong>Credit Card Information</strong></h4>
+          <a href="#edir_credit_info" style="text-align : right;"class="ui-block-b"> Edit</a>
+        </div>
+
+        <p id="user_profile_ccname"> <strong>Card #: </strong>xxxx-xxxx-xxxx-1337</p>
+        <p> <strong>Type: </strong>Visa</p>
+        <p id="user_profile_bill1">#311 Calle Ext. Los Robles</p>
+        <p id="user_profile_bill2"></p>
+        <p>Rincon, PR 00677</p>
+        <p>United States</p>
+
       </div>
 
       <div data-role="footer" data-position="fixed">
@@ -1170,6 +1182,41 @@
 
     </div>
     <!-- end user page -->
+
+    <div data-role="page" id="edir_credit_info">
+      <div data-role="header" data-position="fixed">
+        <h2>Edit Credit Cards</h2>
+      </div>
+      <div data-role="content">
+        <form id="user_info_edit">
+            <h4 style="text-align: center;"> Credit Card Information</h4>
+            <label for="first_name">Number:</label>
+            <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder=""/>
+            <label for="last_name">Type:</label>
+            <input type="text" name="last_name" id="last_name" data-mini="true" placeholder=""/>
+
+            <h4 style="text-align : center;">Billing Information</h4>
+            <label for="old_password">Address 1</label>
+            <input for="text" name="old_password" id="old_password" placeholder="" data-mini="true"/>
+            <label for="new_password">Address 2</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+            <label for="new_password">City</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+            <label for="new_password">State</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+            <label for="new_password">Zip Code</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+          </form>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+              <li><button data-role="button" data-inline="true" id="edit_user_save" >Save</button></li>
+              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
 
     <!-- edit user -->
     <div data-role="page" id="edit_user">
