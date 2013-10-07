@@ -182,8 +182,10 @@
       <!-- user list page -->
      <div data-role="page" id="userinfopage">
       <div data-role="header">
-      <a href="#home" data-icon="home" data-iconpos="notext">  </a>
+      <a href="#home" data-icon="home" data-iconpos="notext"></a>
         <h2 id="uiheader">User Information</h2>
+      <a href="#edit_user_admin" data-icon="gear" data-iconpos="notext"></a>
+
       </div>
       <div data-role="content" id="userinfocontent">
         <ul data-role="listview" id="userinfo" data-inset="true"></ul>
@@ -201,6 +203,41 @@
       </div>
     
     </div>  
+    <div data-role="page" id="edit_user_admin">
+
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2>Edit</h2>
+        </div>
+
+        <div data-role="content">
+          <form id="user_info_edit">
+            <h4 style="text-align: center;"> Personal Information</h4>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First Name"/>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last Name"/>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Email" data-mini="true"/>
+
+            <h4 style="text-align : center;">Password Settings</h4>
+            <label for="old_password">Old Password</label>
+            <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
+            <label for="new_password">New Password</label>
+            <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
+          </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><button data-role="button" data-inline="true" id="edit_user_save" >Save</button></li>
+              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+            </ul>
+          </div>
+        </div>
+
+    </div>
 
     <!-- Admin Panel end -->
 
