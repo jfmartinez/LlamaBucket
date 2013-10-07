@@ -20,7 +20,7 @@ $(document).on('click', '#sign_in_submit', function(event)
     },
     error : function(data)
     {
-      console.log('you are lame');
+      console.log('Sign in was not possible.');
     }
   })
 });

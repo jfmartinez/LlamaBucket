@@ -24,14 +24,19 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 			//Go over all the items that were fetched and create the appropiate list items
 			for(var i = 0; i < length; i++)
 			{
-				list.append("<li id=\""+data.content[i].id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+ data.content[i].image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+data.content[i].name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+data.content[i].price+"</h6></div></div></a></li>");
+				list.append("<li id=\""+
+					data.content[i].id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
+					data.content[i].image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
+					data.content[i].name+"</h5><p>"+
+					data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
+					data.content[i].price+"</h6></div></div></a></li>");
 			}
 
 			//Refresh the ul so that all elements are views properly.
 			list.listview('refresh');
 		},
 		error : function(data){
-			console.log("No brego");
+			console.log("Serach results not available");
 		}
 	});
 
@@ -56,7 +61,10 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 				//Go over all the items that were fetched and create the appropiate list items
 				for(var i = 0; i < length; i++)
 				{
-					list.append("<li id=\""+data.content[i].id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+ data.content[i].image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+data.content[i].name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+data.content[i].price+"</h6></div></div></a></li>");
+					list.append("<li id=\""+data.content[i].id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
+						data.content[i].image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
+						data.content[i].name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
+						data.content[i].price+"</h6></div></div></a></li>");
 				}
 
 				//Refresh the ul so that all elements are views properly.
@@ -64,7 +72,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 			},
 			error : function(data)
 			{
-				console.log('Dios da y Dios quita, aqui te quito.')
+				console.log('Failed to load')
 			}
 		});
 	}
@@ -137,7 +145,10 @@ $(document).on('click', '#categories-list li', function()
 			else
 			{
 				//Create a new page that will be the list of subcategories
-				$("body").append("<div data-role=\"page\" id=\""+data.parent_name+"\" data-url=\""+data.parent_name+"\"><div data-role=\"header\"><h3>"+data.parent_name+"</h3><a href=\"\" data-rel=\"back\"> Back</a></div><div data-role=\"content\"><ul data-role=\"listview\" id=\""+data.parent_name+"-categories\" class=\"ui-li-icon\"></ul></div></div></div>")
+				$("body").append("<div data-role=\"page\" id=\""+
+					data.parent_name+"\" data-url=\""+data.parent_name+"\"><div data-role=\"header\"><h3>"+
+					data.parent_name+"</h3><a href=\"\" data-rel=\"back\"> Back</a></div><div data-role=\"content\"><ul data-role=\"listview\" id=\""+
+					data.parent_name+"-categories\" class=\"ui-li-icon\"></ul></div></div></div>")
 				
 
 				var list = $("#"+data.parent_name+"-categories");
@@ -178,7 +189,7 @@ $(document).on('click', '#categories-list li', function()
 		},
 		error : function(data)
 		{
-			console.log("no brego");
+			console.log("Sub categories not found");
 		}
 	})
 });

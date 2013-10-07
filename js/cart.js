@@ -43,7 +43,7 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 			item_count.append("<p style=\"font-size: 12px;\">Number of Items:  " + (length ) +"</p>");
 		},
 		error : function(data){
-			console.log("No brego");
+			console.log("User bucket information not available");
 		}
 	});
 
@@ -91,7 +91,12 @@ $(document).on('pagebeforeshow', '#checkout_address', function(event){
 			total_id.append("<p style=\"font-size:12px\">Total</p>");
 			total.append("<p style=\"font-size:12px\">$"+ (sub_total + 2)+".00</p>");
 
-			$('#user_address').append("<p>"+data.address[0].address_one + "</p><p>" + data.address[0].address_two + "</p><p>" +data.address[0].city + ", " + data.address[0].zipcode + "</p><p>" +data.address[0].country +"</p>");
+			$('#user_address').append("<p>"+data.address[0].address_one +
+			 "</p><p>" + data.address[0].address_two +
+			  "</p><p>" +data.address[0].city +
+			   ", " + data.address[0].zipcode + 
+			   "</p><p>" +data.address[0].country +"</p>");
+
 			for(var i = 0; i < length; i++)
 			{
 				$('#checkout_items').append("<li><a href=\"#\"></a><div class=\"ui-grid-b\"><div class=\"ui-block-a\"> <img src=\"" + data.content[i].image + "\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+data.content[i].name + "</h5><p>" + data.content[i].description + "</p></div><div class=\"ui-block-c\"><h6 align=\"center\">Price: $"+data.content[i].price+"</h6></div></div><a href=\"#editItems\" data-rel=\"dialog\" data-position-to=\"window\" data-transition=\"pop\"></a></li>");
@@ -99,7 +104,7 @@ $(document).on('pagebeforeshow', '#checkout_address', function(event){
 			$('#checkout_items').listview('refresh');
 		},
 		error : function(data){
-			console.log("No brego");
+			console.log("Checkout information not available");
 		}
 	});
 
