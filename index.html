@@ -45,7 +45,7 @@
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Options</li>
       <li> <a href="#invoicelistpage">My transactions</a></li>
-      <li class="ui-count"><a href="#notifications">Notifications</a></li>
+      <li class="ui-count"><a href="#notifications">Notifications<span class="ui-li-count">3</span></a></li>
       <li><a href="#items_bidded">Bids</a>
       </li>
       <li><a href="#store">Store</a></li>
@@ -79,7 +79,7 @@
       </div>
       <div data-role="content">
 
-        <ul data-role="listview" id="bids_list">
+        <ul data-role="listview" id="bids_list" data-inset="true">
         </ul>
 
       </div>
@@ -106,7 +106,7 @@
          <h2> Notifications</h2>
         </div>
       <div data-role="content">
-        <ul data-role="listview" id="notifications_list">
+        <ul data-role="listview" id="notifications_list" data-inset="true">
         
 
       </ul>
@@ -967,12 +967,33 @@
     <!-- End of Categories -->
 
 
+    <!-- Sort Dialog -->
+
+    <div data-role="dialog" id="sort_dialog">
+      <div data-role="header" data-position="fixed">
+        <h2>Sort</h2>
+      </div>
+      <div data-role="content">
+        <form>
+          <label>Sort By: </label>
+          <select>
+            <option> Sort By Name</option>
+            <option> Sort By Price </option>
+            <option> Sort By Brand</option>
+          </select>
+
+
+        </form>
+      </div>
+    </div>
+
 
     <!-- Search Results -->
     <div data-role="page" id="searchResults">
       <div data-role="header" data-position="fixed">
-        <a href="index.html" rel="external"> Home </a>
+        <a href="index.html" id="back_button_categories" rel="external"> Home </a>
         <h2> Search Results </h2>
+        <a href="#sort_dialog" data-transition="pop"> Sort </a>
       </div>
 
       <div data-role="content">
