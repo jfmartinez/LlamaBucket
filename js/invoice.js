@@ -2,6 +2,12 @@
 $(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
 	var invoice_id = sessionStorage.getItem('invoice_id');
 	sessionStorage.clear();
+	
+	if(invoice_id == undefined)
+	{
+
+		invoice_id = 0;
+	}
 
 	$.ajax({
 		url : "http://localhost:3000/invoice/"+invoice_id,
