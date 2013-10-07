@@ -21,7 +21,7 @@
 
       <!--Header -->
 
-      <div data-role="header" id="home_header">
+      <div data-role="header" id="home_header" data-position="fixed">
 
         <h2 class="ui-title" role="heading">LlamaBucket</h2>
         <div data-role="controlgroup" class="ui-btn-right" data-type="horizontal">
@@ -337,7 +337,26 @@
   </div>
 
 
-  <div data-role="content" id="itemcontent"></div>
+  <div data-role="content" id="itemcontent">
+        <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <img src="" id="itemimage" height=150px width=150px>
+        </div>
+        <div class="ui-block-b">
+          <p id="itemprice"></p>
+          <p id="itembid"><strong>Bid:</strong></p>
+          <a data-role="button" href="#user_bucket"data-inline="true">Buy</a>
+          <button data-role="button" data-inline="true">Bid</button>
+        </div>
+      </div>
+      <div>
+        <p id="itemname"></p>
+        <p id="itemdesc"></p>
+        <p id="itemgeneral"></p>
+        <p id="itemyear"></p>
+        <p id="itemcat"></p>
+      </div>
+  </div>
 </div>
 
 
