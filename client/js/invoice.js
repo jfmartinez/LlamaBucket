@@ -4,7 +4,6 @@ $(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
 	sessionStorage.clear();
 
 	$.ajax({
-		//url : "http://localhost:3000/invoice/1",
 		url : "http://localhost:3000/invoice/"+invoice_id,
 		contentType : "application/json",
 		success : function(data){
