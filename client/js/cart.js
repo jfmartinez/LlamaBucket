@@ -22,7 +22,7 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 			for(var i = 0; i < length; i++)
 			{
 				cart_prices += data.content[i].price;
-				list.append("<li><a href=\"#\"></a><div class=\"ui-grid-b\"><div class=\"ui-block-a\"> <img src=\"" + data.content[i].image + "\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+data.content[i].name + "</h5><p>" + data.content[i].description + "</p></div><div class=\"ui-block-c\"><h6 align=\"center\">Price: $"+data.content[i].price+"</h6></div></div><a href=\"#editItems\" data-rel=\"dialog\" data-position-to=\"window\" data-transition=\"pop\"></a></li>");
+				list.append("<li><a href=\"#\"></a><div class=\"ui-grid-b\"><div class=\"ui-block-a\"> <img src=\"" + data.content[i].image + "\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+data.content[i].name + "</h5><p >" + data.content[i].description + "</p></div><div class=\"ui-block-c\"><h6 align=\"center\">Price: $"+data.content[i].price+"</h6></div></div><a href=\"#editItems\" data-rel=\"dialog\" data-position-to=\"window\" data-transition=\"pop\"></a></li>");
 			}
 
 			//Refresh the ul so that all elements are views properly.
@@ -74,7 +74,7 @@ $(document).on('pagebeforeshow', '#checkout_address', function(event){
 
 			$('#user_address').empty();
 			$('#checkout_items').empty();
-			sub_total_list.append("<p>Subtotal ( "+length+" items ): </p><p>Shipping: </p>");
+			sub_total_list.append("<p style=\"font-size:12px\" id=\"hello_world\">Subtotal ( "+length+" items ): </p><p>Shipping: </p>");
 			sub_total_amount.append("<p>$"+ sub_total+".00</p><p>$2.00</p>");
 
 
