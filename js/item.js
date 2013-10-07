@@ -53,3 +53,24 @@ $(document).on('click', '#buy_add_check', function(event)
       }
     })
 });
+
+$(document).on('click', '#bucket_list li', function(event)
+{
+	var name_to_delete = $(this).attr('id');
+	$('#remove_item').on('click', function(event)
+	{
+		$.ajax({
+      type : "POST",
+      url : "http://localhost:3000/remove_from_cart",
+      data : {name : name_to_delete},
+      success : function(data)
+      {
+        $.mobile.changePage('#user_bucket');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+	})
+})

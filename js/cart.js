@@ -23,8 +23,8 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 			{
 				cart_prices += data.content[i].price;
 
-				list.append('<li>'+
-					'<a href="#"><img src="'+ data.content[i].image +'"/>'+
+				list.append('<li data-icon="delete" id="'+data.content[i].name+'">'+
+					'<a href="#item_confirmation_dialog" data-rel="dialog"><img src="'+ data.content[i].image +'"/>'+
 					'<p class="ui-li-aside"><strong>$'+ data.content[i].price+'</strong></p>'+
 					'<h5 style="font-size: 12px;">'+data.content[i].name+'</h5>'+
 					'<p>' + data.content[i].description + '</p>'+
