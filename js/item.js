@@ -6,7 +6,6 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 		url : "http://localhost:3000/item/"+item_id,
 		contentType : "application/json",
 		success : function(data){
-			console.log(data);
 			$('#itemimage').attr('src', data.image);
 			$('#itemprice').html('<strong>Price: </strong>'+data.price);
 			$('#itemname').html('<strong>Name: </strong>'+data.name);
@@ -29,4 +28,28 @@ $(document).on('click', '#results li', function(event)
 	var parameter = $(this).attr('id');
 	sessionStorage.setItem('item_id', parameter);
 	$.mobile.changePage('#itempage');
+});
+
+$(document).on('click', '#buy_add_check', function(event)
+{
+	var data_to_send = {
+		name: $('#itemname').html().replace('<strong>Name: </strong>', ''),
+		description: $('#itemdesc').html().replace('<strong>Description: </strong>', ''),
+		image: $('#itemimage').attr('src'),
+		price: $('#itemprice').html().replace('<strong>Price: </strong>', '')
+	}
+
+	$.ajax({
+      type : "POST",
+      url : "http://localhost:3000/add_cart",
+      data : data_to_send,
+      success : function(data)
+      {
+        $.mobile.changePage('#user_bucket');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
 });
