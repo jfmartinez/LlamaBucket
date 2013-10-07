@@ -172,8 +172,6 @@ $(document).on('pagebeforecreate', '#notifications', function(event)
                
 });
 
-<<<<<<< HEAD
-=======
 
 $(document).on('pagebeforecreate', '#items_bidded', function(event)
  {
@@ -211,7 +209,6 @@ $(document).on('pagebeforecreate', '#items_bidded', function(event)
                
                
 });
->>>>>>> 72a7f722708838d882625a933996b0c11eb70b58
 
 
 
