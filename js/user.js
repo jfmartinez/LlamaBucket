@@ -173,6 +173,43 @@ $(document).on('pagebeforecreate', '#notifications', function(event)
 });
 
 
+$(document).on('pagebeforecreate', '#items_bidded', function(event)
+ {
+
+   $.ajax({
+      url : "http://localhost:3000/get_bids",
+      contentType : "application/json",
+      success : function(data)
+      {
+         var bids = data;           
+    var list = $('#bids_list');
+    list.empty();
+    for(var i = 0; i < bids.length; i++)
+    {
+      list.append('<li>'+
+        '<a href="#"><img src="'+ bids[i].image +'"/>'+
+        '<p class="ui-li-aside"><strong>Amount: '+ bids[i].amount+'</strong></p>'+
+       '<h5 style="font-size: 12px;">'+bids[i].item_name+'</h3>'+
+
+
+       '<p><strong>Seller: </strong>'+bids[i].seller+'</p>'+
+       '<p><strong>Date: </strong> '+ bids[i].date +'</p>'+
+      '</a></li>'
+
+        );
+    }
+    list.listview('refresh');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+   
+               
+               
+});
+
 
 
 
