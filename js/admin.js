@@ -71,3 +71,27 @@ $(document).on('pagebeforeshow', '#repgenpage', function(event){
 		}
 	});
 });
+
+
+
+$(document).on('pagebeforeshow', '#edit_categories', function(event){
+	$.ajax({
+		url : "http://localhost:3000/categories",
+		contentType : "application/json",
+		success : function(data){
+			//console.log(data);
+			var category_list = $('#view_categories_list');
+			var category_data = data.content;
+			for(var i = 0; i < category_data.length; i++)
+			{
+
+
+				category_list.append('<li><a href="#edit_category" id="#category_'+ category_data[i].id+ '"">'+ category_data[i].category +'</a></li>');
+			}
+		},
+		error : function(data){
+			console.log("Failed to load report.");
+		}
+	});
+});
+
