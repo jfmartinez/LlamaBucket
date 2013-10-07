@@ -95,6 +95,38 @@
         </div>
       </div>
     </div>
+    <!-- Bid Ends -->
+
+     <div data-role="page" id="store">
+      <div data-role="header">
+
+        <a href="#home" data-icon="back" data-iconpos="notext"></a>
+        <h2>Store </h2>
+        <a href="#" >Create</a>
+
+
+      </div>
+      <div data-role="content">
+
+        <ul data-role="listview" id="listings_list" data-inset="true">
+
+        </ul>
+
+        <ul data-role="listview" id="listings_auctions" data-inset="true">
+        </ul>
+
+      </div>
+
+        <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+
+            <li><a href="#" data-icon="home" id="my_profile">My Profile</a></li>
+            <li><a href="#" data-icon="bars">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -1011,6 +1043,8 @@
             <option> Sort By Price </option>
             <option> Sort By Brand</option>
           </select>
+          <a href="#searchResults" data-role="button">Submit</a>
+
 
 
         </form>
@@ -1023,7 +1057,6 @@
       <div data-role="header" data-position="fixed">
         <a href="index.html" id="back_button_categories" rel="external"> Home </a>
         <h2> Search Results </h2>
-        <a href="#sort_dialog" data-transition="pop"> Sort </a>
       </div>
 
       <div data-role="content">
@@ -1033,7 +1066,7 @@
       </div>
 
       <div data-role="footer" data-position="fixed">
-        <a href="#" data-role="button" data-inline="false" data-icon="search"> Refine Search</a>
+        <a href="#sort_dialog" data-role="button" data-inline="false" data-icon="search"> Refine Search</a>
       </div>
 
     </div>
