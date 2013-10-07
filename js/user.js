@@ -249,12 +249,15 @@ $(document).on('pagebeforecreate', '#store', function(event)
       {
         console.log('no brego');
       }
-    })
-
-   
-               
+    })       
                
 });
+
+$(document).on('click', '#log_out_button', function(event)
+{
+  localStorage.clear();
+  $.mobile.changePage('#home');
+})
 
 
 
