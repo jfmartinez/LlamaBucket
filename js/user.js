@@ -211,5 +211,89 @@ $(document).on('pagebeforecreate', '#items_bidded', function(event)
 });
 
 
+$(document).on('pagebeforecreate', '#store', function(event)
+ {
+
+   $.ajax({
+      url : "http://localhost:3000/get_listings",
+      contentType : "application/json",
+      success : function(data)
+      {
+         var listings = data;           
+    var list = $('#listings_list');
+    list.empty();
+    for(var i = 0; i < listings.length; i++)
+    {
+      list.append('<li>'+
+        '<a href="#"><img src="'+ listings[i].image +'"/>'+
+        '<p class="ui-li-aside"><strong>Amount: '+ listings[i].amount+'</strong></p>'+
+       '<h5 style="font-size: 12px;">'+listings[i].item_name+'</h3>'+
+
+
+       '<p><strong>Seller: </strong>'+listings[i].seller+'</p>'+
+       '<p><strong>Date: </strong> '+ listings[i].date +'</p>'+
+      '</a></li>'
+
+        );
+    }
+    list.listview('refresh');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+   
+               
+               
+});
+$(document).on('pagebeforecreate', '#store', function(event)
+ {
+
+   $.ajax({
+      url : "http://localhost:3000/get_listings",
+      contentType : "application/json",
+      success : function(data)
+      {
+         var listings = data;           
+    var list = $('#listings_list');
+    var auction_list =$('#listings_auctions');
+    auction_list.empty();
+    list.empty();
+    for(var i = 0; i < listings.length; i++)
+    {
+      list.append('<li>'+
+        '<a href="#"><img src="'+ listings[i].image +'"/>'+
+        '<p class="ui-li-aside"><strong>'+ listings[i].price+'</strong></p>'+
+       '<h5 style="font-size: 12px;">'+listings[i].name+'</h5>'+
+       '<p>' + listings[i].description + '</p><hr>'+
+        '<p><strong>Brand: </strong>' + listings[i].brand + '</p>'+
+
+       '<p><strong>Category: </strong>' + listings[i].category + '</p>'+
+       '<p><strong>Date: </strong> '+ listings[i].date +'</p>'+
+      '</a></li>'
+
+        );
+    }
+
+    
+
+
+    list.listview('refresh');
+    auction_list.listview('refresh');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+
+   
+               
+               
+});
+
+
+
 
 
