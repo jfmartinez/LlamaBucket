@@ -3,23 +3,21 @@ LlamaBucket
 
 ICOM5016 - Databases Course, Fall 2013, an [eBay](http://ebay.com) ripoff project.
 
-##To Set Up:
+##Warning:
 
-Go to the terminal app (Or equivalent):
-
-    myterminal ~> cd Into/desired/forlder
-    myterminal ~> git clone https://github.com/JFMart/LlamaBucket.git
-    myterminal ~> cd LlamaBucket/server
-    myterminal ~> npm install
-
-##To run the server:
-
-from the server folder:
-
-	myterminal ~> node app.js
+Server must be running beforehand
 
 ##To See some results:
 
-Go to `/app` and click on `index.html`
+Go to `/LlamaBucket` and click on `index.html`
 
->This is so alpha. ~César 
+
+##Some information:
+
+To Log-in to the application, got to `My Profile` with the following credentials
+
+Username: `cesarcruz91@gmail.com`
+
+Password: `forkit`
+
+After log-in, `My Profile` button will take you to your actual profile.
