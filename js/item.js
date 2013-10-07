@@ -14,6 +14,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 			$('#itemgeneral').html('<strong>General: </strong>'+data.general);
 			$('#itemyear').html('<strong>Year: </strong>'+data.year);
 			$('#itemcat').html('<strong>Category: </strong>'+data.category);
+			$('#itemid').html('<strong>Product ID: </strong>'+data.product_id);
 
 		},
 
