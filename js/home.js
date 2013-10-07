@@ -1,12 +1,27 @@
-$(document).on('pagebeforecreate', '#home', function(event)
+$(document).on('pagebeforeshow', '#home', function(event)
 {
-	//If the user logged in
+
+	// //If the user logged in
 	if(localStorage.getItem('email'))
 	{
-		$('#sign_in_button').replaceWith('<a href="#user_profile" data-role="button" id="my_profile_home">'+localStorage.getItem('first_name')+'</a>')
+    $('#user_options').show();
 	}
-	else
+	else if(!localStorage.getItem('email'))
 	{
+    $('#user_options').hide();
 
 	}
+});
+
+//Properly redirect the user depending on his status on the page.
+$(document).on('click', '#my_profile', function(event)
+{
+  if(localStorage.getItem('email'))
+  {
+    $.mobile.changePage('#user_profile');
+  }
+  else
+  {
+    $.mobile.changePage('#sign_in');
+  }
 });
