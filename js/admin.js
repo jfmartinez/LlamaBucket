@@ -74,7 +74,7 @@ $(document).on('pagebeforeshow', '#repgenpage', function(event){
 
 
 
-$(document).on('pagebeforeshow', '#edit_categories', function(event){
+$(document).on('pagebeforeshow', '#view_categories', function(event){
 	$.ajax({
 		url : "http://localhost:3000/categories",
 		contentType : "application/json",
@@ -82,16 +82,78 @@ $(document).on('pagebeforeshow', '#edit_categories', function(event){
 			//console.log(data);
 			var category_list = $('#view_categories_list');
 			var category_data = data.content;
+			category_list.empty();
 			for(var i = 0; i < category_data.length; i++)
 			{
 
 
-				category_list.append('<li><a href="#edit_category" id="#category_'+ category_data[i].id+ '"">'+ category_data[i].category +'</a></li>');
+				category_list.append('<li id="'+ category_data[i].id+'"><a >'+ category_data[i].category +'</a></li>');
 			}
+
+			category_list.listview('refresh');
 		},
 		error : function(data){
 			console.log("Failed to load report.");
 		}
 	});
+});
+$(document).on('pagebeforeshow', '#edit_categories', function(event, ui){
+	
+	var category_id = sessionStorage.getItem('category_id');
+	sessionStorage.clear();
+	$.ajax({
+		url : "http://localhost:3000/category/"+category_id,
+		contentType : "application/json",
+		
+		success : function(data){
+			$('#category_name').attr('placeholder', data.category);
+			$('#category_parent').attr('placeholder', data.parent);
+			$('#category_id').attr('placeholder', data.id);
+
+
+
+		},
+
+		error : function(data){
+			console.log("Item could not be loaded. (item.js)");
+		}
+	});
+});
+
+
+$(document).on('click', '#view_categories_list li', function(event)
+{
+	var parameter = $(this).attr('id');
+	sessionStorage.setItem('category_id', parameter);
+	$.mobile.changePage('#edit_categories');
+});
+
+$(document).on('click', '#save_category', function(event)
+{
+	var new_category_data = {
+		category: $('#category_name').val(),
+		parent: $('#category_parent').val(),
+		id: $('#category_id').val()
+	}
+
+
+	$.ajax({
+      type : "POST",
+		url: "http://localhost:3000/add_category",
+      data : new_category_data,
+     success: function(data)
+		{
+        $.mobile.changePage('#view_categories');
+
+
+
+		},
+		error: function(err)
+		{
+			console.log("Add category failed");
+			console.log(new_category_data);
+		}
+    })
+
 });
 

@@ -272,11 +272,13 @@
 
     </div>
 
+    <!-- Admin View Categories -->
+
     <div data-role="page" id="view_categories">
-      <div data-role="header" data-position="fied">
+      <div data-role="header" data-position="fixed">
         <a href="#" data-rel="back">Back</a>
         <h2>Category Management</h2>
-        <a href="#edit_category" data-role="button" data-icon="plus"></a>
+        <a href="#add_category" data-icon="plus" data-iconpos="notext" data-role="button"></a>
       </div>
       <div data-role="content">
         <ul data-role="listview" data-inset="true" id="view_categories_list">
@@ -286,6 +288,54 @@
       </div>
 
     </div>
+
+    <!-- Add Category -->
+    <div data-role="page" id="add_category">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2>Add Category</h2>
+        <a id="save_category" data-role="button" >Save</a>
+      </div>
+      <div data-role="content">
+
+        <form >
+            <label for="category_name">Category Name:</label>
+            <input type="text" name="category_name" id="category_name"  data-mini="true" />
+            <label for="category_parent">Category Parent:</label>
+            <input type="text" name="category_parent" id="category_parent" data-mini="true" >
+            <label for="category_id">Category ID:</label>
+            <input type="text" name="category_id" id="category_id" data-mini="true"/>
+
+         
+          </form>
+
+      </div>
+    </div>
+
+
+    <!-- Edit Category -->
+
+    <div data-role="page" id="edit_categories">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2> Edit Category</h2>
+
+      </div>
+
+      <div data-role="content">
+            <form >
+            <label for="category_name">Category Name:</label>
+            <input type="text" name="category_name" id="category_name"  data-mini="true" />
+            <label for="category_parent">Category Parent:</label>
+            <input type="text" name="category_parent" id="category_parent" data-mini="true" >
+            <label for="category_id">Category ID:</label>
+            <input type="text" name="category_id" id="category_id" data-mini="true"/>
+
+         
+          </form>
+        </div>
+      </div>
+
 
 
 
