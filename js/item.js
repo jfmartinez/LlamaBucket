@@ -5,6 +5,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	$.ajax({
 		url : "http://localhost:3000/item/"+item_id,
 		contentType : "application/json",
+		
 		success : function(data){
 			$('#itemimage').attr('src', data.image);
 			$('#itemprice').html('<strong>Price: </strong>'+data.price);
