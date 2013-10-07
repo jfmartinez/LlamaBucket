@@ -150,7 +150,6 @@ $(document).on('click', '#user_address_list li', function(event)
     })
   });
 });
-<<<<<<< HEAD
 
 
 $(document).on('pagebeforecreate', '#notifications', function(event)
@@ -186,8 +185,6 @@ $(document).on('pagebeforecreate', '#notifications', function(event)
                
 });
 
-=======
->>>>>>> fa8e00f531df905e79138038f5b7cf124a9fc827
 
 
 

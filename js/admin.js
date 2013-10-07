@@ -47,3 +47,27 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 		}
 	});
 });
+
+$(document).on('pagebeforeshow', '#repgenpage', function(event){
+	$.ajax({
+		url : "http://localhost:3000/report",
+		contentType : "application/json",
+		success : function(data){
+			//console.log(data);
+			var header = $('#repname');
+			header.empty();
+			header.append(data[0].report_name);
+			var report = $('#repgen');
+			report.empty();
+			report.append('<li><p><h2>Item: ' + data[0].itemA + '</h2></p><p>Buyer: ' + data[0].buyerA + '</p><p>Seller: ' + data[0].sellerA + '</p><p>Price: ' + data[0].priceA + '</p></li>' + 
+				'<li><p><h2>Item: ' + data[0].itemB + '</h2></p><p>Buyer: ' + data[0].buyerB+ '</p><p>Seller: ' + data[0].sellerB + '</p><p>Price: ' + data[0].priceB + '</p></li>' + 
+				'<li><p><h2>Item: ' + data[0].itemC + '</h2></p><p>Buyer: ' + data[0].buyerC+ '</p><p>Seller: ' + data[0].sellerC + '</p><p>Price: ' + data[0].priceC + '</p></li>' + 
+				'<li><p><h2>Item: ' + data[0].itemD + '</h2></p><p>Buyer: ' + data[0].buyerD+ '</p><p>Seller: ' + data[0].sellerD + '</p><p>Price: ' + data[0].priceD + '</p></li>');
+			report.listview('refresh');
+
+		},
+		error : function(data){
+			console.log("Failed to load report.");
+		}
+	});
+});

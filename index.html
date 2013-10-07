@@ -45,6 +45,7 @@
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Options</li>
       <li> <a href="#invoicelistpage">My transactions</a></li>
+      <li><a href="#adminpanelpage">Administrator Panel</a></li>
       <li class="ui-count"><a href="#notifications">Notifications</a></li>
       <li><a href="#items_bidded">Bids</a>
       </li>
@@ -155,22 +156,22 @@
       <!-- panel page -->
     <div data-role="page" id="adminpanelpage">
       <div data-role="header" id="adminpanelheader">
-      <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+      <a href="#home" data-icon="home" data-iconpos="notext">  </a>
         <h2>Administrator Panel</h2>
       </div>
       <div data-role="content" id="adminpanelcontent">
         <a href="#adminuserlistpage" data-role="button">View Users</a>
-        <a href="#" data-role="button">Generate Report - Today</a>
-        <a href="#" data-role="button">Generate Report - This Week</a>
-        <a href="#" data-role="button">Generate Report - This Month</a>
-        <a href="#" data-role="button">Generate Report - All</a>
+        <a href="#repgenpage" data-role="button">Generate Report - Today</a>
+        <a href="#repgenpage" data-role="button">Generate Report - This Week</a>
+        <a href="#repgenpage" data-role="button">Generate Report - This Month</a>
+        <a href="#repgenpage" data-role="button">Generate Report - All</a>
       </div>
     </div>
 
       <!-- user list-->
     <div data-role="page" id="adminuserlistpage">
       <div data-role="header">
-      <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+      <a href="#home" data-icon="home" data-iconpos="notext">  </a>
         <h2>User List</h2>
       </div>
       <div data-role="content" id="adminuserlistcontent">
@@ -181,7 +182,7 @@
       <!-- user list page -->
      <div data-role="page" id="userinfopage">
       <div data-role="header">
-      <a href="#home" data-icon="back" data-iconpos="notext">  </a>
+      <a href="#home" data-icon="home" data-iconpos="notext">  </a>
         <h2 id="uiheader">User Information</h2>
       </div>
       <div data-role="content" id="userinfocontent">
@@ -189,7 +190,17 @@
       </div>
     </div>
 
-      <!-- report -->
+      <!-- report generator -->
+    <div data-role="page" id="repgenpage">
+      <div data-role="header">
+      <a href="#home" data-icon="home" data-iconpos="notext">  </a>
+        <h2 id="repname">Report</h2>
+      </div>
+      <div data-role="content" id="repgencontent">
+        <ul data-role="listview" data-inset="true" id="repgen"></ul>
+      </div>
+    
+    </div>  
 
     <!-- Admin Panel end -->
 
