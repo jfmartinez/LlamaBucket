@@ -21,9 +21,8 @@
 
       <!--Header -->
 
-      <div data-role="header" id="home_header">
+      <div data-role="header" id="home_header" data-position="fixed">
 
-        <a href="#sign_in" data-rel="dialog" id="sign_in_button">Sign In</a>
         <h2 class="ui-title" role="heading">LlamaBucket</h2>
         <div data-role="controlgroup" class="ui-btn-right" data-type="horizontal">
           <a href="#user_bucket"  data-theme="" id="bucket"><img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Bucket_with_Soap-128.png" width="26" height="26" border= "0"></a>
@@ -42,8 +41,9 @@
         <a href="#categories" data-role="button"  data-icon="arrow-r" data-iconpos="right">Shop By Category</a>
       </div>
 
-        <ul data-role="listview" data-inset="true">
+        <ul data-role="listview" data-inset="true" id="user_options">
           <li data-role="list-divider">Options</li>
+<<<<<<< HEAD
       <li> <a href="#invoicelistpage">My transactions</a></li>
       <li><a href="#adminpanelpage">Administrator Panel</a></li>
       <li class="ui-count"><a href="#notifications">Notifications</a></li>
@@ -51,6 +51,14 @@
       </li>
       <li><a href="#store">Store</a></li>
     </ul>
+=======
+          <li> <a href="#invoicelistpage">My transactions</a></li>
+          <li class="ui-count"><a href="#notifications">Notifications</a></li>
+          <li><a href="#items_bidded">Bids</a>
+          </li>
+          <li><a href="#store">Store</a></li>
+        </ul>
+>>>>>>> 72a7f722708838d882625a933996b0c11eb70b58
 
       </div>
 
@@ -80,7 +88,7 @@
       </div>
       <div data-role="content">
 
-        <ul data-role="listview" id="bids_list">
+        <ul data-role="listview" id="bids_list" data-inset="true">
         </ul>
 
       </div>
@@ -107,7 +115,7 @@
          <h2> Notifications</h2>
         </div>
       <div data-role="content">
-        <ul data-role="listview" id="notifications_list">
+        <ul data-role="listview" id="notifications_list" data-inset="true">
         
 
       </ul>
@@ -349,7 +357,26 @@
   </div>
 
 
-  <div data-role="content" id="itemcontent"></div>
+  <div data-role="content" id="itemcontent">
+        <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <img src="" id="itemimage" height=150px width=150px>
+        </div>
+        <div class="ui-block-b">
+          <p id="itemprice"></p>
+          <p id="itembid"><strong>Bid:</strong></p>
+          <a data-role="button" href="#user_bucket"data-inline="true">Buy</a>
+          <button data-role="button" data-inline="true">Bid</button>
+        </div>
+      </div>
+      <div>
+        <p id="itemname"></p>
+        <p id="itemdesc"></p>
+        <p id="itemgeneral"></p>
+        <p id="itemyear"></p>
+        <p id="itemcat"></p>
+      </div>
+  </div>
 </div>
 
 
@@ -978,12 +1005,33 @@
     <!-- End of Categories -->
 
 
+    <!-- Sort Dialog -->
+
+    <div data-role="dialog" id="sort_dialog">
+      <div data-role="header" data-position="fixed">
+        <h2>Sort</h2>
+      </div>
+      <div data-role="content">
+        <form>
+          <label>Sort By: </label>
+          <select>
+            <option> Sort By Name</option>
+            <option> Sort By Price </option>
+            <option> Sort By Brand</option>
+          </select>
+
+
+        </form>
+      </div>
+    </div>
+
 
     <!-- Search Results -->
     <div data-role="page" id="searchResults">
       <div data-role="header" data-position="fixed">
-        <a href="index.html" rel="external"> Home </a>
+        <a href="index.html" id="back_button_categories" rel="external"> Home </a>
         <h2> Search Results </h2>
+        <a href="#sort_dialog" data-transition="pop"> Sort </a>
       </div>
 
       <div data-role="content">

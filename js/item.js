@@ -2,12 +2,18 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
 	sessionStorage.clear();
-	$('#itemcontent').empty();
 	$.ajax({
 		url : "http://localhost:3000/item/"+item_id,
 		contentType : "application/json",
 		success : function(data){
-			$('#itemcontent').append('<div class="ui-grid-a"><div class="ui-block-a"><img src="' + data.image + '" id="itemimage" height=150px width=150px></div><div class="ui-block-b"><h4 id="itemprice">' + data.price + '</h4><button data-role="button">Buy</button><h4>Bid now!</h4><button data-role="button">Bid</button></div></div><div><h3 id="itemname">' + data.name + '</h3><h5 id="itemdesc">' + data.description + '</h5><h5 id="itemgeneral">' + data.general + '</h5><h5 id="itemyear">Year: ' + data.year + '</h5><h5 id="itemcat"><strong>' + data.category+ '</strong></h5></div>');
+			console.log(data);
+			$('#itemimage').attr('src', data.image);
+			$('#itemprice').html('<strong>Price: </strong>'+data.price);
+			$('#itemname').html('<strong>Name: </strong>'+data.name);
+			$('#itemdesc').html('<strong>Description: </strong>'+data.description);
+			$('#itemgeneral').html('<strong>General: </strong>'+data.general);
+			$('#itemyear').html('<strong>Year: </strong>'+data.year);
+			$('#itemcat').html('<strong>Category: </strong>'+data.category);
 
 		},
 

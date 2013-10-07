@@ -1,21 +1,20 @@
 //Sign in the user.
 $(document).on('click', '#sign_in_submit', function(event)
-{ alert("HELLO");
-
+{ 
   $.ajax({
     type : "POST",
     url : "http://localhost:3000/sign_in",
     data : { username : $('#username').val(), password : $('#password').val()},
     success : function(data)
     {
-      //Store the user in sessionStorage
-      sessionStorage.setItem('first_name', data.first_name);
-      sessionStorage.setItem('last_name', data.last_name);
-      sessionStorage.setItem('email', data.email);
-      sessionStorage.setItem('phone', data.phone);
-      sessionStorage.setItem('image', data.image);
+      //Store the user in localStorage
+      localStorage.setItem('first_name', data.first_name);
+      localStorage.setItem('last_name', data.last_name);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('phone', data.phone);
+      localStorage.setItem('image', data.image);
 
-      $('#sign_in_button').replaceWith('<a href="#user_profile" data-role="button" id="my_profile_home">'+sessionStorage.getItem('first_name')+'</a>')
+      $('#sign_in_button').replaceWith('<a href="#user_profile" data-role="button" id="my_profile_home">'+localStorage.getItem('first_name')+'</a>')
       $('#home').page();
       $.mobile.changePage('#home')
     },
@@ -30,34 +29,22 @@ $(document).on('click', '#sign_in_submit', function(event)
 //Show the user information on the user page.
 $(document).on('pagebeforeshow', '#user_profile', function(event)
 {
-  $('#profile_image').attr('src',sessionStorage.getItem('image'));
-  $('#user_profile_name').html(''+sessionStorage.getItem('first_name') +' '+ sessionStorage.getItem('last_name'));
-  $('#user_profile_email').html(sessionStorage.getItem('email'));
-  $('#user_profile_phone').html(sessionStorage.getItem('phone'));
+  $('#profile_image').attr('src',localStorage.getItem('image'));
+  $('#user_profile_name').html(''+localStorage.getItem('first_name') +' '+ localStorage.getItem('last_name'));
+  $('#user_profile_email').html(localStorage.getItem('email'));
+  $('#user_profile_phone').html(localStorage.getItem('phone'));
 
 
 
 });
 
-//Properly redirect the user depending on his status on the page.
-$(document).on('click', '#my_profile', function(event)
-{
-  if(sessionStorage.getItem('email'))
-  {
-    $.mobile.changePage('#user_profile');
-  }
-  else
-  {
-    $.mobile.changePage('#registerForm');
-  }
-});
 
 //Before showing the edit user page, load the placeholders with the user data.
 $(document).on('pagebeforeshow', '#edit_user', function(event)
 {
-  $('#first_name').attr('placeholder', sessionStorage.getItem('first_name'));
-  $('#last_name').attr('placeholder', sessionStorage.getItem('last_name'));
-  $('#email').attr('placeholder', sessionStorage.getItem('email'));
+  $('#first_name').attr('placeholder', localStorage.getItem('first_name'));
+  $('#last_name').attr('placeholder', localStorage.getItem('last_name'));
+  $('#email').attr('placeholder', localStorage.getItem('email'));
 });
 
 //Edit the user credentials
@@ -69,14 +56,14 @@ $(document).on('click', '#edit_user_save', function(event)
     data : $('#user_info_edit').serializeArray(),
     success : function(data)
     {
-      //Store the user in sessionStorage
-      sessionStorage.setItem('first_name', data.first_name);
-      sessionStorage.setItem('last_name', data.last_name);
-      sessionStorage.setItem('email', data.email);
-      sessionStorage.setItem('phone', data.phone);
-      sessionStorage.setItem('image', data.image);
+      //Store the user in localStorage
+      localStorage.setItem('first_name', data.first_name);
+      localStorage.setItem('last_name', data.last_name);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('phone', data.phone);
+      localStorage.setItem('image', data.image);
 
-      $('#sign_in_button').replaceWith('<a href="#user_profile" data-role="button" id="my_profile_home">'+sessionStorage.getItem('first_name')+'</a>')
+      $('#sign_in_button').replaceWith('<a href="#user_profile" data-role="button" id="my_profile_home">'+localStorage.getItem('first_name')+'</a>')
       $('#home').page();
       $.mobile.changePage('#user_profile')
     },
@@ -185,6 +172,46 @@ $(document).on('pagebeforecreate', '#notifications', function(event)
                
 });
 
+<<<<<<< HEAD
+=======
+
+$(document).on('pagebeforecreate', '#items_bidded', function(event)
+ {
+
+   $.ajax({
+      url : "http://localhost:3000/get_bids",
+      contentType : "application/json",
+      success : function(data)
+      {
+         var bids = data;           
+    var list = $('#bids_list');
+    list.empty();
+    for(var i = 0; i < bids.length; i++)
+    {
+      list.append('<li>'+
+        '<a href="#"><img src="'+ bids[i].image +'"/>'+
+        '<p class="ui-li-aside"><strong>Amount: '+ bids[i].amount+'</strong></p>'+
+       '<h5 style="font-size: 12px;">'+bids[i].item_name+'</h3>'+
+
+
+       '<p><strong>Seller: </strong>'+bids[i].seller+'</p>'+
+       '<p><strong>Date: </strong> '+ bids[i].date +'</p>'+
+      '</a></li>'
+
+        );
+    }
+    list.listview('refresh');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+   
+               
+               
+});
+>>>>>>> 72a7f722708838d882625a933996b0c11eb70b58
 
 
 
