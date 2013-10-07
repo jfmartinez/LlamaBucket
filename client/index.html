@@ -36,11 +36,21 @@
       <!--Homepage Content -->
       <div data-role="content" >
         <input type="search" name="search" id="search_basic"/>
-
+        <div class="ui-body">
         <a href="#" data-role="button" data-icon="search" id="search_button">Search</a>
         <a href="#categories" data-role="button"  data-icon="arrow-r" data-iconpos="right">Shop By Category</a>
+      </div>
 
-        <a href="#invoicelistpage" data-role="button">My transactions</a>
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider">Options</li>
+      <li> <a href="#invoicelistpage">My transactions</a></li>
+      <li class="ui-count"><a href="#notifications">Notifications</a></li>
+      <li><a href="#items_bidded">Bids</a>
+      </li>
+      <li><a href="#store">Store</a></li>
+    </ul>
+
+
       </div>
 
       <!-- Home Page Content End -->
@@ -72,12 +82,14 @@
         <ul data-role="listview" id="bids_list">
         </ul>
 
+      </div>
 
         <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
           <ul>
 
             <li><a href="#" data-icon="home" id="my_profile">My Profile</a></li>
+            <li><a href="#" data-icon="bars">Settings</a></li>
           </ul>
         </div>
       </div>
@@ -88,6 +100,27 @@
 
 
     <!-- Notifications -->
+    <div data-role="page" id="notifications">
+      <div data-role="header">
+        <a href="#home" data-icon="back" data-iconpos="notext"></a>
+         <h2> Notifications</h2>
+        </div>
+      <div data-role="content">
+        <ul data-role="listview" id="notifications_list">
+        
+
+      </ul>
+    </div>
+     <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+
+            <li><a href="#" data-icon="home" id="my_profile">My Profile</a></li>
+            <li><a href="#" data-icon="bars">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <!-- Invoice list -->
     <div data-role="page" id="invoicelistpage">
       <div data-role="header" id="invoicelistheader">
@@ -138,7 +171,9 @@
 
       <div data-role="footer" data-position="fixed">
        <div class="ui-grid-b">
+        <div class="ui-block-a" id="item_count" style="text-align: left;"></div>
         <div class="ui-block-b"></div>
+        <div class="ui-block-c" id="cart_total" style="text-align: right;"></div>     
       </div>
       
     </div>
@@ -161,7 +196,7 @@
 
             <div class="ui-grid-a">
               <div class="ui-block-a" id="sub_total"></div>
-              <div class="ui-block-b" id="values" style="text-align: right;"></div>
+              <div class="ui-block-b" id="values" style="text-align: right; font-size= 12px"></div>
             </div>
             <p><hr></p>
 
