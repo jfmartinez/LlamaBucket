@@ -102,7 +102,7 @@
 
         <a href="#home" data-icon="back" data-iconpos="notext"></a>
         <h2>Store </h2>
-        <a href="#" >Create</a>
+        <a href="#create_item" >Create</a>
 
 
       </div>
@@ -1524,15 +1524,15 @@
 
 
     <div data-role="page" id="create_item">
-    <div data-role="header">
-      <h2>List Item</h2>
+    <div data-role="header" data-position="fixed">
+      <h2>List an Item</h2>
     </div>
     <div data-role="content">
       <form id="crete_item">
             <label for="item_name">Item Name:</label>
-            <input type="text" name="item_name" id="item_name" value="" data-mini="true" placeholder="Item Name"/>
-            <label for="last_name">Descripton:</label>
-            <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last name"/>
+            <input type="text" name="item_name" id="item_name" value="" data-mini="true" placeholder=""/>
+            <label for="description">Descripton:</label>
+            <textarea name="textarea" id="description"></textarea>
             <label for="email">Category:</label>
             <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
             <label for="email">Year:</label>
@@ -1546,6 +1546,14 @@
             <label for="email">Image:</label>
             <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
           </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+          <ul>
+            <li><button data-role="button" data-inline="true" id="create_item_save" >Save</button></li>
+            <li><a href="#store" data-role="button" data-inline="true">Cancel</a></li>
+          </ul>
+        </div>
     </div>
     </div>
 
