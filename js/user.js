@@ -74,6 +74,8 @@ $(document).on('click', '#edit_user_save', function(event)
   })
 });
 
+//============================ User Address Actions =========================//
+
 //Load the user list of addresses
 $(document).on('pagebeforeshow', '#address_list', function(event)
 {
@@ -99,6 +101,7 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
     })
 });
 
+//Add a mailing address to the user's account
 $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
@@ -117,6 +120,8 @@ $(document).on('click', '#add_mail_address', function(event)
   });
 });
 
+
+//Delete user address from the user's account
 $(document).on('click', '#user_address_list li', function(event)
 {
   var address_to_delete = $(this).children().children().children().attr('placeholder');
@@ -261,5 +266,32 @@ $(document).on('click', '#log_out_button', function(event)
 
 
 
+$(document).on('pagebeforeshow', '#home', function(event)
+{
+
+  // //If the user logged in
+  if(localStorage.getItem('email'))
+  {
+    $('#user_options').show();
+  }
+  else if(!localStorage.getItem('email'))
+  {
+    $('#user_options').hide();
+
+  }
+});
+
+//Properly redirect the user depending on his status on the page.
+$(document).on('click', '#my_profile', function(event)
+{
+  if(localStorage.getItem('email'))
+  {
+    $.mobile.changePage('#user_profile');
+  }
+  else
+  {
+    $.mobile.changePage('#sign_in');
+  }
+});
 
 
