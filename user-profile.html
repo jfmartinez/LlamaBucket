@@ -1,0 +1,114 @@
+    <!DOCTYPE html>
+  <html>
+  <head>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/item.js"></script>  
+    <script src="js/cart.js"></script>
+    <script src="js/user.js"></script> 
+    <script src="js/home.js"></script> 
+    <script src="js/invoice.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> 
+  </head>
+  <body>
+      <!-- user page -->
+      <div data-role="page" id="user_profile">
+
+        <div data-role="header" data-position="fixed">
+          <a href="index.html" rel="external" data-transition="slide">Home</a>
+          <h2> My profile</h2>
+          <a href="#" id="log_out_button">Log Out</a>
+        </div>
+
+        <div data-role="content" id="user_content">
+
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <img id="profile_image" src="" height="150" width="150">
+          </div>
+          <div class="ui-block-b">
+            <div class="ui-grid-a">
+              <div class="ui-block-a">
+                <h4 style="text-align: left;"> User Rank:  </h4>
+              </div>
+              <div class="ui-block-b">
+                <h3 style="text-align : right;"> ***** </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="ui-grid-a">
+          <h4 class="ui-block-a"><strong>Personal Information</strong></h4>
+          <a href="#edit_user" style="text-align : right;"class="ui-block-b"> Edit</a>
+        </div>
+
+        <p id="user_profile_name"></p>
+        <p id="user_profile_email"></p>
+        <p id="user_profile_phone"></p>
+
+
+        <div class="ui-grid-a">
+          <h4 class="ui-block-a"><strong>Mailling Information</strong></h4>
+          <a href="#address_list" style="text-align : right;"class="ui-block-b"> Edit</a>
+        </div>
+
+        <p id="user_profile_add1">#311 Calle Ext. Los Robles</p>
+        <p id="user_profile_add2"></p>
+        <p>Rincon, PR 00677</p>
+        <p>United States</p>
+
+        <div class="ui-grid-a">
+          <h4 class="ui-block-a"><strong>Credit Card Information</strong></h4>
+          <a href="edit_credit_info.html" rel="external" style="text-align : right;"class="ui-block-b"> Edit</a>
+        </div>
+
+        <p id="user_profile_ccname"> <strong>Card #: </strong>xxxx-xxxx-xxxx-1337</p>
+        <p> <strong>Type: </strong>Visa</p>
+        <p id="user_profile_bill1">#311 Calle Ext. Los Robles</p>
+        <p id="user_profile_bill2"></p>
+        <p>Rincon, PR 00677</p>
+        <p>United States</p>
+
+      </div>
+
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#user_bucket">My Bucket</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <!-- end user page -->
+
+        <div data-role="page" id="address_list">
+
+      <div data-role="header" data-position="fixed">
+        <a href="#user_profile">Back</a>
+        <h2> Addresses </h2>
+      </div>
+
+      <div data-role="content">
+        <div>
+          <ul data-role="listview" id="edit_user_mail.html">
+          </ul>
+        </div>
+
+        <br>
+        
+        <div>
+          <a href="#add_user_mail" data-role="button">Add</a>
+        </div>
+
+      </div>
+    </div>
+
+      </body>
+  </html>

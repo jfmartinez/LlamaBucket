@@ -1,0 +1,55 @@
+      <!DOCTYPE html>
+  <html>
+  <head>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/item.js"></script>  
+    <script src="js/cart.js"></script>
+    <script src="js/user.js"></script> 
+    <script src="js/home.js"></script> 
+    <script src="js/invoice.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> 
+  </head>
+  <body>
+    <!-- edit user -->
+    <div data-role="page" id="edit_user">
+
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2>Edit</h2>
+        </div>
+
+        <div data-role="content">
+          <form id="user_info_edit">
+            <h4 style="text-align: center;"> Personal Information</h4>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First name"/>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last name"/>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Email" data-mini="true"/>
+
+            <h4 style="text-align : center;">Password Settings</h4>
+            <label for="old_password">Old Password</label>
+            <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
+            <label for="new_password">New Password</label>
+            <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
+          </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><button data-role="button" data-inline="true" id="edit_user_save" >Save</button></li>
+              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+            </ul>
+          </div>
+        </div>
+
+    </div>
+    <!-- end edit user -->
+  </body>
+</head>

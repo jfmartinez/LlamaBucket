@@ -1,0 +1,54 @@
+     <!DOCTYPE html>
+  <html>
+  <head>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/item.js"></script>  
+    <script src="js/cart.js"></script>
+    <script src="js/user.js"></script> 
+    <script src="js/home.js"></script> 
+    <script src="js/invoice.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> 
+  </head>
+  <body>
+ <div data-role="page" id="edit_item">
+    <div data-role="header" data-position="fixed">
+      <h2>Edit Item</h2>
+    </div>
+    <div data-role="content">
+      <form id="crete_item">
+            <label for="item_name">Item Name:</label>
+            <input type="text" name="item_name" id="item_name" value="" data-mini="true" placeholder=""/>
+            <label for="description">Descripton:</label>
+            <textarea name="textarea" id="description"></textarea>
+            <label for="email">Category:</label>
+            <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+            <label for="email">Year:</label>
+            <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+            <label for="email">Brand:</label>
+            <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+            <label for="email">General:</label>
+            <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+            <label for="email">Price:</label>
+            <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+            <label for="email">Image:</label>
+            <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+          </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+          <ul>
+            <li><button data-role="button" data-inline="true" id="edit_item_save" >Save</button></li>
+            <li><a href="#store" data-role="button" data-inline="true">Cancel</a></li>
+          </ul>
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+  </body>
+  </html>

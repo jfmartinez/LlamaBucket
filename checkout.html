@@ -1,0 +1,70 @@
+    <!DOCTYPE html>
+  <html>
+  <head>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/item.js"></script>  
+    <script src="js/cart.js"></script>
+    <script src="js/user.js"></script> 
+    <script src="js/home.js"></script> 
+    <script src="js/invoice.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> 
+  </head>
+  <body>
+  <!-- Checkout -->
+  <div data-role="page" id="checkout_address">
+    <div data-role="header">
+      <a href="#" data-icon="back" data-role="button" data-rel="back" data-iconpos="notext"></a>
+      <h2>Checkout</h2>
+      <a href="#invoicepage"  data-role="button">Place Order</a>
+    </div>
+    <div data-role="content">
+
+      <div class="ui-body">
+        <ul data-role="listview" data-inset="true" id="checkout_total">
+          <li data-role="fieldcontain">
+
+            <div class="ui-grid-a">
+              <div class="ui-block-a" id="sub_total"></div>
+              <div class="ui-block-b" id="values" style="text-align: right; font-size= 12px"></div>
+            </div>
+            <p><hr></p>
+
+            <div class="ui-grid-a">
+              <div class="ui-block-a" id="total_id"></div>
+              <div class="ui-block-b" id="total" style="text-align: right;"></div>
+            </div>
+
+          </li>
+        </ul>
+      </div>
+
+
+      <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Payment</li>
+        <li><a href="#payment_option"><h3>Method:</h3><p class="ui-li-aside">Select your payment method</p></a></li>
+        <li><a href="#coupon_option"><h3>Coupon, Gift codes</h3></a></li>
+
+      </ul>
+
+
+
+
+
+      <ul data-role="listview" data-inset="true" id="current_address" >
+        <li data-role="list-divider" id="address_title">Current Shipping Address</li>
+        <li ><a href="shipping_address" id="user_address"></a></li>
+
+      </ul>
+
+      <ul data-role="listview" data-inset="true" id="checkout_items">
+        <li data-role="list-divider">Items</li>
+
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

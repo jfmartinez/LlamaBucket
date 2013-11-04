@@ -1,0 +1,54 @@
+ 
+    <!DOCTYPE html>
+  <html>
+  <head>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/item.js"></script>  
+    <script src="js/cart.js"></script>
+    <script src="js/user.js"></script> 
+    <script src="js/home.js"></script> 
+    <script src="js/invoice.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> 
+  </head>
+  <body>
+   <div data-role="page" id="edit_credit_info">
+      <div data-role="header" data-position="fixed">
+        <h2>Edit Credit Cards</h2>
+      </div>
+      <div data-role="content">
+        <form id="user_info_edit">
+            <h4 style="text-align: center;"> Credit Card Information</h4>
+            <label for="first_name">Number:</label>
+            <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder=""/>
+            <label for="last_name">Type:</label>
+            <input type="text" name="last_name" id="last_name" data-mini="true" placeholder=""/>
+
+            <h4 style="text-align : center;">Billing Information</h4>
+            <label for="old_password">Address 1</label>
+            <input for="text" name="old_password" id="old_password" placeholder="" data-mini="true"/>
+            <label for="new_password">Address 2</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+            <label for="new_password">City</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+            <label for="new_password">State</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+            <label for="new_password">Zip Code</label>
+            <input for="text" name="new_password" id="new_password" placeholder="" data-mini="true"/>
+          </form>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+              <li><button data-role="button" data-inline="true" id="edit_user_save" >Save</button></li>
+              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+            </ul>
+          </div>
+
+      </div>
+    </div>
+  </body>
+  </html>
