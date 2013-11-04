@@ -283,14 +283,17 @@ $(document).on('pagebeforeshow', '#home', function(event)
 
 //Properly redirect the user depending on his status on the page.
 $(document).on('click', '#my_profile', function(event)
-{
+{  
+
+
   if(localStorage.getItem('email'))
   {
-    $.mobile.changePage('#user_profile');
+    location.href="user-profile.html";
+    
   }
   else
   {
-    $.mobile.changePage('#sign_in');
+  $.mobile.changePage("#sign_in", {transition: "slide"});
   }
 });
 
