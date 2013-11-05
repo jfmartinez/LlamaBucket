@@ -282,6 +282,8 @@ $(document).on('pagebeforeshow', '#home', function(event)
 });
 
 //Properly redirect the user depending on his status on the page.
+$(document).bind( "pagebeforechange", 'user-profile.html', function( e, data ) {
+
 $(document).on('click', '#my_profile', function(event)
 {  
 
@@ -296,5 +298,6 @@ $(document).on('click', '#my_profile', function(event)
   $.mobile.changePage("#sign_in", {transition: "slide"});
   }
 });
+}
 
 
