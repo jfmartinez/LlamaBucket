@@ -3,14 +3,16 @@ $(document).on('click', '#sign_in_submit', function(event)
 { 
   $.ajax({
     type : "POST",
-    url : "http://localhost:3000/sign_in",
+    url : "http://localhost:5000/sign_in",
     data : { username : $('#username').val(), password : $('#password').val()},
     success : function(data)
     {
+      console.log(data);
       //Store the user in localStorage
-      localStorage.setItem('first_name', data.first_name);
-      localStorage.setItem('last_name', data.last_name);
+      localStorage.setItem('first_name', data.client_firstname);
+      localStorage.setItem('last_name', data.client_lastname);
       localStorage.setItem('email', data.email);
+      localStorage.setItem('id', data.client_id);
       localStorage.setItem('phone', data.phone);
       localStorage.setItem('image', data.image);
 
@@ -52,7 +54,7 @@ $(document).on('click', '#edit_user_save', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://localhost:3000/update_user_info",
+    url : "http://localhost:5000/update_user_info",
     data : $('#user_info_edit').serializeArray(),
     success : function(data)
     {
@@ -78,7 +80,7 @@ $(document).on('click', '#edit_user_save', function(event)
 $(document).on('pagebeforeshow', '#address_list', function(event)
 {
     $.ajax({
-      url : "http://localhost:3000/get_addresses",
+      url : "http://localhost:5000/get_addresses/"+localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {
@@ -87,7 +89,7 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
 
         for(var i = 0; i < data.content.length; i++)
         {
-            list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].mail_address1+'"">'+data.content[i].mail_address1+'</a></li>');
+            list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_1+'"">'+data.content[i].address_1+'</a></li>');
         }
 
         list.listview('refresh');
@@ -103,7 +105,7 @@ $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://localhost:3000/add_mail_address",
+    url : "http://localhost:5000/add_mail_address",
     data : $('#new_address').serializeArray(),
     success : function(data)
     {
@@ -124,7 +126,7 @@ $(document).on('click', '#user_address_list li', function(event)
   {
     $.ajax({
       type : "POST",
-      url : "http://localhost:3000/delete_address",
+      url : "http://localhost:5000/delete_address",
       data : { address1 : address_to_delete},
       success : function(data)
       {
@@ -143,7 +145,7 @@ $(document).on('pagebeforecreate', '#notifications', function(event)
  {
 
    $.ajax({
-      url : "http://localhost:3000/get_notifications",
+      url : "http://localhost:5000/get_notifications",
       contentType : "application/json",
       success : function(data)
       {
@@ -177,7 +179,7 @@ $(document).on('pagebeforecreate', '#items_bidded', function(event)
  {
 
    $.ajax({
-      url : "http://localhost:3000/get_bids",
+      url : "http://localhost:5000/get_bids",
       contentType : "application/json",
       success : function(data)
       {
@@ -216,7 +218,7 @@ $(document).on('pagebeforecreate', '#store', function(event)
  {
 
    $.ajax({
-      url : "http://localhost:3000/get_listings",
+      url : "http://localhost:5000/get_listings",
       contentType : "application/json",
       success : function(data)
       {
