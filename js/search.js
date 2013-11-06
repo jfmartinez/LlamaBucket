@@ -12,7 +12,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 		
 		$.ajax({
-		url : "http://localhost:3000/search/category="+parameter,
+		url : "http://localhost:5000/search/category="+parameter,
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#results');
@@ -48,7 +48,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 		sessionStorage.clear();
 
 		$.ajax({
-			url : "http://localhost:3000/search/item_name="+search_parameter,
+			url : "http://localhost:5000/search/item_name="+search_parameter,
 			contentType : "application/json",
 			success : function(data)
 			{
@@ -84,7 +84,7 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 
 	$.ajax
 	({
-		url : "http://localhost:3000/categories",
+		url : "http://localhost:5000/categories",
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -95,9 +95,9 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 
 			for(var i = 0; i < data.content.length; i++)
 			{
-				if(data.content[i].parent == null)
+				if(data.content[i].parent_id == null)
 				{
-					list.append('<li data-icon=\"arrow-r\" data-iconpos=\"right\" value=\"'+data.content[i].id+'\"><a href=\"#\">'+data.content[i].category+'</a></li>')
+					list.append('<li data-icon=\"arrow-r\" data-iconpos=\"right\" value=\"'+data.content[i].cat_id+'\"><a href=\"#\">'+data.content[i].category_name+'</a></li>')
 				}
 			}
 
@@ -127,10 +127,11 @@ $(document).on('click', '#categories-list li', function()
 	var parent_category = $(this).attr('value');
 	$.ajax
 	({
-		url : "http://localhost:3000/categories/" +parent_category,
+		url : "http://localhost:5000/categories/" +parent_category,
 		contentType : "application/json",
 		success : function(data)
 		{
+			console.log(data);
 			//Check to see if there are more subcategories
 			//If there are none, redirect to the results page.
 			if(data.content.length == 0)
@@ -163,9 +164,9 @@ $(document).on('click', '#categories-list li', function()
 				//Fill the page list with the page elements.
 				for(var i = 0; i < data.content.length; i++)
 				{
-					if(data.content[i].parent == parent_category)
+					if(data.content[i].parent_id == parent_category)
 					{
-						list.append('<li data-icon=\"arrow-r\" data-iconpos=\"right\" value=\"'+data.content[i].id+'\"><a href=\"#\">'+data.content[i].category+'</a></li>')
+						list.append('<li data-icon=\"arrow-r\" data-iconpos=\"right\" value=\"'+data.content[i].cat_id+'\"><a href=\"#\">'+data.content[i].category_name+'</a></li>')
 					}
 				}
 
