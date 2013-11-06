@@ -42,7 +42,7 @@ $(document).on('click', '#buy_add_check', function(event)
 
 	$.ajax({
       type : "POST",
-      url : "http://localhost:3000/add_cart",
+      url : "http://localhost:5000/add_cart",
       data : data_to_send,
       success : function(data)
       {
@@ -62,7 +62,7 @@ $(document).on('click', '#bucket_list li', function(event)
 	{
 		$.ajax({
       type : "POST",
-      url : "http://localhost:3000/remove_from_cart",
+      url : "http://localhost:5000/remove_from_cart",
       data : {name : name_to_delete},
       success : function(data)
       {
