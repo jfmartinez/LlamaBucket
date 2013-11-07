@@ -131,7 +131,6 @@ $(document).on('click', '#categories-list li', function()
 		contentType : "application/json",
 		success : function(data)
 		{
-			console.log(data);
 			//Check to see if there are more subcategories
 			//If there are none, redirect to the results page.
 			if(data.content.length == 0)
@@ -145,18 +144,19 @@ $(document).on('click', '#categories-list li', function()
 			// Inject it into the index.html page, and display it.
 			else
 			{
-				//Create a new page that will be the list of subcategories
-				$("body").append("<div data-role=\"page\" id=\""+
-					data.parent_name+"\" data-url=\""+data.parent_name+"\"><div data-role=\"header\"><h3>"+
-					data.parent_name+"</h3><a href=\"\" data-rel=\"back\"> Back</a></div><div data-role=\"content\"><ul data-role=\"listview\" id=\""+
-					data.parent_name+"-categories\" class=\"ui-li-icon\"></ul></div></div></div>")
+				//Add correctly the information in the subcategories page
+				var page_content = $("#subcategories_content")
+
+				page_content.children().attr('id', data.parent_name + '-categories');
+
+
+				// $("body").append("<div data-role=\"page\" id=\""+
+				// 	data.parent_name+"\" data-url=\""+data.parent_name+"\"><div data-role=\"header\"><h3>"+
+				// 	data.parent_name+"</h3><a href=\"\" data-rel=\"back\"> Back</a></div><div data-role=\"content\"><ul data-role=\"listview\" id=\""+
+				// 	data.parent_name+"-categories\" class=\"ui-li-icon\"></ul></div></div></div>")
 				
 
 				var list = $("#"+data.parent_name+"-categories");
-
-				//Initialize the page
-				$page = $('#'+data.parent_name+'');
-				$page.page();
 
 				//Clear the list
 				list.empty();
@@ -185,8 +185,8 @@ $(document).on('click', '#categories-list li', function()
 				list.attr('id', 'categories-list');
 
 				//Change to the newly created list.
-				$.mobile.changePage($('#'+data.parent_name+''));
-				}
+				$.mobile.changePage($('#subcategories'));
+			}
 		},
 		error : function(data)
 		{
