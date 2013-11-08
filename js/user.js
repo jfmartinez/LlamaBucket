@@ -4,32 +4,31 @@ $(document).on('click', '#sign_in_submit', function(event)
   $.ajax({
     type : "POST",
     url : "http://localhost:5000/sign_in",
-    data : { username : $('#username').val(), password : $('#password').val()},
+    data : { email : $('#sign_in_email').val(), password : $('#password').val()},
     success : function(data)
     {
-      console.log(data);
       //Store the user in localStorage
-
-      localStorage.setItem('id', data.client_id);
+      localStorage.setItem('id', data.id);
 
       $('#home').page();
       $.mobile.changePage('#home')
     },
     error : function(data)
     {
-      console.log('Sign in was not possible.');
+      console.log(data);
     }
   })
 });
 
 
 //Show the user information on the user page.
-$(document).on('pagebeforeshow', '#user_profile', function(event)
+$(document).on('click', '#user_profile_trigger', function(event)
 {
   //Check to see if the user is signed in?
   if(localStorage.getItem('id'))
   {
     //user is signed in.
+    $.mobile.changePage('#user_profile');
     $.ajax
     ({
       url : "http://localhost:5000/profile/" + localStorage.getItem('id'),
@@ -54,6 +53,12 @@ $(document).on('pagebeforeshow', '#user_profile', function(event)
         console.log('Did not work: Profile');
       }
     })
+  }
+
+  //User is not signed in
+  else
+  {
+      $("#sign_in_trigger").click();
   }
 
 });
