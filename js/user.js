@@ -9,14 +9,9 @@ $(document).on('click', '#sign_in_submit', function(event)
     {
       console.log(data);
       //Store the user in localStorage
-      localStorage.setItem('first_name', data.client_firstname);
-      localStorage.setItem('last_name', data.client_lastname);
-      localStorage.setItem('email', data.email);
-      localStorage.setItem('id', data.client_id);
-      localStorage.setItem('phone', data.phone);
-      localStorage.setItem('image', data.image);
 
-      $('#sign_in_button').replaceWith('<a href="#user_profile" data-role="button" id="my_profile_home">'+localStorage.getItem('first_name')+'</a>')
+      localStorage.setItem('id', data.client_id);
+
       $('#home').page();
       $.mobile.changePage('#home')
     },
@@ -31,12 +26,35 @@ $(document).on('click', '#sign_in_submit', function(event)
 //Show the user information on the user page.
 $(document).on('pagebeforeshow', '#user_profile', function(event)
 {
-  // $('#profile_image').attr('src',localStorage.getItem('image'));
-  $('#user_profile_name').html(''+localStorage.getItem('first_name') +' '+ localStorage.getItem('last_name'));
-  $('#user_profile_email').html(localStorage.getItem('email'));
-  $('#user_profile_phone').html(localStorage.getItem('phone'));
+  //Check to see if the user is signed in?
+  if(localStorage.getItem('id'))
+  {
+    //user is signed in.
+    $.ajax
+    ({
+      url : "http://localhost:5000/profile/" + localStorage.getItem('id'),
+      contentType : "application/json",
+      success : function(data)
+      {
+        //Add the information to the user page.
+        $('#client_image').attr('src', data.image);
+        $('#client_name').html('<h4>' + data.name +'</h4>');
+        $('#client_email').html('<strong> Email: </strong>' + data.email);
+        $('#client_rank').html('<strong>Rank: </strong>' + data.rank.toPrecision(2) + '/5');
+        $('#client_add1').html(data.address_1);
+        $('#client_add2').html(data.address_2);
+        $('#client_add3').html(data.city +', '+data.state +' Zip: '+data.zip_code);
+        $('#client_country').html(data.country);
+        $('#card_number').html('<strong>Card Number: </strong> **** **** **** '+data.credit_card);
+        $('#credit_card_type').html('<strong>Card Type: </strong>' + data.credit_card_type);
 
-
+      },
+      error : function(data)
+      {
+        console.log('Did not work: Profile');
+      }
+    })
+  }
 
 });
 
@@ -241,10 +259,6 @@ $(document).on('pagebeforecreate', '#store', function(event)
 
               );
           }
-
-          
-
-
           list.listview('refresh');
       },
       error : function(data)
