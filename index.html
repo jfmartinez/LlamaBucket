@@ -853,71 +853,55 @@
   </div>
   <!-- End of Search Results -->
 
-<!-- user page -->
-<div data-role="page" id="user_profile" >
+  <!-- user page -->
 
-  <div data-role="header" data-position="fixed">
-    <a href="#home">Home</a>
-    <h2>My profile</h2>
-    <a href="#" id="log_out_button">Log Out</a>
+  <div data-role="page" id="user_profile" >
+
+    <div data-role="header" data-position="fixed">
+      <a href="#" data-rel="back">Back</a>
+      <h2>My profile</h2>
+      <a href="#" id="log_out_button">Log Out</a>
+    </div>
+
+    <div data-role="content" id="client_content"  style="background-image:url('images/bg/dark_geometric.png');">
+     <br>
+
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#">
+        <div class="ui-grid-a">
+          <div class="ui-block-a" style="width: 25%;">
+           <img id="client_image" src="" width="75%"/>
+          </div>
+          <div class="ui-block-b" style="width: 75%">
+              <h1></h1>
+              <p id="client_name"></p>
+              <p id="client_email"></p>
+              <p id="client_rank"></p>
+          </div>
+        </div>
+      </a></li>
+    </ul>
+ 
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider" >Shipping Information</li>
+      <li><a href="#address_list"> 
+        <p id="client_add1"></p>
+        <p id="client_add2"></p>
+        <p id="client_add3"></p>
+        <p id="client_country"></p></a>
+      </li>
+    </ul>
+
+
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider" >Main Credit Card</li>
+      <li> <a href="#credit_card_list">
+        <p id="card_number"></p> 
+        <p id="credit_card_type"></p></a>
+      </li>
+    </ul>
+    <br>
   </div>
-
-
-  <div data-role="content" id="user_content"  style="background-image:url('images/bg/dark_geometric.png');">
-   <br>
-   <ul data-role="listview" data-inset="true">
-
-    <li><a href="#">
-      <div class="ui-grid-a">
-        <div class="ui-block-a" style="width: 25%;">
-         <img id="profile_image" src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-frc3/1383152_10153432569220088_475078084_n.jpg" width="75%"/>
-       </div>
-
-
-       <div class="ui-block-b" style="width: 75%">
-
-
-
-        <h1></h1>
-        <p>Jose F. Martinez</p>
-        <p>jose.martinez60@fosho.edu</p>
-        <p>Location: Puerto Rico</p>
-      </div>
-    </a>
-  </li>  
-</ul>
-
-
-<ul data-role="listview" data-inset="true">
-  <li data-role="list-divider" >Shipping Information</li>
-  <li><a href=""> <p id="user_profile_add1">#311 Calle Ext. Los Robles</p>
-    <p id="user_profile_add2"></p>
-    <p>Rincon, PR 00677</p>
-    <p>United States</p></a>
-
-  </li>
-
-</ul>
-
-
-<ul data-role="listview" data-inset="true">
-  <li data-role="list-divider" >Main Credit Card</li>
-
-
-
-
-
-
-  <li> <a href="">
-
-   <p style=""> <strong>Card Number:</strong> ****3213</p>  
-   <p><strong>Type:</strong> Visa</p></a>
-
-
- </li>
-</ul>
-<br>
-</div>
 
 
 <div data-role="footer" data-id="pers_footer" data-position="fixed">
@@ -1038,6 +1022,7 @@
     </div>
   </div>
 </div>
+<!-- Address list -->
 
 <div data-role="page" id="address_list">
 
@@ -1061,6 +1046,33 @@
   </div>
 </div>
 
+<!-- end address list -->
+
+<!-- credit card list -->
+
+<div data-role="page" id="credit_card_list">
+
+  <div data-role="header" data-position="fixed">
+    <a href="#user_profile">Back</a>
+    <h2> Credit Cards </h2>
+  </div>
+
+  <div data-role="content">
+    <div>
+      <ul data-role="listview" id="card_list">
+      </ul>
+    </div>
+
+    <br>
+
+    <div>
+      <a href="#add_credit_card" data-role="button">Add</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- end credit card list -->
 
 <div data-role="page" id="address_confirmation_dialog">
   <div data-role="content">
