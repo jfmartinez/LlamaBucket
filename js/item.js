@@ -1,21 +1,58 @@
+var description;
+
 $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
-	sessionStorage.clear();
 	$.ajax({
-		url : "http://localhost:3000/item/"+item_id,
+		url : "http://localhost:5000/item/"+item_id,
 		contentType : "application/json",
 		
 		success : function(data){
-			$('#itemimage').attr('src', data.image);
-			$('#itemprice').html('<strong>Price: </strong>'+data.price);
-			$('#itemname').html('<strong>Name: </strong>'+data.name);
-			$('#itemdesc').html('<strong>Description: </strong>'+data.description);
-			$('#itemgeneral').html('<strong>General: </strong>'+data.general);
-			$('#itemyear').html('<strong>Year: </strong>'+data.year);
-			$('#itemcat').html('<strong>Category: </strong>'+data.category);
-			$('#itemid').html('<strong>Product ID: </strong>'+data.product_id);
+			console.log(data);
+			console.log(data[0]);
 
+			description = data.item_description;
+
+
+			$('#bid_price').html("US $"+data.price_bid);
+			$('#number_bids_count').html();
+			$('#item_price').html("US $" + data.price_buy);
+
+			if(data.is_auction == "bid")
+			{
+				//For bidding
+			$('#price_tag').hide();
+
+			}
+
+			else if(data.is_auction == "buy"){
+				$('#current_bidding').hide()
+				$('#number_bids').hide();
+				
+
+
+
+
+			}
+			
+
+
+
+
+
+
+			$('#item_image').attr('src', data["item_image"]);
+			$('#item_brand').html(data.item_brand);
+			$('#item_category').html(data.category_name);
+			$('#item_year').html(data.item_year);
+			$('#item_id').html(data.item_id);
+			$('#item_seller').html(data.client_firstname + " " + data.client_lastname);
+			$('#item_header').html(data.item_name);
+			$('#item_location').html(data.city +", " + data.state + " ," + data.country );
+			$('ul').listview('refresh');
+
+
+		
 		},
 
 		error : function(data){
@@ -23,6 +60,13 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 		}
 	});
 });
+
+$(document).on('pagebeforeshow', '#item_desc', function(event, ui){
+
+
+		$('#item_desc_text').html(description);
+});
+
 
 $(document).on('click', '#results li', function(event)
 {

@@ -12,6 +12,7 @@
     <script src="js/admin.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css" /> 
+    <link rel="stylesheet" href="css/skeleton.css"/>
     <style>
     
 
@@ -23,7 +24,7 @@
   </head>
   <body>
 
-    <!--Home Page -->
+      <!--Home Page -->
     <div data-role="page" id="home">
 
 
@@ -33,7 +34,6 @@
 
         <h2 class="ui-title" role="heading">LlamaBucket</h2>
         <div data-role="controlgroup" class="ui-btn-right" data-type="horizontal">
-          <a href="#user_bucket"  data-theme="" id="bucket"><img src="https://cdn3.iconfinder.com/data/icons/cleaning-icons/512/Bucket_with_Soap-128.png" width="26" height="26" border= "0"></a>
         </div>
 
       </div>
@@ -73,19 +73,17 @@
   <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-
         <li><a href="#home" data-icon="home" >Home</a></li>
         <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
-        <li><a href="#bucket" data-icon="bars" >Bucket</a></li>
-      
-
-
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
       </ul>
     </div>
   </div>
+
 </div>
 
 <!-- Home Page End -->
+
 
 
 <!-- Bids -->
@@ -102,12 +100,12 @@
 
   </div>
 
-  <div data-role="footer" data-position="fixed">
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-
-        <li><a href="#" data-icon="home" id="my_profile">My Profile</a></li>
-        <li><a href="#" data-icon="bars">Settings</a></li>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
       </ul>
     </div>
   </div>
@@ -134,16 +132,17 @@
 
   </div>
 
-  <div data-role="footer" data-position="fixed">
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-
-        <li><a href="#" data-icon="home" id="my_profile">My Profile</a></li>
-        <li><a href="#" data-icon="bars">Settings</a></li>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
       </ul>
     </div>
   </div>
 </div>
+
 
 
 
@@ -161,16 +160,18 @@
 
     </ul>
   </div>
-  <div data-role="footer" data-position="fixed">
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-
-        <li><a href="#" data-icon="home" id="my_profile">My Profile</a></li>
-        <li><a href="#" data-icon="bars">Settings</a></li>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
       </ul>
     </div>
   </div>
 </div>
+
+
 <!-- Invoice list -->
 <div data-role="page" id="invoicelistpage">
   <div data-role="header" id="invoicelistheader">
@@ -367,7 +368,7 @@
 <div data-role="page" id="user_bucket">
 
   <div data-role="header">
-    <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext"></a>
+    <a href="#" data-rel="back">Back</a>
     <h2> My Bucket </h2>
     <a href="#checkout_address" data-role="button">Checkout</a>
   </div>
@@ -375,25 +376,23 @@
 
   <div data-role="content">
     <ul data-role="listview" id="bucket_list" data-inset = "true" >
-
     </ul>
-
-
-
   </div>
 
-  <div data-role="footer" data-position="fixed">
-   <div class="ui-grid-b">
-    <div class="ui-block-a" id="item_count" style="text-align: left;"></div>
-    <div class="ui-block-b"></div>
-    <div class="ui-block-c" id="cart_total" style="text-align: right;"></div>     
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
+      </ul>
+    </div>
   </div>
 
 </div>
 
 
 </div>
-
 <!-- Checkout -->
 <div data-role="page" id="checkout_address">
   <div data-role="header">
@@ -466,7 +465,7 @@
 <!--Featured Items -->
 <div data-role="page" id="featuredItems">
 
-  <div data-role="header">
+  <div data-role="header" data-id="foo1" data-position="fixed">
     <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
     <h2> Featured Items </h2>
   </div>
@@ -502,7 +501,7 @@
 <!--Item View -->
 <div data-role="page" id="itempage">
 
-  <div data-role="header">
+  <div data-role="header" data-id="foo1" data-position="fixed">
     <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
     <h2> Item List </h2>
     <a data-role="button" href="#" id="buy_add_check" data-icon="plus">Add</a>
@@ -513,170 +512,216 @@
 
     <div class="ui-grid-b">
       <div class="ui-block-a"></div>
-      <div class="ui-block-b"><img src="http://upload.wikimedia.org/wikipedia/commons/a/a4/IPad_3.png" id="itemimage" width="90%"/></div>
+      <div class="ui-block-b"><img src="" id="item_image" width="90%"/></div>
       <div class="ui-block-c"></div>
-  </div> <!-- /grid-b
-        <div class="ui-grid-a">
-        <div class="ui-block-a">
-          <img src="http://upload.wikimedia.org/wikipedia/commons/a/a4/IPad_3.png" id="itemimage" width="100%">
-        </div>
-        <div class="ui-block-b">
-          <p id="itemprice"></p>
-          <p id="itembid"><strong>Bid:</strong></p>
-          <a data-role="button" href="#checkout_address" data-inline="true">Buy</a>
-          <button data-role="button" data-inline="true">Bid</button>
-        </div>
-      </div>
-      <div>-->
-        <h1 style="text-align: center; color:white;">Apple iPad 3 </h1>
-
-        <ul data-role="listview" data-inset="true" data-icon="false" >
-
-          <li><p> Price: </p></li>
-          <li><p> Quantity: </p> <p id="itemdesc"></p></li>
-          <li><p> Shipping: </p></li>
-          <hr>
-          <li><p>Location:</p></li>
-
-        </ul>
-        
-        <ul data-role="listview" data-inset="true" >
-          <li><a href="#" ><p>Description</p></a></li>
-
-          <li><p>Brad</p></li>
-          <li><p>Category</p></li>
-          <li><p>Year </p></li>
-          <li><p>ID </p><p id="itemid"></p></li>
-
-          <li><p>Seller: </p>
-          </ul>
-
-          <br>
-
-          <div data-role="controlgroup">
-            <a href="index.html" data-role="button">Buy</a>
-            <a href="index.html" data-role="button">Bid</a>
-            <a href="index.html" data-role="button">Add to Cart</a>
-          </div>      </div>
-
-        </div>
-      </div>
-
-
-      <!--Item View End -->
-
-
-
-      <!--Sign In - Dialog -->
-      <div data-role="dialog" id="sign_in">
-        <div data-role="header">
-          <h1>Sign In</h1>
-        </div>
-        <div data-role="content">
-          <form> 
-            <label for="basic"></label>
-            <input type="text" name="username" id="username" placeholder="Username" />
-            <input type="password" name="password" id="password" placeholder="Password" />
-            <a href="#"> Forgot Password?</a>
-            <div class="ui-grid-a">
-              <div class="ui-block-a"><a href="#registerForm" data-role="button">Register</a></div>
-              <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check">Log In</a></div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- End -->
-
-
-      <!-- Register Form -->
-      <div data-role="page" id="registerForm">
-        <div data-role="header">
-         <a href="#home">Cancel </a>
-
-         <h1> Register </h1>
-         <a href="#thanks_note">Save</a>
-       </div>
-       <div data-role="content">
-        <form action="" method="post">
-
-          <!-- Personal Information -->
-          <ul data-role="listview" data-inset="true">
-            <li data-role="list-divider">Personal Information</li>
-            <li data-role="fieldcontain"><input type="text" name="firstName" id="firstName" placeholder="First Name"/></li>
-            <li data-role="fieldcontain"><input type="text" name="lastName" id="lastName" placeholder="Last Name"/></li>
-            <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="Email"/></li>
-            <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Password"/></li>
-            <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Verify Password"/></li>
-          </ul>
-
-
-
-
-          <!--Mailing Address -->
-          <ul data-role="listview" data-inset="true">
-
-            <li data-role="list-divider">Mailing Address</li>
-            <li data-role="fieldcontain"><input ng-model="addressOne" type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
-            <li data-role="fieldcontain"><input ng-model="addressTwo" type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
-            <li data-role="fieldcontain"><input  ng-model="theCity" type="text" name="city" id="cityForm" placeholder="City" /></li>
-            <li data-role="fieldcontain"><input ng-model="theZipcode" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
-            <li data-role="fieldcontain"><select ng-model="theCountry" name="country" id="country" >
-
-
-            </select></li>
-          </ul>
-
-          <!-- Billing Address -->
-          <ul data-role="listview" data-inset="true">
-           <li data-role="list-divider">Billing Address 
-           </li>
-           <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="equalAddress" id="equalAddress" class="custom" /></label></li>
-           <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
-           <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
-           <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="City" /></li>
-           <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
-           <li data-role="fieldcontain"><select name="country" id="country" >
-
-           </select></li>
-         </ul>
-
-         <!--Credit Card Info -->
-         <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider">Credit Card Information</li>
-          <li data-role="fieldcontain"><input type="text" name="credit_card_number" id="credit_card_number" placeholder="Credit Card Number"/>
-          </li>
-          <li data-role="fieldcontain"><input type="text" name="cvs" id="cvs" placeholder="CVS"></li>
-          <li data-role="fieldcontain"><select name="cardType" id="cardType">
-            <option value="VISA"> Visa</option>
-            <option value="AMEX"> Amex</option>
-            <option value="MASTER"> MasterCard</option>
-          </select>
-          <li data-role="fieldcontain"><input type="text" name="expdate" id="expdate" placeholder="Expiration Date: MM/YY"/>
-          </li>
-        </ul>
-
-
-
-      </form>
     </div>
+
+
+    <h2 style="text-align: center; color:white;" id="item_header"></h2>
+
+    <ul data-role="listview" data-inset="true" data-icon="false" id="item_pricing_details">
+
+      <li id="price_tag"> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Price:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="item_price" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
+
+      </div></li>
+
+      <li id="current_bidding"> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute" style="margin-top: 2px">Current Bid:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="bid_price" ></p><p class="item_attribute"></p></div>
+
+      </div></li>
+
+      <li id="number_bids"> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Number of Bids:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="number_bids" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
+
+      </div></li>
+
+
+      <li> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Location:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_location"></p></div>
+
+      </div></li>
+
+    </ul>
+
+    <ul data-role="listview" data-inset="true" >
+
+
+      <li><a href="#item_desc" ><p class="item_attribute">Description</p></a></li>
+
+      <li> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Brand:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_brand"></p></div>
+
+      </div></li>
+      <li> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Category:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_category"></p></div>
+
+      </div></li>
+      <li> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Year:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_year"></p></div>
+
+      </div></li>
+      <li> <div class="ui-grid-a">
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute">ID:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_id"></p></div>
+
+      </div></li>
+      <li> <div class="ui-grid-a">
+        <div class="ui-block-a" style="width:33%"><p class="item_attribute">Seller:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_seller"></p></div>
+
+      </div></li>
+    </ul>
+
+    <br>
+
+    <div data-role="controlgroup">
+      <a href="index.html" data-role="button" data-theme="a">Buy</a>
+      <a href="index.html" data-theme="a" data-role="button">Bid</a>
+      <a href="index.html" data-theme="a" data-role="button">Add to Cart</a>
+    </div>      </div>
+
   </div>
-  <!-- Register Form end -->
+</div>
 
-  <!-- Thanks Note -->
 
-  <div data-role="dialog" id="thanks_note">
-    <div data-role="header">
-      <h1></h1>
-    </div>
-    <div data-role="content">
-      <h3>Thanks for registering!</h3>
+<!--Item View End -->
+
+
+
+<!--Sign In - Dialog -->
+<div data-role="dialog" id="sign_in">
+  <div data-role="header">
+    <h1>Sign In</h1>
+  </div>
+  <div data-role="content">
+    <form> 
+      <label for="basic"></label>
+      <input type="text" name="username" id="username" placeholder="Username" />
+      <input type="password" name="password" id="password" placeholder="Password" />
+      <a href="#"> Forgot Password?</a>
       <div class="ui-grid-a">
-        <div class="ui-block-a"><a href="#sign_in" data-role="button" data-icon="star">Shop</a></div>
-        <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="home">Home</a></div>
+        <div class="ui-block-a"><a href="#registerForm" data-role="button">Register</a></div>
+        <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check">Log In</a></div>
       </div>
+    </form>
+  </div>
+</div>
+
+<!-- End -->
+
+<!-- Description Dialog -->
+
+<div data-role="dialog" id="item_desc">
+
+  <div data-role="header">
+    <h1>Description</h1>
+
+  </div>
+
+  <div data-role="content">
+
+    <h4 id="item_desc_text"> </h4>
+
+  </div>
+
+</div>
+
+<!-- Register Form -->
+<div data-role="page" id="registerForm">
+  <div data-role="header">
+   <a href="#home">Cancel </a>
+
+   <h1> Register </h1>
+   <a href="#thanks_note">Save</a>
+ </div>
+ <div data-role="content">
+  <form action="" method="post">
+
+    <!-- Personal Information -->
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider">Personal Information</li>
+      <li data-role="fieldcontain"><input type="text" name="firstName" id="firstName" placeholder="First Name"/></li>
+      <li data-role="fieldcontain"><input type="text" name="lastName" id="lastName" placeholder="Last Name"/></li>
+      <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="Email"/></li>
+      <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Password"/></li>
+      <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Verify Password"/></li>
+    </ul>
+
+
+
+
+    <!--Mailing Address -->
+    <ul data-role="listview" data-inset="true">
+
+      <li data-role="list-divider">Mailing Address</li>
+      <li data-role="fieldcontain"><input ng-model="addressOne" type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
+      <li data-role="fieldcontain"><input ng-model="addressTwo" type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
+      <li data-role="fieldcontain"><input  ng-model="theCity" type="text" name="city" id="cityForm" placeholder="City" /></li>
+      <li data-role="fieldcontain"><input ng-model="theZipcode" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
+      <li data-role="fieldcontain"><select ng-model="theCountry" name="country" id="country" >
+
+
+      </select></li>
+    </ul>
+
+    <!-- Billing Address -->
+    <ul data-role="listview" data-inset="true">
+     <li data-role="list-divider">Billing Address 
+     </li>
+     <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="equalAddress" id="equalAddress" class="custom" /></label></li>
+     <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
+     <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
+     <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="City" /></li>
+     <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
+     <li data-role="fieldcontain"><select name="country" id="country" >
+
+     </select></li>
+   </ul>
+
+   <!--Credit Card Info -->
+   <ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Credit Card Information</li>
+    <li data-role="fieldcontain"><input type="text" name="credit_card_number" id="credit_card_number" placeholder="Credit Card Number"/>
+    </li>
+    <li data-role="fieldcontain"><input type="text" name="cvs" id="cvs" placeholder="CVS"></li>
+    <li data-role="fieldcontain"><select name="cardType" id="cardType">
+      <option value="VISA"> Visa</option>
+      <option value="AMEX"> Amex</option>
+      <option value="MASTER"> MasterCard</option>
+    </select>
+    <li data-role="fieldcontain"><input type="text" name="expdate" id="expdate" placeholder="Expiration Date: MM/YY"/>
+    </li>
+  </ul>
+
+
+
+</form>
+</div>
+</div>
+<!-- Register Form end -->
+
+<!-- Thanks Note -->
+
+<div data-role="dialog" id="thanks_note">
+  <div data-role="header">
+    <h1></h1>
+  </div>
+  <div data-role="content">
+    <h3>Thanks for registering!</h3>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="#sign_in" data-role="button" data-icon="star">Shop</a></div>
+      <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="home">Home</a></div>
     </div>
   </div>
+</div>
 
 
   <!-- Categories page -->
@@ -690,46 +735,68 @@
       <ul data-role="listview" id="categories-list" class="ui-li-icon">
       </ul>
     </div>
+
     <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-
-        <li><a href="#" data-icon="home" id="my_profile">Home</a></li>
-        <li><a href="#" data-icon="bars">Search</a></li>
-        <li><a href="#" data-icon="bars"></a></li>
-        <li><a href="#" data-icon="bars">Settings</a></li>
-
-
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
       </ul>
     </div>
   </div>
-
-
   </div>
   <!-- End of Categories -->
 
 
-  <!-- Sort Dialog -->
+    <!-- Sub-categories view -->
 
-  <div data-role="dialog" id="sort_dialog">
+  <div data-role="page" id="subcategories">
     <div data-role="header" data-position="fixed">
-      <h2>Sort</h2>
+      <h3>Categories</h3>
+      <a href="#" data-rel="back"> Back</a>
     </div>
-    <div data-role="content">
-      <form>
-        <label>Sort By: </label>
-        <select>
-          <option> Sort By Name</option>
-          <option> Sort By Price </option>
-          <option> Sort By Brand</option>
-        </select>
-        <a href="#searchResults" data-role="button">Submit</a>
 
+    <div data-role="content" id="subcategories_content">
+      <ul data-role="listview" id="subcategories-list" class="ui-li-icon">
+      </ul>
+    </div>
 
-
-      </form>
+    <div data-role="footer" data-id="pers_footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
+      </ul>
     </div>
   </div>
+
+  </div>
+
+  <!-- end of sub-categories --> 
+
+<!-- Sort Dialog -->
+
+<div data-role="dialog" id="sort_dialog">
+  <div data-role="header" data-position="fixed">
+    <h2>Sort</h2>
+  </div>
+  <div data-role="content">
+    <form>
+      <label>Sort By: </label>
+      <select>
+        <option> Sort By Name</option>
+        <option> Sort By Price </option>
+        <option> Sort By Brand</option>
+      </select>
+      <a href="#searchResults" data-role="button">Submit</a>
+
+
+
+    </form>
+  </div>
+</div>
 
 
   <!-- Search Results -->
@@ -737,6 +804,7 @@
     <div data-role="header" data-position="fixed">
       <a href="index.html" id="back_button_categories" rel="external"> Home </a>
       <h2> Search Results </h2>
+      <button>Refine</button>
     </div>
 
     <div data-role="content">
@@ -745,94 +813,100 @@
       </ul>
     </div>
 
-    <div data-role="footer" data-position="fixed">
-      <a href="#sort_dialog" data-role="button" data-inline="false" data-icon="search"> Refine Search</a>
+    <div data-role="footer" data-id="pers_footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
+      </ul>
     </div>
+  </div>
 
   </div>
   <!-- End of Search Results -->
 
-  <!-- user page -->
-  <div data-role="page" id="user_profile" >
+<!-- user page -->
+<div data-role="page" id="user_profile" >
 
-    <div data-role="header" data-position="fixed">
-      <a href="#home">Home</a>
-      <h2>My profile</h2>
-      <a href="#" id="log_out_button">Log Out</a>
+  <div data-role="header" data-position="fixed">
+    <a href="#home">Home</a>
+    <h2>My profile</h2>
+    <a href="#" id="log_out_button">Log Out</a>
+  </div>
+
+  <div data-role="content" id="user_content"  style="background-image:url('images/bg/dark_geometric.png');">
+   <br>
+   <ul data-role="listview" data-inset="true">
+
+    <li><a href="#">
+      <div class="ui-grid-a">
+        <div class="ui-block-a" style="width: 25%;">
+         <img id="profile_image" src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-frc3/1383152_10153432569220088_475078084_n.jpg" width="75%"/>
+       </div>
+
+
+
+       <div class="ui-block-b" style="width: 75%">
+
+
+
+        <h1></h1>
+        <p>Jose F. Martinez</p>
+        <p>jose.martinez60@fosho.edu</p>
+        <p>Location: Puerto Rico</p>
+      </div>
+
+
+
+
+
+
+
     </div>
 
-    <div data-role="content" id="user_content"  style="background-image:url('images/bg/dark_geometric.png');">
-     <br>
-     <ul data-role="listview" data-inset="true">
-  
-      <li><a href="#">
-        <div class="ui-grid-a">
-          <div class="ui-block-a" style="width: 25%;">
-           <img id="profile_image" src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-frc3/1383152_10153432569220088_475078084_n.jpg" width="75%"/>
-         </div>
+  </a>
 
 
-         
-         <div class="ui-block-b" style="width: 75%">
+</li>
 
-         
-           
-              <h1></h1>
-              <p>Jose F. Martinez</p>
-              <p>jose.martinez60@fosho.edu</p>
-              <p>Location: Puerto Rico</p>
-            </div>
-         
-
-        
-
-
-
-       
-      </div>
-        
-</a>
-       
-
-      </li>
-     
-    </ul>
- 
+</ul>
 
 
 
 
 
 
-    <ul data-role="listview" data-inset="true">
-      <li data-role="list-divider" >Shipping Information</li>
-      <li><a href=""> <p id="user_profile_add1">#311 Calle Ext. Los Robles</p>
-        <p id="user_profile_add2"></p>
-        <p>Rincon, PR 00677</p>
-        <p>United States</p></a>
 
-      </li>
+<ul data-role="listview" data-inset="true">
+  <li data-role="list-divider" >Shipping Information</li>
+  <li><a href=""> <p id="user_profile_add1">#311 Calle Ext. Los Robles</p>
+    <p id="user_profile_add2"></p>
+    <p>Rincon, PR 00677</p>
+    <p>United States</p></a>
 
-    </ul>
+  </li>
 
-
-    <ul data-role="listview" data-inset="true">
-      <li data-role="list-divider" >Main Credit Card</li>
+</ul>
 
 
+<ul data-role="listview" data-inset="true">
+  <li data-role="list-divider" >Main Credit Card</li>
 
 
 
-   
-    <li> <a href="">
-
-     <p style=""> <strong>Card Number:</strong> ****3213</p>  
-     <p><strong>Type:</strong> Visa</p></a>
 
 
-   </li>
- </ul>
- <br>
+
+  <li> <a href="">
+
+   <p style=""> <strong>Card Number:</strong> ****3213</p>  
+   <p><strong>Type:</strong> Visa</p></a>
+
+
+ </li>
+</ul>
+<br>
 </div>
 
 
@@ -844,13 +918,16 @@
 
 
 
-<div data-role="footer" data-position="fixed">
-  <div data-role="navbar">
-    <ul>
-      <li><a href="#user_bucket">My Bucket</a></li>
-    </ul>
+
+<div data-role="footer" data-id="pers_footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#user_profile" data-icon="bars" >Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
 </div>
 <!-- end user page -->
