@@ -24,7 +24,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 			//Go over all the items that were fetched and create the appropiate list items
 			for(var i = 0; i < length; i++)
 			{
-				list.append("<li id=\""+
+					list.append("<li id=\""+
 					data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
 					data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
 					data.content[i].item_name+"</h5><p>"+
