@@ -24,7 +24,7 @@
   </head>
   <body>
 
-      <!--Home Page -->
+    <!--Home Page -->
     <div data-role="page" id="home">
 
 
@@ -79,7 +79,7 @@
     </div>
   </div>
 
-<a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
+  <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 </div>
 
 <!-- Home Page End -->
@@ -524,7 +524,7 @@
 <div data-role="page" id="itempage">
 
   <div data-role="header" data-id="foo1" data-position="fixed">
-    <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
+    <a href="#home"  data-rel="back"> Back </a>
     <h2> Item List </h2>
     <a data-role="button" href="#" id="buy_add_check" data-icon="plus">Add</a>
   </div>
@@ -556,8 +556,8 @@
       </div></li>
 
       <li id="number_bids"> <div class="ui-grid-a">
-        <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Number of Bids:</p></div>
-        <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="number_bids" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
+        <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Bids:</p></div>
+        <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="number_bids_count" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
 
       </div></li>
 
@@ -605,13 +605,24 @@
     <br>
 
     <div data-role="controlgroup">
-      <a href="index.html" data-role="button" data-theme="a">Buy</a>
-      <a href="index.html" data-theme="a" data-role="button">Bid</a>
-      <a href="index.html" data-theme="a" data-role="button">Add to Cart</a>
+      <a href="index.html" id="buy_item" data-role="button" data-theme="a">Buy</a>
+      <a href="index.html" id="bid_item" data-theme="a" data-role="button">Bid</a>
+      <a href="index.html" id="add_item_cart" data-theme="a" data-role="button">Add to Cart</a>
     </div>      </div>
 
-  </div>
+ 
+
+   <div data-role="footer" data-id="pers_footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#" data-icon="bars" id="user_profile_trigger">Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
+      </ul>
+    </div>
+ 
 </div>
+ </div>
 
 
 <!--Item View End -->
@@ -746,19 +757,19 @@
 </div>
 
 
-  <!-- Categories page -->
-  <div data-role="page" id="categories">
-    <div data-role="header" data-position="fixed">
-      <h3>Categories</h3>
-      <a href="#" data-rel="back"> Back</a>
-    </div>
+<!-- Categories page -->
+<div data-role="page" id="categories">
+  <div data-role="header" data-position="fixed">
+    <h3>Categories</h3>
+    <a href="#" data-rel="back"> Back</a>
+  </div>
 
-    <div data-role="content">
-      <ul data-role="listview" id="categories-list" class="ui-li-icon">
-      </ul>
-    </div>
+  <div data-role="content">
+    <ul data-role="listview" id="categories-list" class="ui-li-icon">
+    </ul>
+  </div>
 
-    <div data-role="footer" data-id="pers_footer" data-position="fixed">
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
         <li><a href="#home" data-icon="home" >Home</a></li>
@@ -767,23 +778,23 @@
       </ul>
     </div>
   </div>
+</div>
+<!-- End of Categories -->
+
+<!-- Sub-categories view -->
+
+<div data-role="page" id="subcategories">
+  <div data-role="header" data-position="fixed">
+    <h3 id="sub_category_title">Categories</h3>
+    <a href="#" data-rel="back"> Back</a>
   </div>
-  <!-- End of Categories -->
 
-  <!-- Sub-categories view -->
+  <div data-role="content" id="subcategories_content">
+    <ul data-role="listview" id="subcategories-list" class="ui-li-icon">
+    </ul>
+  </div>
 
-  <div data-role="page" id="subcategories">
-    <div data-role="header" data-position="fixed">
-      <h3>Categories</h3>
-      <a href="#" data-rel="back"> Back</a>
-    </div>
-
-    <div data-role="content" id="subcategories_content">
-      <ul data-role="listview" id="subcategories-list" class="ui-li-icon">
-      </ul>
-    </div>
-
-    <div data-role="footer" data-id="pers_footer" data-position="fixed">
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
         <li><a href="#home" data-icon="home" >Home</a></li>
@@ -793,9 +804,9 @@
     </div>
   </div>
 
-  </div>
+</div>
 
-  <!-- end of sub-categories --> 
+<!-- end of sub-categories --> 
 
 <!-- Sort Dialog -->
 
@@ -820,42 +831,21 @@
 </div>
 
 
-  <!-- Search Results -->
-  <div data-role="page" id="searchResults">
-    <div data-role="header" data-position="fixed">
-      <a href="#home" id="back_button_categories" rel="external"> Home </a>
-      <h2> Search Results </h2>
-      <button>Refine</button>
-    </div>
+<!-- Search Results -->
+<div data-role="page" id="searchResults">
+  <div data-role="header" data-position="fixed">
+    <a  id="back_button_categories" data-rel="back"> Back</a>
+    <h2> Search Results </h2>
+    <button>Refine</button>
+  </div>
 
-    <div data-role="content">
-      <ul data-role="listview" id="results">
-        <!-- Content will be generated here by the function in search.js file. --> 
+  <div data-role="content">
+    <ul data-role="listview" id="results">
+      <!-- Content will be generated here by the function in search.js file. --> 
+  </ul>
+  </div>
 
-
-      <!--   <li><a href="index.html" style="padding-top: -cm">
-        <img src="http://www.artifacting.com/blog/wp-content/uploads/2012/03/slothy1.jpg" height="100%" />
-        <div class="search_div_attribute" style="width: 66%">
-          <strong>Baby Sloth Buy Now!</strong>
-        </div>
-        <div class="search_div_attribute" style="width:33%">
-          <p id="search_type_text"></p>
-          <p id="search_price_text">Buy: <span id="buyout_price"> </span></p>
-          <p id="search_bid">Bid: <span id="bid_price"></span></p>
-          <p id="search_bid_number" style="color:gray;"><span id="bid_count"></span> bids</p>
-        </div>
-      </a></li>
- -->
-
-   <!--    <li><a href="index.html" style="padding-top: 2cm">
-        <img src="http://www.dogbehavioronline.com/wp-content/uploads/2012/03/Pug.jpg" />
-        <h3>Broken Bells</h3>
-        <p>Broken Bells</p>
-      </a></li>
- -->      </ul>
-    </div>
-
-    <div data-role="footer" data-id="pers_footer" data-position="fixed">
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
         <li><a href="#home" data-icon="home" >Home</a></li>
@@ -865,69 +855,96 @@
     </div>
   </div>
 
+</div>
+<!-- End of Search Results -->
+
+<!-- Category Results -->
+<div data-role="page" id="category_results">
+  <div data-role="header" data-position="fixed">
+    <a  id="back_button_categories" data-rel="back"> Back</a>
+    <h2 id="category_heading"> </h2>
+   
   </div>
-  <!-- End of Search Results -->
 
-  <!-- user page -->
+  <div data-role="content">
+    <ul data-role="listview" id="category_items">
+      <!-- Content will be generated here by the function in search.js file. --> 
+  </ul>
+  </div>
 
-  <div data-role="page" id="user_profile" >
-
-    <div data-role="header" data-position="fixed">
-      <a href="#" data-rel="back">Back</a>
-      <h2>My profile</h2>
-      <a href="#" id="log_out_button">Log Out</a>
+  <div data-role="footer" data-id="pers_footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" data-icon="home" >Home</a></li>
+        <li><a href="#" data-icon="bars" id="user_profile_trigger">Profile</a></li>
+        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
+      </ul>
     </div>
-
-    <div data-role="content" id="client_content"  style="background-image:url('images/bg/dark_geometric.png');">
-     <br>
-
-    <ul data-role="listview" data-inset="true">
-      <li><a href="#">
-        <div class="ui-grid-a">
-          <div class="ui-block-a" style="width: 25%;">
-           <img id="client_image" src="" width="75%"/>
-          </div>
-          <div class="ui-block-b" style="width: 75%">
-              <h1></h1>
-              <p id="client_name"></p>
-              <p id="client_email"></p>
-              <p id="client_rank"></p>
-          </div>
-        </div>
-      </a></li>
-    </ul>
- 
-    <ul data-role="listview" data-inset="true">
-      <li data-role="list-divider" >Shipping Information</li>
-      <li><a href="#address_list"> 
-        <p id="client_add1"></p>
-        <p id="client_add2"></p>
-        <p id="client_add3"></p>
-        <p id="client_country"></p></a>
-      </li>
-    </ul>
-
-
-    <ul data-role="listview" data-inset="true">
-      <li data-role="list-divider" >Main Credit Card</li>
-      <li> <a href="#credit_card_list">
-        <p id="card_number"></p> 
-        <p id="credit_card_type"></p></a>
-      </li>
-    </ul>
-    <br>
   </div>
+
+</div>
+<!-- End of Search Results -->
+
+<!-- user page -->
+
+<div data-role="page" id="user_profile" >
+
+  <div data-role="header" data-position="fixed">
+    <a href="#" data-rel="back">Back</a>
+    <h2>My profile</h2>
+    <a href="#" id="log_out_button">Log Out</a>
+  </div>
+
+  <div data-role="content" id="client_content"  style="background-image:url('images/bg/dark_geometric.png');">
+   <br>
+
+   <ul data-role="listview" data-inset="true">
+    <li><a href="#">
+      <div class="ui-grid-a">
+        <div class="ui-block-a" style="width: 25%;">
+         <img id="client_image" src="" width="75%"/>
+       </div>
+       <div class="ui-block-b" style="width: 75%">
+        <h1></h1>
+        <p id="client_name"></p>
+        <p id="client_email"></p>
+        <p id="client_rank"></p>
+      </div>
+    </div>
+  </a></li>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+  <li data-role="list-divider" >Shipping Information</li>
+  <li><a href="#address_list"> 
+    <p id="client_add1"></p>
+    <p id="client_add2"></p>
+    <p id="client_add3"></p>
+    <p id="client_country"></p></a>
+  </li>
+</ul>
+
+
+<ul data-role="listview" data-inset="true">
+  <li data-role="list-divider" >Main Credit Card</li>
+  <li> <a href="#credit_card_list">
+    <p id="card_number"></p> 
+    <p id="credit_card_type"></p></a>
+  </li>
+</ul>
+<br>
+</div>
 
 
 <div data-role="footer" data-id="pers_footer" data-position="fixed">
-    <div data-role="navbar">
-      <ul>
-        <li><a href="#home" data-icon="home" >Home</a></li>
-        <li><a href="#" data-icon="bars" id="user_profile_trigger">Profile</a></li>
-        <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
-      </ul>
-    </div>
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#home" data-icon="home" >Home</a></li>
+      <li><a href="#" data-icon="bars" id="user_profile_trigger">Profile</a></li>
+      <li><a href="#user_bucket" data-icon="bars" >Bucket</a></li>
+    </ul>
   </div>
+</div>
 
 </div>
 <!-- end user page -->
