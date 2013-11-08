@@ -21,9 +21,13 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 			//Clear the list beforehand
 			list.empty();
 
+			
+
 			//Go over all the items that were fetched and create the appropiate list items
 			for(var i = 0; i < length; i++)
 			{
+
+
 					list.append("<li id=\""+
 					data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
 					data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
@@ -61,10 +65,102 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 				//Go over all the items that were fetched and create the appropiate list items
 				for(var i = 0; i < length; i++)
 				{
-					list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
-						data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
-						data.content[i].item_name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
-						data.content[i].price+"</h6></div></div></a></li>");
+
+					var t = $('<li id="' + data.content[i].item_id + '"></li>');
+					
+					
+					var link = $('<a href="#"></a>');
+					
+
+
+					var img = $('<img height="100%" />');
+					img.attr('src', data.content[i].item_image);
+					console.log(data.content[i].item_name);
+					console.log(img);
+
+					var div = $('<div class="search_div_attribute" style="width:66%;"></div>');
+					var heading = $('<p></p>');
+					heading.html(data.content[i].item_name);
+					div.append(heading);
+
+
+
+					var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
+
+					var type = $('<p></p>');
+					
+					
+
+
+					var type_boolean = data.content[i].is_auction;
+					console.log(type_boolean);
+
+
+					if(type_boolean == "both"){
+
+					type.html("Both");
+					div.append(type);
+					var buy = $('<p style="color: blue;">US $</p>');
+					var buy_span = $('<span></span>');
+					buy_span.html(data.content[i].price_buy);
+					buy.append(buy_span);
+					div2.append(buy);
+
+
+					var bid = $('<p style="color: blue;">US $</p>');
+					var bid_span = $('<span></span>');
+					bid_span.html(data.content[i].price_bid);
+
+					bid.append(bid_span);
+					div2.append(bid);
+					}
+
+					else if(type_boolean == "bid")
+					{
+					type.html("Bid");
+					div.append(type);
+					var bid = $('<p style="color: blue;">US $</p>');
+					var bid_span = $('<span></span>');
+					bid_span.html(data.content[i].price_bid);
+
+					bid.append(bid_span);
+					div2.append(bid);
+					console.log("Bid Hello!");
+
+
+					}
+
+					else if(type_boolean == "buy")
+					{
+
+					type.html("Buy");
+					div.append(type);
+					var buy = $('<p style="color: blue;">US $</p>');
+					var buy_span = $('<span></span>');
+					buy_span.html(data.content[i].price_buy);
+					buy.append(buy_span);
+					div2.append(buy);
+
+
+					}
+										link.append(img);
+
+					link.append(div);
+					link.append(div2);
+				
+					t.append(link);
+					
+
+
+					// list.append('<li id="'+ data.content[i].item_id + '"><a href=')
+					list.append(t);
+					console.log(t);
+					console.log(list);
+
+					// list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
+					// 	data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
+					// 	data.content[i].item_name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
+					// 	data.content[i].price+"</h6></div></div></a></li>");
 				}
 
 				//Refresh the ul so that all elements are views properly.
