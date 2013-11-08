@@ -807,7 +807,7 @@
  
     <ul data-role="listview" data-inset="true">
       <li data-role="list-divider" >Shipping Information</li>
-      <li><a href="#"> 
+      <li><a href="#address_list"> 
         <p id="client_add1"></p>
         <p id="client_add2"></p>
         <p id="client_add3"></p>
@@ -818,7 +818,7 @@
 
     <ul data-role="listview" data-inset="true">
       <li data-role="list-divider" >Main Credit Card</li>
-      <li> <a href="#">
+      <li> <a href="#credit_card_list">
         <p id="card_number"></p> 
         <p id="credit_card_type"></p></a>
       </li>
@@ -944,6 +944,7 @@
     </div>
   </div>
 </div>
+<!-- Address list -->
 
 <div data-role="page" id="address_list">
 
@@ -967,6 +968,33 @@
   </div>
 </div>
 
+<!-- end address list -->
+
+<!-- credit card list -->
+
+<div data-role="page" id="credit_card_list">
+
+  <div data-role="header" data-position="fixed">
+    <a href="#user_profile">Back</a>
+    <h2> Credit Cards </h2>
+  </div>
+
+  <div data-role="content">
+    <div>
+      <ul data-role="listview" id="card_list">
+      </ul>
+    </div>
+
+    <br>
+
+    <div>
+      <a href="#add_credit_card" data-role="button">Add</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- end credit card list -->
 
 <div data-role="page" id="address_confirmation_dialog">
   <div data-role="content">
