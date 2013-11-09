@@ -157,7 +157,6 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 //Find search results and display them as a list
 $(document).on('pagebeforeshow', '#searchResults', function(event){
 	var search_parameter = sessionStorage.getItem('search_parameter');
-	sessionStorage.clear();
 
 	$.ajax({
 		url : "http://localhost:5000/search/item_name="+search_parameter,
@@ -341,6 +340,7 @@ $(document).on('click', '#search_button', function(event)
 {
 	//get the user input, remove the whitespaces and convert to lower case.
 	var user_input = $("#search_basic").val().toLowerCase().replace(/\s/g, '');
+	sessionStorage.clear();
 	sessionStorage.setItem('search_parameter', user_input);
 	$.mobile.changePage('#searchResults');
 	
