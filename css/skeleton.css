@@ -10,3 +10,15 @@
 	float: left;
 
 }
+
+#bucket_info
+{
+  margin-left: 200px;
+}
+
+#bucket_total
+{
+  margin-left: 200px;
+  border-top: 1px solid gray;
+}
+
