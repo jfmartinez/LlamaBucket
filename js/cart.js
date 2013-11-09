@@ -4,43 +4,34 @@ var cart_total;
 $(document).on('pagebeforeshow', '#user_bucket', function(event){
 
 	$.ajax({
-		url : "http://localhost:3000/cart",
+		url : "http://localhost:5000/cart/" + localStorage.getItem('id'),
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#bucket_list');
-			var item_count = $('#item_count');
 
-			var length = data.content.length;
-			var cart_total=$('#cart_total');
 
-			
 			//Clear the list beforehand
 			list.empty();
-			var cart_prices= 0;
 
 			//Go over all the items that were fetched and create the appropiate list items
-			for(var i = 0; i < length; i++)
+			for(var i = 0; i < data.items.length; i++)
 			{
-				cart_prices += data.content[i].price;
-
-				list.append('<li data-icon="delete" id="'+data.content[i].name+'">'+
-					'<a href="#item_confirmation_dialog" data-rel="dialog"><img src="'+ data.content[i].image +'"/>'+
-					'<p class="ui-li-aside"><strong>$'+ data.content[i].price+'</strong></p>'+
-					'<h5 style="font-size: 12px;">'+data.content[i].name+'</h5>'+
-					'<p>' + data.content[i].description + '</p>'+
+				list.append('<li data-icon="delete" id="'+data.items[i].item_name+'">'+
+					'<a href="#item_confirmation_dialog" data-rel="dialog"><img src="'+ data.items[i].item_image +'"/>'+
+					'<p class="ui-li-aside"><strong>$'+ data.items[i].price_buy+'</strong></p>'+
+					'<h5 style="font-size: 12px;">'+data.items[i].item_name+'</h5>'+
+					'<p>' + data.items[i].item_description + '</p>'+
 				
 					'</a></li>'
 
 					);
 			}
 
+			$("#bucket_items").html('Items: '+data.items.length);
+			$("#bucket_subtotal").html('Bucket subtotal: '+data.sum_price);
 			//Refresh the ul so that all elements are views properly.
 			list.listview('refresh');
 
-			cart_total.empty();
-			item_count.empty();
-			cart_total.append("<p class=\"ui-li-right\" style=\"float:right; font-size:12px; \">Total: $"+cart_prices + "</p>");
-			item_count.append("<p style=\"font-size: 12px;\">Number of Items:  " + (length ) +"</p>");
 		},
 		error : function(data){
 			console.log("User bucket information not available");
