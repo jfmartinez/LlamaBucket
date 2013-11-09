@@ -10,6 +10,7 @@
     <script src="js/home.js"></script> 
     <script src="js/invoice.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/checkout.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
  <link rel="stylesheet" type="text/css" href="css/generated/jquery.mobile.flatui.css" />
  
@@ -393,7 +394,7 @@
       <div data-role="header">
         <a href="#" data-rel="back">Back</a>
         <h2> My Bucket </h2>
-        <a href="#checkout_address" data-role="button">Checkout</a>
+        <a href="#" data-role="button" id="bucket_checkout">Checkout</a>
       </div>
 
 
@@ -428,7 +429,7 @@
 
 
     <!-- Checkout -->
-    <div data-role="page" id="checkout_address">
+    <div data-role="page" id="checkout">
       <div data-role="header">
         <a href="#"  data-role="button" data-rel="back"></a>
         <h2>Checkout</h2>
@@ -440,7 +441,7 @@
           <li data-role="list-divider">Order</li>
           <li>
               <strong>Items: </strong>
-              <strong style="float : right;" id="checout_number_total"> 3</strong>
+              <strong style="float : right;" id="checkout_number_total"> 3</strong>
           </li>
           <li>
             <strong>Shipping:</strong>
@@ -474,7 +475,6 @@
         </ul>
 
         <ul data-role="listview" data-inset="true" id="checkout_items">
-          <li data-role="list-divider">Items</li>
         </ul>
       </div>
 
