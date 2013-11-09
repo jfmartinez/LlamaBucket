@@ -413,46 +413,45 @@
       </div>
       <div data-role="content">
 
-        <div class="ui-body">
-          <ul data-role="listview" data-inset="true" id="checkout_total">
-            <li data-role="fieldcontain">
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider">Order</li>
+          <li>
+              <strong>Items: </strong>
+              <strong style="float : right;" id="checout_number_total"> 3</strong>
+          </li>
+          <li>
+            <strong>Shipping:</strong>
+            <strong style="float: right;"> $0.00</strong>
+          </li>
 
-              <div class="ui-grid-a">
-                <div class="ui-block-a" id="sub_total"></div>
-                <div class="ui-block-b" id="values" style="text-align: right; font-size= 12px"></div>
-              </div>
-              <p><hr></p>
-
-              <div class="ui-grid-a">
-                <div class="ui-block-a" id="total_id"></div>
-                <div class="ui-block-b" id="total" style="text-align: right;"></div>
-              </div>
-
-            </li>
-          </ul>
-        </div>
+          <li>
+            <strong>Order total:</strong>
+            <strong style="float : right" id="checkout_order_total">$1000.00</strong>
+          </li>
+        </ul>
 
 
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Payment</li>
-          <li><a href="#payment_option"><h3>Method:</h3><p class="ui-li-aside">Select your payment method</p></a></li>
-          <li><a href="#coupon_option"><h3>Coupon, Gift codes</h3></a></li>
-
+          <li><a href="#payment_option">
+            <strong id="checkout_payment_1">Visa ending in:</strong>
+            <strong id="checkout_payment_2" style="float : right;">**** **** **** 5678</strong>
+          </a></li>
         </ul>
 
-
-
-
-
-        <ul data-role="listview" data-inset="true" id="current_address" >
-          <li data-role="list-divider" id="address_title">Current Shipping Address</li>
-          <li ><a href="shipping_address" id="user_address"></a></li>
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider" id="address_title">Shipping</li>
+          <li ><a href="shipping_address" id="user_address">
+            <p id="checkout_address_1">#311 Calle Ext. Los Robles</p>
+            <p id="checkout_address_2"></p>
+            <p id="checkout_address_info">Rincon, PR</p>
+            <p id="checkout_zip_code">00677</p>
+          </a></li>
 
         </ul>
 
         <ul data-role="listview" data-inset="true" id="checkout_items">
           <li data-role="list-divider">Items</li>
-
         </ul>
       </div>
 
@@ -465,7 +464,6 @@
           </ul>
         </div>
       </div>
-
 
     </div>
 

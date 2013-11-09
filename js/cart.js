@@ -28,7 +28,7 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 			}
 
 			$("#bucket_items").html('Items: '+data.items.length);
-			$("#bucket_subtotal").html('Bucket subtotal: '+data.sum_price);
+			$("#bucket_subtotal").html('Bucket subtotal: $'+data.sum_price);
 			//Refresh the ul so that all elements are views properly.
 			list.listview('refresh');
 
