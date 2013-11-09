@@ -57,7 +57,7 @@ $(document).on('click', '#user_profile_trigger', function(event)
 
   //User is not signed in
   else
-  {
+  {   
       $("#sign_in_trigger").click();
   }
 

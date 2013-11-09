@@ -9,7 +9,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 		
 		$.ajax({
-			url : "http://localhost:5000/search/category="+parameter,
+			url : "http://74.213.79.108:5000/search/category="+parameter,
 			contentType : "application/json",
 			success : function(data){
 			var list = $('#category_items');
@@ -159,7 +159,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 	var search_parameter = sessionStorage.getItem('search_parameter');
 
 	$.ajax({
-		url : "http://localhost:5000/search/item_name="+search_parameter,
+		url : "http://74.213.79.108:5000/search/item_name="+search_parameter,
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -309,7 +309,7 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 
 	$.ajax
 	({
-		url : "http://localhost:5000/categories",
+		url : "http://74.213.79.108:5000/categories",
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -353,7 +353,7 @@ $(document).on('click', '#categories-list li', function()
 	var parent_category = $(this).attr('value');
 	$.ajax
 	({
-		url : "http://localhost:5000/categories/" +parent_category,
+		url : "http://74.213.79.108:5000/categories/" +parent_category,
 		contentType : "application/json",
 		success : function(data)
 		{

@@ -48,11 +48,13 @@
 
        <div data-role="controlgroup">
         <button  data-theme="a">Buying</button>
-      <button data-theme="e">Selling</button>
+      <a data-role="button" data-theme="e" href="#store">Selling</a>
      
        <button data-icon="flat-mail" data-theme="a">Notifications</button>
       <button data-icon="flat-settings" data-theme="f">Settings</button>
         </div>
+
+
       </div>
 
 
@@ -127,7 +129,9 @@
             <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
           </ul>
         </div>
+
       </div>
+  <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 
     </div>
 
@@ -623,7 +627,7 @@
 
       <!--Sign In - Dialog -->
       <div data-role="dialog" id="sign_in">
-        <div data-role="header">
+        <div data-role="header" data-theme="b">
           <h1>Sign In</h1>
         </div>
         <div data-role="content">
@@ -633,8 +637,8 @@
             <input type="password" name="password" id="password" placeholder="Password" />
             <a href="#"> Forgot Password?</a>
             <div class="ui-grid-a">
-              <div class="ui-block-a"><a href="#registerForm" data-role="button">Register</a></div>
-              <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check">Log In</a></div>
+              <div class="ui-block-a"><a href="#registerForm" data-role="button" data-theme="f">Register</a></div>
+              <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check" data-theme="g">Log In</a></div>
             </div>
           </form>
         </div>
@@ -1143,24 +1147,45 @@
       <div data-role="header" data-position="fixed">
         <h2>List an Item</h2>
       </div>
-      <div data-role="content">
+      <div data-role="content" style="color:gray;">
         <form id="crete_item">
           <label for="item_name">Item Name:</label>
           <input type="text" name="item_name" id="item_name" value="" data-mini="true" placeholder=""/>
-          <label for="description">Descripton:</label>
+          <label for="description">Description:</label>
           <textarea name="textarea" id="description"></textarea>
           <label for="email">Category:</label>
-          <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+          <select  id="category" data-mini="true">
+            <option>Books</option>
+          </select>
           <label for="email">Year:</label>
           <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
           <label for="email">Brand:</label>
           <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
-          <label for="email">General:</label>
-          <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+
+          <label>Type:</label>
+               <div data-role="fieldcontain">
+
+           <fieldset data-role="controlgroup">
+          <input type="radio" name="radio-choice-a" data-theme="c" id="radio-choice-1-a" value="choice-1"  />
+          <label for="radio-choice-1-a">Buy</label>
+
+            <input type="radio" name="radio-choice-a" data-theme="c" id="radio-choice-1-b" value="choice-2" />
+          <label for="radio-choice-1-b">Bid</label>
+
+
+            <input type="radio" name="radio-choice-a" data-theme="c" id="radio-choice-1-c" value="choice-3"  />
+          <label for="radio-choice-1-c">Bid &amp; Buy</label>
+
+
+        </fieldset>
+      </div>
           <label for="email">Price:</label>
           <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+
+
           <label for="email">Image:</label>
-          <input type="text" name="category" id="category" placeholder="" data-mini="true"/>
+        <input type="file"  name="image" accept="image/*" capture>
+
         </form>
       </div>
       <div data-role="footer" data-position="fixed">
