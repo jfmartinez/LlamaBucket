@@ -43,15 +43,17 @@
         <input type="search" name="search" id="search_basic"/>
         <a href="#" data-role="button" data-icon="search" id="search_button" data-theme="g" >Search</a>
         <a href="#categories" data-role="button"  data-icon="arrow-r" data-iconpos="right" data-theme="f">Shop By Category</a>
+        <a href="#adminpanelpage" data-role="button" data-icon="flat-settings" data-iconpos="right" data-theme="b">Administrator Panel</a>
 
       
 
-       <div data-role="controlgroup">
+        <div data-role="controlgroup">
         <button  data-theme="a">Buying</button>
-      <button data-theme="e">Selling</button>
+        <button data-theme="e">Selling</button>
      
-       <button data-icon="flat-mail" data-theme="a">Notifications</button>
-      <button data-icon="flat-settings" data-theme="f">Settings</button>
+        <button data-icon="flat-mail" data-theme="a">Notifications</button>
+        <button data-icon="flat-settings" data-theme="f">Settings</button>
+
         </div>
       </div>
 
@@ -66,7 +68,7 @@
           </ul>
         </div>
       </div>
-
+      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 
     </div>
 
@@ -206,8 +208,8 @@
 
     <!-- panel page -->
     <div data-role="page" id="adminpanelpage">
-      <div data-role="header" id="adminpanelheader">
-        <a  data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+      <div data-role="header" id="adminpanelheader" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
         <h2>Administrator Panel</h2>
       </div>
       <div data-role="content" id="adminpanelcontent">
@@ -222,19 +224,29 @@
 
     <!-- user list-->
     <div data-role="page" id="adminuserlistpage">
-      <div data-role="header">
-        <a data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
         <h2>User List</h2>
       </div>
       <div data-role="content" id="adminuserlistcontent">
         <ul data-role="listview" id="userlist"></ul>
       </div>
+      <div data-role="footer" data-id="pers_footer" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#home" data-icon="home" >Home</a></li>
+            <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+            <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
     </div>
 
-    <!-- user list page -->
+    <!-- user page -->
     <div data-role="page" id="userinfopage">
-      <div data-role="header">
-        <a data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
         <h2 id="uiheader">User Information</h2>
         <a href="#edit_user_admin" data-icon="gear" data-iconpos="notext"></a>
 
@@ -242,12 +254,23 @@
       <div data-role="content" id="userinfocontent">
         <ul data-role="listview" id="userinfo" data-inset="true"></ul>
       </div>
-    </div>
+    
 
+    <div data-role="footer" data-id="pers_footer" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#home" data-icon="home" >Home</a></li>
+            <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+            <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
+  </div>
     <!-- report generator -->
     <div data-role="page" id="repgenpage">
       <div data-role="header">
-        <a data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+        <a href="#" data-rel="back">Back</a>
         <h2 id="repname">Report</h2>
       </div>
       <div data-role="content" id="repgencontent">
@@ -258,7 +281,7 @@
     <div data-role="page" id="edit_user_admin">
 
       <div data-role="header" data-position="fixed">
-        <a data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+        <a href="#" data-rel="back">Back</a>
         <h2>Edit</h2>
       </div>
 
@@ -294,7 +317,7 @@
     <!-- Admin View Categories -->
     <div data-role="page" id="view_categories">
       <div data-role="header" data-position="fixed">
-        <a data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+        <a href="#" data-rel="back">Back</a>
         <h2>Category Management</h2>
         <a href="#add_category" data-icon="plus" data-iconpos="notext" data-role="button"></a>
       </div>
@@ -310,7 +333,7 @@
     <!-- Add Category -->
     <div data-role="page" id="add_category">
       <div data-role="header" data-position="fixed">
-        <a data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+        <a href="#" data-rel="back">Back</a>
         <h2>Add Category</h2>
         <a id="save_category" data-role="button" >Save</a>
       </div>
@@ -335,7 +358,7 @@
 
     <div data-role="page" id="edit_categories">
       <div data-role="header" data-position="fixed">
-        <a data-rel="back" data-icon="back" data-iconpos="notext">  </a>
+        <a href="#" data-rel="back">Back</a>
         <h2> Edit Category</h2>
 
       </div>
