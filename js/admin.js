@@ -7,7 +7,7 @@ $(document).on('pagebeforeshow', '#adminuserlistpage', function(event){
 			list.empty();
 			var admin = ["Client", "Admin"];
 			for(var i=0; i<data.length; i++){
-				list.append('<li id="' + data[i].userId + '"><a href="#"><h2>' + data[i].firstname + " " + data[i].lastname + " - " + admin[data[i].isAdmin] +
+				list.append('<li id="' + data[i].client_Id + '"><a href="#"><h2>' + data[i].client_firstname + " " + data[i].client_lastname + " - " + admin[data[i].isAdmin] +
 					'</h2><p>Email: ' + data[i].email + '</p></a></li>');
 			}
 			list.listview('refresh');
@@ -34,11 +34,11 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 			console.log(data);
 			var info = $('#userinfo');
 			info.empty();
-			info.append('<li>Name: ' + data.firstname + " " + data.lastname + 
-				'</li><li>User ID: ' + user_id + 
+			info.append('<li>Name: ' + data.client_firstname + " " + data.client_lastname + 
+				'</li><li>User ID: ' + client_id + 
 				'</li><li>Email: ' + data.email + 
 				'</li><li>Phone: ' + data.phone + 
-				'</li><li>Address: ' + data.address + '</li>');
+				'</li><li>Address: ' + data.address_1 + '\n' + data.address_2 + '\n' + city + ', ' + country + ' ' + zip_code + '</li>');
 			info.listview('refresh');
 			sessionStorage.clear();
 		},
