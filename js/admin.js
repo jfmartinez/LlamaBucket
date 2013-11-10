@@ -34,11 +34,11 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 			console.log(data);
 			var info = $('#userinfo');
 			info.empty();
-			info.append('<li>Name: ' + data.client_firstname + " " + data.client_lastname + 
+			info.append('<li>Name: ' + data[0].client_firstname + " " + data[0].client_lastname + 
 				'</li><li>User ID: ' + user_id + 
-				'</li><li>Email: ' + data.email + 
-				'</li><li>Phone: ' + data.phone + 
-				'</li><li>Address: ' + data.address_1 + '\n' + data.address_2 + '\n' + data.city + ', ' + data.country + ' ' + data.zip_code + '</li>');
+				'</li><li>Email: ' + data[0].email + 
+				'</li><li>Phone: ' + data[0].phone + 
+				'</li><li>Address: ' + data[0].address_1 + '<br>' + data[0].address_2 + '<br>' + data[0].city + ', ' + data[0].state + ' ' + data[0].zip_code + ' ' + data[0].country + '</li>');
 			info.listview('refresh');
 			sessionStorage.clear();
 		},
