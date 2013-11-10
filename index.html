@@ -1152,21 +1152,27 @@
 
     <h3>Price Filter</h3>
     <hr>
+
+
     <ul data-role="listview" data-inset="true">
 
 
-      <label for="name">Minimum US $:</label>
-      <input type="text" name="name"  id="name" value="" style="width:10%" /></li>
-      <label for="name">Maximum US $:</label>
-      <input type="text" name="name" id="name" value=""  />
+      <label for="min_price">Minimum US $:</label>
+      <input type="text" name="min_price"  id="min_price"  />
+      <label for="max_price">Maximum US $:</label>
+      <input type="text" name="max_price" id="max_price"  />
     </ul>
+
+
 
     <fieldset class="ui-grid-a">
       <div class="ui-block-a">
         <a data-role="button"data-theme="g" href="#sort_panel">Back</a></div>
-        <div class="ui-block-b"> <a data-role="button"  data-theme="f" >Sort</a></div>
+        <div class="ui-block-b"> <a data-role="button"  data-theme="f" id="filter_by_price">Filter</a></div>
       </fieldset>
     </div>
+
+
     <div data-role="panel" id="item_type_sort" data-position="right" data-display="overlay" data-theme="f" data-dismissible="true" >
 
       <h3>Sort by Item Type</h3>
@@ -1175,23 +1181,23 @@
 
        <fieldset data-role="controlgroup">
         <label for="item_type_sort_all">All</label>
-        <input type="radio" id="item_type_sort_all" name="item_type_sort"/></li>
+        <input type="radio" id="item_type_sort_all" name="item_type_filter" value="all"/></li>
 
         <li>
 
           <label for="item_type_sort_bid">Auction</label>
-          <input type="radio" id="item_type_sort_bid" name="item_type_sort"/>
+          <input type="radio" id="item_type_sort_bid" name="item_type_filter" value="bid"/>
         </li>
 
         <li>
          <label for="item_type_sort_buy">Buy Now</label>
-         <input type="radio" id="item_type_sort_buy" name="item_type_sort"/>
+         <input type="radio" id="item_type_sort_buy" name="item_type_filter" value="buy"/>
        </li>
 
        <li>
 
          <label for="item_type_sort_buyout">Buyout</label>
-         <input type="radio" id="item_type_sort_buyout" name="item_type_sort"/>
+         <input type="radio" id="item_type_sort_buyout" name="item_type_filter" value="both"/>
        </li>  
      </fieldset>
    </div>
