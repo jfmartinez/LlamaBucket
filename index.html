@@ -146,11 +146,11 @@
         <h1>Welcome Admin!</h1>
 
         <a href="#adminuserlistpage" data-theme="f" data-role="button">View Users</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - Today</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - This Week</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - This Month</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - All</a>
+        <a href="#reportday" data-theme="f" data-role="button">Generate Report - Today</a>
+        <a href="#reportweek" data-theme="f" data-role="button">Generate Report - This Week</a>
+        <a href="#reportmonth" data-theme="f" data-role="button">Generate Report - This Month</a>
         <a href="#view_categories" data-theme="f"  data-role="button">View/Edit Categories</a>
+        
 
       </div>
 
@@ -505,19 +505,20 @@
     <!-- Admin Panel -->
 
     <!-- panel page -->
-    <div data-role="page" id="adminpanelpage">
+    
+    <!-- <div data-role="page" id="adminpanelpage">
       <div data-role="header" id="adminpanelheader" data-position="fixed">
         <a href="#" data-rel="back">Back</a>
         <h2>Administrator Panel</h2>
       </div>
       <div data-role="content" id="adminpanelcontent">
         <a href="#adminuserlistpage" data-role="button">View Users</a>
-        <a href="#repgenpage" data-role="button">Generate Report - This Day</a>
-        <a href="#repgenpage" data-role="button">Generate Report - This Week</a>
-        <a href="#repgenpage" data-role="button">Generate Report - This Month</a>
+        <a href="#reportday" data-role="button">Generate Report - This Day</a>
+        <a href="#reportweek" data-role="button">Generate Report - This Week</a>
+        <a href="#reportmonth" data-role="button">Generate Report - This Month</a>
         <a href="#view_categories" data-role="button">View/Edit Categories</a>
       </div>
-    </div>
+    </div> -->
 
     <!-- user list-->
     <div data-role="page" id="adminuserlistpage">
@@ -564,17 +565,42 @@
       </div>
       <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
     </div>
-    <!-- report generator -->
-    <div data-role="page" id="repgenpage">
-      <div data-role="header">
+
+    <!-- Report Generator -->
+
+    <div data-role="page" id="reportday">
+      <div data-role="header" data-position="fixed">
         <a href="#" data-rel="back">Back</a>
-        <h2 id="repname">Report</h2>
+        <h2 id="repname">Today's Sales</h2>
       </div>
-      <div data-role="content" id="repgencontent">
-        <ul data-role="listview" data-inset="true" id="repgen"></ul>
+      <div data-role="content" id="reptodaycontent">
+        <ul data-role="listview" data-inset="true" id="reptoday"></ul>
       </div>
 
     </div>  
+
+    <div data-role="page" id="reportweek">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">This Week's Sales</h2>
+      </div>
+      <div data-role="content" id="repweekcontent">
+        <ul data-role="listview" data-inset="true" id="repweek"></ul>
+      </div>
+
+    </div> 
+
+    <div data-role="page" id="reportmonth">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">This Month's Sales</h2>
+      </div>
+      <div data-role="content" id="repmonthcontent">
+        <ul data-role="listview" data-inset="true" id="repmonth"></ul>
+      </div>
+
+    </div> 
+
     <div data-role="page" id="edit_user_admin">
 
       <div data-role="header" data-position="fixed">
