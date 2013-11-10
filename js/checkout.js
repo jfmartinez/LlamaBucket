@@ -3,9 +3,10 @@ $(document).on('click', '#buy_item', function(event){$.mobile.changePage('#check
 
 $(document).on('click', '#bucket_checkout', function(event)
 {
+
   //Checkout was pressed from the bucket
   $.ajax({
-    url : "http://localhost:5000/checkout/bucket/" + localStorage.getItem('id'),
+    url : "http://" + lb_server +"/checkout/bucket/" + localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {
@@ -51,7 +52,7 @@ $(document).on('click', '#buy_item', function(event)
 {
   //Checkout was pressed from the bucket
   $.ajax({
-    url : "http://localhost:5000/checkout/item/" + parseInt($('#buy_item').attr('val')) + '-' +localStorage.getItem('id'),
+    url : "http://" + lb_server +"/checkout/item/" + parseInt($('#buy_item').attr('val')) + '-' +localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {

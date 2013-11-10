@@ -1,0 +1,368 @@
+//Find search results and display them as a list
+
+
+var description;
+
+$(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
+	
+	var item_id = sessionStorage.getItem('item_id');
+	$.ajax({
+		url : "http://"+lb_server+"/item/"+item_id,
+		contentType : "application/json",
+		
+		success : function(data){
+			
+			description = data.item_description;
+			item_name = data.item_name;
+
+
+			$('#selling_price_tag').show();
+			$('#selling_current_bidding').show()
+			$('#selling_number_bids').show();
+			$('#selling_buy_item').show();
+			$('#selling_add_item_cart').show();
+			$('#selling_bid_item').show();
+
+			$('#selling_bid_price').html("US $"+ data.price_bid);
+			$('#selling_number_bids_count').html(data.bid_count);
+			$('#selling_item_price').html("US $" + data.price_buy);
+			console.log("Hello World!");
+			if(data.is_auction == "bid")
+			{
+				//For bidding
+				$('#selling_price_tag').hide();
+				$('#selling_buy_item').hide();
+				$('#selling_add_item_cart').hide();
+
+			}
+
+			else if(data.is_auction == "buy"){
+				$('#selling_current_bidding').hide()
+				$('#selling_number_bids').hide();
+				$('#selling_bid_item').hide();
+
+
+
+
+			}
+			
+
+
+
+
+
+
+			$('#selling_item_image').attr('src', data["item_image"]);
+			$('#selling_item_brand').html(data.item_brand);
+			$('#selling_item_category').html(data.category_name);
+			$('#selling_item_year').html(data.item_year);
+			$('#selling_item_id').html(data.item_id);
+			$('#selling_item_seller').html(data.client_firstname + " " + data.client_lastname);
+			$('#selling_item_header').html(data.item_name);
+			$('#selling_item_location').html(data.city +", " + data.state + ", " + data.country );
+
+
+		
+		},
+
+		error : function(data){
+			console.log("Item could not be loaded. (item.js)");
+		}
+	});
+});
+
+
+$(document).on('pagebeforeshow', '#store', function(event){
+
+		//Filtering by categories.
+		var parameter = localStorage.getItem('id');
+
+		//Reset the local storage, for later user. 
+		sessionStorage.clear();
+		console.log(parameter);
+
+		
+		$.ajax({
+			url : "http://"+lb_server+"/get_listings/"+parameter,
+			contentType : "application/json",
+			success : function(data){
+			var list = $('#listings_list');
+			var length = data.content.length;
+
+				//Clear the list beforehand
+				list.empty();
+
+				//$('#category_heading').html(data.content[0].category_name);
+
+				//Go over all the items that were fetched and create the appropiate list items
+
+				list.append()
+
+				for(var i = 0; i < length; i++)
+				{
+
+					var t = $('<li id="' + data.content[i].item_id + '"" ></li>');
+					
+					
+					var link = $('<a href="#"></a>');
+					
+
+
+					var img = $('<img height="100%" />');
+					img.attr('src', data.content[i].item_image);
+					
+
+					var div = $('<div class="search_div_attribute" style="width:66%;"></div>');
+					var heading = $('<p style="vertical-align: middle; color:black"></p>');
+					heading.html(data.content[i].item_name);
+					div.append(heading);
+
+
+
+					var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
+
+					var type = $('<p style="color: orange;"></p>');
+					
+					
+
+
+					var type_boolean = data.content[i].is_auction;
+
+
+					if(type_boolean == "both"){
+
+						type.html("Both");
+						div.append(type);
+						var buy = $('<p style="color: #1CB0D9;">US $</p>');
+						var buy_span = $('<span></span>');
+						buy_span.html(data.content[i].price_buy);
+						buy.append(buy_span);
+						div2.append(buy);
+
+
+						var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid_span = $('<span></span>');
+						var bid_count = $('<p style="color:gray;"></p>');
+						var bid_count_span = $('<span> bids</span>');
+
+
+
+						bid_count.html(data.content[i].bid_count);
+						bid_count.append(bid_count_span);
+						bid_span.html(data.content[i].price_bid);
+
+
+						bid.append(bid_span);
+
+						div2.append(bid);
+						div2.append(bid_count);
+
+					}
+
+					else if(type_boolean == "bid")
+					{	
+
+						type.html("Bid");
+						div.append(type);
+					var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid_span = $('<span></span>');
+						var bid_count = $('<p style="color:gray;"></p>');
+						var bid_count_span = $('<span> bids</span>');
+
+
+
+						bid_count.html(data.content[i].bid_count);
+						bid_count.append(bid_count_span);
+						bid_span.html(data.content[i].price_bid);
+
+
+						bid.append(bid_span);
+
+						div2.append(bid);
+						div2.append(bid_count);
+
+
+					}
+
+					else if(type_boolean == "buy")
+					{
+
+						type.html("Buy");
+						div.append(type);
+						var buy = $('<p style="color: #1CB0D9;">US $</p>');
+						var buy_span = $('<span></span>');
+						buy_span.html(data.content[i].price_buy);
+						buy.append(buy_span);
+						div2.append(buy);
+
+
+					}
+					link.append(img);
+
+					link.append(div);
+					link.append(div2);
+
+					t.append(link);
+					
+
+
+					// list.append('<li id="'+ data.content[i].item_id + '"><a href=')
+					list.append(t);
+				
+
+					// list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
+					// 	data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
+					// 	data.content[i].item_name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
+					// 	data.content[i].price+"</h6></div></div></a></li>");
+}
+
+				//Refresh the ul so that all elements are views properly.
+				list.listview('refresh');
+		},
+		error : function(data){
+			console.log("Serach results not available");
+		}
+	});
+
+
+});
+
+$(document).on('click', '#listings_list li', function(event)
+{
+	var parameter = $(this).attr('id');
+	sessionStorage.setItem('item_id', parameter);
+	$.mobile.changePage('#manage_item_page');
+});
+
+
+$(document).on('pagebeforeshow', '#edit_item', function(event)
+{	
+
+	var item_id = sessionStorage.getItem('item_id');
+
+	$.ajax({
+		url : "http://"+lb_server+"/item/"+item_id,
+		contentType : "application/json",
+		
+		success : function(data){
+			
+			description = data.item_description;
+
+			 $('#edit_item_name' ).val(data.item_name);
+			 $('#edit_description').val(data.item_description);
+			 $('#edit_year').val(data.item_year);
+			 $('#edit_brand').val(data.item_brand);
+
+			if(data.is_auction =="bid" || data.is_auction== "both")
+			{	console.log("Hello");
+				$('#edit_bid_radio').trigger('click');
+
+				$('#edit_auction_price').val(data.price_bid);
+
+				if(data.is_auction =="both")
+				{
+
+					$('#edit_buying_checkbox').trigger('click');
+					$('#edit_buyout_price').val(data.price_buy);
+					$('#edit_buying_checkbox').checkboxradio('refresh');
+
+				}
+
+
+
+			}
+
+			else if(data.is_auction =="buy")
+			{
+				$('#edit_buy_radio').trigger('click');
+				$('#edit_selling_price').val(data.price_buy);
+
+
+			}			
+
+
+
+
+			$('input[name="edit_item_type"]').checkboxradio('refresh');
+
+		},
+
+		error : function(data){
+			console.log("Item could not be loaded. (item.js)");
+		}
+	});
+});
+
+
+  $( document ).ready( function() { 
+
+
+     $("input[name='edit_item_type']" ).bind( "click", edit_item_type_func );
+
+     $("input[name='edit_buyout_checkbox']" ).bind( "click", edit_buyout_option );
+
+
+
+
+  });
+
+
+  function edit_item_type_func()
+  {
+    if( $( this ).val() == "buy")
+    {
+      $('#edit_sell_option_div').show();
+      $('#edit_bid_option_div').hide();
+
+
+    }
+
+
+    else if( $( this ).val() == "bid")
+    {
+          $('#edit_sell_option_div').hide();
+      $('#edit_bid_option_div').show();
+
+     
+    }
+
+
+
+
+  } 
+
+  function edit_buyout_option()
+  { 
+
+
+    var buyout_field = $('#buyout_checkbox');
+    if(buyout_field[0].checked == true)
+    {
+      $('#buyout_price').show();
+
+    }
+
+    else
+    {
+      $('#buyout_price').hide();
+
+    }
+
+
+      
+  }
+
+
+$(document).on('pagebeforeshow', '#remove_listing_store', function(event, ui){
+
+
+		$('#item_name_removal').html(item_name);
+});
+
+
+
+
+
+
+
+

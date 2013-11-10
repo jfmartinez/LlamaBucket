@@ -9,7 +9,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 		
 		$.ajax({
-			url : "http://localhost:5000/search/category="+parameter,
+			url : "http://"+lb_server+"/search/category="+parameter,
 			contentType : "application/json",
 			success : function(data){
 			var list = $('#category_items');
@@ -159,7 +159,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 	var search_parameter = sessionStorage.getItem('search_parameter');
 
 	$.ajax({
-		url : "http://localhost:5000/search/item_name="+search_parameter,
+		url : "http://"+lb_server+"/search/item_name="+search_parameter,
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -309,7 +309,7 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 
 	$.ajax
 	({
-		url : "http://localhost:5000/categories",
+		url : "http://"+lb_server+"/categories",
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -341,8 +341,18 @@ $(document).on('click', '#search_button', function(event)
 	//get the user input, remove the whitespaces and convert to lower case.
 	var user_input = $("#search_basic").val().toLowerCase().replace(/\s/g, '');
 	sessionStorage.clear();
+
+	if(user_input == "")
+	{
+
+		//Do NOthing
+	}
+
+	else{
+
 	sessionStorage.setItem('search_parameter', user_input);
 	$.mobile.changePage('#searchResults');
+}
 	
 });
 
@@ -353,7 +363,7 @@ $(document).on('click', '#categories-list li', function()
 	var parent_category = $(this).attr('value');
 	$.ajax
 	({
-		url : "http://localhost:5000/categories/" +parent_category,
+		url : "http://"+lb_server+"/categories/" +parent_category,
 		contentType : "application/json",
 		success : function(data)
 		{

@@ -4,7 +4,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
 	$.ajax({
-		url : "http://localhost:5000/item/"+item_id,
+		url : "http://" + lb_server + "/item/"+item_id,
 		contentType : "application/json",
 		
 		success : function(data){
@@ -102,7 +102,7 @@ $(document).on('click', '#buy_add_check', function(event)
 
 	$.ajax({
       type : "POST",
-      url : "http://localhost:5000/add_cart",
+      url : "http://"+lb_server+"/add_cart",
       data : data_to_send,
       success : function(data)
       {
@@ -122,7 +122,7 @@ $(document).on('click', '#bucket_list li', function(event)
 	{
 		$.ajax({
       type : "POST",
-      url : "http://localhost:5000/remove_from_cart",
+      url : "http://"+lb_server+"/remove_from_cart",
       data : {name : name_to_delete},
       success : function(data)
       {

@@ -1,6 +1,6 @@
 $(document).on('pagebeforeshow', '#adminuserlistpage', function(event){
 	$.ajax({
-		url : "http://localhost:5000/users",
+		url : "http://"+lb_server+"/users",
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#userlist');
@@ -28,7 +28,7 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 	var user_id = sessionStorage.getItem('user_id');
 	console.log(user_id);
 	$.ajax({
-		url : "http://localhost:5000/users/"+user_id,
+		url : "http://"+lb_server+"/users/"+user_id,
 		contentType : "application/json",
 		success : function(data){
 			console.log(data);
@@ -50,7 +50,7 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 
 $(document).on('pagebeforeshow', '#repgenpage', function(event){
 	$.ajax({
-		url : "http://localhost:5000/report",
+		url : "http://"+lb_server+"/report",
 		contentType : "application/json",
 		success : function(data){
 			//console.log(data);
@@ -76,7 +76,7 @@ $(document).on('pagebeforeshow', '#repgenpage', function(event){
 
 $(document).on('pagebeforeshow', '#view_categories', function(event){
 	$.ajax({
-		url : "http://localhost:5000/categories",
+		url : "http://"+lb_server+"/categories",
 		contentType : "application/json",
 		success : function(data){
 			//console.log(data);
@@ -102,7 +102,7 @@ $(document).on('pagebeforeshow', '#edit_categories', function(event, ui){
 	var category_id = sessionStorage.getItem('category_id');
 	sessionStorage.clear();
 	$.ajax({
-		url : "http://localhost:5000/category/"+category_id,
+		url : "http://"+lb_server+"/category/"+category_id,
 		contentType : "application/json",
 		
 		success : function(data){
@@ -139,7 +139,7 @@ $(document).on('click', '#save_category', function(event)
 
 	$.ajax({
       type : "POST",
-		url: "http://localhost:5000/add_category",
+		url: "http://"+lb_server+"/add_category",
       data : new_category_data,
      success: function(data)
 		{
