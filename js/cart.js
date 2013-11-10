@@ -4,7 +4,7 @@ var cart_total;
 $(document).on('pagebeforeshow', '#user_bucket', function(event){
 
 	$.ajax({
-		url : "http://localhost:5000/cart/" + localStorage.getItem('id'),
+		url : "http://"+lb_server+"/cart/" + localStorage.getItem('id'),
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#bucket_list');

@@ -10,7 +10,7 @@ $(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
 	}
 
 	$.ajax({
-		url : "http://localhost:3000/invoice/"+invoice_id,
+		url : "http://"+lb_server+"/invoice/"+invoice_id,
 		contentType : "application/json",
 		success : function(data){
 			var invoice = $('#invoiceinfo');
@@ -41,7 +41,7 @@ $(document).on('click', '#invoicelist li', function(event, ui){
 //Loads a page containing a list of invoices
 $(document).on('pagebeforeshow', '#invoicelistpage', function(event, ui){
 	$.ajax({
-		url : "http://localhost:3000/invoice",
+		url : "http://"+lb_server+"/invoice",
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#invoicelist');

@@ -5,7 +5,7 @@ $(document).on('pagebeforeshow', '#checkout', function(event)
   {
     //Checkout was pressed from the bucket
     $.ajax({
-      url : "http://localhost:5000/checkout/bucket/" + localStorage.getItem('id'),
+      url : "http://"+lb_server+"/checkout/bucket/" + localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {

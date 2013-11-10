@@ -1,0 +1,80 @@
+/*  Font Awesome 3.0
+    the iconic font designed for use with Twitter Bootstrap
+    -------------------------------------------------------
+    The full suite of pictographic icons, examples, and documentation
+    can be found at: http://fortawesome.github.com/Font-Awesome/
+
+    License
+    -------------------------------------------------------
+    • The Font Awesome font is licensed under the SIL Open Font License - http://scripts.sil.org/OFL
+    • Font Awesome CSS, LESS, and SASS files are licensed under the MIT License -
+      http://opensource.org/licenses/mit-license.html
+    • The Font Awesome pictograms are licensed under the CC BY 3.0 License - http://creativecommons.org/licenses/by/3.0/
+    • Attribution is no longer required in Font Awesome 3.0, but much appreciated:
+      "Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome"
+
+    Contact
+    -------------------------------------------------------
+    Email: dave@davegandy.com
+    Twitter: http://twitter.com/fortaweso_me
+    Work: Lead Product Designer @ http://kyruus.com */
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fontawesome-webfont.woff') format('woff'),
+    url('fontawesome-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.ui-icon {
+  background-image: none;
+  width: 20px;
+  height: 20px;
+}
+
+/*  Font Awesome styles
+    ------------------------------------------------------- */
+[class^="ui-icon-"]:before,[class*=" ui-icon-"]:before {
+  font-family:FontAwesome!important;
+  font-weight:400;
+  font-style:normal;
+  display:inline-block;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  display: inline;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  vertical-align: baseline;
+  background-image: none !important;
+  background-position: 0% 0%;
+  background-repeat: repeat;
+}
+/* makes sure icons active on rollover in links */
+a [class^="icon-"],
+a [class*=" icon-"] {
+  display: inline-block;
+}
+.ui-icon-search:before { content: "\f002"; margin-top: 1px; margin-left: 2px; }
+.ui-icon-th-large:before { content: "\f009"; margin-top: 2px; margin-left: 2px; }
+.ui-icon-th:before { content: "\f00a"; margin-top: 2px; margin-left: 2px; }
+.ui-icon-th-list:before { content: "\f00b"; margin-top: 2px; margin-left: 2px; }
+.ui-icon-tag:before { content: "\f02b"; margin-top: 2px; margin-left: 3px; }
+.ui-icon-tags:before { content: "\f02c"; margin-top: 2px; margin-left: 2px; }
+.ui-icon-warning-sign:before { content: "\f071"; margin-top: 2px; margin-left: 2px; }
+.ui-icon-camera-retro:before { content: "\f083"; margin-top: 2px; margin-left: 2px; }
+.ui-icon-rss:before { content: "\f09e"; margin-top: 2px; margin-left: 3px; }
+.ui-icon-paste:before { content: "\f0ea"; margin-top: 2px; margin-left: 2px; }
+.ui-icon-bell-alt:before { content: "\f0f3"; margin-top: 2px; margin-left: 3px; }
+.ui-icon-unlock-alt:before { content: "\f13e"; margin-top: 1px; margin-left: 3px; }
+.ui-icon-check-sign:before { content: "\f14a"; margin-top: 1px; margin-left: 3px; }
+.ui-icon-dollar:before { content: "\f155"; margin-top: 2px; margin-left: 0px; }
+.ui-icon-file-text:before { content: "\f15c"; margin-top: 2px; margin-left: 0px; }
+.ui-icon-dropbox:before { content: "\f16b"; margin-top: 1px; margin-left: 2px; }
+.ui-icon-archive:before { content: "\f187"; margin-top: 1px; margin-left: 2px; }
