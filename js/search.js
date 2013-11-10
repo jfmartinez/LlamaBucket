@@ -60,7 +60,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 						div.append(type);
 						var buy = $('<p style="color: #1CB0D9;">US $</p>');
 						var buy_span = $('<span></span>');
-						buy_span.html(data.content[i].price_buy);
+						buy_span.html(data.content[i].buyout_price);
 						buy.append(buy_span);
 						div2.append(buy);
 
@@ -74,7 +74,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 						bid_count.html(data.content[i].bid_count);
 						bid_count.append(bid_count_span);
-						bid_span.html(data.content[i].price_bid);
+						bid_span.html(data.content[i].price);
 
 
 						bid.append(bid_span);
@@ -98,7 +98,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 						bid_count.html(data.content[i].bid_count);
 						bid_count.append(bid_count_span);
-						bid_span.html(data.content[i].price_bid);
+						bid_span.html(data.content[i].price);
 
 
 						bid.append(bid_span);
@@ -117,7 +117,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 						div.append(type);
 						var buy = $('<p style="color: #1CB0D9;">US $</p>');
 						var buy_span = $('<span></span>');
-						buy_span.html(data.content[i].price_buy);
+						buy_span.html(data.content[i].price);
 						buy.append(buy_span);
 						div2.append(buy);
 
@@ -209,7 +209,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 						div.append(type);
 						var buy = $('<p style="color: #1CB0D9;">US $</p>');
 						var buy_span = $('<span></span>');
-						buy_span.html(data.content[i].price_buy);
+						buy_span.html(data.content[i].buyout_price);
 						buy.append(buy_span);
 						div2.append(buy);
 
@@ -223,7 +223,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 						bid_count.html(data.content[i].bid_count);
 						bid_count.append(bid_count_span);
-						bid_span.html(data.content[i].price_bid);
+						bid_span.html(data.content[i].price);
 
 
 						bid.append(bid_span);
@@ -247,7 +247,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 						bid_count.html(data.content[i].bid_count);
 						bid_count.append(bid_count_span);
-						bid_span.html(data.content[i].price_bid);
+						bid_span.html(data.content[i].price);
 
 
 						bid.append(bid_span);
@@ -266,7 +266,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 						div.append(type);
 						var buy = $('<p style="color: #1CB0D9;">US $</p>');
 						var buy_span = $('<span></span>');
-						buy_span.html(data.content[i].price_buy);
+						buy_span.html(data.content[i].price);
 						buy.append(buy_span);
 						div2.append(buy);
 
@@ -335,6 +335,8 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 	})
 });
 
+
+// $(document.on('click', '#sort_'))
 //Search by name
 $(document).on('click', '#search_button', function(event)
 {
@@ -355,7 +357,7 @@ $(document).on('click', '#search_button', function(event)
 }
 	
 });
-
+//$(document).on('click', '#'
 
 //Show the subcategories, no matter how many there are.
 $(document).on('click', '#categories-list li', function()

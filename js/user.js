@@ -12,9 +12,19 @@ $(document).on('click', '#sign_in_submit', function(event)
     {
       //Store the user in localStorage
       localStorage.setItem('id', data.id);
+      localStorage.setItem('isAdmin', data.isAdmin);
 
+      console.log(data);
+
+      if(data.isAdmin == 1)
+      {
+        console.log("True");
+        $.mobile.changePage('#admin_home');
+      }
+      else{
       $('#home').page();
-      $.mobile.changePage('#home')
+      $.mobile.changePage('#home');
+    }
     },
     error : function(data)
     {
@@ -26,13 +36,20 @@ $(document).on('click', '#sign_in_submit', function(event)
 
 $(document).on('pagebeforeshow', '#home', function(event)
 {
+  if(localStorage.getItem('isAdmin') == 1)
+  {
+    console.log("Hello");
+    $.mobile.changePage('#admin_home');
+  }
 
-  if(localStorage.getItem('id'))
+
+  else if(localStorage.getItem('id'))
   {
 
     //Show all the user options
     $('#logged_in_user_options').show();
     $('#non_user_options').hide();
+
   }
 
 
@@ -67,7 +84,7 @@ $(document).on('click', '#user_profile_trigger', function(event)
     $.mobile.changePage('#user_profile');
     $.ajax
     ({
-      url : "http://74.213.79.108:5000/profile/" + localStorage.getItem('id'),
+      url : "http://"+lb_server+"/profile/" + localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {
@@ -113,7 +130,7 @@ $(document).on('click', '#edit_user_save', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://74.213.79.108:5000/update_user_info",
+    url : "http://"+lb_server+"/update_user_info",
     data : $('#user_info_edit').serializeArray(),
     success : function(data)
     {
@@ -139,7 +156,7 @@ $(document).on('click', '#edit_user_save', function(event)
 $(document).on('pagebeforeshow', '#address_list', function(event)
 {
     $.ajax({
-      url : "http://74.213.79.108:5000/get_addresses/"+localStorage.getItem('id'),
+      url : "http://"+lb_server+"/get_addresses/"+localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {
@@ -164,7 +181,7 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
 $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 {
     $.ajax({
-      url : "http://74.213.79.108:5000/get_credit_cards/"+localStorage.getItem('id'),
+      url : "http://"+lb_server+"/get_credit_cards/"+localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {
@@ -191,7 +208,7 @@ $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://74.213.79.108:5000/add_mail_address",
+    url : "http://"+lb_server+"/add_mail_address",
     data : $('#new_address').serializeArray(),
     success : function(data)
     {
@@ -212,7 +229,7 @@ $(document).on('click', '#user_address_list li', function(event)
   {
     $.ajax({
       type : "POST",
-      url : "http://74.213.79.108:5000/delete_address",
+      url : "http://"+lb_server+"/delete_address",
       data : { address1 : address_to_delete},
       success : function(data)
       {
@@ -231,7 +248,7 @@ $(document).on('pagebeforecreate', '#notifications', function(event)
  {
 
    $.ajax({
-      url : "http://74.213.79.108:5000/get_notifications",
+      url : "http://"+lb_server+"/get_notifications",
       contentType : "application/json",
       success : function(data)
       {
@@ -265,7 +282,7 @@ $(document).on('pagebeforecreate', '#items_bidded', function(event)
  {
 
    $.ajax({
-      url : "http://74.213.79.108:5000/get_bids",
+      url : "http://"+lb_server+"/get_bids",
       contentType : "application/json",
       success : function(data)
       {
