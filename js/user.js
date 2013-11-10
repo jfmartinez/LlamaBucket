@@ -36,7 +36,7 @@ $(document).on('click', '#sign_in_submit', function(event)
 
 $(document).on('pagebeforeshow', '#home', function(event)
 {
-  if(localStorage.getItem('isAdmin'))
+  if(localStorage.getItem('isAdmin') == 1)
   {
     console.log("Hello");
     $.mobile.changePage('#admin_home');
