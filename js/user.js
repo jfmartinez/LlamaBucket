@@ -263,44 +263,6 @@ $(document).on('pagebeforecreate', '#items_bidded', function(event)
 });
 
 
-$
-$(document).on('pagebeforecreate', '#store', function(event)
- {
-
-   $.ajax({
-      url : "http://localhost:5000/get_listings",
-      contentType : "application/json",
-      success : function(data)
-      {
-         var listings = data;           
-          var list = $('#listings_list');
-
-          list.empty();
-          for(var i = 0; i < listings.length; i++)
-          {
-            list.append('<li>'+
-              '<a href="#edit_item"><img src="'+ listings[i].image +'"/>'+
-              '<p class="ui-li-aside"><strong>'+ listings[i].price+'</strong></p>'+
-             '<h5 style="font-size: 12px;">'+listings[i].name+'</h5>'+
-             '<p>' + listings[i].description + '</p><hr>'+
-              '<p><strong>Brand: </strong>' + listings[i].brand + '</p>'+
-
-             '<p><strong>Category: </strong>' + listings[i].category + '</p>'+
-             '<p><strong>Date: </strong> '+ listings[i].date +'</p>'+
-            '</a></li>'
-
-              );
-          }
-          list.listview('refresh');
-      },
-      error : function(data)
-      {
-        console.log('no brego');
-      }
-    })       
-               
-});
-
 $(document).on('click', '#log_out_button', function(event)
 {
   localStorage.clear();
