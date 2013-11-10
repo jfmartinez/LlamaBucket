@@ -22,16 +22,24 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 			$('#add_item_cart').show();
 			$('#bid_item').show();
 
-			$('#bid_price').html("US $"+ data.price_bid);
+			$('#bid_price').html("US $"+ data.price);
 			$('#number_bids_count').html(data.bid_count);
-			$('#item_price').html("US $" + data.price_buy);
+			$('#item_price').html("US $" + data.price);
 			console.log("Hello World!");
-			if(data.is_auction == "bid")
+
+			if(data.is_auction == "both" || data.is_auction =="bid")
 			{
 				//For bidding
 				$('#price_tag').hide();
 				$('#buy_item').hide();
 				$('#add_item_cart').hide();
+
+				if(data.is_action == "both")
+				{
+
+					$('#buy_item').show();
+					$('#item_price').html("US $" + data.buyout_price);
+				}
 
 			}
 

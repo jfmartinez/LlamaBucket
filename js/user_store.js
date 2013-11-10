@@ -23,10 +23,10 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 			$('#selling_add_item_cart').show();
 			$('#selling_bid_item').show();
 
-			$('#selling_bid_price').html("US $"+ data.price_bid);
+			$('#selling_bid_price').html("US $"+ data.price);
 			$('#selling_number_bids_count').html(data.bid_count);
-			$('#selling_item_price').html("US $" + data.price_buy);
-			console.log("Hello World!");
+			$('#selling_item_price').html("US $" + data.price);
+
 			if(data.is_auction == "bid")
 			{
 				//For bidding
@@ -87,6 +87,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 			contentType : "application/json",
 			success : function(data){
 			var list = $('#listings_list');
+			var List = new Array();
 			var length = data.content.length;
 
 				//Clear the list beforehand
@@ -96,12 +97,24 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 				//Go over all the items that were fetched and create the appropiate list items
 
-				list.append()
+				list.append();
 
 				for(var i = 0; i < length; i++)
-				{
+				{	
 
-					var t = $('<li id="' + data.content[i].item_id + '"" ></li>');
+
+					var list_element = {
+
+						item_name: data.content[i].item_name,
+						item_type: data.content[i].is_auction
+
+
+					};
+					console.log(list_element);
+
+
+
+					var t = $('<li id="' + data.content[i].item_id + '" ng-repeat="item in store | filter:search" ></li>');
 					
 					
 					var link = $('<a href="#"></a>');
@@ -135,7 +148,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 						div.append(type);
 						var buy = $('<p style="color: #1CB0D9;">US $</p>');
 						var buy_span = $('<span></span>');
-						buy_span.html(data.content[i].price_buy);
+						buy_span.html(data.content[i].buyout_price);
 						buy.append(buy_span);
 						div2.append(buy);
 
@@ -149,7 +162,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 						bid_count.html(data.content[i].bid_count);
 						bid_count.append(bid_count_span);
-						bid_span.html(data.content[i].price_bid);
+						bid_span.html(data.content[i].price);
 
 
 						bid.append(bid_span);
@@ -173,7 +186,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 						bid_count.html(data.content[i].bid_count);
 						bid_count.append(bid_count_span);
-						bid_span.html(data.content[i].price_bid);
+						bid_span.html(data.content[i].price);
 
 
 						bid.append(bid_span);
@@ -191,7 +204,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 						div.append(type);
 						var buy = $('<p style="color: #1CB0D9;">US $</p>');
 						var buy_span = $('<span></span>');
-						buy_span.html(data.content[i].price_buy);
+						buy_span.html(data.content[i].price);
 						buy.append(buy_span);
 						div2.append(buy);
 
@@ -209,6 +222,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 					// list.append('<li id="'+ data.content[i].item_id + '"><a href=')
 					list.append(t);
 				
+					List.push(list_element);
 
 					// list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
 					// 	data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
@@ -218,6 +232,9 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 				//Refresh the ul so that all elements are views properly.
 				list.listview('refresh');
+								console.log(List);
+
+
 		},
 		error : function(data){
 			console.log("Serach results not available");
@@ -257,13 +274,13 @@ $(document).on('pagebeforeshow', '#edit_item', function(event)
 			{	console.log("Hello");
 				$('#edit_bid_radio').trigger('click');
 
-				$('#edit_auction_price').val(data.price_bid);
+				$('#edit_auction_price').val(data.price);
 
 				if(data.is_auction =="both")
 				{
 
 					$('#edit_buying_checkbox').trigger('click');
-					$('#edit_buyout_price').val(data.price_buy);
+					$('#edit_buyout_price').val(data.buyout_price);
 					$('#edit_buying_checkbox').checkboxradio('refresh');
 
 				}
@@ -275,7 +292,7 @@ $(document).on('pagebeforeshow', '#edit_item', function(event)
 			else if(data.is_auction =="buy")
 			{
 				$('#edit_buy_radio').trigger('click');
-				$('#edit_selling_price').val(data.price_buy);
+				$('#edit_selling_price').val(data.price);
 
 
 			}			
