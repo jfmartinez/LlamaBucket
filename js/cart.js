@@ -40,12 +40,6 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 
 });
 
-$(document).on('click', '#bucket_checkout', function(event)
-{
-	//I can only press checkout button from the bucket, right?
-	sessionStorage.setItem('bucket_id', localStorage.getItem('id'));
-	$.mobile.changePage('#checkout');
-});
 
 
 
