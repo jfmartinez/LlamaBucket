@@ -38,9 +38,6 @@
     <!--Home Page -->
     <div data-role="page" id="home" style="background-image:url('images/bg/gplaypattern.png');">
 
-
-      <!--Header -->
-
       <div data-role="header" id="home_header" data-position="fixed">
 
         <h2 class="ui-title" role="heading">LlamaBucket</h2>
@@ -49,11 +46,6 @@
 
       </div>
 
-
-      <!--Header End -->
-
-
-      <!--Homepage Content -->
       <div data-role="content"  >
         <div id="normal_options">
 
@@ -62,66 +54,55 @@
           <a href="#categories" data-role="button"  data-icon="arrow-r" data-iconpos="right" data-theme="f">Shop By Category</a>
 
         </div>
-<!-- 
-        <a href="#adminpanelpage" id="admin_options" data-role="button" data-icon="flat-settings" data-iconpos="right" data-theme="b">Administrator Panel</a>
-      -->
-      <hr>
 
+        <hr>
 
+        <div style="width:100%; text-align:center;">
 
-      <div style="width:100%; text-align:center;">
-
-        <img src="images/winter-llama.png" style="height:85%; align:center;"/>
-      </div>
-
-
-      <div data-role="controlgroup" id="logged_in_user_options">
-        <a data-role="button"  data-theme="f">Buying</a>
-        <a data-role="button"  data-theme="e" href="#store">Selling</a>
-
-        <a data-role="button" data-icon="flat-mail" data-theme="g">Notifications</a>
-
-        
-
-
-
-
-      </div>
-
-      
-
-      <div id="non_user_options" style="width:100%; text-align:center">
-
-        <h4>
-          <span style="color: #2ecc71;" >Sign In</span> or 
-          <span style="color: #3498db;" >Register</span> for More Features!
-        </h4>
-
-
-
-        <fieldset class="ui-grid-a">
-          <div class="ui-block-a">
-            <a data-role="button" data-icon="flat-checkround" data-theme="g" href="#sign_in">Sign In</a></div>
-            <div class="ui-block-b"> <a data-role="button" data-icon="flat-new" data-theme="f" href="#registerForm">Register</a></div>
-          </fieldset>
+          <img src="images/winter-llama.png" style="height:85%; align:center;"/>
         </div>
-      </div>
+        <!-- User options-->
 
+        <div data-role="controlgroup" id="logged_in_user_options">
+          <a data-role="button"  data-theme="f">Buying</a>
+          <a data-role="button"  data-theme="e" href="#store">Selling</a>
 
-
-      <div data-role="footer" data-id="pers_footer" data-position="fixed">
-        <div data-role="navbar">
-          <ul>
-            <li><a href="#home" data-icon="home" >Home</a></li>
-            <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-            <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
-          </ul>
+          <a data-role="button" data-icon="flat-mail" data-theme="g">Notifications</a>
         </div>
+
+        <!-- Non User Option-->
+        <div id="non_user_options" style="width:100%; text-align:center">
+
+          <h4>
+            <span style="color: #2ecc71;" >Sign In</span> or 
+            <span style="color: #3498db;" >Register</span> for More Features!
+          </h4>
+
+
+          <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+              <a data-role="button" data-icon="flat-checkround" data-theme="g" href="#sign_in">Sign In</a></div>
+              <div class="ui-block-b"> <a data-role="button" data-icon="flat-new" data-theme="f" href="#registerForm">Register</a></div>
+            </fieldset>
+          </div>
+        </div>
+
+
+
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home" >Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
 
       <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 
-    </div>
 
     <div data-role="dialog" id="delete_card">
     <div data-role="header" data-theme="b">
@@ -136,329 +117,72 @@
     </div>
   </div>
 
-    <!--Admin Home -->
 
-    <div data-role="page" id="admin_home">
+      <!--Admin Home -->
 
-
-      <div data-role="header">
-
-        <h2>Admin Page</h2>
-
-      </div>
+      <div data-role="page" id="admin_home">
 
 
+        <div data-role="header">
 
-      <div data-role="content">
+          <h2>Admin Page</h2>
 
-       <div style="width:100%; text-align:center">
+        </div>
 
-        <img src="images/winter-llama.png" style="align:center;"/>
 
-        <h1>Welcome Admin!</h1>
 
+        <div data-role="content">
+
+         <div style="width:100%; text-align:center">
+
+          <img src="images/winter-llama.png" style="align:center;"/>
+
+          <h1>Welcome Admin!</h1>
+
+          
         <a href="#adminuserlistpage" data-theme="f" data-role="button">View Users</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - Today</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - This Week</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - This Month</a>
-        <a href="#repgenpage" data-theme="f" data-role="button">Generate Report - All</a>
+        <a href="#reportday" data-theme="f" data-role="button">Generate Report - Today</a>
+        <a href="#reportweek" data-theme="f" data-role="button">Generate Report - This Week</a>
+        <a href="#reportmonth" data-theme="f" data-role="button">Generate Report - This Month</a>
         <a href="#view_categories" data-theme="f"  data-role="button">View/Edit Categories</a>
+        
 
-      </div>
-
-
-
-
-
-    </div>
-
-
-    <div data-role="footer">
-
-      <div data-role="navbar">
-        <ul>
-
-          <li><a  data-role="button" id="log_out_button" data-inline="true">Logout</a></li>
-        </ul>
-      </div>
-
-
-    </div>
-
-
-
-  </div>
-
-
-
-  <!-- Bids -->
-  <div data-role="page" id="items_bidded">
-    <div data-role="header">
-
-      <a href="#home" data-role="back" data-icon="back" data-rel="back" data-iconpos="notext"></a>
-      <h2>Bids </h2>
-    </div>
-    <div data-role="content">
-
-      <ul data-role="listview" id="bids_list" data-inset="true">
-      </ul>
-
-    </div>
-    <div data-role="footer" data-id="pers_footer" data-position="fixed">
-      <div data-role="navbar">
-        <ul>
-          <li><a href="#home" data-icon="home" >Home</a></li>
-          <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-          <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-  <!-- Bid Ends -->
-
-  <!-- Store -->
-  <div data-role="page" id="store">
-    <div data-role="header">
-
-      <a href="#home" >Back</a>
-      <h2>Store </h2>
-      <a href="#create_item" >Create</a>
-
-
-    </div>
-
-    <div data-role="content">
-      <input type="search" ng-model="search" name="search" id="search_basic"/>
-
-
-      <h3>Click the Item for More Options: </h3>
-      <div ng-controller="List">
-        <ul data-role="listview" id="listings_list" data-icon="false" data-inset="true" >
-
-        </ul>
+        </div>
 
 
       </div>
 
-    </div>
-    <div data-role="footer" data-id="pers_footer" data-position="fixed">
-      <div data-role="navbar">
-        <ul>
-          <li><a href="#home" data-icon="home" >Home</a></li>
-          <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-          <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
-        </ul>
-      </div>
 
-    </div>
-    <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
+      <div data-role="footer">
 
-  </div>
-
-
-  <!--Listing View -->
-  <div data-role="page" id="manage_item_page">
-
-    <div data-role="header" data-id="foo1" data-position="fixed">
-      <a href="#home"  data-rel="back"> Back </a>
-      <h2>Item </h2>
-    </div>
-
-
-    <div data-role="content"  data-inset="true" style="background-image:url('images/bg/dark_wall.png');">
-
-     <div class="ui-grid-a">
-       <div class="ui-block-a">  
-         <a href="#edit_item" data-role="button" id="edit_store" data-theme="f">Edit</a>
-       </div>
-       <div class="ui-block-b"> 
-        <a href="#remove_listing_store" data-role="button" id="remove_store" data-theme="d">Delete</a></div>
-      </div>
-      <br>
-      <div class="ui-grid-b">
-        <div class="ui-block-a"></div>
-        <div class="ui-block-b"><img src="" id="selling_item_image" width="90%"/></div>
-        <div class="ui-block-c"></div>
-      </div>
-
-
-      <h2 style="text-align: center; color:white;" id="selling_item_header"></h2>
-
-      <ul data-role="listview" data-inset="true" data-icon="false" id="selling_item_pricing_details">
-
-        <li id="selling_price_tag"> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Price:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="selling_item_price" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
-
-        </div></li>
-
-        <li id="selling_current_bidding"> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute" style="margin-top: 2px">Current Bid:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="selling_bid_price" ></p><p class="item_attribute"></p></div>
-
-        </div></li>
-
-        <li id="selling_number_bids"> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Bids:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="selling_number_bids_count" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
-
-        </div></li>
-
-
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Location:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_location"></p></div>
-
-        </div></li>
-
-      </ul>
-
-      <ul data-role="listview" data-inset="true" >
-
-
-        <li><a href="#item_desc" ><p class="item_attribute">Description</p></a></li>
-
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Brand:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_brand"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Category:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_category"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Year:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_year"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">ID:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_id"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a" style="width:33%"><p class="item_attribute">Seller:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_seller"></p></div>
-
-        </div></li>
-      </ul>
-
-      <br>
-
-      <div data-role="controlgroup">
-        <a href="index.html" id="selling_buy_item" data-role="button" data-theme="a">Buy</a>
-        <a href="index.html" id="selling_bid_item" data-theme="a" data-role="button">Bid</a>
-        <a href="index.html" id="selling_add_item_cart" data-theme="a" data-role="button">Add to Cart</a>
-      </div>      </div>
-
-
-
-      <div data-role="footer" data-id="pers_footer" data-position="fixed">
         <div data-role="navbar">
           <ul>
-            <li><a href="#home" data-icon="home" >Home</a></li>
-            <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-            <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+
+            <li><a  data-role="button" id="log_out_button" data-inline="true">Logout</a></li>
           </ul>
         </div>
+
+
       </div>
+
+
 
     </div>
 
 
-    <!--Listing View End -->
 
-    <!--Edit Item -->
-    <div data-role="page" id="edit_item">
-      <div data-role="header" data-position="fixed">
-        <h2>List an Item</h2>
-      </div>
-      <div data-role="content" style="color:gray;">
-        <form id="crete_item">
-          <label for="item_name">Item Name:</label>
-          <input type="text" name="edit_item_name" id="edit_item_name" value="" data-mini="true"/>
-          <label for="description">Description:</label>
-          <textarea name="textarea" id="edit_description"></textarea>
-          <label for="email">Category:</label>
-          <select  id="category" data-mini="true">
-            <option>Books</option>
-          </select>
-          <label for="email">Year:</label>
-          <input type="text" name="category" id="edit_year" placeholder="" data-mini="true"/>
-          <label for="email">Brand:</label>
-          <input type="text" name="category" id="edit_brand" placeholder="" data-mini="true"/>
-
-          <label>Type:</label>
-          <div data-role="fieldcontain">
-
-           <fieldset data-role="controlgroup">
-            <input type="radio" name="edit_item_type" data-theme="c" id="edit_buy_radio" value="buy"  />
-            <label for="edit_buy_radio" >Buy</label>
-
-            <input type="radio" name="edit_item_type" data-theme="c" id="edit_bid_radio" value="bid" />
-            <label for="edit_bid_radio">Bid</label>
-
-          </fieldset>
-        </div>
-
-        <div id="edit_bid_option_div">
-          <label id="auction_label">Starting Auction Price: <span class="money">US $</span></label>
-          <input type="text" name="auction_price" id="edit_auction_price"/>
-
-          <input type="checkbox" name="edit_buyout_checkbox" data-theme="c" id="edit_buyout_checkbox" checked="true"/>
-          <label for="edit_buyout_checkbox" id="buyout_label" >Add Buyout Price: <span class="money">US $</span></label>
-
-          <input type="text" name="price" id="edit_buyout_price"/>
-
-
-
-          <label id="time_label" for="bid_time">Bid Time <span style="color: #33CCFF
-            ;">(Days)</span></label>
-            <input type="range" data-theme="g" name="bid_time" id="edit_bid_time" value="7" min="3" max="14" />
-
-          </div>
-          <div id="edit_sell_option_div">
-
-            <label for="selling_price" id="sell_label">Selling Price: <span class="money">US $</span></label>
-            <input type="text" name="selling_price" id="edit_selling_price"/>
-          </div>
-
-
-
-
-
-
-
-          <label for="email">Image:</label>
-          <input type="file"  name="image" accept="image/*" capture>
-
-        </form>
-      </div>
-      <div data-role="footer" data-position="fixed">
-        <div data-role="navbar">
-          <ul>
-            <li><a data-role="button" data-inline="true" id="create_item_save" >Save</a></li>
-            <li><a href="#store" data-role="button" data-inline="true">Cancel</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Notifications -->
-    <div data-role="page" id="notifications">
+    <!-- Bids -->
+    <div data-role="page" id="items_bidded">
       <div data-role="header">
-        <a href="#home" data-icon="back" data-role="back" data-iconpos="notext"></a>
-        <h2> Notifications</h2>
+
+        <a href="#home" data-role="back" data-icon="back" data-rel="back" data-iconpos="notext"></a>
+        <h2>Bids </h2>
       </div>
       <div data-role="content">
-        <ul data-role="listview" id="notifications_list" data-inset="true">
 
-
+        <ul data-role="listview" id="bids_list" data-inset="true">
         </ul>
+
       </div>
       <div data-role="footer" data-id="pers_footer" data-position="fixed">
         <div data-role="navbar">
@@ -471,75 +195,32 @@
       </div>
 
     </div>
+    <!-- Bid Ends -->
+
+    <!-- Store -->
+    <div data-role="page" id="store">
+      <div data-role="header">
+
+        <a href="#home" >Back</a>
+        <h2>Store </h2>
+        <a href="#create_item" >Create</a>
 
 
-    <!-- Invoice list -->
-    <div data-role="page" id="invoicelistpage">
-      <div data-role="header" id="invoicelistheader">
-        <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
-        <h2>My Invoices</h2>
       </div>
 
-      <div data-role="content" id="invoicelistcontent">
-        <ul data-role="listview" id="invoicelist" data-inset="true"></ul>
-      </div>
-    </div>
-    <!-- Invoice list end -->
+      <div data-role="content">
+        <input type="search" ng-model="search" name="search" id="search_basic"/>
 
-    <!-- Invoice -->
-    <div data-role="page" id="invoicepage">
-      <div data-role="header" id="invoiceheader">
-        <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
-        <h2>Invoice</h2>
-      </div>
 
-      <div data-role="content" id="invoicecontent">
-        <ul data-role="listview" id="invoiceinfo">
-        </ul>
-      </div>
+        <h3>Click the Item for More Options: </h3>
+        <div ng-controller="List">
+          <ul data-role="listview" id="listings_list" data-icon="false" data-inset="true" >
 
-      <div data-role="footer" data-id="pers_footer" data-position="fixed">
-        <div data-role="navbar">
-          <ul>
-            <li><a href="#home" data-icon="home" >Home</a></li>
-            <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-            <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
           </ul>
+
+
         </div>
-      </div>
 
-
-    </div>
-
-
-    <!-- Invoice End -->
-
-    <!-- Admin Panel -->
-
-    <!-- panel page -->
-    <div data-role="page" id="adminpanelpage">
-      <div data-role="header" id="adminpanelheader" data-position="fixed">
-        <a href="#" data-rel="back">Back</a>
-        <h2>Administrator Panel</h2>
-      </div>
-      <div data-role="content" id="adminpanelcontent">
-        <a href="#adminuserlistpage" data-role="button">View Users</a>
-        <a href="#repgenpage" data-role="button">Generate Report - Today</a>
-        <a href="#repgenpage" data-role="button">Generate Report - This Week</a>
-        <a href="#repgenpage" data-role="button">Generate Report - This Month</a>
-        <a href="#repgenpage" data-role="button">Generate Report - All</a>
-        <a href="#view_categories" data-role="button">View/Edit Categories</a>
-      </div>
-    </div>
-
-    <!-- user list-->
-    <div data-role="page" id="adminuserlistpage">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back">Back</a>
-        <h2>User List</h2>
-      </div>
-      <div data-role="content" id="adminuserlistcontent">
-        <ul data-role="listview" id="userlist"></ul>
       </div>
       <div data-role="footer" data-id="pers_footer" data-position="fixed">
         <div data-role="navbar">
@@ -549,271 +230,782 @@
             <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
           </ul>
         </div>
+
       </div>
       <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
+
     </div>
 
-    <!-- user page -->
-    <div data-role="page" id="userinfopage">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back">Back</a>
-        <h2 id="uiheader">User Information</h2>
-        <a href="#edit_user_admin" data-icon="gear" data-iconpos="notext"></a>
 
-      </div>
-      <div data-role="content" id="userinfocontent">
-        <ul data-role="listview" id="userinfo" data-inset="true"></ul>
+    <!--Listing View -->
+    <div data-role="page" id="manage_item_page">
+
+      <div data-role="header" data-id="foo1" data-position="fixed">
+        <a href="#home"  data-rel="back"> Back </a>
+        <h2>Item </h2>
       </div>
 
 
-      <div data-role="footer" data-id="pers_footer" data-position="fixed">
-        <div data-role="navbar">
-          <ul>
-            <li><a href="#home" data-icon="home" >Home</a></li>
-            <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-            <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
-          </ul>
+      <div data-role="content"  data-inset="true" style="background-image:url('images/bg/dark_wall.png');">
+
+       <div class="ui-grid-a">
+         <div class="ui-block-a">  
+           <a href="#edit_item" data-role="button" id="edit_store" data-theme="f">Edit</a>
+         </div>
+         <div class="ui-block-b"> 
+          <a href="#remove_listing_store" data-role="button" id="remove_store" data-theme="d">Delete</a></div>
         </div>
-      </div>
-      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
-    </div>
-    <!-- report generator -->
-    <div data-role="page" id="repgenpage">
-      <div data-role="header">
-        <a href="#" data-rel="back">Back</a>
-        <h2 id="repname">Report</h2>
-      </div>
-      <div data-role="content" id="repgencontent">
-        <ul data-role="listview" data-inset="true" id="repgen"></ul>
-      </div>
-
-    </div>  
-    <div data-role="page" id="edit_user_admin">
-
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back">Back</a>
-        <h2>Edit</h2>
-      </div>
-
-      <div data-role="content">
-        <form id="user_info_edit">
-          <h4 style="text-align: center;"> Personal Information</h4>
-          <label for="first_name">First Name:</label>
-          <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First Name"/>
-          <label for="last_name">Last Name:</label>
-          <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last Name"/>
-          <label for="email">Email:</label>
-          <input type="text" name="email" id="email" placeholder="Email" data-mini="true"/>
-
-          <h4 style="text-align : center;">Password Settings</h4>
-          <label for="old_password">Old Password</label>
-          <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
-          <label for="new_password">New Password</label>
-          <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
-        </form>
-      </div>
-
-      <div data-role="footer" data-position="fixed">
-        <div data-role="navbar">
-          <ul>
-            <li><a data-role="button" data-inline="true" id="edit_user_save" >Save</a></li>
-            <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
-          </ul>
+        <br>
+        <div class="ui-grid-b">
+          <div class="ui-block-a"></div>
+          <div class="ui-block-b"><img src="" id="selling_item_image" width="90%"/></div>
+          <div class="ui-block-c"></div>
         </div>
-      </div>
 
-    </div>
 
-    <!-- Admin View Categories -->
-    <div data-role="page" id="view_categories">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back">Back</a>
-        <h2>Category Management</h2>
-        <a href="#add_category" data-icon="plus" data-iconpos="notext" data-role="button"></a>
-      </div>
-      <div data-role="content">
-        <ul data-role="listview" data-inset="true" id="view_categories_list">
-          <!--Admin Category View-->
+        <h2 style="text-align: center; color:white;" id="selling_item_header"></h2>
+
+        <ul data-role="listview" data-inset="true" data-icon="false" id="selling_item_pricing_details">
+
+          <li id="selling_price_tag"> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Price:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="selling_item_price" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
+
+          </div></li>
+
+          <li id="selling_current_bidding"> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute" style="margin-top: 2px">Current Bid:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="selling_bid_price" ></p><p class="item_attribute"></p></div>
+
+          </div></li>
+
+          <li id="selling_number_bids"> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Bids:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="selling_number_bids_count" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
+
+          </div></li>
+
+
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Location:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_location"></p></div>
+
+          </div></li>
 
         </ul>
-      </div>
 
-    </div>
-
-    <!-- Add Category -->
-    <div data-role="page" id="add_category">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back">Back</a>
-        <h2>Add Category</h2>
-        <a id="save_category" data-role="button" >Save</a>
-      </div>
-      <div data-role="content">
-
-        <form >
-          <label for="category_name">Category Name:</label>
-          <input type="text" name="category_name" id="category_name"  data-mini="true" />
-          <label for="category_parent">Category Parent:</label>
-          <input type="text" name="category_parent" id="category_parent" data-mini="true" >
-          <label for="category_id">Category ID:</label>
-          <input type="text" name="category_id" id="category_id" data-mini="true"/>
+        <ul data-role="listview" data-inset="true" >
 
 
-        </form>
+          <li><a href="#item_desc" ><p class="item_attribute">Description</p></a></li>
 
-      </div>
-    </div>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Brand:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_brand"></p></div>
 
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Category:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_category"></p></div>
 
-    <!-- Edit Category -->
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Year:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_year"></p></div>
 
-    <div data-role="page" id="edit_categories">
-      <div data-role="header" data-position="fixed">
-        <a href="#" data-rel="back">Back</a>
-        <h2> Edit Category</h2>
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">ID:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_id"></p></div>
 
-      </div>
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:33%"><p class="item_attribute">Seller:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="selling_item_seller"></p></div>
 
-      <div data-role="content">
-        <form >
-          <label for="category_name">Category Name:</label>
-          <input type="text" name="category_name" id="category_name"  data-mini="true" />
-          <label for="category_parent">Category Parent:</label>
-          <input type="text" name="category_parent" id="category_parent" data-mini="true" >
-          <label for="category_id">Category ID:</label>
-          <input type="text" name="category_id" id="category_id" data-mini="true"/>
-          <a href="#category_saved" data-role="button" data-rel="popup"> Save Changes</a>
-          <a href="#category_deleted" data-role="button" data-rel="popup"> Delete</a>
-          <a  data-rel="back" data-role="button" data-rel="popup">Cancel</a>
-
-        </form>
-
-
-      </div>
-    </div>
-
-
-
-
-
-    <!-- Admin Panel end -->
-
-
-    <!-- Remove Prompt -->
-
-    <div data-role="dialog" id="remove_listing_store">
-
-      <div data-role="header">
-        <h3>Are you Sure?</h3>
-
-      </div>
-
-      <div data-role="content">
-        <p>Deleting your listing: &#39;<strong> <span id="item_name_removal" style="color:orange;" ></span></strong> &#39; will completely delete it from the system and it will be unretrievable</p>
-
-        <div class="ui-grid-a">
-          <div class="ui-block-a"><a data-rel="back" data-role="button" data-theme="g">Cancel</a></div>
-          <div class="ui-block-b"><a href="#store" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check" data-theme="d">Delete</a></div>
-        </div>
-
-
-
-
-
-      </div>
-    </div>
-    <!-- Cart List -->
-    <div data-role="page" id="user_bucket">
-
-      <div data-role="header">
-        <a href="#" data-rel="back">Back</a>
-        <h2> My Bucket </h2>
-        <a href="#" data-role="button" id="bucket_checkout">Checkout</a>
-      </div>
-
-
-      <div data-role="content">
-        <ul data-role="listview" id="bucket_list" data-inset = "true" >
+          </div></li>
         </ul>
 
         <br>
 
-        <div id="bucket_info">
-          <p id="bucket_items"></p>
-          <p>Shipping: Free</p>
+        <div data-role="controlgroup">
+          <a href="index.html" id="selling_buy_item" data-role="button" data-theme="a">Buy</a>
+          <a href="index.html" id="selling_bid_item" data-theme="a" data-role="button">Bid</a>
+          <a href="index.html" id="selling_add_item_cart" data-theme="a" data-role="button">Add to Cart</a>
+        </div>      </div>
+
+
+
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home" >Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
         </div>
 
-        <div id="bucket_total">
-          <p id="bucket_subtotal"></p>
+      </div>
+
+
+      <!--Listing View End -->
+
+      <!--Edit Item -->
+      <div data-role="page" id="edit_item">
+        <div data-role="header" data-position="fixed">
+          <h2>List an Item</h2>
+        </div>
+        <div data-role="content" style="color:gray;">
+          <form id="crete_item">
+            <label for="item_name">Item Name:</label>
+            <input type="text" name="edit_item_name" id="edit_item_name" value="" data-mini="true"/>
+            <label for="description">Description:</label>
+            <textarea name="textarea" id="edit_description"></textarea>
+            <label for="email">Category:</label>
+            <select  id="category" data-mini="true">
+              <option>Books</option>
+            </select>
+            <label for="email">Year:</label>
+            <input type="text" name="category" id="edit_year" placeholder="" data-mini="true"/>
+            <label for="email">Brand:</label>
+            <input type="text" name="category" id="edit_brand" placeholder="" data-mini="true"/>
+
+            <label>Type:</label>
+            <div data-role="fieldcontain">
+
+             <fieldset data-role="controlgroup">
+              <input type="radio" name="edit_item_type" data-theme="c" id="edit_buy_radio" value="buy"  />
+              <label for="edit_buy_radio" >Buy</label>
+
+              <input type="radio" name="edit_item_type" data-theme="c" id="edit_bid_radio" value="bid" />
+              <label for="edit_bid_radio">Bid</label>
+
+            </fieldset>
+          </div>
+
+          <div id="edit_bid_option_div">
+            <label id="auction_label">Starting Auction Price: <span class="money">US $</span></label>
+            <input type="text" name="auction_price" id="edit_auction_price"/>
+
+            <input type="checkbox" name="edit_buyout_checkbox" data-theme="c" id="edit_buyout_checkbox" checked="true"/>
+            <label for="edit_buyout_checkbox" id="buyout_label" >Add Buyout Price: <span class="money">US $</span></label>
+
+            <input type="text" name="price" id="edit_buyout_price"/>
+
+
+
+            <label id="time_label" for="bid_time">Bid Time <span style="color: #33CCFF
+              ;">(Days)</span></label>
+              <input type="range" data-theme="g" name="bid_time" id="edit_bid_time" value="7" min="3" max="14" />
+
+            </div>
+            <div id="edit_sell_option_div">
+
+              <label for="selling_price" id="sell_label">Selling Price: <span class="money">US $</span></label>
+              <input type="text" name="selling_price" id="edit_selling_price"/>
+            </div>
+
+
+
+
+
+
+
+            <label for="email">Image:</label>
+            <input type="file"  name="image" accept="image/*" capture>
+
+          </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a data-role="button" data-inline="true" id="create_item_save" >Save</a></li>
+              <li><a href="#store" data-role="button" data-inline="true">Cancel</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div data-role="footer" data-id="pers_footer" data-position="fixed">
-        <div data-role="navbar">
-          <ul>
-            <li><a href="#home" data-icon="home" >Home</a></li>
-            <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-            <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+
+      <!-- Notifications -->
+      <div data-role="page" id="notifications">
+        <div data-role="header">
+          <a href="#home" data-icon="back" data-role="back" data-iconpos="notext"></a>
+          <h2> Notifications</h2>
+        </div>
+        <div data-role="content">
+          <ul data-role="listview" id="notifications_list" data-inset="true">
+
+
           </ul>
         </div>
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home" >Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
 
+
+      <!-- Invoice list -->
+      <div data-role="page" id="invoicelistpage">
+        <div data-role="header" id="invoicelistheader">
+          <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
+          <h2>My Invoices</h2>
+        </div>
+
+        <div data-role="content" id="invoicelistcontent">
+          <ul data-role="listview" id="invoicelist" data-inset="true"></ul>
+        </div>
+      </div>
+      <!-- Invoice list end -->
+
+      <!-- Invoice -->
+      <div data-role="page" id="invoice_page">
+        
+        <div data-role="header">
+          <button data-rel="back">Back</button>
+          <h3>Invoice</h3>
+        </div>
+
+        <div data-role="content" id="invoicecontent">
+          <h3 style="margin-left : 33%">Order Processed</h3>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <h3>Total:</h3>
+            </div>
+            <div class="ui-block-b">
+              <p style="float : right;" id="invoice_total_price">$3000.00</p>
+            </div>
+          </div>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <h3>Paid with:</h3>
+            </div>
+            <div class="ui-block-b">
+              <p style="float : right;" id="invoice_card_info">VISA ending in: 2934</p>
+            </div>
+          </div>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <h3>Date: </h3>
+            </div>
+            <div class="ui-block-b">
+              <p style="float : right;" id="invoice_date">10/11/13</p>
+            </div>
+          </div>
+
+          <br>
+
+          <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider" >Shipping Information</li>
+            <li>
+              <p id="invoice_address_1">#311 Calle Ext. Los Robles</p>
+              <p id="invoice_address_2"></p>
+              <p id="invoice_address_info">Rincon, PR</p>
+              <p id="invoice_zip_code">00677</p>
+            </li>
+          </ul>
+
+
+          
+          <ul data-role="listview" id="invoice_items" data-inset="true">
+            <li data-role="list-divider" data-inset="true">Items</li>
+            <li>
+                <img src="http://akindleandkittens.files.wordpress.com/2012/01/bookworm.jpg"/>
+                <p style="float : right; padding-right : 15px; padding-top : 13%;">$ 3,000.00</p>
+                <h4 style="margin-top : 9%;">Some book</h4>
+                <p>seller: bestbooks4u</p>
+            </li>
+          </ul>
+        </div>
+
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home" >Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <!-- Invoice End -->
+
+      <!-- user list-->
+      <div data-role="page" id="adminuserlistpage">
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2>User List</h2>
+        </div>
+        <div data-role="content" id="adminuserlistcontent">
+          <ul data-role="listview" id="userlist"></ul>
+        </div>
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home" >Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
+      </div>
+
+      <!-- user page -->
+      <div data-role="page" id="userinfopage">
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2 id="uiheader">User Information</h2>
+          <a href="#edit_user_admin" data-icon="gear" data-iconpos="notext"></a>
+
+        </div>
+      </div>
+      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
     </div>
 
+    <!-- Report Generator -->
 
-    <!-- Checkout -->
-    <div data-role="page" id="checkout">
-      <div data-role="header">
-        <a href="#"  data-role="button" data-rel="back"></a>
-        <h2>Checkout</h2>
-        <a href="#invoicepage"  data-role="button">Place Order</a>
+    <div data-role="page" id="reportday">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">Today's Sales</h2>
       </div>
-      <div data-role="content">
+      <div data-role="content" id="reptodaycontent">
+        <ul data-role="listview" data-inset="true" id="reptoday"></ul>
+      </div>
 
-        <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider">Order</li>
-          <li>
-            <strong>Items: </strong>
-            <strong style="float : right;" id="checkout_number_total"></strong>
-          </li>
-          <li>
-            <strong>Shipping:</strong>
-            <strong style="float: right;"> $0.00</strong>
-          </li>
+    </div>  
 
-          <li>
-            <strong>Order total:</strong>
-            <strong style="float : right" id="checkout_order_total"></strong>
-          </li>
-        </ul>
+    <div data-role="page" id="reportweek">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">This Week's Sales</h2>
+      </div>
+      <div data-role="content" id="repweekcontent">
+        <ul data-role="listview" data-inset="true" id="repweek"></ul>
+      </div>
+
+    </div> 
+
+    <div data-role="page" id="reportmonth">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">This Month's Sales</h2>
+      </div>
+      <div data-role="content" id="repmonthcontent">
+        <ul data-role="listview" data-inset="true" id="repmonth"></ul>
+      </div>
+
+    </div> 
+
+    <div data-role="page" id="edit_user_admin">
+        <div data-role="content" id="userinfocontent">
+          <ul data-role="listview" id="userinfo" data-inset="true"></ul>
+        </div>
+
+
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home" >Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
+      </div>
+      <!-- report generator -->
+      <div data-role="page" id="repgenpage">
+        <div data-role="header">
+          <a href="#" data-rel="back">Back</a>
+          <h2 id="repname">Report</h2>
+        </div>
+        <div data-role="content" id="repgencontent">
+          <ul data-role="listview" data-inset="true" id="repgen"></ul>
+        </div>
+
+      </div>  
+      <div data-role="page" id="edit_user_admin">
+
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2>Edit</h2>
+        </div>
+
+        <div data-role="content">
+          <form id="user_info_edit">
+            <h4 style="text-align: center;"> Personal Information</h4>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder="First Name"/>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" data-mini="true" placeholder="Last Name"/>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Email" data-mini="true"/>
+
+            <h4 style="text-align : center;">Password Settings</h4>
+            <label for="old_password">Old Password</label>
+            <input for="password" name="old_password" id="old_password" placeholder="***********" data-mini="true"/>
+            <label for="new_password">New Password</label>
+            <input for="password" name="new_password" id="new_password" placeholder="***********" data-mini="true"/>
+          </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a data-role="button" data-inline="true" id="edit_user_save" >Save</a></li>
+              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Admin View Categories -->
+      <div data-role="page" id="view_categories">
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2>Category Management</h2>
+          <a href="#add_category" data-icon="plus" data-iconpos="notext" data-role="button"></a>
+        </div>
+        <div data-role="content">
+          <ul data-role="listview" data-inset="true" id="view_categories_list">
+            <!--Admin Category View-->
+
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Add Category -->
+      <div data-role="page" id="add_category">
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2>Add Category</h2>
+          <a id="save_category" data-role="button" >Save</a>
+        </div>
+        <div data-role="content">
+
+          <form >
+            <label for="category_name">Category Name:</label>
+            <input type="text" name="category_name" id="category_name"  data-mini="true" />
+            <label for="category_parent">Category Parent:</label>
+            <input type="text" name="category_parent" id="category_parent" data-mini="true" >
+            <label for="category_id">Category ID:</label>
+            <input type="text" name="category_id" id="category_id" data-mini="true"/>
+
+
+          </form>
+
+        </div>
+      </div>
+
+
+      <!-- Edit Category -->
+
+      <div data-role="page" id="edit_categories">
+        <div data-role="header" data-position="fixed">
+          <a href="#" data-rel="back">Back</a>
+          <h2> Edit Category</h2>
+
+        </div>
+
+        <div data-role="content">
+          <form >
+            <label for="category_name">Category Name:</label>
+            <input type="text" name="category_name" id="category_name"  data-mini="true" />
+            <label for="category_parent">Category Parent:</label>
+            <input type="text" name="category_parent" id="category_parent" data-mini="true" >
+            <label for="category_id">Category ID:</label>
+            <input type="text" name="category_id" id="category_id" data-mini="true"/>
+            <a href="#category_saved" data-role="button" data-rel="popup"> Save Changes</a>
+            <a href="#category_deleted" data-role="button" data-rel="popup"> Delete</a>
+            <a  data-rel="back" data-role="button" data-rel="popup">Cancel</a>
+
+          </form>
+
+
+        </div>
+      </div>
+
+
+
+
+
+      <!-- Admin Panel end -->
+
+
+      <!-- Remove Prompt -->
+
+      <div data-role="dialog" id="remove_listing_store">
+
+        <div data-role="header">
+          <h3>Are you Sure?</h3>
+
+        </div>
+
+        <div data-role="content">
+          <p>Deleting your listing: &#39;<strong> <span id="item_name_removal" style="color:orange;" ></span></strong> &#39; will completely delete it from the system and it will be unretrievable</p>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a"><a data-rel="back" data-role="button" data-theme="g">Cancel</a></div>
+            <div class="ui-block-b"><a href="#store" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check" data-theme="d">Delete</a></div>
+          </div>
+
+
 
 
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Payment</li>
           <li><a href="#payment_option">
-            <strong id="checkout_payment_1"></strong>
-            <strong id="checkout_payment_2" style="float : right;"></strong>
+            <strong id=""></strong>
+            <strong id="" style="float : right;"></strong>
           </a></li>
         </ul>
 
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider" id="address_title">Ship to</li>
           <li ><a href="shipping_address" id="user_address">
-            <p id="checkout_address_1"></p>
-            <p id="checkout_address_2"></p>
-            <p id="checkout_address_info"></p>
-            <p id="checkout_zip_code"></p>
+            <p id=""></p>
+            <p id=""></p>
+            <p id=""></p>
+            <p id=""></p>
           </a></li>
-
         </ul>
 
-        <ul data-role="listview" data-inset="true" id="checkout_items">
-        </ul>
+        </div>
       </div>
+
+      <!-- Cart List -->
+      <div data-role="page" id="user_bucket">
+
+        <div data-role="header">
+          <a href="#" data-rel="back">Back</a>
+          <h2> My Bucket </h2>
+          <a href="#" data-role="button" id="bucket_checkout">Checkout</a>
+        </div>
+
+
+        <div data-role="content">
+          <ul data-role="listview" id="bucket_list" data-inset = "true" >
+          </ul>
+
+          <br>
+
+          <div id="bucket_info">
+            <p id="bucket_items"></p>
+            <p>Shipping: Free</p>
+          </div>
+
+          <div id="bucket_total">
+            <p id="bucket_subtotal"></p>
+          </div>
+        </div>
+
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home" >Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Checkout -->
+      <div data-role="page" id="checkout">
+        <div data-role="header">
+          <a href="#"  data-role="button" data-rel="back"></a>
+          <h2>Checkout</h2>
+          <a href="#invoice_page" data-role="button">Place Order</a>
+        </div>
+        <div data-role="content">
+
+          <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">Order</li>
+            <li>
+              <strong>Items: </strong>
+              <strong style="float : right;" id="checkout_number_total"></strong>
+            </li>
+            <li>
+              <strong>Shipping:</strong>
+              <strong style="float: right;"> $0.00</strong>
+            </li>
+
+            <li>
+              <strong>Order total:</strong>
+              <strong style="float : right" id="checkout_order_total"></strong>
+            </li>
+          </ul>
+
+
+          <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">Payment</li>
+            <li><a href="#payment_option">
+              <strong id="checkout_payment_1"></strong>
+              <strong id="checkout_payment_2" style="float : right;"></strong>
+            </a></li>
+          </ul>
+
+          <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">Shipping</li>
+            <li ><a href="shipping_address" id="user_address">
+              <p id="checkout_address_1"></p>
+              <p id="checkout_address_2"></p>
+              <p id="checkout_address_info"></p>
+              <p id="checkout_zip_code"></p>
+            </a></li>
+
+          </ul>
+
+          <ul data-role="listview" data-inset="true" id="checkout_items">
+          </ul>
+        </div>
+
+        <div data-role="footer" data-id="pers_footer" data-position="fixed">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#home" data-icon="home">Home</a></li>
+              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
+              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- Edit Cart Items -->
+      <div data-role="dialog" id="editItems">
+        <div data-role="content">
+         <div class="ui-grid-a">
+          <div class="ui-block-a"><a href="#registerForm" data-role="button" data-icon="star"></a></div>
+          <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="check">Log In</a></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Generic Item List End -->
+
+    <!--Item View -->
+    <div data-role="page" id="itempage" style="background-image:url('images/bg/dark_wall.png');">
+
+      <div data-role="header" data-id="foo1" data-position="fixed">
+        <a href="#home"  data-rel="back"> Back </a>
+        <h2> Item List </h2>
+
+      </div>
+
+
+      <div data-role="content" id="itemcontent" data-inset="true" >
+
+        <div class="ui-grid-b">
+          <div class="ui-block-a"></div>
+          <div class="ui-block-b"><img src="" id="item_image" width="90%"/></div>
+          <div class="ui-block-c"></div>
+        </div>
+
+
+        <h2 style="text-align: center; color:white;" id="item_header"></h2>
+
+        <ul data-role="listview" data-inset="true" data-icon="false" id="item_pricing_details">
+
+          <li id="price_tag"> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Price:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="item_price" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
+
+          </div></li>
+
+          <li id="current_bidding"> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute" style="margin-top: 2px">Current Bid:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="bid_price" ></p><p class="item_attribute"></p></div>
+
+          </div></li>
+
+          <li id="number_bids"> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Bids:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="number_bids_count" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
+
+          </div></li>
+
+
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Location:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_location"></p></div>
+
+          </div></li>
+
+        </ul>
+
+        <ul data-role="listview" data-inset="true" >
+
+
+          <li><a href="#item_desc" ><p class="item_attribute">Description</p></a></li>
+
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Brand:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_brand"></p></div>
+
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Category:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_category"></p></div>
+
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Year:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_year"></p></div>
+
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a"  style="width:33%"><p class="item_attribute">ID:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_id"></p></div>
+
+          </div></li>
+          <li> <div class="ui-grid-a">
+            <div class="ui-block-a" style="width:33%"><p class="item_attribute">Seller:</p></div>
+            <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_seller"></p></div>
+
+          </div></li>
+        </ul>
+
+        <br>
+
+        <div data-role="controlgroup">
+          <a href="#" id="buy_item" data-role="button" data-theme="a">Buy</a>
+          <a href="#" id="bid_item" data-theme="a" data-role="button">Bid</a>
+          <a href="#" id="add_item_cart" data-theme="a" data-role="button">Add to Cart</a>
+        </div>
+      </div>
+
+
+
 
       <div data-role="footer" data-id="pers_footer" data-position="fixed">
         <div data-role="navbar">
           <ul>
-            <li><a href="#home" data-icon="home">Home</a></li>
+            <li><a href="#home" data-icon="home" >Home</a></li>
             <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
             <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
           </ul>
@@ -823,278 +1015,119 @@
     </div>
 
 
+    <!--Item View End -->
 
 
-    <!-- Edit Cart Items -->
-    <div data-role="dialog" id="editItems">
+
+    <!--Sign In - Dialog -->
+    <div data-role="dialog" id="sign_in">
+      <div data-role="header" data-theme="b">
+        <h1>Sign In</h1>
+      </div>
       <div data-role="content">
-       <div class="ui-grid-a">
-        <div class="ui-block-a"><a href="#registerForm" data-role="button" data-icon="star"></a></div>
-        <div class="ui-block-b"><a href="index.html" data-role="button" id="clear_search" data-iconpos="right" data-icon="check">Log In</a></div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <!--Featured Items -->
-  <div data-role="page" id="featuredItems">
-
-    <div data-role="header" data-id="foo1" data-position="fixed">
-      <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
-      <h2> Featured Items </h2>
-    </div>
-
-    <div data-role="content">
-      <ul data-role="listview" id="featured">
-        <!-- Content will be generated here by the function in search.js file. --> 
-      </ul>
-    </div>
-
-  </div>
-  <!--Featured Items End -->
-
-
-  <!--Generic Item List -->
-  <div data-role="page" id="itemlist">
-
-    <div data-role="header">
-      <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
-      <h2> Item List </h2>
-    </div>
-
-    <div data-role="content">
-      <ul id="itemlist_content" data-role="listview" data-inset="true"></ul>
-    </div>
-  </div>
-
-
-
-
-  <!--Generic Item List End -->
-
-  <!--Item View -->
-  <div data-role="page" id="itempage" style="background-image:url('images/bg/dark_wall.png');">
-
-    <div data-role="header" data-id="foo1" data-position="fixed">
-      <a href="#home"  data-rel="back"> Back </a>
-      <h2> Item List </h2>
-
-    </div>
-
-
-    <div data-role="content" id="itemcontent" data-inset="true" >
-
-      <div class="ui-grid-b">
-        <div class="ui-block-a"></div>
-        <div class="ui-block-b"><img src="" id="item_image" width="90%"/></div>
-        <div class="ui-block-c"></div>
-      </div>
-
-
-      <h2 style="text-align: center; color:white;" id="item_header"></h2>
-
-      <ul data-role="listview" data-inset="true" data-icon="false" id="item_pricing_details">
-
-        <li id="price_tag"> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Price:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="item_price" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
-
-        </div></li>
-
-        <li id="current_bidding"> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute" style="margin-top: 2px">Current Bid:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="bid_price" ></p><p class="item_attribute"></p></div>
-
-        </div></li>
-
-        <li id="number_bids"> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute" >Bids:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute" id="number_bids_count" style="margin-top: 2px"></p><p class="item_attribute"></p></div>
-
-        </div></li>
-
-
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Location:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_location"></p></div>
-
-        </div></li>
-
-      </ul>
-
-      <ul data-role="listview" data-inset="true" >
-
-
-        <li><a href="#item_desc" ><p class="item_attribute">Description</p></a></li>
-
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Brand:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_brand"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Category:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_category"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">Year:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_year"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a"  style="width:33%"><p class="item_attribute">ID:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_id"></p></div>
-
-        </div></li>
-        <li> <div class="ui-grid-a">
-          <div class="ui-block-a" style="width:33%"><p class="item_attribute">Seller:</p></div>
-          <div class="ui-block-b" style="width:66%"><p class="item_attribute"id="item_seller"></p></div>
-
-        </div></li>
-      </ul>
-
-      <br>
-
-      <div data-role="controlgroup">
-        <a href="#" id="buy_item" data-role="button" data-theme="a">Buy</a>
-        <a href="#" id="bid_item" data-theme="a" data-role="button">Bid</a>
-        <a href="#" id="add_item_cart" data-theme="a" data-role="button">Add to Cart</a>
+        <form> 
+          <label for="basic"></label>
+          <input type="text" name="email" id="sign_in_email" placeholder="Email" />
+          <input type="password" name="password" id="password" placeholder="Password" />
+          <a href="#"> Forgot Password?</a>
+          <div class="ui-grid-a">
+            <div class="ui-block-a"><a href="#registerForm" data-role="button" data-theme="f">Register</a></div>
+            <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check" data-theme="g">Log In</a></div>
+          </div>
+        </form>
       </div>
     </div>
 
+    <!-- End -->
 
+    <!-- Description Dialog -->
 
+    <div data-role="dialog" id="item_desc">
 
-    <div data-role="footer" data-id="pers_footer" data-position="fixed">
-      <div data-role="navbar">
-        <ul>
-          <li><a href="#home" data-icon="home" >Home</a></li>
-          <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-          <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
+      <div data-role="header">
+        <h1>Description</h1>
+
+      </div>
+
+      <div data-role="content">
+
+        <h4 id="item_desc_text"> </h4>
+
+      </div>
+
+    </div>
+
+    <!-- Register Form -->
+    <div data-role="page" id="registerForm">
+      <div data-role="header">
+       <a href="#home">Cancel </a>
+
+       <h1> Register </h1>
+       <a href="#thanks_note">Save</a>
+     </div>
+     <div data-role="content">
+      <form action="" method="post">
+
+        <!-- Personal Information -->
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider">Personal Information</li>
+          <li data-role="fieldcontain"><input type="text" name="firstName" id="firstName" placeholder="First Name"/></li>
+          <li data-role="fieldcontain"><input type="text" name="lastName" id="lastName" placeholder="Last Name"/></li>
+          <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="Email"/></li>
+          <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Password"/></li>
+          <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Verify Password"/></li>
         </ul>
-      </div>
-    </div>
-
-  </div>
-
-
-  <!--Item View End -->
 
 
 
-  <!--Sign In - Dialog -->
-  <div data-role="dialog" id="sign_in">
-    <div data-role="header" data-theme="b">
-      <h1>Sign In</h1>
-    </div>
-    <div data-role="content">
-      <form> 
-        <label for="basic"></label>
-        <input type="text" name="email" id="sign_in_email" placeholder="Email" />
-        <input type="password" name="password" id="password" placeholder="Password" />
-        <a href="#"> Forgot Password?</a>
-        <div class="ui-grid-a">
-          <div class="ui-block-a"><a href="#registerForm" data-role="button" data-theme="f">Register</a></div>
-          <div class="ui-block-b"><a href="#" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check" data-theme="g">Log In</a></div>
-        </div>
-      </form>
-    </div>
-  </div>
 
-  <!-- End -->
+        <!--Mailing Address -->
+        <ul data-role="listview" data-inset="true">
 
-  <!-- Description Dialog -->
+          <li data-role="list-divider">Mailing Address</li>
+          <li data-role="fieldcontain"><input ng-model="addressOne" type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
+          <li data-role="fieldcontain"><input ng-model="addressTwo" type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
+          <li data-role="fieldcontain"><input  ng-model="theCity" type="text" name="city" id="cityForm" placeholder="City" /></li>
+          <li data-role="fieldcontain"><input ng-model="theZipcode" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
+          <li data-role="fieldcontain"><select ng-model="theCountry" name="country" id="country" >
 
-  <div data-role="dialog" id="item_desc">
 
-    <div data-role="header">
-      <h1>Description</h1>
+          </select></li>
+        </ul>
 
-    </div>
+        <!-- Billing Address -->
+        <ul data-role="listview" data-inset="true">
+         <li data-role="list-divider">Billing Address 
+         </li>
+         <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="equalAddress" id="equalAddress" class="custom" /></label></li>
+         <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
+         <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
+         <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="City" /></li>
+         <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
+         <li data-role="fieldcontain"><select name="country" id="country" >
 
-    <div data-role="content">
+         </select></li>
+       </ul>
 
-      <h4 id="item_desc_text"> </h4>
-
-    </div>
-
-  </div>
-
-  <!-- Register Form -->
-  <div data-role="page" id="registerForm">
-    <div data-role="header">
-     <a href="#home">Cancel </a>
-
-     <h1> Register </h1>
-     <a href="#thanks_note">Save</a>
-   </div>
-   <div data-role="content">
-    <form action="" method="post">
-
-      <!-- Personal Information -->
-      <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Personal Information</li>
-        <li data-role="fieldcontain"><input type="text" name="firstName" id="firstName" placeholder="First Name"/></li>
-        <li data-role="fieldcontain"><input type="text" name="lastName" id="lastName" placeholder="Last Name"/></li>
-        <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="Email"/></li>
-        <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Password"/></li>
-        <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Verify Password"/></li>
+       <!--Credit Card Info -->
+       <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Credit Card Information</li>
+        <li data-role="fieldcontain"><input type="text" name="credit_card_number" id="credit_card_number" placeholder="Credit Card Number"/>
+        </li>
+        <li data-role="fieldcontain"><input type="text" name="cvs" id="cvs" placeholder="CVS"></li>
+        <li data-role="fieldcontain"><select name="cardType" id="cardType">
+          <option value="VISA"> Visa</option>
+          <option value="AMEX"> Amex</option>
+          <option value="MASTER"> MasterCard</option>
+        </select>
+        <li data-role="fieldcontain"><input type="text" name="expdate" id="expdate" placeholder="Expiration Date: MM/YY"/>
+        </li>
       </ul>
 
 
 
-
-      <!--Mailing Address -->
-      <ul data-role="listview" data-inset="true">
-
-        <li data-role="list-divider">Mailing Address</li>
-        <li data-role="fieldcontain"><input ng-model="addressOne" type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
-        <li data-role="fieldcontain"><input ng-model="addressTwo" type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
-        <li data-role="fieldcontain"><input  ng-model="theCity" type="text" name="city" id="cityForm" placeholder="City" /></li>
-        <li data-role="fieldcontain"><input ng-model="theZipcode" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
-        <li data-role="fieldcontain"><select ng-model="theCountry" name="country" id="country" >
-
-
-        </select></li>
-      </ul>
-
-      <!-- Billing Address -->
-      <ul data-role="listview" data-inset="true">
-       <li data-role="list-divider">Billing Address 
-       </li>
-       <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="equalAddress" id="equalAddress" class="custom" /></label></li>
-       <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
-       <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
-       <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="City" /></li>
-       <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
-       <li data-role="fieldcontain"><select name="country" id="country" >
-
-       </select></li>
-     </ul>
-
-     <!--Credit Card Info -->
-     <ul data-role="listview" data-inset="true">
-      <li data-role="list-divider">Credit Card Information</li>
-      <li data-role="fieldcontain"><input type="text" name="credit_card_number" id="credit_card_number" placeholder="Credit Card Number"/>
-      </li>
-      <li data-role="fieldcontain"><input type="text" name="cvs" id="cvs" placeholder="CVS"></li>
-      <li data-role="fieldcontain"><select name="cardType" id="cardType">
-        <option value="VISA"> Visa</option>
-        <option value="AMEX"> Amex</option>
-        <option value="MASTER"> MasterCard</option>
-      </select>
-      <li data-role="fieldcontain"><input type="text" name="expdate" id="expdate" placeholder="Expiration Date: MM/YY"/>
-      </li>
-    </ul>
-
-
-
-  </form>
-</div>
+    </form>
+  </div>
 </div>
 
 <!-- Register Form end -->
@@ -1196,7 +1229,7 @@
   <div data-role="header" data-position="fixed">
     <a  id="back_button_categories" data-rel="back"> Back</a>
     <h2> Search Results </h2>
-    <a href="#sort_panel">Sort</a>
+    <a href="#sort_panel" id="sort_panel_open">Sort</a>
 
   </div> 
 
@@ -1206,7 +1239,7 @@
     <hr>
     
 
-    <a href="#item_type_sort" data-role="button">Item Type</a>
+    <a href="#item_type_sort" id="item_type_filter_button" data-role="button">Item Type<span id="filter_button_view"></span></a>
     <a href="#price_filter" data-role="button">Price</a>
     <a href="#" data-role="button">Category</a>
 
@@ -1224,21 +1257,27 @@
 
     <h3>Price Filter</h3>
     <hr>
+
+
     <ul data-role="listview" data-inset="true">
 
 
-      <label for="name">Minimum US $:</label>
-      <input type="text" name="name"  id="name" value="" style="width:10%" /></li>
-      <label for="name">Maximum US $:</label>
-      <input type="text" name="name" id="name" value=""  />
+      <label for="min_price">Minimum US $:</label>
+      <input type="text" name="min_price"  id="min_price"  />
+      <label for="max_price">Maximum US $:</label>
+      <input type="text" name="max_price" id="max_price"  />
     </ul>
+
+
 
     <fieldset class="ui-grid-a">
       <div class="ui-block-a">
         <a data-role="button"data-theme="g" href="#sort_panel">Back</a></div>
-        <div class="ui-block-b"> <a data-role="button"  data-theme="f" >Sort</a></div>
+        <div class="ui-block-b"> <a data-role="button"  data-theme="f" id="filter_by_price">Filter</a></div>
       </fieldset>
     </div>
+
+
     <div data-role="panel" id="item_type_sort" data-position="right" data-display="overlay" data-theme="f" data-dismissible="true" >
 
       <h3>Sort by Item Type</h3>
@@ -1247,23 +1286,23 @@
 
        <fieldset data-role="controlgroup">
         <label for="item_type_sort_all">All</label>
-        <input type="radio" id="item_type_sort_all" name="item_type_sort"/></li>
+        <input type="radio" id="item_type_sort_all" name="item_type_filter" value="all"/></li>
 
         <li>
 
           <label for="item_type_sort_bid">Auction</label>
-          <input type="radio" id="item_type_sort_bid" name="item_type_sort"/>
+          <input type="radio" id="item_type_sort_bid" name="item_type_filter" value="bid"/>
         </li>
 
         <li>
          <label for="item_type_sort_buy">Buy Now</label>
-         <input type="radio" id="item_type_sort_buy" name="item_type_sort"/>
+         <input type="radio" id="item_type_sort_buy" name="item_type_filter" value="buy"/>
        </li>
 
        <li>
 
          <label for="item_type_sort_buyout">Buyout</label>
-         <input type="radio" id="item_type_sort_buyout" name="item_type_sort"/>
+         <input type="radio" id="item_type_sort_buyout" name="item_type_filter" value="both"/>
        </li>  
      </fieldset>
    </div>
@@ -1659,19 +1698,6 @@
   </div>
 </div>
 
-
-
-
-<div data-role="page" id="item_dialog">
-  <div data-role="content">
-    <h3 style="text-align : center;">Remove Item?</h3>
-    <br>
-    <div class="ui-grid-a">
-      <div class="ui-block-a"><a data-role="button" data-icon="delete" id="remove_item">Yes</a></div>
-      <div class="ui-block-b"><a href="#address_list" data-role="button" data-icon="minus">Cancel</a></div>
-    </div> 
-  </div>
-</div>
 
 
 

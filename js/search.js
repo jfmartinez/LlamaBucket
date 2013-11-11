@@ -147,7 +147,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 				list.listview('refresh');
 		},
 		error : function(data){
-			console.log("Serach results not available");
+			console.log("Search results not available");
 		}
 	});
 
@@ -158,6 +158,9 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 $(document).on('pagebeforeshow', '#searchResults', function(event){
 	var search_parameter = sessionStorage.getItem('search_parameter');
 
+
+
+	sessionStorage.setItem('type_filter', 'all');
 	$.ajax({
 		url : "http://"+lb_server+"/search/item_name="+search_parameter,
 		contentType : "application/json",
@@ -336,7 +339,6 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 });
 
 
-// $(document.on('click', '#sort_'))
 //Search by name
 $(document).on('click', '#search_button', function(event)
 {
@@ -432,8 +434,224 @@ var list = $("#"+data.parent_name+"-categories");
 		{
 			console.log("Sub categories not found");
 		}
-	})
+	});
+});
+
+$( "#sort_panel" ).on( "panelopen", function( event, ui ) {
+
+
+
+	
+} );
+
+ $( document ).ready( function() { 
+
+$(document).on('pagebefore')
+
+$('#item_type_filter_button').bind('click', function(event)
+{	
+
+	var radio_buttons = $("input[name='item_type_filter']");
+	for(var i = 0; i < radio_buttons.length; i ++)
+	{
+
+		if(radio_buttons[i].value == sessionStorage.getItem('type_filter'))
+		{
+			radio_buttons[i].checked = true;
+		}
+	}
+
+
+	$('input[name="item_type_filter"]').checkboxradio('refresh');
+
+
+
+
+
+
 });
 
 
+ 	  $("input[name='item_type_filter']" ).bind( "click", function(event)
+ 	  {
 
+
+ 	  		sessionStorage.setItem('type_filter', $(this).val());
+ 	  		console.log($(this).val());
+
+
+
+ 	  });
+
+     $("#filter_by_price" ).bind( "click", function(event)
+    {
+    	
+
+    	console.log($("input[name='min_price']").val());
+    	console.log($("input[name='max_price']").val());
+
+    
+    	sessionStorage.setItem('minPrice', $("input[name='min_price']").val());
+
+    	
+    	sessionStorage.setItem('maxPrice', $("input[name='max_price']").val());
+    	$('#filter_results').trigger('click');
+
+     });
+
+
+
+
+ });
+$(document).on('click', '#filter_results', function(event)
+{	
+		var search_parameter = sessionStorage.getItem('search_parameter');
+
+	console.log("Hello");	
+	$.ajax
+	({	
+		type: "POST",
+		url : "http://"+lb_server+"/filter_results",
+		data : {min_price: sessionStorage.getItem('minPrice'), max_price: sessionStorage.getItem('maxPrice'), item_type: sessionStorage.getItem('type_filter'), search: search_parameter},
+		success : function(data)
+		{	var list = $('#results');
+			var length = data.content.length;
+
+				//Clear the list beforehand
+				list.empty();
+
+				//Go over all the items that were fetched and create the appropiate list items
+				for(var i = 0; i < length; i++)
+				{
+
+					var t = $('<li id="' + data.content[i].item_id + '"></li>');
+					
+					
+					var link = $('<a href="#"></a>');
+					
+
+
+					var img = $('<img height="100%" />');
+					img.attr('src', data.content[i].item_image);
+					console.log(data.content[i].item_name);
+					console.log(img);
+
+					var div = $('<div class="search_div_attribute" style="width:66%;"></div>');
+					var heading = $('<p style="vertical-align: middle; color:black"></p>');
+					heading.html(data.content[i].item_name);
+					div.append(heading);
+
+
+
+					var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
+
+					var type = $('<p style="color: orange;"></p>');
+					
+					
+
+
+					var type_boolean = data.content[i].is_auction;
+					console.log(type_boolean);
+
+
+					if(type_boolean == "both"){
+
+						type.html("Both");
+						div.append(type);
+						var buy = $('<p style="color: #1CB0D9;">US $</p>');
+						var buy_span = $('<span></span>');
+						buy_span.html(data.content[i].buyout_price);
+						buy.append(buy_span);
+						div2.append(buy);
+
+
+						var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid_span = $('<span></span>');
+						var bid_count = $('<p style="color:gray;"></p>');
+						var bid_count_span = $('<span> bids</span>');
+
+
+
+						bid_count.html(data.content[i].bid_count);
+						bid_count.append(bid_count_span);
+						bid_span.html(data.content[i].price);
+
+
+						bid.append(bid_span);
+
+						div2.append(bid);
+						div2.append(bid_count);
+
+					}
+
+					else if(type_boolean == "bid")
+					{	
+
+						type.html("Bid");
+						div.append(type);
+					var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid_span = $('<span></span>');
+						var bid_count = $('<p style="color:gray;"></p>');
+						var bid_count_span = $('<span> bids</span>');
+
+
+
+						bid_count.html(data.content[i].bid_count);
+						bid_count.append(bid_count_span);
+						bid_span.html(data.content[i].price);
+
+
+						bid.append(bid_span);
+
+						div2.append(bid);
+						div2.append(bid_count);
+						console.log("Bid Hello!");
+
+
+					}
+
+					else if(type_boolean == "buy")
+					{
+
+						type.html("Buy");
+						div.append(type);
+						var buy = $('<p style="color: #1CB0D9;">US $</p>');
+						var buy_span = $('<span></span>');
+						buy_span.html(data.content[i].price);
+						buy.append(buy_span);
+						div2.append(buy);
+
+
+					}
+					link.append(img);
+
+					link.append(div);
+					link.append(div2);
+
+					t.append(link);
+					
+
+
+					// list.append('<li id="'+ data.content[i].item_id + '"><a href=')
+					list.append(t);
+					console.log(t);
+					console.log(list);
+
+					// list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
+					// 	data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
+					// 	data.content[i].item_name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
+					// 	data.content[i].price+"</h6></div></div></a></li>");
+}
+
+				//Refresh the ul so that all elements are views properly.
+				list.listview('refresh');
+			
+			
+		},
+		error: function(data)
+		{
+
+			console.log(data);
+		}
+});
+});
