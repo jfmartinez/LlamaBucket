@@ -1118,47 +1118,56 @@
 
 <!-- end of sub-categories --> 
 
-<!-- Sort Dialog -->
-
-<div data-role="dialog" id="sort_dialog">
-  <div data-role="header" data-position="fixed">
-    <h2>Sort</h2>
-  </div>
-  <div data-role="content">
-    <form>
-      <label>Sort By: </label>
-      <select>
-        <option> Sort By Name</option>
-        <option> Sort By Price </option>
-        <option> Sort By Brand</option>
-      </select>
-      <a href="#searchResults" data-role="button">Submit</a>
-
-
-
-    </form>
-  </div>
-</div>
-
 
 <!-- Search Results -->
 <div data-role="page" id="searchResults" >
   <div data-role="header" data-position="fixed">
     <a  id="back_button_categories" data-rel="back"> Back</a>
     <h2> Search Results </h2>
-    <a href="#sort_panel" id="sort_panel_open">Sort</a>
+    <a href="#refine_panel" id="sort_panel_open">Refine</a>
 
   </div> 
 
-  <div data-role="panel" id="sort_panel"  data-position="right" data-display="overlay" data-theme="f" data-dismissible="true">
+  <div data-role="panel" id="refine_panel"  data-position="right" data-display="overlay" data-theme="f" data-dismissible="true">
 
     <h3>Refine Search</h3>
     <hr>
     
-
-    <a href="#item_type_sort" id="item_type_filter_button" data-role="button">Item Type<span id="filter_button_view"></span></a>
+    <h4>Filter By:</h4>
+    <hr>
+    <a href="#item_type_sort" id="item_type_filter_button" data-role="button">Item Type: </a>
     <a href="#price_filter" data-role="button">Price</a>
     <a href="#" data-role="button">Category</a>
+
+
+
+    <br>
+    <h4>Sort By:</h4>
+    <hr>
+    
+    <ul data-role="listview" id="sort_options">
+
+      <li data-role="list-divider"><a >Item Name </a></li>
+
+      <li data-icon="arrow-u" id="item_name asc"><a >Ascending</a></li>
+     <li data-icon="arrow-d" id="item_name desc"><a >Descending</a></li>
+
+
+      <li data-role="list-divider" ><a >Brand </a></li>
+
+      <li data-icon="arrow-u" id="item_brand asc"><a >Ascending</a></li>
+     <li data-icon="arrow-d" id="item_brand desc"><a >Descending</a></li>
+   <li data-role="list-divider"><a >Price </a></li>
+
+      <li data-icon="arrow-u" id="price asc"><a >Lower</a></li>
+     <li data-icon="arrow-d" id="price desc"><a >Higher</a></li>
+
+
+
+    </ul>
+  
+    
+
 
 
 
@@ -1189,7 +1198,7 @@
 
     <fieldset class="ui-grid-a">
       <div class="ui-block-a">
-        <a data-role="button"data-theme="g" href="#sort_panel">Back</a></div>
+        <a data-role="button"data-theme="g" href="#refine_panel">Back</a></div>
         <div class="ui-block-b"> <a data-role="button"  data-theme="f" id="filter_by_price">Filter</a></div>
       </fieldset>
     </div>
@@ -1227,7 +1236,7 @@
 
    <fieldset class="ui-grid-a">
     <div class="ui-block-a">
-      <a data-role="button"data-theme="g" href="#sort_panel">Back</a></div>
+      <a data-role="button"data-theme="g" href="#refine_panel">Back</a></div>
       <div class="ui-block-b"> <a data-role="button"  data-theme="f" id="filter_results" >Filter</a></div>
     </fieldset>
 

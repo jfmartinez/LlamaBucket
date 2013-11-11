@@ -441,12 +441,43 @@ $( "#sort_panel" ).on( "panelopen", function( event, ui ) {
 
 
 
-	
+	$('#filter_button_view').html(sessionStorage.getItem('type_filter'));
+
+
 } );
+$(document).on('click', '#sort_options li', function(event)
+{
+	console.log($(this).attr('id'));
+	sessionStorage.setItem('sort_by', $(this).attr('id'));
+	    	$('#filter_results').trigger('click');
 
- $( document ).ready( function() { 
 
-$(document).on('pagebefore')
+
+
+});
+
+
+
+
+
+
+
+
+
+$( document ).ready( function() { 
+
+
+
+
+
+$('#sort_button').bind('click', function(event)
+{
+
+
+
+
+
+});
 
 $('#item_type_filter_button').bind('click', function(event)
 {	
@@ -512,7 +543,7 @@ $(document).on('click', '#filter_results', function(event)
 	({	
 		type: "POST",
 		url : "http://"+lb_server+"/filter_results",
-		data : {min_price: sessionStorage.getItem('minPrice'), max_price: sessionStorage.getItem('maxPrice'), item_type: sessionStorage.getItem('type_filter'), search: search_parameter},
+		data : {min_price: sessionStorage.getItem('minPrice'), max_price: sessionStorage.getItem('maxPrice'), item_type: sessionStorage.getItem('type_filter'), search: search_parameter, sort_by: sessionStorage.getItem('sort_by')},
 		success : function(data)
 		{	var list = $('#results');
 			var length = data.content.length;

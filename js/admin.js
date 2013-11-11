@@ -31,7 +31,6 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 		url : "http://"+lb_server+"/users/"+user_id,
 		contentType : "application/json",
 		success : function(data){
-			console.log(lb_server);
 			var info = $('#userinfo');
 			info.empty();
 			info.append('<li>Name: ' + data[0].client_firstname + " " + data[0].client_lastname + 
@@ -55,6 +54,7 @@ $(document).on('pagebeforeshow', '#reportday', function(event){
 		url : "http://"+lb_server+"/reportday", 
 		contentType : "application/json",
 		success : function(data){
+			console.log(data);
 			console.log("success");
 		},
 		error : function(data){
