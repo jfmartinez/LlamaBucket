@@ -147,7 +147,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 				list.listview('refresh');
 		},
 		error : function(data){
-			console.log("Serach results not available");
+			console.log("Search results not available");
 		}
 	});
 
@@ -158,6 +158,9 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 $(document).on('pagebeforeshow', '#searchResults', function(event){
 	var search_parameter = sessionStorage.getItem('search_parameter');
 
+
+
+	sessionStorage.setItem('type_filter', 'all');
 	$.ajax({
 		url : "http://"+lb_server+"/search/item_name="+search_parameter,
 		contentType : "application/json",
@@ -431,10 +434,73 @@ var list = $("#"+data.parent_name+"-categories");
 		{
 			console.log("Sub categories not found");
 		}
-	})
+	});
 });
 
- $( document ).ready( function() { 
+$( "#sort_panel" ).on( "panelopen", function( event, ui ) {
+
+
+
+	$('#filter_button_view').html(sessionStorage.getItem('type_filter'));
+
+
+} );
+$(document).on('click', '#sort_options li', function(event)
+{
+	console.log($(this).attr('id'));
+	sessionStorage.setItem('sort_by', $(this).attr('id'));
+	    	$('#filter_results').trigger('click');
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+$( document ).ready( function() { 
+
+
+
+
+
+$('#sort_button').bind('click', function(event)
+{
+
+
+
+
+
+});
+
+$('#item_type_filter_button').bind('click', function(event)
+{	
+
+	var radio_buttons = $("input[name='item_type_filter']");
+	for(var i = 0; i < radio_buttons.length; i ++)
+	{
+
+		if(radio_buttons[i].value == sessionStorage.getItem('type_filter'))
+		{
+			radio_buttons[i].checked = true;
+		}
+	}
+
+
+	$('input[name="item_type_filter"]').checkboxradio('refresh');
+
+
+
+
+
+
+});
 
 
  	  $("input[name='item_type_filter']" ).bind( "click", function(event)
@@ -450,17 +516,17 @@ var list = $("#"+data.parent_name+"-categories");
 
      $("#filter_by_price" ).bind( "click", function(event)
     {
-    	c
+    	
 
-    	onsole.log($("input[name='min_price']").val());
+    	console.log($("input[name='min_price']").val());
     	console.log($("input[name='max_price']").val());
 
-    	if(typeof( $("input[name='min_price']").val()) == 'number'){
-    	sessionStorage.setItem('minPrice', $("input[name='min_price']").val());}
+    
+    	sessionStorage.setItem('minPrice', $("input[name='min_price']").val());
 
-    	if(typeof( $("input[name='max_price']").val()) == 'number'){
+    	
     	sessionStorage.setItem('maxPrice', $("input[name='max_price']").val());
-    }
+    	$('#filter_results').trigger('click');
 
      });
 
@@ -477,7 +543,7 @@ $(document).on('click', '#filter_results', function(event)
 	({	
 		type: "POST",
 		url : "http://"+lb_server+"/filter_results",
-		data : {min_price: sessionStorage.getItem('minPrice'), max_price: sessionStorage.getItem('maxPrice'), item_type: sessionStorage.getItem('type_filter'), search: search_parameter},
+		data : {min_price: sessionStorage.getItem('minPrice'), max_price: sessionStorage.getItem('maxPrice'), item_type: sessionStorage.getItem('type_filter'), search: search_parameter, sort_by: sessionStorage.getItem('sort_by')},
 		success : function(data)
 		{	var list = $('#results');
 			var length = data.content.length;

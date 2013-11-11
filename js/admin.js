@@ -55,6 +55,7 @@ $(document).on('pagebeforeshow', '#reportday', function(event){
 		url : "http://"+lb_server+"/reportday", 
 		contentType : "application/json",
 		success : function(data){
+			console.log(data);
 			console.log("success");
 		},
 		error : function(data){
