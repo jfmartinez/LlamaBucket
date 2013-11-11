@@ -31,7 +31,7 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 		url : "http://"+lb_server+"/users/"+user_id,
 		contentType : "application/json",
 		success : function(data){
-			console.log(lb_server);
+			console.log("http://"+lb_server+"/users/"+user_id);
 			var info = $('#userinfo');
 			info.empty();
 			info.append('<li>Name: ' + data[0].client_firstname + " " + data[0].client_lastname + 
