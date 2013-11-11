@@ -118,11 +118,23 @@
           </ul>
         </div>
       </div>
+
       <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 
     </div>
 
-    <!-- Home Page End -->
+    <div data-role="dialog" id="delete_card">
+    <div data-role="header" data-theme="b">
+      <h1>Confirm deletion</h1>
+    </div>
+    <div data-role="content">
+        <h3 style="margin-left: 33%;">Delete this card?</h3>
+        <div class="ui-grid-a">
+          <div class="ui-block-a"><a href="#" data-role="button" data-theme="f">Cancel</a></div>
+          <div class="ui-block-b"><a href="#" data-role="button" id="" data-iconpos="right" data-icon="check" data-theme="d">Delete</a></div>
+        </div>
+    </div>
+  </div>
 
     <!--Admin Home -->
 
@@ -776,7 +788,7 @@
 
 
         <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider"></li>
+          <li data-role="list-divider">Payment</li>
           <li><a href="#payment_option">
             <strong id="checkout_payment_1"></strong>
             <strong id="checkout_payment_2" style="float : right;"></strong>
@@ -784,7 +796,7 @@
         </ul>
 
         <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider" id="address_title"></li>
+          <li data-role="list-divider" id="address_title">Ship to</li>
           <li ><a href="shipping_address" id="user_address">
             <p id="checkout_address_1"></p>
             <p id="checkout_address_2"></p>

@@ -18,7 +18,7 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 			{
 				list.append('<li data-icon="delete" id="'+data.items[i].item_name+'">'+
 					'<a href="#item_confirmation_dialog" data-rel="dialog"><img src="'+ data.items[i].item_image +'"/>'+
-					'<p class="ui-li-aside"><strong>$'+ data.items[i].price_buy+'</strong></p>'+
+					'<p class="ui-li-aside"><strong>$'+ data.items[i].price+'</strong></p>'+
 					'<h5 style="font-size: 12px;">'+data.items[i].item_name+'</h5>'+
 					'<p>' + data.items[i].item_description + '</p>'+
 				

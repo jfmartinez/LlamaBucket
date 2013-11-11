@@ -190,7 +190,7 @@ $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 
         for(var i = 0; i < data.length; i++)
         {
-            list.append('<li><a href="#credit_card_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data[i].number+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');
+            list.append('<li><a href="#delete_card" data-rel="dialog" placeholder="'+data[i].number+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');
         }
 
         //Refresh the list, this is so jQuery Mobile can apply its proper classes. 
