@@ -34,11 +34,13 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 				$('#buy_item').hide();
 				$('#add_item_cart').hide();
 
-				if(data.is_action == "both")
+				if(data.is_auction == "both")
 				{
 
 					$('#buy_item').show();
 					$('#item_price').html("US $" + data.buyout_price);
+					$('#price_tag').show();
+
 				}
 
 			}
