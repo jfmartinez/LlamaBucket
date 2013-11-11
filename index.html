@@ -98,9 +98,24 @@
             </ul>
           </div>
         </div>
-        <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 
       </div>
+
+      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
+
+
+    <div data-role="dialog" id="delete_card">
+    <div data-role="header" data-theme="b">
+      <h1>Confirm deletion</h1>
+    </div>
+    <div data-role="content">
+        <h3 style="margin-left: 33%;">Delete this card?</h3>
+        <div class="ui-grid-a">
+          <div class="ui-block-a"><a href="#" data-role="button" data-theme="f">Cancel</a></div>
+          <div class="ui-block-b"><a href="#" data-role="button" id="" data-iconpos="right" data-icon="check" data-theme="d">Delete</a></div>
+        </div>
+    </div>
+  </div>
 
 
       <!--Admin Home -->
@@ -465,14 +480,65 @@
       <!-- Invoice list end -->
 
       <!-- Invoice -->
-      <div data-role="page" id="invoicepage">
-        <div data-role="header" id="invoiceheader">
-          <a href="#home" data-icon="back" data-rel="back" data-iconpos="notext">  </a>
-          <h2>Invoice</h2>
+      <div data-role="page" id="invoice_page">
+        
+        <div data-role="header">
+          <button data-rel="back">Back</button>
+          <h3>Invoice</h3>
         </div>
 
         <div data-role="content" id="invoicecontent">
-          <ul data-role="listview" id="invoiceinfo">
+          <h3 style="margin-left : 33%">Order Processed</h3>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <h3>Total:</h3>
+            </div>
+            <div class="ui-block-b">
+              <p style="float : right;" id="invoice_total_price">$3000.00</p>
+            </div>
+          </div>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <h3>Paid with:</h3>
+            </div>
+            <div class="ui-block-b">
+              <p style="float : right;" id="invoice_card_info">VISA ending in: 2934</p>
+            </div>
+          </div>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+              <h3>Date: </h3>
+            </div>
+            <div class="ui-block-b">
+              <p style="float : right;" id="invoice_date">10/11/13</p>
+            </div>
+          </div>
+
+          <br>
+
+          <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider" >Shipping Information</li>
+            <li>
+              <p id="invoice_address_1">#311 Calle Ext. Los Robles</p>
+              <p id="invoice_address_2"></p>
+              <p id="invoice_address_info">Rincon, PR</p>
+              <p id="invoice_zip_code">00677</p>
+            </li>
+          </ul>
+
+
+          
+          <ul data-role="listview" id="invoice_items" data-inset="true">
+            <li data-role="list-divider" data-inset="true">Items</li>
+            <li>
+                <img src="http://akindleandkittens.files.wordpress.com/2012/01/bookworm.jpg"/>
+                <p style="float : right; padding-right : 15px; padding-top : 13%;">$ 3,000.00</p>
+                <h4 style="margin-top : 9%;">Some book</h4>
+                <p>seller: bestbooks4u</p>
+            </li>
           </ul>
         </div>
 
@@ -760,9 +826,27 @@
 
 
 
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider">Payment</li>
+          <li><a href="#payment_option">
+            <strong id=""></strong>
+            <strong id="" style="float : right;"></strong>
+          </a></li>
+        </ul>
+
+        <ul data-role="listview" data-inset="true">
+          <li data-role="list-divider" id="address_title">Ship to</li>
+          <li ><a href="shipping_address" id="user_address">
+            <p id=""></p>
+            <p id=""></p>
+            <p id=""></p>
+            <p id=""></p>
+          </a></li>
+        </ul>
 
         </div>
       </div>
+
       <!-- Cart List -->
       <div data-role="page" id="user_bucket">
 
@@ -807,7 +891,7 @@
         <div data-role="header">
           <a href="#"  data-role="button" data-rel="back"></a>
           <h2>Checkout</h2>
-          <a href="#invoicepage"  data-role="button">Place Order</a>
+          <a href="#invoice_page" data-role="button">Place Order</a>
         </div>
         <div data-role="content">
 
@@ -830,7 +914,7 @@
 
 
           <ul data-role="listview" data-inset="true">
-            <li data-role="list-divider"></li>
+            <li data-role="list-divider">Payment</li>
             <li><a href="#payment_option">
               <strong id="checkout_payment_1"></strong>
               <strong id="checkout_payment_2" style="float : right;"></strong>
@@ -838,7 +922,7 @@
           </ul>
 
           <ul data-role="listview" data-inset="true">
-            <li data-role="list-divider" id="address_title"></li>
+            <li data-role="list-divider">Shipping</li>
             <li ><a href="shipping_address" id="user_address">
               <p id="checkout_address_1"></p>
               <p id="checkout_address_2"></p>
@@ -861,7 +945,6 @@
             </ul>
           </div>
         </div>
-
       </div>
 
 

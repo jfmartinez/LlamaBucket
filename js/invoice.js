@@ -1,34 +1,7 @@
 //Loads a page containing the invoice
-$(document).on('pagebeforeshow', '#invoicepage', function(event, ui){
-	var invoice_id = sessionStorage.getItem('invoice_id');
-	sessionStorage.clear();
+$(document).on('pagebeforeshow', '#invoicepage', function(event)
+{
 	
-	if(invoice_id == undefined)
-	{
-
-		invoice_id = 0;
-	}
-
-	$.ajax({
-		url : "http://"+lb_server+"/invoice/"+invoice_id,
-		contentType : "application/json",
-		success : function(data){
-			var invoice = $('#invoiceinfo');
-			invoice.empty();
-			invoice.append('<li>Invoice Number: ' + data.invoiceId + '</li>'+ 
-				'<li>Buyer: ' + data.buyer + '</li>' + 
-				'<li>Seller: ' + data.seller + '</li>'+ 
-				'<li>Item: ' + data.item + '</li>' + 
-				'<li>Price: ' + data.price + '</li>' + 
-				'<li>Date: ' + data.date + '</li>' + 
-				'<li>Time: ' + data.time + '</li></ul>');
-
-			invoice.listview('refresh');
-		},
-		error : function(data){
-			console.log("Invoice could not be loaded. (invoice.js)");
-		}
-	});
 });
 
 $(document).on('click', '#invoicelist li', function(event, ui){
