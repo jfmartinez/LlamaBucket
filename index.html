@@ -64,7 +64,7 @@
         <!-- User options-->
 
         <div data-role="controlgroup" id="logged_in_user_options">
-          <a data-role="button"  data-theme="f">Buying</a>
+          <a data-role="button"  data-theme="f" href="#items_bidded">Buying</a>
           <a data-role="button"  data-theme="e" href="#store">Selling</a>
 
           <a data-role="button" data-icon="flat-mail" data-theme="g">Notifications</a>
@@ -160,12 +160,15 @@
     <div data-role="page" id="items_bidded">
       <div data-role="header">
 
-        <a href="#home" data-role="back" data-icon="back" data-rel="back" data-iconpos="notext"></a>
+        <a href="#home"  data-icon="back" data-rel="back" >Back</a>
         <h2>Bids </h2>
       </div>
       <div data-role="content">
-
-        <ul data-role="listview" id="bids_list" data-inset="true">
+        <h3>Winning:</h3>
+        <ul data-role="listview" id="winning_bids_list" data-inset="true">
+        </ul>
+        <h3> Losing:</h3>
+        <ul data-role="listview" id="loosing_bids_list" data-inset="true">
         </ul>
 
       </div>
@@ -1124,7 +1127,6 @@
   <div data-role="header" data-position="fixed">
     <a  id="back_button_categories" data-rel="back"> Back</a>
     <h2> Search Results </h2>
-    <a href="#filter_panel" id="sort_panel_open">Refine</a>
     
   </div> 
 
