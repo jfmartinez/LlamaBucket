@@ -9,7 +9,7 @@
     <script src="js/jquery.mobile-1.3.2.js"></script>
 
     <script type='text/javascript' > 
-    window.lb_server = "74.213.79.108:5000";
+    window.lb_server = "localhost:5000";
 
     </script>
     <script src="js/search.js"></script>
@@ -129,6 +129,16 @@
         <a href="#reportday" data-theme="f" data-role="button">Generate Report - Today</a>
         <a href="#reportweek" data-theme="f" data-role="button">Generate Report - This Week</a>
         <a href="#reportmonth" data-theme="f" data-role="button">Generate Report - This Month</a>
+
+        <div id="productsearch">
+          <br>
+          <label for="search-basic">By Product:</label>
+          <input type="search" name="search" id="search-product" value="" />
+        </div>
+        <a href="#reportdayprod" data-theme="f" data-role="button">Generate Report - Today - By Product</a>
+        <a href="#reportweekprod" data-theme="f" data-role="button">Generate Report - This Week - By Product</a>
+        <a href="#reportmonthprod" data-theme="f" data-role="button">Generate Report - This Month - By Product</a>
+        <br>
         <a href="#view_categories" data-theme="f"  data-role="button">View/Edit Categories</a>
         
 
@@ -511,12 +521,18 @@
           <a href="#edit_user_admin" data-icon="gear" data-iconpos="notext"></a>
 
         </div>
+
+        <div data-role="content">
+          <ul data-role="listview" id="userinfo" data-inset="true"></ul>
+
+        </div>
+
       </div>
       <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
     </div>
 
     <!-- Report Generator -->
-
+    <!-- general -->
     <div data-role="page" id="reportday">
       <div data-role="header" data-position="fixed">
         <a href="#" data-rel="back">Back</a>
@@ -549,6 +565,42 @@
       </div>
 
     </div> 
+
+    <!-- by product -->
+
+    <div data-role="page" id="reportdayprod">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">Today's Sales by Product</h2>
+      </div>
+      <div data-role="content" id="reptodayprodcontent">
+        <ul data-role="listview" data-inset="true" id="reptodayprod"></ul>
+      </div>
+
+    </div>  
+
+    <div data-role="page" id="reportweekprod">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">This Week's Sales by Product</h2>
+      </div>
+      <div data-role="content" id="repweekprodcontent">
+        <ul data-role="listview" data-inset="true" id="repweekprod"></ul>
+      </div>
+
+    </div> 
+
+    <div data-role="page" id="reportmonthprod">
+      <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back">Back</a>
+        <h2 id="repname">This Month's Sales by Product</h2>
+      </div>
+      <div data-role="content" id="repmonthprodcontent">
+        <ul data-role="listview" data-inset="true" id="repmonthprod"></ul>
+      </div>
+
+    </div> 
+    <!--User stuff -->
 
     <div data-role="page" id="edit_user_admin">
         <div data-role="content" id="userinfocontent">
