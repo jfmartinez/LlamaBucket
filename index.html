@@ -9,7 +9,7 @@
     <script src="js/jquery.mobile-1.3.2.js"></script>
 
     <script type='text/javascript' > 
-    window.lb_server = "74.213.79.108:5000";
+    window.lb_server = "localhost:5000";
 
     </script>
     <script src="js/search.js"></script>
@@ -1492,7 +1492,6 @@
     <br>
   </div>
 
-
   <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
@@ -1506,6 +1505,48 @@
 
 </div>
 <!-- end user page -->
+
+<div data-role="page" id="add_credit_card">
+  <div data-role="header" data-position="fixed">
+    <a href="#" data-rel="back">Back</a>
+    <h2>Add Credit Card</h2>
+
+  </div>
+  <div data-role="content">
+    <form id="user_info_edit">
+      <h4 style="text-align: center;"> Credit Card Information</h4>
+      <label for="first_name">Number:</label>
+      <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder=""/>
+      <label for="last_name">Type:</label>
+      <input type="text" name="last_name" id="cc_type" data-mini="true" placeholder=""/>
+      <label for="last_name">Expiration Date:</label>
+      <input type="text" name="last_name" id="cc_exp" data-mini="true" placeholder=""/>
+      <label for="last_name">Card Holder Name:</label>
+      <input type="text" name="last_name" id="cc_holdname" data-mini="true" placeholder=""/>
+
+      <h4 style="text-align : center;">Billing Information</h4>
+      <label for="old_password">Address 1</label>
+      <input for="text" name="old_password" id="cc_ad1" placeholder="" data-mini="true"/>
+      <label for="new_password">Address 2</label>
+      <input for="text" name="new_password" id="cc_ad2" placeholder="" data-mini="true"/>
+      <label for="new_password">City</label>
+      <input for="text" name="new_password" id="cc_city" placeholder="" data-mini="true"/>
+      <label for="new_password">State</label>
+      <input for="text" name="new_password" id="cc_state" placeholder="" data-mini="true"/>
+      <label for="new_password">Zip Code</label>
+      <input for="text" name="new_password" id="cc_zip" placeholder="" data-mini="true"/>
+    </form>
+
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a data-role="button" data-inline="true" id="edit_user_save" >Save</a></li>
+        <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <div data-role="page" id="edir_credit_info">
   <div data-role="header" data-position="fixed">
