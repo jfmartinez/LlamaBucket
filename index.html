@@ -87,7 +87,8 @@
           </div>
         </div>
 
-
+      
+      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 
         <div data-role="footer" data-id="pers_footer" data-position="fixed">
           <div data-role="navbar">
@@ -101,7 +102,6 @@
 
       </div>
 
-      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
 
 
     <div data-role="dialog" id="delete_card">
@@ -826,24 +826,7 @@
 
 
 
-        <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider">Payment</li>
-          <li><a href="#payment_option">
-            <strong id=""></strong>
-            <strong id="" style="float : right;"></strong>
-          </a></li>
-        </ul>
-
-        <ul data-role="listview" data-inset="true">
-          <li data-role="list-divider" id="address_title">Ship to</li>
-          <li ><a href="shipping_address" id="user_address">
-            <p id=""></p>
-            <p id=""></p>
-            <p id=""></p>
-            <p id=""></p>
-          </a></li>
-        </ul>
-
+       
         </div>
       </div>
 
@@ -1268,7 +1251,7 @@
 
   <fieldset class="ui-grid-a">
             <div class="ui-block-a">
-              <a data-role="button" data-theme="g" href="#sort_panel">Sort</a></div>
+              <a data-role="button" data-theme="g" href="#category_sort_panel">Sort</a></div>
               <div class="ui-block-b"> <a data-role="button"  data-theme="f" href="#filter_panel">Filter</a></div>
             </fieldset>
 
@@ -1355,11 +1338,14 @@
 
     <div data-role="panel" id="item_type_sort" data-position="right" data-display="overlay" data-theme="f" data-dismissible="true" >
 
-      <h3>Sort by Item Type</h3>
+      <h3>Filter by Item Type</h3>
       <hr>
-      <div data-role="fieldcontain">
 
+      <div data-role="fieldcontain">
+   
        <fieldset data-role="controlgroup">
+
+           <li>
         <label for="item_type_sort_all">All</label>
         <input type="radio" id="item_type_sort_all" name="item_type_filter" value="all"/></li>
 
@@ -1385,8 +1371,9 @@
 
    <fieldset class="ui-grid-a">
     <div class="ui-block-a">
-      <a data-role="button"data-theme="g" href="#filter_panel">Back</a></div>
-      <div class="ui-block-b"> <a data-role="button"  data-theme="f" id="filter_results" >Filter</a></div>
+      <a data-role="button"data-theme="g" href="#category_filter_panel">Back</a></div>
+      <div class="ui-block-b"> 
+      <a data-role="button"  data-theme="f" id="category_filter_results" >Filter</a></div>
     </fieldset>
 
 
@@ -1421,11 +1408,135 @@
 
   </div>
 
+
+   <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+              <a data-role="button" data-theme="g" href="#category_sort_panel">Sort</a></div>
+              <div class="ui-block-b"> <a data-role="button"  data-theme="f" href="#category_filter_panel">Filter</a></div>
+            </fieldset>
+
+   <div data-role="panel" id="category_filter_panel"  data-position="right" data-display="overlay" data-theme="f" data-dismissible="true">
+
+    
+    
+    <h3>Filter By:</h3>
+    <hr>
+    <a href="#category_item_type_filter_panel" id="category_item_type_filter_button" data-role="button">Item Type </a>
+    <a href="#category_price_filter" data-role="button">Price</a>
+
+
+
+    <br>
+  
+
+    
+  </div><!-- /panel -->
+
+
+ <div data-role="panel" id="category_sort_panel" data-position="right" data-display="overlay" data-theme="f" data-dismissible="true" >
+  <h3>Sort By:</h3>
+    <hr>
+    
+    <ul data-role="listview" id="category_sort_options">
+
+      <li data-role="list-divider"><a >Item Name </a></li>
+
+      <li data-icon="arrow-u" id="item_name asc"><a >Ascending</a></li>
+     <li data-icon="arrow-d" id="item_name desc"><a >Descending</a></li>
+
+
+      <li data-role="list-divider" ><a >Brand </a></li>
+
+      <li data-icon="arrow-u" id="item_brand asc"><a >Ascending</a></li>
+     <li data-icon="arrow-d" id="item_brand desc"><a >Descending</a></li>
+   <li data-role="list-divider"><a >Price </a></li>
+
+      <li data-icon="arrow-u" id="price asc"><a >Lower</a></li>
+     <li data-icon="arrow-d" id="price desc"><a >Higher</a></li>
+
+
+
+    </ul>
+    
+
+  </div>
+  <div data-role="panel" id="category_price_filter" data-position="right" data-display="overlay" data-theme="f" data-dismissible="true" >
+
+    <h3>Price Filter</h3>
+    <hr>
+
+
+    <ul data-role="listview" data-inset="true">
+
+
+      <label for="category_min_price">Minimum US $:</label>
+      <input type="text" name="cat_min_price"  id="category_min_price"  />
+      <label for="category_max_price">Maximum US $:</label>
+      <input type="text" name="cat_max_price" id="category_max_price"  />
+    </ul>
+
+
+
+    <fieldset class="ui-grid-a">
+      <div class="ui-block-a">
+        <a data-role="button"data-theme="g" href="#filter_panel">Back</a></div>
+        <div class="ui-block-b"> <a data-role="button"  data-theme="f" id="category_filter_by_price">Filter</a></div>
+      </fieldset>
+    </div>
+
+
+    <div data-role="panel" id="category_item_type_filter_panel" data-position="right" data-display="overlay" data-theme="f" data-dismissible="true" >
+
+      <h3>Filter by Item Type</h3>
+      <hr>
+
+      <div data-role="fieldcontain">
+   
+       <fieldset data-role="controlgroup">
+        
+          <li> 
+        <label for="category_item_type_sort_all">All</label>
+        <input type="radio" id="category_item_type_sort_all" name="category_item_type_filter" value="all"/>
+  </li> <li>
+        
+
+          <label for="category_item_type_sort_bid">Auction</label>
+          <input type="radio" id="category_item_type_sort_bid" name="category_item_type_filter" value="bid"/>
+       
+
+       </li>
+
+       <li>
+         <label for="category_item_type_sort_buy">Buy Now</label>
+         <input type="radio" id="category_item_type_sort_buy" name="category_item_type_filter" value="buy"/>
+  
+</li>
+      <li>
+         <label for="category_item_type_sort_buyout">Buyout</label>
+         <input type="radio" id="category_item_type_sort_buyout" name="category_item_type_filter" value="both"/>
+        </li>
+     </fieldset>
+   </div>
+
+
+   <fieldset class="ui-grid-a">
+    <div class="ui-block-a">
+      <a data-role="button"data-theme="g" href="#category_filter_panel">Back</a></div>
+      <div class="ui-block-b"> 
+      <a data-role="button"  data-theme="f" id="category_filter_results" >Filter</a></div>
+    </fieldset>
+
+
+  </div>
+
+
+
   <div data-role="content">
     <ul data-role="listview" id="category_items">
       <!-- Content will be generated here by the function in search.js file. --> 
     </ul>
   </div>
+
   <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
@@ -1494,7 +1605,6 @@
     <a href="#notifications" id="#view_notifications" data-role="button" data-theme="b">Notifications</a>
     <a href="#" id="#view_invoices" data-theme="b" data-role="button">Invoices</a>
 
-
   <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
@@ -1508,6 +1618,48 @@
 
 </div>
 <!-- end user page -->
+
+<div data-role="page" id="add_credit_card">
+  <div data-role="header" data-position="fixed">
+    <a href="#" data-rel="back">Back</a>
+    <h2>Add Credit Card</h2>
+
+  </div>
+  <div data-role="content">
+    <form id="user_info_edit">
+      <h4 style="text-align: center;"> Credit Card Information</h4>
+      <label for="first_name">Number:</label>
+      <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder=""/>
+      <label for="last_name">Type:</label>
+      <input type="text" name="last_name" id="cc_type" data-mini="true" placeholder=""/>
+      <label for="last_name">Expiration Date:</label>
+      <input type="text" name="last_name" id="cc_exp" data-mini="true" placeholder=""/>
+      <label for="last_name">Card Holder Name:</label>
+      <input type="text" name="last_name" id="cc_holdname" data-mini="true" placeholder=""/>
+
+      <h4 style="text-align : center;">Billing Information</h4>
+      <label for="old_password">Address 1</label>
+      <input for="text" name="old_password" id="cc_ad1" placeholder="" data-mini="true"/>
+      <label for="new_password">Address 2</label>
+      <input for="text" name="new_password" id="cc_ad2" placeholder="" data-mini="true"/>
+      <label for="new_password">City</label>
+      <input for="text" name="new_password" id="cc_city" placeholder="" data-mini="true"/>
+      <label for="new_password">State</label>
+      <input for="text" name="new_password" id="cc_state" placeholder="" data-mini="true"/>
+      <label for="new_password">Zip Code</label>
+      <input for="text" name="new_password" id="cc_zip" placeholder="" data-mini="true"/>
+    </form>
+
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a data-role="button" data-inline="true" id="edit_user_save" >Save</a></li>
+        <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <div data-role="page" id="edir_credit_info">
   <div data-role="header" data-position="fixed">
