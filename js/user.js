@@ -257,20 +257,26 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
 
    for(var i = 0; i < data.length; i++)
    {
-    list.append('<li>'+
+    list.append('<li val='+data[i].listing_id+'>'+
       '<a href="#">'+
       '<h4>'+data[i].title+'</h4>'+
       '<p>'+data[i].notification_message+'</p>'+
       '</a></li>');
 
+    }
+    list.listview('refresh');
+  },
+  error : function(data)
+  {
+    console.log('no brego notifications');
   }
-  list.listview('refresh');
-},
-error : function(data)
+});
+
+$(document).on('click', '#notifications_list li', function(event)
 {
-  console.log('no brego notifications');
-}
-})
+  sessionStorage.setItem('item_id', $(this).attr('val'));
+  $.mobile.changePage('#itempage');
+});
 
 
 
