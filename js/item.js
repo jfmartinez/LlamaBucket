@@ -95,12 +95,14 @@ $(document).on('click', '#results li', function(event)
 	$.mobile.changePage('#itempage');
 });
 
-$(document).on('click', '#category_results li', function(event)
+$(document).on('click', '#category_items li', function(event)
 {
 	var parameter = $(this).attr('id');
 	sessionStorage.setItem('item_id', parameter);
 	$.mobile.changePage('#itempage');
 });
+
+
 $(document).on('click', '#buy_add_check', function(event)
 {
 	var data_to_send = {

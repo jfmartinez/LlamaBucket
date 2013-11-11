@@ -124,7 +124,6 @@ $(document).on('pagebeforeshow', '#store', function(event){
 					var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
 
 					var type = $('<p style="color: orange;"></p>');
-					var time_left = $('<p style="color: #2ecc71;"></p>');
 					
 					
 
@@ -203,8 +202,11 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 					console.log(data.content[i].exp_date);
 
-					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
 
+					//Gets the time left for the item
+					var time_left = $('<p style="color: #2ecc71;"></p>');
+
+					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
 					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
 
