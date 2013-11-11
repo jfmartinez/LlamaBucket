@@ -87,7 +87,6 @@ $(document).on('pagebeforeshow', '#store', function(event){
 			contentType : "application/json",
 			success : function(data){
 			var list = $('#listings_list');
-			var List = new Array();
 			var length = data.content.length;
 
 				//Clear the list beforehand
@@ -103,17 +102,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 				{	
 
 
-					var list_element = {
-
-						item_name: data.content[i].item_name,
-						item_type: data.content[i].is_auction
-
-
-					};
-					console.log(list_element);
-
-
-
+			
 					var t = $('<li id="' + data.content[i].item_id + '" ng-repeat="item in store | filter:search" ></li>');
 					
 					
@@ -135,6 +124,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 					var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
 
 					var type = $('<p style="color: orange;"></p>');
+					var time_left = $('<p style="color: #2ecc71;"></p>');
 					
 					
 
@@ -210,29 +200,40 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 
 					}
+
+					console.log(data.content[i].exp_date);
+
+					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
+
+					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+					var current_date = new Date();
+
+					var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
+					var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+					console.log(current_date);
+					time_left.html(diffDays + " days left");
+
+					div.append(time_left);
 					link.append(img);
 
 					link.append(div);
 					link.append(div2);
 
 					t.append(link);
-					
+				
+
+
+
 
 
 					// list.append('<li id="'+ data.content[i].item_id + '"><a href=')
 					list.append(t);
 				
-					List.push(list_element);
 
-					// list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
-					// 	data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
-					// 	data.content[i].item_name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
-					// 	data.content[i].price+"</h6></div></div></a></li>");
 }
 
 				//Refresh the ul so that all elements are views properly.
 				list.listview('refresh');
-								console.log(List);
 
 
 		},

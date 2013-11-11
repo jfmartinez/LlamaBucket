@@ -22,9 +22,9 @@ $(document).on('click', '#sign_in_submit', function(event)
         $.mobile.changePage('#admin_home');
       }
       else{
-      $('#home').page();
-      $.mobile.changePage('#home');
-    }
+        $('#home').page();
+        $.mobile.changePage('#home');
+      }
     },
     error : function(data)
     {
@@ -72,7 +72,7 @@ $(document).on('pagebeforeshow', '#home', function(event)
 
 
 
-  )
+)
 
 //Show the user information on the user page.
 $(document).on('click', '#user_profile_trigger', function(event)
@@ -106,12 +106,12 @@ $(document).on('click', '#user_profile_trigger', function(event)
         console.log('Did not work: Profile');
       }
     })
-  }
+}
 
   //User is not signed in
   else
   {   
-      $("#sign_in_trigger").click();
+    $("#sign_in_trigger").click();
   }
 
 });
@@ -155,38 +155,38 @@ $(document).on('click', '#edit_user_save', function(event)
 //Load the user list of addresses
 $(document).on('pagebeforeshow', '#address_list', function(event)
 {
-    $.ajax({
-      url : "http://"+lb_server+"/get_addresses/"+localStorage.getItem('id'),
-      contentType : "application/json",
-      success : function(data)
-      {
-        var list = $('#user_address_list')
-        list.empty();
+  $.ajax({
+    url : "http://"+lb_server+"/get_addresses/"+localStorage.getItem('id'),
+    contentType : "application/json",
+    success : function(data)
+    {
+      var list = $('#user_address_list')
+      list.empty();
 
-        for(var i = 0; i < data.content.length; i++)
-        {
-            list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_1+'"">'+data.content[i].address_1+'</a></li>');
-        }
-
-        list.listview('refresh');
-      },
-      error : function(data)
+      for(var i = 0; i < data.content.length; i++)
       {
-        console.log('no brego');
+        list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_1+'"">'+data.content[i].address_1+'</a></li>');
       }
-    })
+
+      list.listview('refresh');
+    },
+    error : function(data)
+    {
+      console.log('no brego');
+    }
+  })
 });
 
 //Load the user list of addresses
 $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 {
-    $.ajax({
-      url : "http://"+lb_server+"/get_credit_cards/"+localStorage.getItem('id'),
-      contentType : "application/json",
-      success : function(data)
-      {
-        var list = $('#card_list')
-        list.empty();
+  $.ajax({
+    url : "http://"+lb_server+"/get_credit_cards/"+localStorage.getItem('id'),
+    contentType : "application/json",
+    success : function(data)
+    {
+      var list = $('#card_list')
+      list.empty();
 
         for(var i = 0; i < data.length; i++)
         {
@@ -213,7 +213,7 @@ $(document).on('click', '#add_mail_address', function(event)
     success : function(data)
     {
       console.log('Worked');
-     $.mobile.changePage('#address_list');
+      $.mobile.changePage('#address_list');
     },
     error : function(data)
     {
@@ -245,74 +245,213 @@ $(document).on('click', '#user_address_list li', function(event)
 
 
 $(document).on('pagebeforecreate', '#notifications', function(event)
- {
+{
 
-   $.ajax({
-      url : "http://"+lb_server+"/get_notifications",
-      contentType : "application/json",
-      success : function(data)
-      {
-         var notifications = data;           
-    var list = $('#notifications_list');
-    list.empty();
-    for(var i = 0; i < notifications.length; i++)
-    {
-      list.append('<li>'+
-        '<a href="#">'+
-       '<h5 style="font-size: 12px;">'+notifications[i].description+'</h3>'+
-       '<p><strong>Date: </strong> '+ notifications[i].date +'</p>'+
+ $.ajax({
+  url : "http://"+lb_server+"/get_notifications",
+  contentType : "application/json",
+  success : function(data)
+  {
+   var notifications = data;           
+   var list = $('#notifications_list');
+   list.empty();
+   for(var i = 0; i < notifications.length; i++)
+   {
+    list.append('<li>'+
+      '<a href="#">'+
+      '<h5 style="font-size: 12px;">'+notifications[i].description+'</h3>'+
+      '<p><strong>Date: </strong> '+ notifications[i].date +'</p>'+
       '</a></li>'
 
-        );
-    }
-    list.listview('refresh');
-      },
-      error : function(data)
-      {
-        console.log('no brego');
-      }
-    })
-   
-               
-               
+      );
+  }
+  list.listview('refresh');
+},
+error : function(data)
+{
+  console.log('no brego');
+}
+})
+
+
+
 });
 
 
-$(document).on('pagebeforecreate', '#items_bidded', function(event)
- {
-
-   $.ajax({
-      url : "http://"+lb_server+"/get_bids",
-      contentType : "application/json",
-      success : function(data)
-      {
-         var bids = data;           
-    var list = $('#bids_list');
-    list.empty();
-    for(var i = 0; i < bids.length; i++)
-    {
-      list.append('<li>'+
-        '<a href="#"><img src="'+ bids[i].image +'"/>'+
-        '<p class="ui-li-aside"><strong>Amount: '+ bids[i].amount+'</strong></p>'+
-       '<h5 style="font-size: 12px;">'+bids[i].item_name+'</h3>'+
+$(document).on('pagebeforeshow', '#items_bidded', function(event)
+{
 
 
-       '<p><strong>Seller: </strong>'+bids[i].seller+'</p>'+
-       '<p><strong>Date: </strong> '+ bids[i].date +'</p>'+
-      '</a></li>'
+  $.ajax({
+    url : "http://"+lb_server+"/get_bids/"+localStorage.getItem('id'),
+    contentType : "application/json",
+    success : function(data){
+      var winning_list = $('#winning_bids_list');
+      var loosing_list = $('#loosing_bids_list');
+      var length = data.content.length;
 
-        );
-    }
-    list.listview('refresh');
+        //Clear the list beforehand
+        winning_list.empty();
+        loosing_list.empty();
+
+        //$('#category_heading').html(data.content[0].category_name);
+
+        //Go over all the items that were fetched and create the appropiate list items
+
+
+        for(var i = 0; i < length; i++)
+        { 
+                    var type_boolean = data.content[i].is_auction;
+
+          if(type_boolean == "both" || type_boolean =="bid"){
+
+          var t = $('<li id="' + data.content[i].item_id + '" ng-repeat="item in store | filter:search" ></li>');
+          
+          
+          var link = $('<a href="#"></a>');
+          
+
+
+          var img = $('<img height="100%" />');
+          img.attr('src', data.content[i].item_image);
+          
+
+          var div = $('<div class="search_div_attribute" style="width:66%;"></div>');
+          var heading = $('<p style="vertical-align: middle; color:black"></p>');
+          heading.html(data.content[i].item_name);
+          div.append(heading);
+
+
+
+          var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
+
+          var type = $('<p style="color: orange;"></p>');
+          var time_left = $('<p style="color: #2ecc71;"></p>');
+          
+          
+
+
+
+
+          if(type_boolean == "both"){
+
+            type.html("Both");
+            div.append(type);
+            var buy = $('<p style="color: #1CB0D9;">US $</p>');
+            var buy_span = $('<span>></span>');
+            buy_span.html(data.content[i].buyout_price);
+            buy.append(buy_span);
+            div2.append(buy);
+
+
+            var bid = $('<p style="color: #1CB0D9;">US $</p>');
+            var bid_count = $('<p style="color:gray;"></p>');
+            var bid_count_span = $('<span> bids</span>');
+
+           
+
+
+            bid_count.html(data.content[i].bid_count);
+            bid_count.append(bid_count_span);
+            bid_span.html(data.content[i].price);
+
+
+            bid.append(bid_span);
+
+            div2.append(bid);
+            div2.append(bid_count);
+
+          }
+
+          else if(type_boolean == "bid")
+          { 
+
+            type.html("Bid");
+            div.append(type);
+            var bid = $('<p style="color: #1CB0D9;">US $</p>');
+            var bid_span = $('<span id="bid_'+data.content[i].item_id+'"></span>');
+            var bid_count = $('<p style="color:gray;"></p>');
+            var bid_count_span = $('<span> bids</span>');
+
+
+
+
+
+            bid_count.html(data.content[i].bid_count);
+            bid_count.append(bid_count_span);
+            bid_span.html(data.content[i].price);
+
+
+            bid.append(bid_span);
+
+            div2.append(bid);
+            div2.append(bid_count);
+
+
+          }
+
+      
+
+          var your_amount = $('<p class="bidded_check" style="color: #1CB0D9;">You Bidded: US $</p>');
+          var your_amount_span = $('<span></span>');
+          your_amount_span.html(data.content[i].bid_amount);
+          your_amount.append(your_amount_span);
+
+
+
+
+          var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
+
+          var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+          var current_date = new Date();
+
+            console.log(exp_date);
+          console.log(current_date);
+          var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          console.log(current_date);
+          time_left.html(diffDays + " days left");
+
+          div.append(time_left);
+          div.append(your_amount);
+          link.append(img); 
+
+          link.append(div);
+          link.append(div2);
+
+          t.append(link);
+
+
+
+
+          if(data.content[i].bid_amount > data.content[i].price){
+
+          winning_list.append(t);
+          $('#bid_'+data.content[i].item_id).html(data.content[i].bid_amount);
+        }
+        else{
+
+          loosing_list.append(t);
+
+          $('#loosing_bids_list').find('.bidded_check').attr('style', "color: red;");
+
+        }
+
+
+          }
+        }
+
+        //Refresh the ul so that all elements are views properly.
+        winning_list.listview('refresh');
+        loosing_list.listview('refresh');
+
+
       },
-      error : function(data)
-      {
-        console.log('no brego');
+      error : function(data){
+        console.log("Serach results not available");
       }
-    })
-   
-               
-               
+});
+
 });
 
 
