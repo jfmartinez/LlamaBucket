@@ -207,8 +207,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
-					console.log(exp_date.getTime());
-					console.log(current_data.getTime());
+
 					var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
 					var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 					console.log(current_date);
@@ -231,15 +230,10 @@ $(document).on('pagebeforeshow', '#store', function(event){
 					list.append(t);
 				
 
-					// list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
-					// 	data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
-					// 	data.content[i].item_name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
-					// 	data.content[i].price+"</h6></div></div></a></li>");
 }
 
 				//Refresh the ul so that all elements are views properly.
 				list.listview('refresh');
-								console.log(List);
 
 
 		},

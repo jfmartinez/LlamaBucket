@@ -12,8 +12,8 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 			url : "http://"+lb_server+"/search/category="+parameter,
 			contentType : "application/json",
 			success : function(data){
-			var list = $('#category_items');
-			var length = data.content.length;
+				var list = $('#category_items');
+				var length = data.content.length;
 
 				//Clear the list beforehand
 				list.empty();
@@ -89,7 +89,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 						type.html("Bid");
 						div.append(type);
-					var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid = $('<p style="color: #1CB0D9;">US $</p>');
 						var bid_span = $('<span></span>');
 						var bid_count = $('<p style="color:gray;"></p>');
 						var bid_count_span = $('<span> bids</span>');
@@ -145,11 +145,11 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 				//Refresh the ul so that all elements are views properly.
 				list.listview('refresh');
-		},
-		error : function(data){
-			console.log("Search results not available");
-		}
-	});
+			},
+			error : function(data){
+				console.log("Search results not available");
+			}
+		});
 
 
 });
@@ -241,7 +241,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 						type.html("Bid");
 						div.append(type);
-					var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid = $('<p style="color: #1CB0D9;">US $</p>');
 						var bid_span = $('<span></span>');
 						var bid_count = $('<p style="color:gray;"></p>');
 						var bid_count_span = $('<span> bids</span>');
@@ -354,9 +354,9 @@ $(document).on('click', '#search_button', function(event)
 
 	else{
 
-	sessionStorage.setItem('search_parameter', user_input);
-	$.mobile.changePage('#searchResults');
-}
+		sessionStorage.setItem('search_parameter', user_input);
+		$.mobile.changePage('#searchResults');
+	}
 	
 });
 //$(document).on('click', '#'
@@ -437,19 +437,12 @@ var list = $("#"+data.parent_name+"-categories");
 	});
 });
 
-$( "#sort_panel" ).on( "panelopen", function( event, ui ) {
 
-
-
-	$('#filter_button_view').html(sessionStorage.getItem('type_filter'));
-
-
-} );
 $(document).on('click', '#sort_options li', function(event)
 {
 	console.log($(this).attr('id'));
 	sessionStorage.setItem('sort_by', $(this).attr('id'));
-	    	$('#filter_results').trigger('click');
+	$('#filter_results').trigger('click');
 
 
 
@@ -469,33 +462,59 @@ $( document ).ready( function() {
 
 
 
+	$('#item_type_filter_button').bind('click', function(event)
+	{	
 
-$('#sort_button').bind('click', function(event)
-{
+		var radio_buttons = $("input[name='item_type_filter']");
+		for(var i = 0; i < radio_buttons.length; i ++)
+		{
+
+			if(radio_buttons[i].value == sessionStorage.getItem('type_filter'))
+			{
+				radio_buttons[i].checked = true;
+			}
+		}
+
+
+		$('input[name="item_type_filter"]').checkboxradio('refresh');
 
 
 
 
 
-});
 
-$('#item_type_filter_button').bind('click', function(event)
-{	
+	});
 
-	var radio_buttons = $("input[name='item_type_filter']");
-	for(var i = 0; i < radio_buttons.length; i ++)
+
+	$("input[name='item_type_filter']" ).bind( "click", function(event)
 	{
 
-		if(radio_buttons[i].value == sessionStorage.getItem('type_filter'))
-		{
-			radio_buttons[i].checked = true;
-		}
-	}
+
+		sessionStorage.setItem('type_filter', $(this).val());
+		console.log($(this).val());
+		$('#filter_results').trigger('click');
+$('#filter_panel').panel('close');
 
 
-	$('input[name="item_type_filter"]').checkboxradio('refresh');
 
 
+	});
+
+	$("#filter_by_price" ).bind( "click", function(event)
+	{
+
+
+		console.log($("input[name='min_price']").val());
+		console.log($("input[name='max_price']").val());
+
+
+		sessionStorage.setItem('minPrice', $("input[name='min_price']").val());
+
+
+		sessionStorage.setItem('maxPrice', $("input[name='max_price']").val());
+		$('#filter_results').trigger('click');
+
+	});
 
 
 
@@ -503,40 +522,13 @@ $('#item_type_filter_button').bind('click', function(event)
 });
 
 
- 	  $("input[name='item_type_filter']" ).bind( "click", function(event)
- 	  {
-
-
- 	  		sessionStorage.setItem('type_filter', $(this).val());
- 	  		console.log($(this).val());
-
-
-
- 	  });
-
-     $("#filter_by_price" ).bind( "click", function(event)
-    {
-    	
-
-    	console.log($("input[name='min_price']").val());
-    	console.log($("input[name='max_price']").val());
-
-    
-    	sessionStorage.setItem('minPrice', $("input[name='min_price']").val());
-
-    	
-    	sessionStorage.setItem('maxPrice', $("input[name='max_price']").val());
-    	$('#filter_results').trigger('click');
-
-     });
-
-
-
-
- });
 $(document).on('click', '#filter_results', function(event)
 {	
-		var search_parameter = sessionStorage.getItem('search_parameter');
+	var search_parameter = sessionStorage.getItem('search_parameter');
+	
+
+
+	$('#sort_panel').panel("close");
 
 	console.log("Hello");	
 	$.ajax
@@ -620,7 +612,7 @@ $(document).on('click', '#filter_results', function(event)
 
 						type.html("Bid");
 						div.append(type);
-					var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid = $('<p style="color: #1CB0D9;">US $</p>');
 						var bid_span = $('<span></span>');
 						var bid_count = $('<p style="color:gray;"></p>');
 						var bid_count_span = $('<span> bids</span>');
@@ -660,29 +652,23 @@ $(document).on('click', '#filter_results', function(event)
 					link.append(div2);
 
 					t.append(link);
+
+					list.append(t);
 					
 
 
-					// list.append('<li id="'+ data.content[i].item_id + '"><a href=')
-					list.append(t);
-					console.log(t);
-					console.log(list);
-
-					// list.append("<li id=\""+data.content[i].item_id+"\"><a href=\"#\"><div class=\"ui-grid-b\"><div class=\"ui-block-a\"><img src=\""+
-					// 	data.content[i].item_image+"\" height=\"60\" width=\"60\"></div><div class=\"ui-block-b\"><h5>"+
-					// 	data.content[i].item_name+"</h5><p>"+data.content[i].description+"</p></div><div class=\"ui-block-c\"><h6 align=\"center\"> Buy: $"+
-					// 	data.content[i].price+"</h6></div></div></a></li>");
-}
-
 				//Refresh the ul so that all elements are views properly.
 				list.listview('refresh');
-			
-			
-		},
-		error: function(data)
-		{
 
-			console.log(data);
-		}
-});
+
+			}},
+			error: function(data)
+			{
+
+				console.log(data);
+			}
+		
+		
+
+	});
 });
