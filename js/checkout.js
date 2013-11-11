@@ -10,7 +10,6 @@ $(document).on('click', '#bucket_checkout', function(event)
     contentType : "application/json",
     success : function(data)
     {
-      console.log(data);
       $('#checkout_number_total').html(data.items.length);
       $('#checkout_order_total').html('$'+data.order_amount);
       $('#checkout_payment_1').html(data.primary_credit_card.type + ' ending in:');
