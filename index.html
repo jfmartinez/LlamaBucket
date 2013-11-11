@@ -67,7 +67,7 @@
           <a data-role="button"  data-theme="f" href="#items_bidded">Buying</a>
           <a data-role="button"  data-theme="e" href="#store">Selling</a>
 
-          <a data-role="button" data-icon="flat-mail" data-theme="g">Notifications</a>
+          <a href="#" data-role="button" data-icon="flat-mail" data-theme="g">Notifications</a>
         </div>
 
         <!-- Non User Option-->
@@ -443,16 +443,17 @@
 
       <!-- Notifications -->
       <div data-role="page" id="notifications">
+
         <div data-role="header">
-          <a href="#home" data-icon="back" data-role="back" data-iconpos="notext"></a>
-          <h2> Notifications</h2>
+          <a href="#" data-rel="back">Back</a>
+          <h3>Notifications</h3>
         </div>
+
         <div data-role="content">
           <ul data-role="listview" id="notifications_list" data-inset="true">
-
-
           </ul>
         </div>
+
         <div data-role="footer" data-id="pers_footer" data-position="fixed">
           <div data-role="navbar">
             <ul>
@@ -462,7 +463,6 @@
             </ul>
           </div>
         </div>
-
       </div>
 
 
@@ -1599,7 +1599,7 @@
       </li>
     </ul>
 
-    <a href="#" id="#view_notifications" data-role="button" data-theme="b">Notifications</a>
+    <a href="#notifications" id="#view_notifications" data-role="button" data-theme="b">Notifications</a>
     <a href="#" id="#view_invoices" data-theme="b" data-role="button">Invoices</a>
   </div>
 
