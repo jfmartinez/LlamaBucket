@@ -244,32 +244,31 @@ $(document).on('click', '#user_address_list li', function(event)
 });
 
 
-$(document).on('pagebeforecreate', '#notifications', function(event)
+$(document).on('pagebeforeshow', '#notifications', function(event)
 {
 
  $.ajax({
-  url : "http://"+lb_server+"/get_notifications",
+  url : "http://"+lb_server+"/get_notifications/"+localStorage.getItem('id'),
   contentType : "application/json",
   success : function(data)
   {
-   var notifications = data;           
    var list = $('#notifications_list');
    list.empty();
-   for(var i = 0; i < notifications.length; i++)
+
+   for(var i = 0; i < data.length; i++)
    {
     list.append('<li>'+
       '<a href="#">'+
-      '<h5 style="font-size: 12px;">'+notifications[i].description+'</h3>'+
-      '<p><strong>Date: </strong> '+ notifications[i].date +'</p>'+
-      '</a></li>'
+      '<h4>'+data[i].title+'</h4>'+
+      '<p>'+data[i].notification_message+'</p>'+
+      '</a></li>');
 
-      );
   }
   list.listview('refresh');
 },
 error : function(data)
 {
-  console.log('no brego');
+  console.log('no brego notifications');
 }
 })
 
