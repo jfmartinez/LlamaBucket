@@ -147,7 +147,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 				list.listview('refresh');
 		},
 		error : function(data){
-			console.log("Serach results not available");
+			console.log("Search results not available");
 		}
 	});
 
@@ -158,6 +158,9 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 $(document).on('pagebeforeshow', '#searchResults', function(event){
 	var search_parameter = sessionStorage.getItem('search_parameter');
 
+
+
+	sessionStorage.setItem('type_filter', 'all');
 	$.ajax({
 		url : "http://"+lb_server+"/search/item_name="+search_parameter,
 		contentType : "application/json",
@@ -431,10 +434,42 @@ var list = $("#"+data.parent_name+"-categories");
 		{
 			console.log("Sub categories not found");
 		}
-	})
+	});
 });
 
+$( "#sort_panel" ).on( "panelopen", function( event, ui ) {
+
+
+
+	
+} );
+
  $( document ).ready( function() { 
+
+$(document).on('pagebefore')
+
+$('#item_type_filter_button').bind('click', function(event)
+{	
+
+	var radio_buttons = $("input[name='item_type_filter']");
+	for(var i = 0; i < radio_buttons.length; i ++)
+	{
+
+		if(radio_buttons[i].value == sessionStorage.getItem('type_filter'))
+		{
+			radio_buttons[i].checked = true;
+		}
+	}
+
+
+	$('input[name="item_type_filter"]').checkboxradio('refresh');
+
+
+
+
+
+
+});
 
 
  	  $("input[name='item_type_filter']" ).bind( "click", function(event)
@@ -450,17 +485,17 @@ var list = $("#"+data.parent_name+"-categories");
 
      $("#filter_by_price" ).bind( "click", function(event)
     {
-    	c
+    	
 
-    	onsole.log($("input[name='min_price']").val());
+    	console.log($("input[name='min_price']").val());
     	console.log($("input[name='max_price']").val());
 
-    	if(typeof( $("input[name='min_price']").val()) == 'number'){
-    	sessionStorage.setItem('minPrice', $("input[name='min_price']").val());}
+    
+    	sessionStorage.setItem('minPrice', $("input[name='min_price']").val());
 
-    	if(typeof( $("input[name='max_price']").val()) == 'number'){
+    	
     	sessionStorage.setItem('maxPrice', $("input[name='max_price']").val());
-    }
+    	$('#filter_results').trigger('click');
 
      });
 
