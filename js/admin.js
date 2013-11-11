@@ -31,7 +31,7 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 		url : "http://"+lb_server+"/users/"+user_id,
 		contentType : "application/json",
 		success : function(data){
-			console.log(data);
+			console.log(lb_server);
 			var info = $('#userinfo');
 			info.empty();
 			info.append('<li>Name: ' + data[0].client_firstname + " " + data[0].client_lastname + 
@@ -39,7 +39,7 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 				'</li><li>Email: ' + data[0].email + 
 				'</li><li>Phone: ' + data[0].phone + 
 				'</li><li>Address: ' + data[0].address_1 + '<br>' + data[0].address_2 + '<br>' + data[0].city + ', ' + data[0].state + ' ' + data[0].zip_code + ' ' + data[0].country + '</li>');
-			info.listview('refresh');
+			info.listview().listview('refresh');
 			sessionStorage.clear();
 		},
 		error : function(data){
@@ -56,7 +56,7 @@ $(document).on('pagebeforeshow', '#reportday', function(event){
 		contentType : "application/json",
 		success : function(data){
 			console.log("success");
-		}
+		},
 		error : function(data){
 			console.log("Failed to load report.");
 		}
@@ -68,7 +68,7 @@ $(document).on('pagebeforeshow', '#reportweek', function(event){
 		contentType : "application/json",
 		success : function(data){
 			console.log("success");
-		}
+		},
 		error : function(data){
 			console.log("Failed to load report.");
 		}
@@ -80,37 +80,12 @@ $(document).on('pagebeforeshow', '#reportmonth', function(event){
 		contentType : "application/json",
 		success : function(data){
 			console.log("success");
-		}
+		},
 		error : function(data){
 			console.log("Failed to load report.");
 		}
 	});
 });
-
-// $(document).on('pagebeforeshow', '#repgenpage', function(event){
-// 	$.ajax({
-// 		url : "http://"+lb_server+"/report",
-// 		contentType : "application/json",
-// 		success : function(data){
-// 			console.log(data);
-// 			var header = $('#repname');
-// 			header.empty();
-// 			header.append(data[0].report_name);
-// 			var report = $('#repgen');
-// 			report.empty();
-
-// 			// report.append('<li><p><h2>Item: ' + data[0].itemA + '</h2></p><p>Buyer: ' + data[0].buyerA + '</p><p>Seller: ' + data[0].sellerA + '</p><p>Price: ' + data[0].priceA + '</p></li>' + 
-// 			// 	'<li><p><h2>Item: ' + data[0].itemB + '</h2></p><p>Buyer: ' + data[0].buyerB+ '</p><p>Seller: ' + data[0].sellerB + '</p><p>Price: ' + data[0].priceB + '</p></li>' + 
-// 			// 	'<li><p><h2>Item: ' + data[0].itemC + '</h2></p><p>Buyer: ' + data[0].buyerC+ '</p><p>Seller: ' + data[0].sellerC + '</p><p>Price: ' + data[0].priceC + '</p></li>' + 
-// 			// 	'<li><p><h2>Item: ' + data[0].itemD + '</h2></p><p>Buyer: ' + data[0].buyerD+ '</p><p>Seller: ' + data[0].sellerD + '</p><p>Price: ' + data[0].priceD + '</p></li>');
-// 			report.listview('refresh');
-
-// 		},
-// 		error : function(data){
-// 			console.log("Failed to load report.");
-// 		}
-// 	});
-// });
 
 /* Reports end here */
 
@@ -174,7 +149,7 @@ $(document).on('click', '#save_category', function(event)
 		category: $('#category_name').val(),
 		parent: $('#category_parent').val(),
 		id: $('#category_id').val()
-	}
+	};
 
 
 	$.ajax({
@@ -193,7 +168,7 @@ $(document).on('click', '#save_category', function(event)
 			console.log("Add category failed");
 			console.log(new_category_data);
 		}
-    })
+    });
 
 });
 
