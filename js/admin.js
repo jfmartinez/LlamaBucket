@@ -241,7 +241,7 @@ $(document).on('pagebeforeshow', '#view_categories', function(event){
 			{
 
 
-				category_list.append('<li id="'+ category_data[i].id+'"><a >'+ category_data[i].category +'</a></li>');
+				category_list.append('<li id="'+ category_data[i].id+'"><a >'+ category_data[i].category_name +'</a></li>');
 			}
 
 			category_list.listview('refresh');
