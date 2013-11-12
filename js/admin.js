@@ -58,7 +58,7 @@ $(document).on('pagebeforeshow', '#reportday', function(event){
 			var list = $('#reptoday');
 			list.empty();
 			for(var i=0; i<data.length; i++){
-				list.append('<li><h2>Sale ' + (i+1) + '</h2>' + 
+				list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
 					'<br>Seller: ' + data[i].Seller_Name + 
 					'<br>Buyer: ' + data[i].Buyer_Name + 
 					'<br>Date: ' + data[i].Date + 
@@ -66,7 +66,7 @@ $(document).on('pagebeforeshow', '#reportday', function(event){
 					'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
 					'<br>Final Price: ' + data[i].Final_Price +
 					'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
-					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</li>');
+					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
 			}
 			list.listview('refresh');
 
@@ -85,7 +85,7 @@ $(document).on('pagebeforeshow', '#reportweek', function(event){
 			var list = $('#repweek');
 			list.empty();
 			for(var i=0; i<data.length; i++){
-				list.append('<li><h2>Sale ' + (i+1) + '</h2>' + 
+				list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
 					'<br>Seller: ' + data[i].Seller_Name + 
 					'<br>Buyer: ' + data[i].Buyer_Name + 
 					'<br>Date: ' + data[i].Date + 
@@ -93,7 +93,7 @@ $(document).on('pagebeforeshow', '#reportweek', function(event){
 					'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
 					'<br>Final Price: ' + data[i].Final_Price +
 					'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
-					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</li>');
+					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
 			}	
 			list.listview('refresh');
 
@@ -112,7 +112,7 @@ $(document).on('pagebeforeshow', '#reportmonth', function(event){
 			var list = $('#repmonth');
 			list.empty();
 			for(var i=0; i<data.length; i++){
-				list.append('<li><h2>Sale ' + (i+1) + '</h2>' + 
+				list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
 					'<br>Seller: ' + data[i].Seller_Name + 
 					'<br>Buyer: ' + data[i].Buyer_Name + 
 					'<br>Date: ' + data[i].Date + 
@@ -120,7 +120,7 @@ $(document).on('pagebeforeshow', '#reportmonth', function(event){
 					'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
 					'<br>Final Price: ' + data[i].Final_Price +
 					'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
-					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</li>');
+					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
 			}	
 			list.listview('refresh');
 
@@ -149,7 +149,7 @@ $(document).on('pagebeforeshow', '#reportdayprod', function(event){
 			var list = $('#reptodayprod');
 			list.empty();
 			for(var i=0; i<data.length; i++){
-				list.append('<li><h2>Sale ' + (i+1) + '</h2>' + 
+				list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
 					'<br>Seller: ' + data[i].Seller_Name + 
 					'<br>Buyer: ' + data[i].Buyer_Name + 
 					'<br>Date: ' + data[i].Date + 
@@ -157,7 +157,7 @@ $(document).on('pagebeforeshow', '#reportdayprod', function(event){
 					'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
 					'<br>Final Price: ' + data[i].Final_Price +
 					'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
-					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</li>');
+					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
 			}
 			list.listview('refresh');
 
@@ -178,7 +178,7 @@ $(document).on('pagebeforeshow', '#reportweekprod', function(event){
 			var list = $('#repweekprod');
 			list.empty();
 			for(var i=0; i<data.length; i++){
-				list.append('<li><h2>Sale ' + (i+1) + '</h2>' + 
+				list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
 					'<br>Seller: ' + data[i].Seller_Name + 
 					'<br>Buyer: ' + data[i].Buyer_Name + 
 					'<br>Date: ' + data[i].Date + 
@@ -186,7 +186,7 @@ $(document).on('pagebeforeshow', '#reportweekprod', function(event){
 					'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
 					'<br>Final Price: ' + data[i].Final_Price +
 					'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
-					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</li>');
+					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
 			}	
 			list.listview('refresh');
 
@@ -207,7 +207,7 @@ $(document).on('pagebeforeshow', '#reportmonthprod', function(event){
 			var list = $('#repmonthprod');
 			list.empty();
 			for(var i=0; i<data.length; i++){
-				list.append('<li><h2>Sale ' + (i+1) + '</h2>' + 
+				list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
 					'<br>Seller: ' + data[i].Seller_Name + 
 					'<br>Buyer: ' + data[i].Buyer_Name + 
 					'<br>Date: ' + data[i].Date + 
@@ -215,7 +215,7 @@ $(document).on('pagebeforeshow', '#reportmonthprod', function(event){
 					'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
 					'<br>Final Price: ' + data[i].Final_Price +
 					'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
-					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</li>');
+					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
 			}	
 			list.listview('refresh');
 

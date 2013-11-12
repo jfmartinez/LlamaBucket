@@ -464,9 +464,53 @@ $(document).on('click', '#log_out_button', function(event)
 {
   localStorage.clear();
   $.mobile.changePage('#home');
-})
+});
+
+$(document).on('pagebeforeshow', '#my_invoices', function(event){
+  var user_id = localStorage.getItem('id');
+  $.ajax({
+    url : "http://"+lb_server+"/userinvoice/"+user_id,
+    contentType : "application/json",
+    success : function(data){
+      console.log('hello');
+      var list = $("#my_invoice_list");
+      list.empty();
+      for(var i = 0; i<data.length; i++){
+        list.append('<li id="'+data[i].invoice_id + '"><a href="#"><p style="float : right; padding-right : 15px; padding-top : 13%;">$ '
+          +data[i].final_price+'</p><h4>'
+          +data[i].item_name+'</h4><p>Seller: '
+          +data[i].client_firstname + ' ' + data[i].client_lastname+'</p></a></li>');   
+      }
+      list.listview('refresh');
+    },
+    error : function(data){
+      console.log("Failed to load user invoice list");
+    }
+  });
+
+});
 
 
+$(document).on('click', "#my_invoice_list li", function(event){
+  var parameter = $(this).attr('id');
+  sessionStorage.setItem('inv_id', parameter);
+  $.mobile.changePage('#single_inv_page');
 
+});
 
-
+$(document).on('pagebeforeshow', '#single_inv_page', function(event){
+   var inv_id = sessionStorage.getItem('inv_id');
+   $.ajax({
+       url : "http://"+lb_server+"/singleinvoice/"+inv_id,
+       contentType : "application/json",
+       success : function(data){
+         var list = $('#invoice_content');
+         list.empty();
+         list.append('<li><div data-role="content"><h3 style="margin-left : 33%">Order Processed</h3><div class="ui-grid-a"><div class="ui-block-a"><h3>Total:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_total_price">$' + data[0].final_price + '</p></div></div><div class="ui-grid-a"><div class="ui-block-a"><h3>Paid with:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_card_info">Credit Card Number:'+ data[0].cc_number +'</p></div></div><div class="ui-grid-a"><div class="ui-block-a"><h3>Date:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_date">' +  data[0].date + '</p></div></div><br><ul data-role="listview" data-inset="true"><li data-role="list-divider" >Shipping Information</li><li><p id="invoice_address_1">'+data[0].address_1+'</p><p id="invoice_address_2">'+data[0].address_2+'</p><p id="invoice_address_info">'+data[0].city+', '+data[0].state+'</p><p id="invoice_zip_code">'+data[0].zip_code+'</p></li></ul><ul data-role="listview" id="invoice_items" data-inset="true"><li data-role="list-divider" data-inset="true">Items</li><li><p style="float : right; padding-right : 15px; padding-top : 13%;"></p><h4 style="margin-top : 9%;">'+data[0].item_name+'</h4><p>Seller: '+data[0].seller_name+'</p></li></ul></div></li>');
+         list.listview('refresh');
+       },
+       error : function(data){
+         console.log("Failed to load invoice.");
+       }
+   });
+ });
