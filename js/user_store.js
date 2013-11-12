@@ -3,6 +3,59 @@
 
 var description;
 
+$(document).on('pagebeforeshow', '#item_offers_page', function(event)
+{
+
+
+	var item_id = sessionStorage.getItem('item_id');
+	console.log({client_id: localStorage.getItem('id'), item_id: item_id});
+
+	$.ajax({
+
+
+
+		type: "POST",
+		url: "http://" +lb_server+"/get_offers",
+		data: {client_id: localStorage.getItem('id'), item_id: item_id},
+		success: function(data)
+		{
+
+			var list = $('#item_offers');
+			console.log(data);
+
+			for(var i = 0; i < data.length; i++)
+			{
+
+
+				var date_fractions  =data[i].datetime.replace(/[TZ\:]/g, '-').split('-');
+					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+				list.append('<li><p><strong >Amount: US $ </strong>'+ data[i].bid_amount +'</p>'+
+					'<p><strong>Email: </strong>' + data[i].email+'</p>'+
+					'<p><strong>Name: </strong>' + data[i].client_firstname + ' ' + data[i].client_lastname +'</p>' +
+					'<p><strong>Date: </strong>' +  exp_date +'</p>'+
+
+
+
+
+					'</li><hr>');
+
+
+
+			}
+							list.listview('refresh');
+
+
+
+		},
+		error: function(data)
+		{
+			console.log(data);
+		}
+
+
+	});
+});
+
 $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
@@ -33,6 +86,7 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 				$('#selling_price_tag').hide();
 				$('#selling_buy_item').hide();
 				$('#selling_add_item_cart').hide();
+				$('#item_offers_button').show();
 
 			}
 
@@ -40,6 +94,8 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 				$('#selling_current_bidding').hide()
 				$('#selling_number_bids').hide();
 				$('#selling_bid_item').hide();
+				$('#item_offers_button').hide();
+
 
 
 
