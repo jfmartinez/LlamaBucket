@@ -475,7 +475,7 @@ $(document).on('pagebeforeshow', '#my_invoices', function(event){
       var list = $("#my_invoice_list");
       list.empty();
       for(var i = 0; i<data.length; i++){
-        list.append('<li id="'+data[i].invoice_id + '"><a href="#"><p style="float : right; padding-right : 15px; padding-top : 13%;">$ '
+        list.append('<li id="'+data[i].invoice_id + '"><a href="#"><p>$ '
           +data[i].final_price+'</p><h4>'
           +data[i].item_name+'</h4><p>Seller: '
           +data[i].client_firstname + ' ' + data[i].client_lastname+'</p></a></li>');   
