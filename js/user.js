@@ -390,14 +390,13 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
             bid.append(bid_span);
 
             div2.append(bid);
-            div2.append(bid_count);
 
 
           }
 
       
 
-          var your_amount = $('<p class="bidded_check" style="color: #1CB0D9;">You Bidded: US $</p>');
+          var your_amount = $('<p class="bidded_check" style="color: #1CB0D9;">Bidded: US $</p>');
           var your_amount_span = $('<span></span>');
           your_amount_span.html(data.content[i].bid_amount);
           your_amount.append(your_amount_span);

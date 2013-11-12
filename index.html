@@ -185,10 +185,10 @@
     <div data-role="page" id="items_bidded">
       <div data-role="header">
 
-        <a href="#home"  data-icon="back" data-rel="back" >Back</a>
+        <a href="#home"  data-rel="back" >Back</a>
         <h2>Bids </h2>
       </div>
-      <div data-role="content">
+      <div data-role="content" id="all_items_bidded">
         <h3>Winning:</h3>
         <ul data-role="listview" id="winning_bids_list" data-inset="true">
         </ul>
@@ -249,7 +249,30 @@
 
     </div>
 
+    <div data-role="page" id="item_offers_page">
 
+
+      <div data-role="header">
+        <a data-rel="back">Back</a>
+        <h1>Item Offers</h1>
+
+
+
+      </div>
+
+      <div data-role="content">
+
+
+        <ul id="item_offers" data-role="listview" data-inset="true">
+
+
+
+        </ul>
+
+      </div>
+
+
+    </div>
     <!--Listing View -->
     <div data-role="page" id="manage_item_page">
 
@@ -268,6 +291,9 @@
          <div class="ui-block-b"> 
           <a href="#remove_listing_store" data-role="button" id="remove_store" data-theme="d">Delete</a></div>
         </div>
+
+        <a href="#item_offers_page" data-role="button" id="item_offers_button" data-theme="e">See Offers</a>
+
         <br>
         <div class="ui-grid-b">
           <div class="ui-block-a"></div>
@@ -659,9 +685,7 @@
         </div>
 
       </div>
-      <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
-    </div>
-
+   
     <!-- Report Generator -->
     <!-- general -->
     <div data-role="page" id="reportday">
@@ -1316,7 +1340,7 @@
 
   <fieldset class="ui-grid-a">
             <div class="ui-block-a">
-              <a data-role="button" data-theme="g" href="#category_sort_panel">Sort</a></div>
+              <a data-role="button" data-theme="g" href="#sort_panel">Sort</a></div>
               <div class="ui-block-b"> <a data-role="button"  data-theme="f" href="#filter_panel">Filter</a></div>
             </fieldset>
 
@@ -1326,9 +1350,8 @@
     
     <h3>Filter By:</h3>
     <hr>
-    <a href="#item_type_sort" id="item_type_filter_button" data-role="button">Item Type: </a>
+    <a href="#item_type_sort" id="item_type_filter_button" data-role="button">Item Type </a>
     <a href="#price_filter" data-role="button">Price</a>
-    <a href="#" data-role="button">Category</a>
 
 
 
@@ -1436,9 +1459,9 @@
 
    <fieldset class="ui-grid-a">
     <div class="ui-block-a">
-      <a data-role="button"data-theme="g" href="#category_filter_panel">Back</a></div>
+      <a data-role="button"data-theme="g" href="#filter_panel">Back</a></div>
       <div class="ui-block-b"> 
-      <a data-role="button"  data-theme="f" id="category_filter_results" >Filter</a></div>
+      <a data-role="button"  data-theme="f" id="filter_results" >Filter</a></div>
     </fieldset>
 
 
@@ -1670,6 +1693,7 @@
     <a href="#notifications" id="#view_notifications" data-role="button" data-theme="b">Notifications</a>
     <a href="#my_invoices" id="#view_invoices" data-role="button" data-theme="b">Invoices</a>
     <a href="#add_credit_card" id="#view_cc_entry" data-role="button" data-theme="b">Add Credit Card</a>
+  </div>
 
   <div data-role="footer" data-id="pers_footer" data-position="fixed">
     <div data-role="navbar">
