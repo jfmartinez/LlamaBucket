@@ -330,7 +330,7 @@ $(document).on('pagebeforeshow', '#edit_item', function(event)
 			 $('#edit_brand').val(data.item_brand);
 
 			if(data.is_auction =="bid" || data.is_auction== "both")
-			{	console.log("Hello");
+			{	
 				$('#edit_bid_radio').trigger('click');
 
 				$('#edit_auction_price').val(data.price);

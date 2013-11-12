@@ -25,7 +25,6 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 			$('#bid_price').html("US $"+ data.price);
 			$('#number_bids_count').html(data.bid_count);
 			$('#item_price').html("US $" + data.price);
-			console.log("Hello World!");
 
 			if(data.is_auction == "both" || data.is_auction =="bid")
 			{

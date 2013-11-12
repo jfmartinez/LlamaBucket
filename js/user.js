@@ -38,8 +38,8 @@ $(document).on('pagebeforeshow', '#home', function(event)
 {
   if(localStorage.getItem('isAdmin') == 1)
   {
-    console.log("Hello");
-    $.mobile.changePage('#admin_home');
+
+      $.mobile.changePage('#admin_home');
   }
 
 
@@ -471,7 +471,6 @@ $(document).on('pagebeforeshow', '#my_invoices', function(event){
     url : "http://"+lb_server+"/userinvoice/"+user_id,
     contentType : "application/json",
     success : function(data){
-      console.log('hello');
       var list = $("#my_invoice_list");
       list.empty();
       for(var i = 0; i<data.length; i++){

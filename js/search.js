@@ -2,7 +2,6 @@
 $(document).on('pagebeforeshow', '#category_results', function(event){
 
 		sessionStorage.setItem('type_filter', 'all');
-		console.log("HEllo");
 
 		//Filtering by categories.
 		var parameter = sessionStorage.getItem('parameter');
@@ -109,7 +108,6 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 						div2.append(bid);
 						div2.append(bid_count);
-						console.log("Bid Hello!");
 
 
 					}
@@ -276,7 +274,6 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 						div2.append(bid);
 						div2.append(bid_count);
-						console.log("Bid Hello!");
 
 
 					}
@@ -566,7 +563,6 @@ $(document).on('click', '#filter_results', function(event)
 
 	$('#sort_panel').panel("close");
 
-	console.log("Hello");	
 	$.ajax
 	({	
 		type: "POST",
@@ -664,7 +660,6 @@ $(document).on('click', '#filter_results', function(event)
 
 						div2.append(bid);
 						div2.append(bid_count);
-						console.log("Bid Hello!");
 
 
 					}
@@ -734,7 +729,6 @@ $(document).on('click', '#category_filter_results', function(event)
 
 
 
-	console.log("Hello");	
 	$.ajax
 	({	
 		type: "POST",
@@ -832,7 +826,6 @@ $(document).on('click', '#category_filter_results', function(event)
 
 						div2.append(bid);
 						div2.append(bid_count);
-						console.log("Bid Hello!");
 
 
 					}
