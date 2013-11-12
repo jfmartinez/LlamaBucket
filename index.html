@@ -656,15 +656,6 @@
         <div data-role="content" id="adminuserlistcontent">
           <ul data-role="listview" id="userlist"></ul>
         </div>
-        <div data-role="footer" data-id="pers_footer" data-position="fixed">
-          <div data-role="navbar">
-            <ul>
-              <li><a href="#home" data-icon="home" >Home</a></li>
-              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
-            </ul>
-          </div>
-        </div>
         <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
       </div>
 
@@ -754,24 +745,6 @@
 
     </div> 
     <!--User stuff -->
-
-    <div data-role="page" id="edit_user_admin">
-        <div data-role="content" id="userinfocontent">
-          <ul data-role="listview" id="userinfo" data-inset="true"></ul>
-        </div>
-
-
-        <div data-role="footer" data-id="pers_footer" data-position="fixed">
-          <div data-role="navbar">
-            <ul>
-              <li><a href="#home" data-icon="home" >Home</a></li>
-              <li><a href="#" data-icon="flat-man" id="user_profile_trigger">Profile</a></li>
-              <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
-            </ul>
-          </div>
-        </div>
-        <a href="#sign_in" data-rel="dialog" hidden="true" id="sign_in_trigger"></a>
-      </div>
       <!-- report generator -->
       <div data-role="page" id="repgenpage">
         <div data-role="header">
@@ -812,7 +785,7 @@
           <div data-role="navbar">
             <ul>
               <li><a data-role="button" data-inline="true" id="edit_user_save" >Save</a></li>
-              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+              <li><a href="#" data-rel="back" data-role="button" data-inline="true">Cancel</a></li>
             </ul>
           </div>
         </div>
