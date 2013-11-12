@@ -66,8 +66,7 @@
         <div data-role="controlgroup" id="logged_in_user_options">
           <a data-role="button"  data-theme="f" href="#items_bidded">Buying</a>
           <a data-role="button"  data-theme="e" href="#store">Selling</a>
-
-          <a href="#" data-role="button" data-icon="flat-mail" data-theme="g">Notifications</a>
+          <a href="#notifications" data-role="button" data-icon="flat-mail" data-theme="g">Notifications</a>
         </div>
 
         <!-- Non User Option-->
@@ -214,7 +213,7 @@
     <div data-role="page" id="store">
       <div data-role="header">
 
-        <a href="#home" >Back</a>
+        <a href="#" data-rel="back" >Back</a>
         <h2>Store </h2>
         <a href="#create_item" >Create</a>
 
@@ -289,7 +288,7 @@
            <a href="#edit_item" data-role="button" id="edit_store" data-theme="f">Edit</a>
          </div>
          <div class="ui-block-b"> 
-          <a href="#remove_listing_store" data-role="button" id="remove_store" data-theme="d">Delete</a></div>
+          <a href="#remove_listing_store" data-rel="dialog" data-role="button" id="remove_store" data-theme="d">Delete</a></div>
         </div>
 
         <a href="#item_offers_page" data-role="button" id="item_offers_button" data-theme="e">See Offers</a>
@@ -898,13 +897,8 @@
       <!-- Remove Prompt -->
 
       <div data-role="dialog" id="remove_listing_store">
-
-        <div data-role="header">
-          <h3>Are you Sure?</h3>
-
-        </div>
-
         <div data-role="content">
+          <h3 style="margin-left : 33%;">Are you Sure?</h3>
           <p>Deleting your listing: &#39;<strong> <span id="item_name_removal" style="color:orange;" ></span></strong> &#39; will completely delete it from the system and it will be unretrievable</p>
 
           <div class="ui-grid-a">
@@ -1692,7 +1686,7 @@
 
     <a href="#notifications" id="#view_notifications" data-role="button" data-theme="b">Notifications</a>
     <a href="#my_invoices" id="#view_invoices" data-role="button" data-theme="b">Invoices</a>
-    <a href="#add_credit_card" id="#view_cc_entry" data-role="button" data-theme="b">Add Credit Card</a>
+    <a href="#store" data-role="button" data-theme="b">Selling</a>
   </div>
 
   <div data-role="footer" data-id="pers_footer" data-position="fixed">
@@ -1786,6 +1780,7 @@
 <div data-role="page" id="add_user_mail">
 
   <div data-role="header" data-position="fixed">
+    <a href="" daa-rel="back">Back</a>
     <h2>Add a mail address</h2>
   </div>
 
@@ -1857,7 +1852,7 @@
 <div data-role="page" id="credit_card_list">
 
   <div data-role="header" data-position="fixed">
-    <a href="#user_profile">Back</a>
+    <a href="#" data-rel="back">Back</a>
     <h2> Credit Cards </h2>
   </div>
 
@@ -1903,6 +1898,7 @@
 
 <div data-role="page" id="create_item">
   <div data-role="header" data-position="fixed">
+    <a href="#" data-rel="back">Back</a>
     <h2>List an Item</h2>
   </div>
   <div data-role="content" style="color:gray;">
