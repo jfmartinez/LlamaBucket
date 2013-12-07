@@ -165,7 +165,7 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
 
       for(var i = 0; i < data.content.length; i++)
       {
-        list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_1+'"">'+data.content[i].address_1+'</a></li>');
+        list.append('<li><a href="#single_view_address" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_id+'"">'+data.content[i].address_1+'</a></li>');
       }
 
       list.listview('refresh');

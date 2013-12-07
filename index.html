@@ -9,7 +9,7 @@
     <script src="js/jquery.mobile-1.3.2.js"></script>
 
     <script type='text/javascript' > 
-    window.lb_server = "74.213.79.108:5000";
+    window.lb_server = "localhost:5000";
 
     </script>
     <script src="js/search.js"></script>
@@ -1857,13 +1857,26 @@
 
 <!-- end credit card list -->
 
-<div data-role="page" id="address_confirmation_dialog">
+<div data-role="page" id="single_view_address">
   <div data-role="content">
+    <h3 id="single_view_address1">#311 Calle Ext. Los Robles</h3>
+    <h3 id="single_view_address2"></h3>
+    <h3 id="single_view_address_city">Rincón, PR</h3>
+    <h3 id="single_view_address_zip">00677</h3>
+    <h3 id="single_view_country">US</h3>
+    <br>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="#confirm_address_delete" data-rel="popup" data-role="button" id="delete_address" data-theme="d">Delete</a></div>
+      <div class="ui-block-b"><a href="#address_list" data-role="button" data-theme="b">Cancel</a></div>
+    </div> 
+  </div>
+
+  <div data-role="popup" id="confirm_address_delete" data-position-to="window" style="width : 250px;" data-overlay-theme="a">
     <h3 style="text-align : center;">Delete this address?</h3>
     <br>
     <div class="ui-grid-a">
-      <div class="ui-block-a"><a data-role="button" data-icon="delete" id="delete_address">Yes</a></div>
-      <div class="ui-block-b"><a href="#address_list" data-role="button" data-icon="minus">Cancel</a></div>
+      <div class="ui-block-a"><a href="#" data-role="button" id="delete_address" data-theme="d">Yes</a></div>
+      <div class="ui-block-b"><a href="#" data-role="button" data-rel="back" data-theme="b">Cancel</a></div>
     </div> 
   </div>
 </div>
