@@ -1820,6 +1820,30 @@
 
 <!-- end address list -->
 
+<div data-role="page" id="single_view_address">
+  <div data-role="content">
+    <h3 id="single_view_address1">#311 Calle Ext. Los Robles</h3>
+    <h3 id="single_view_address2"></h3>
+    <h3 id="single_view_address_city">Rincón, PR</h3>
+    <h3 id="single_view_address_zip">00677</h3>
+    <h3 id="single_view_country">US</h3>
+    <br>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="#confirm_address_delete" data-rel="popup" data-role="button" id="delete_address" data-theme="d">Delete</a></div>
+      <div class="ui-block-b"><a href="#address_list" data-role="button" data-theme="b">Cancel</a></div>
+    </div> 
+  </div>
+
+  <div data-role="popup" id="confirm_address_delete" data-position-to="window" style="width : 250px;" data-overlay-theme="a">
+    <h3 style="text-align : center;">Delete this address?</h3>
+    <br>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="#" data-role="button" id="delete_address" data-theme="d">Yes</a></div>
+      <div class="ui-block-b"><a href="#" data-role="button" data-rel="back" data-theme="b">Cancel</a></div>
+    </div> 
+  </div>
+</div>
+
 <!-- credit card list -->
 
 <div data-role="page" id="credit_card_list">
@@ -1857,25 +1881,28 @@
 
 <!-- end credit card list -->
 
-<div data-role="page" id="single_view_address">
+<div data-role="page" id="single_view_creditcard">
   <div data-role="content">
-    <h3 id="single_view_address1">#311 Calle Ext. Los Robles</h3>
-    <h3 id="single_view_address2"></h3>
-    <h3 id="single_view_address_city">Rincón, PR</h3>
-    <h3 id="single_view_address_zip">00677</h3>
-    <h3 id="single_view_country">US</h3>
+    <h3 id="single_view_cardnumber">Number: xxxx-xxxx-xxxx-8592</h3>
+    <h3 id="single_view_cardtype">Type: VISA</h3>
+    <h3>Address: </h3>
+    <h3 id="single_view_card_address1">#311 Calle Ext. Los Robles</h3>
+    <h3 id="single_view_card_address2"></h3>
+    <h3 id="single_view_card_city">Rincon, PR</h3>
+    <h3 id="single_view_card_zip">00677</h3>
+    <h3 id="single_view_card_country">US</h3>
     <br>
     <div class="ui-grid-a">
-      <div class="ui-block-a"><a href="#confirm_address_delete" data-rel="popup" data-role="button" id="delete_address" data-theme="d">Delete</a></div>
-      <div class="ui-block-b"><a href="#address_list" data-role="button" data-theme="b">Cancel</a></div>
+      <div class="ui-block-a"><a href="#confirm_creditcard_delete" data-rel="popup" data-role="button" id="delete_credit_card" data-theme="d">Delete</a></div>
+      <div class="ui-block-b"><a href="#credit_card_list" data-role="button" data-theme="b">Cancel</a></div>
     </div> 
   </div>
 
-  <div data-role="popup" id="confirm_address_delete" data-position-to="window" style="width : 250px;" data-overlay-theme="a">
-    <h3 style="text-align : center;">Delete this address?</h3>
+  <div data-role="popup" id="confirm_creditcard_delete" data-position-to="window" style="width : 250px;" data-overlay-theme="a">
+    <h3 style="text-align : center;">Delete this Credit Card?</h3>
     <br>
     <div class="ui-grid-a">
-      <div class="ui-block-a"><a href="#" data-role="button" id="delete_address" data-theme="d">Yes</a></div>
+      <div class="ui-block-a"><a href="#" data-role="button" id="delete_creditcard" data-theme="d">Yes</a></div>
       <div class="ui-block-b"><a href="#" data-role="button" data-rel="back" data-theme="b">Cancel</a></div>
     </div> 
   </div>
