@@ -15,7 +15,7 @@ $(document).on('pagebeforeshow', '#item_offers_page', function(event)
 
 
 		type: "POST",
-		url: "http://" +lb_server+"/get_offers",
+		url: lb_server+"/get_offers",
 		data: {client_id: localStorage.getItem('id'), item_id: item_id},
 		success: function(data)
 		{
@@ -60,7 +60,7 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
 	$.ajax({
-		url : "http://"+lb_server+"/item/"+item_id,
+		url : lb_server+"/item/"+item_id,
 		contentType : "application/json",
 		
 		success : function(data){
@@ -139,7 +139,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 		
 		$.ajax({
-			url : "http://"+lb_server+"/get_listings/"+parameter,
+			url : lb_server+"/get_listings/"+parameter,
 			contentType : "application/json",
 			success : function(data){
 			var list = $('#listings_list');
@@ -317,7 +317,7 @@ $(document).on('pagebeforeshow', '#edit_item', function(event)
 	var item_id = sessionStorage.getItem('item_id');
 
 	$.ajax({
-		url : "http://"+lb_server+"/item/"+item_id,
+		url : lb_server+"/item/"+item_id,
 		contentType : "application/json",
 		
 		success : function(data){

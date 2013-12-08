@@ -10,7 +10,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 		
 		$.ajax({
-			url : "http://"+lb_server+"/search/category="+parameter,
+			url : lb_server+"/search/category="+parameter,
 			contentType : "application/json",
 			success : function(data){
 				var list = $('#category_items');
@@ -179,7 +179,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 	sessionStorage.setItem('type_filter', 'all');
 	$.ajax({
-		url : "http://"+lb_server+"/search/item_name="+search_parameter,
+		url : lb_server+"/search/item_name="+search_parameter,
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -297,13 +297,14 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 					//Gets the time left for the item
 					var time_left = $('<p style="color: #2ecc71;"></p>');
-
+					console.log("Date: " + data.content[i].exp_date);
 					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
 					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
+					console.log(exp_date);
 
-					var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
-					var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+					var timeDiff = exp_date.getTime() - current_date.getTime();
+					var diffDays = Math.round(timeDiff / (1000 * 3600 * 24));
 					console.log(current_date);
 					time_left.html(diffDays + " days left");
 
@@ -345,7 +346,7 @@ $(document).on('pagebeforeshow', '#categories', function(event)
 
 	$.ajax
 	({
-		url : "http://"+lb_server+"/categories",
+		url : lb_server+"/categories",
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -400,7 +401,7 @@ $(document).on('click', '#categories-list li', function()
 	var parent_category = $(this).attr('value');
 	$.ajax
 	({
-		url : "http://"+lb_server+"/categories/" +parent_category,
+		url : lb_server+"/categories/" +parent_category,
 		contentType : "application/json",
 		success : function(data)
 		{
@@ -566,7 +567,7 @@ $(document).on('click', '#filter_results', function(event)
 	$.ajax
 	({	
 		type: "POST",
-		url : "http://"+lb_server+"/filter_results",
+		url : lb_server+"/filter_results",
 		data : {min_price: sessionStorage.getItem('minPrice'), max_price: sessionStorage.getItem('maxPrice'), item_type: sessionStorage.getItem('type_filter'), search: search_parameter, sort_by: sessionStorage.getItem('sort_by')},
 		success : function(data)
 		{	var list = $('#results');
@@ -732,7 +733,7 @@ $(document).on('click', '#category_filter_results', function(event)
 	$.ajax
 	({	
 		type: "POST",
-		url : "http://"+lb_server+"/filter_category_results/",
+		url : lb_server+"/filter_category_results/",
 		data: request_data,
 		success : function(data)
 		{	var list = $('#category_items');

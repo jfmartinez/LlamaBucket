@@ -6,7 +6,7 @@ $(document).on('click', '#sign_in_submit', function(event)
 { 
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/sign_in",
+    url : lb_server+"/sign_in",
     data : { email : $('#sign_in_email').val(), password : $('#password').val()},
     success : function(data)
     {
@@ -84,7 +84,7 @@ $(document).on('click', '#user_profile_trigger', function(event)
     $.mobile.changePage('#user_profile');
     $.ajax
     ({
-      url : "http://"+lb_server+"/profile/" + localStorage.getItem('id'),
+      url : lb_server+"/profile/" + localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {
@@ -130,7 +130,7 @@ $(document).on('click', '#edit_user_save', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/update_user_info",
+    url : lb_server+"/update_user_info",
     data : $('#user_info_edit').serializeArray(),
     success : function(data)
     {
@@ -156,7 +156,7 @@ $(document).on('click', '#edit_user_save', function(event)
 $(document).on('pagebeforeshow', '#address_list', function(event)
 {
   $.ajax({
-    url : "http://"+lb_server+"/get_addresses/"+localStorage.getItem('id'),
+    url : lb_server+"/get_addresses/"+localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {
@@ -181,7 +181,7 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
 $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 {
   $.ajax({
-    url : "http://"+lb_server+"/get_credit_cards/"+localStorage.getItem('id'),
+    url : lb_server+"/get_credit_cards/"+localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {
@@ -208,7 +208,7 @@ $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/add_mail_address",
+    url : lb_server+"/add_mail_address",
     data : $('#new_address').serializeArray(),
     success : function(data)
     {
@@ -229,7 +229,7 @@ $(document).on('click', '#user_address_list li', function(event)
   {
     $.ajax({
       type : "POST",
-      url : "http://"+lb_server+"/delete_address",
+      url : lb_server+"/delete_address",
       data : { address1 : address_to_delete},
       success : function(data)
       {
@@ -248,7 +248,7 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
 {
 
  $.ajax({
-  url : "http://"+lb_server+"/get_notifications/"+localStorage.getItem('id'),
+  url : lb_server+"/get_notifications/"+localStorage.getItem('id'),
   contentType : "application/json",
   success : function(data)
   {
@@ -288,7 +288,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
 
   $.ajax({
-    url : "http://"+lb_server+"/get_bids/"+localStorage.getItem('id'),
+    url : lb_server+"/get_bids/"+localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data){
       var winning_list = $('#winning_bids_list');
@@ -468,7 +468,7 @@ $(document).on('click', '#log_out_button', function(event)
 $(document).on('pagebeforeshow', '#my_invoices', function(event){
   var user_id = localStorage.getItem('id');
   $.ajax({
-    url : "http://"+lb_server+"/userinvoice/"+user_id,
+    url : lb_server+"/userinvoice/"+user_id,
     contentType : "application/json",
     success : function(data){
       var list = $("#my_invoice_list");
@@ -499,7 +499,7 @@ $(document).on('click', "#my_invoice_list li", function(event){
 $(document).on('pagebeforeshow', '#single_inv_page', function(event){
    var inv_id = sessionStorage.getItem('inv_id');
    $.ajax({
-       url : "http://"+lb_server+"/singleinvoice/"+inv_id,
+       url : lb_server+"/singleinvoice/"+inv_id,
        contentType : "application/json",
        success : function(data){
          var list = $('#invoice_content');

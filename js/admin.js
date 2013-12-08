@@ -1,6 +1,6 @@
 $(document).on('pagebeforeshow', '#adminuserlistpage', function(event){
 	$.ajax({
-		url : "http://"+lb_server+"/users",
+		url : lb_server+"/users",
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#userlist');
@@ -28,7 +28,7 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 	var user_id = sessionStorage.getItem('user_id');
 	console.log(user_id);
 	$.ajax({
-		url : "http://"+lb_server+"/users/"+user_id,
+		url : lb_server+"/users/"+user_id,
 		contentType : "application/json",
 		success : function(data){
 			var info = $('#userinfo');
@@ -51,7 +51,7 @@ $(document).on('pagebeforeshow', '#userinfopage', function(event){
 
 $(document).on('pagebeforeshow', '#reportday', function(event){
 	$.ajax({
-		url : "http://"+lb_server+"/reportday", 
+		url : lb_server+"/reportday", 
 		contentType : "application/json",
 		success : function(data){
 			console.log(data);
@@ -78,7 +78,7 @@ $(document).on('pagebeforeshow', '#reportday', function(event){
 });
 $(document).on('pagebeforeshow', '#reportweek', function(event){
 	$.ajax({
-		url : "http://"+lb_server+"/reportweek", 
+		url : lb_server+"/reportweek", 
 		contentType : "application/json",
 		success : function(data){
 			console.log(data);
@@ -105,7 +105,7 @@ $(document).on('pagebeforeshow', '#reportweek', function(event){
 });
 $(document).on('pagebeforeshow', '#reportmonth', function(event){
 	$.ajax({
-		url : "http://"+lb_server+"/reportmonth", 
+		url : lb_server+"/reportmonth", 
 		contentType : "application/json",
 		success : function(data){
 			console.log(data);
@@ -142,7 +142,7 @@ $(document).on('pagebeforeshow', '#reportdayprod', function(event){
 	sessionStorage.setItem('search_entry', parameter);
 
 	$.ajax({
-		url : "http://"+lb_server+"/reportday/"+parameter, 
+		url : lb_server+"/reportday/"+parameter, 
 		contentType : "application/json",
 		success : function(data){
 			console.log(data);
@@ -171,7 +171,7 @@ $(document).on('pagebeforeshow', '#reportweekprod', function(event){
 	var parameter = $('#search-product').val();
 	sessionStorage.setItem('search_entry', parameter);
 	$.ajax({
-		url : "http://"+lb_server+"/reportweek/"+parameter, 
+		url : lb_server+"/reportweek/"+parameter, 
 		contentType : "application/json",
 		success : function(data){
 			console.log(data);
@@ -200,7 +200,7 @@ $(document).on('pagebeforeshow', '#reportmonthprod', function(event){
 	var parameter = $('#search-product').val();
 	sessionStorage.setItem('search_entry', parameter);
 	$.ajax({
-		url : "http://"+lb_server+"/reportmonth/"+parameter, 
+		url : lb_server+"/reportmonth/"+parameter, 
 		contentType : "application/json",
 		success : function(data){
 			console.log(data);
@@ -230,7 +230,7 @@ $(document).on('pagebeforeshow', '#reportmonthprod', function(event){
 
 $(document).on('pagebeforeshow', '#view_categories', function(event){
 	$.ajax({
-		url : "http://"+lb_server+"/categories",
+		url : lb_server+"/categories",
 		contentType : "application/json",
 		success : function(data){
 			//console.log(data);
@@ -256,7 +256,7 @@ $(document).on('pagebeforeshow', '#edit_categories', function(event, ui){
 	var category_id = sessionStorage.getItem('category_id');
 	sessionStorage.clear();
 	$.ajax({
-		url : "http://"+lb_server+"/category/"+category_id,
+		url : lb_server+"/category/"+category_id,
 		contentType : "application/json",
 		
 		success : function(data){
@@ -293,7 +293,7 @@ $(document).on('click', '#save_category', function(event)
 
 	$.ajax({
       type : "POST",
-		url: "http://"+lb_server+"/add_category",
+		url: lb_server+"/add_category",
       data : new_category_data,
      success: function(data)
 		{
