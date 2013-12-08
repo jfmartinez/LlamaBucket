@@ -190,7 +190,7 @@ $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 
         for(var i = 0; i < data.length; i++)
         {
-            list.append('<li><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].cc_id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');
+            list.append('<li><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');
         }
 
         //Refresh the list, this is so jQuery Mobile can apply its proper classes. 
@@ -224,7 +224,68 @@ $(document).on('click', '#add_mail_address', function(event)
 
 $(document).on('click', '#user_address_list li', function(event)
 {
-  var address_to_delete = $(this).children().children().children().attr('placeholder');
+  var current_address = $(this).children().children().children().attr('placeholder');
+
+  $.ajax({
+    url : "http://" + lb_server + "/get_address/" + current_address,
+    contentType : "application/json",
+    success : function (data)
+    {
+      $('#single_view_address1').html(data.address_1);
+      $('#single_view_address2').html(data.address_2);
+      $('#single_view_address_city').html(data.city + ', ' + data.state);
+      $('#single_view_address_zip').html(data.zip_code);
+      $('#single_view_country').html(data.country);
+    },
+    error : function (data)
+    {
+      console.log('Single view address not working')
+      console.log(data);
+    }
+  });
+
+  $('#delete_address').on('click', function()
+  {
+    $.ajax({
+      type : "POST",
+      url : "http://"+lb_server+"/delete_address",
+      data : { address1 : address_to_delete},
+      success : function(data)
+      {
+        $.mobile.changePage('#address_list');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+  });
+});
+
+$(document).on('click', '#card_list li', function(event)
+{
+  var current_creditcard = $(this).children().children().children().attr('placeholder');
+
+  $.ajax({
+    url : "http://" + lb_server + "/get_creditcard/" + current_creditcard,
+    contentType : "application/json",
+    success : function (data)
+    {
+      $('#single_view_cardnumber').html('Number: xxxx-xxxx-xxxx-' + data.number);
+      $('#single_view_cardtype').html('Type: ' + data.type);
+      $('#single_view_card_address1').html(data.address_1);
+      $('#single_view_card_address2').html(data.address_2);
+      $('#single_view_card_city').html(data.city + ', ' + data.state);
+      $('#single_view_card_zip').html(data.zip_code);
+      $('#single_view_card_country').html(data.country);
+    },
+    error : function (data)
+    {
+      console.log('Single view address not working')
+      console.log(data);
+    }
+  });
+
   $('#delete_address').on('click', function()
   {
     $.ajax({
