@@ -65,7 +65,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 			$('#item_category').html(data.category_name);
 			$('#item_year').html(data.item_year);
 			$('#item_id').html(data.item_id);
-      $('#buy_item').attr('val', data.item_id);
+      		$('#buy_item').attr('val', data.item_id);
 			$('#item_seller').html(data.client_firstname + " " + data.client_lastname);
 			$('#item_header').html(data.item_name);
 			$('#item_location').html(data.city +", " + data.state + ", " + data.country );

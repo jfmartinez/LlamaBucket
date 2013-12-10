@@ -428,7 +428,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
 
 
-          if(data.content[i].bid_amount > data.content[i].price){
+          if(data.content[i].bid_amount >= data.content[i].price){
 
           winning_list.append(t);
           $('#bid_'+data.content[i].item_id).html(data.content[i].bid_amount);

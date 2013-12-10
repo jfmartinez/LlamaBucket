@@ -8,7 +8,7 @@
     <script src="js/jquery.mobile-1.3.2.js"></script>
 
     <script type='text/javascript' > 
-    window.lb_server = "http://74.213.79.108:5000";
+    window.lb_server = "http://localhost:5000";
     $.mobile.silentScroll(0);
 
     </script>
@@ -22,6 +22,7 @@
     <script src="js/admin.js"></script>
     <script src="js/item-upload.js"></script>
     <script src="js/checkout.js"></script>
+    <script src="js/bid.js"></script>
 
     <script src="js/create_item.js"></script>
     <script src="js/user_store.js"></script>
@@ -1090,9 +1091,10 @@
 
         <div data-role="controlgroup">
           <a href="#" id="buy_item" data-role="button" data-theme="a">Buy</a>
-          <a href="#" id="bid_item" data-theme="a" data-role="button">Bid</a>
+          <a href="#bid_on_item" data-rel="dialog" id="bid_item" data-theme="a" data-role="button">Bid</a>
           <a href="#" id="add_item_cart" data-theme="a" data-role="button">Add to Cart</a>
         </div>
+
       </div>
 
 
@@ -1113,6 +1115,7 @@
 
     <!--Item View End -->
 
+  
 
 
     <!--Sign In - Dialog -->
@@ -1988,6 +1991,47 @@
   </div>
 
 </div>
+
+<div data-role="dialog" id="bid_on_item" data-theme="g">
+  <div data-role="header" data-theme="a">
+    <h3 >Bid Dialog</h3>
+
+  </div>
+
+  <div data-role="content">
+
+<div data-role="popup" id="error_popup">
+  <p id="error_message"></p>
+</div>
+    <p>Bid On Item: <br><span id="item_bid_header" style="color: #ff6100;"></span></p>
+    <p>Current Bid Price: <span id="current_bid_price_dialog"></span></p>
+
+    <label>Bid higher: </label>
+
+    <input type="text" data-mini="true" id="user_bid_amount_item"/>
+    <a id="submit_bid" data-role="button">Bid on Item</a>
+
+
+
+  </div>
+  </div>
+
+  <div data-role="dialog" id="bid_success" data-theme="g">
+
+
+  <div data-role="header" data-theme="c">
+  <h3> Success!</h3>
+
+  </div>
+
+  <div data-role="content">
+
+    <p>Your bid on <br><span id="item_bid_success" style="color: #ff6100;"></span><br> was successful!</p>
+
+  </div>
+</div>
+
+
 
 
 
