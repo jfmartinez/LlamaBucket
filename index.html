@@ -20,7 +20,7 @@
     <script src="js/invoice.js"></script>
     <script src="js/admin.js"></script>
     <script src="js/checkout.js"></script>
-
+    <script src="js/registration.js"></script>
     <script src="js/create_item.js"></script>
     <script src="js/user_store.js"></script>
 
@@ -1192,7 +1192,7 @@
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Personal Information</li>
 
-          <li data-role="fieldcontain"><input type="text" name="register_firstname" id="register_firstname" placeholder="First Name"/></li>
+          <li data-role="fieldcontain"><input type="text" name="register_firstname" id="register_firstname" required="required" placeholder="First Name"/></li>
 
           <li data-role="fieldcontain"><input type="text" name="register_lastname" id="register_lastname" placeholder="Last Name"/></li>
 
@@ -1224,26 +1224,7 @@
 
         </ul>
 
-        <!-- Billing Address -->
-        <ul data-role="listview" data-inset="true">
-
-         <li data-role="list-divider">Billing Address</li>
-
-         <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="equalAddress" id="equalAddress" class="custom" /></label></li>
-
-         <li data-role="fieldcontain"><input type="text" name="register_billing_address1" id="register_billing_address1" placeholder="Address One"/></li>
-
-         <li data-role="fieldcontain"><input type="text" name="register_billing_address2" id="register_billing_address2" placeholder="Address Two"/></li>
-         <li data-role="fieldcontain"><input type="text" name="register_billing_city" id="register_billing_city" placeholder="City" /></li>
-
-         <li data-role="fieldcontain"><input type="text" name="register_billing_zipcode" id="register_billing_zipcode" placeholder="Zip Code" /></li>
-
-         <li data-role="fieldcontain"><input type="text" name="register_billing_state" id="register_billing_state" placeholder="State"/></li>
-
-         <li data-role="fieldcontain"><input type="text" name="register_billing_country" id="register_billing_country" placeholder="Country"/></li>
-       </ul>
-
-       <!--Credit Card Info -->
+        <!--Credit Card Info -->
        <ul data-role="listview" data-inset="true">
 
         <li data-role="list-divider">Credit Card Information</li>
@@ -1263,6 +1244,25 @@
         <li data-role="fieldcontain"><input type="text" name="register_creditcard_expdate" id="register_creditcard_expdate" placeholder="Expiration Date: MM/YY"/></li>
 
       </ul>
+
+        <!-- Billing Address -->
+        <ul data-role="listview" data-inset="true">
+
+         <li data-role="list-divider">Billing Address</li>
+
+         <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="register_same_address" id="register_same_address" class="custom" /></label></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_address1" id="register_billing_address1" placeholder="Address One"/></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_address2" id="register_billing_address2" placeholder="Address Two"/></li>
+         <li data-role="fieldcontain"><input type="text" name="register_billing_city" id="register_billing_city" placeholder="City" /></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_zipcode" id="register_billing_zipcode" placeholder="Zip Code" /></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_state" id="register_billing_state" placeholder="State"/></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_country" id="register_billing_country" placeholder="Country"/></li>
+       </ul>
 
     </form>
   </div>

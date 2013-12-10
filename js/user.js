@@ -33,34 +33,6 @@ $(document).on('click', '#sign_in_submit', function(event)
   })
 });
 
-$(document).on('click', '#register_user', function (event) {
-
-  $.ajax({
-    
-    type : "POST",
-
-    url : "http://" + lb_server + "/register_user",
-
-    data : $('#new_user').serializeArray(),
-
-    success : function (data) {
-
-      console.log('User has been signed in.');
-
-      //Store the user in localStorage
-      localStorage.setItem('id', data.id);
-
-      $.mobile.changePage('#user_profile');
-    },
-
-    error : function (data) {
-      console.log(data);
-
-      $.mobile.changePage('#home')
-    }
-  });
-});
-
 
 $(document).on('pagebeforeshow', '#home', function(event)
 {
