@@ -421,41 +421,67 @@
         <!-- add credit cards -->
       <div data-role="page" id="add_credit_card">
         <div data-role="header" data-position="fixed">
-          <a href="#" data-rel="back">Back</a>
+          <a data-rel="back">Back</a>
           <h2>Add Credit Card</h2>
 
         </div>
         <div data-role="content">
-          <form id="user_info_edit">
+
+          <form id="new_creditcard">
+
             <h4 style="text-align: center;"> Credit Card Information</h4>
-            <label for="first_name">Number:</label>
-            <input type="text" name="first_name" id="first_name" value="" data-mini="true" placeholder=""/>
-            <label for="last_name">Type:</label>
-            <input type="text" name="last_name" id="cc_type" data-mini="true" placeholder=""/>
-            <label for="last_name">Expiration Date:</label>
-            <input type="text" name="last_name" id="cc_exp" data-mini="true" placeholder=""/>
-            <label for="last_name">Card Holder Name:</label>
-            <input type="text" name="last_name" id="cc_holdname" data-mini="true" placeholder=""/>
+
+            <label for="billing_cc_number">Number:</label>
+
+            <input type="text" name="billing_cc_number" id="billing_cc_number" value="" data-mini="true" placeholder=""/>
+
+            <label for="billing_cc_type">Type:</label>
+
+            <input type="text" name="billing_cc_type" id="billing_cc_type" data-mini="true" placeholder=""/>
+
+            <label for="billin_cc_exp_date">Expiration Date:</label>
+
+            <input type="text" name="billing_cc_exp_date" id="billin_cc_exp_date" data-mini="true" placeholder=""/>
+
+            <label for="billin_cc_card_holder">Card Holder:</label>
+
+            <input type="text" name="billing_cc_card_holder" id="billin_cc_card_holder" data-mini="true" placeholder=""/>
+            
 
             <h4 style="text-align : center;">Billing Information</h4>
-            <label for="old_password">Address 1</label>
-            <input for="text" name="old_password" id="cc_ad1" placeholder="" data-mini="true"/>
-            <label for="new_password">Address 2</label>
-            <input for="text" name="new_password" id="cc_ad2" placeholder="" data-mini="true"/>
-            <label for="new_password">City</label>
-            <input for="text" name="new_password" id="cc_city" placeholder="" data-mini="true"/>
-            <label for="new_password">State</label>
-            <input for="text" name="new_password" id="cc_state" placeholder="" data-mini="true"/>
-            <label for="new_password">Zip Code</label>
-            <input for="text" name="new_password" id="cc_zip" placeholder="" data-mini="true"/>
+
+            <label for="billing_address1">Address 1</label>
+
+            <input for="text" name="billing_address1" id="billing_address1" placeholder="" data-mini="true"/>
+
+            <label for="billing_address2">Address 2</label>
+
+            <input for="text" name="billing_address2" id="billing_address2" placeholder="" data-mini="true"/>
+
+            <label for="billing_city">City</label>
+
+            <input for="text" name="billing_city" id="billing_city" placeholder="" data-mini="true"/>
+
+            <label for="billing_state">State</label>
+
+            <input for="text" name="billing_state" id="billing_state" placeholder="" data-mini="true"/>
+
+            <label for="billing_zipcode">Zip Code</label>
+
+            <input for="text" name="billing_zipcode" id="billing_zipcode" placeholder="" data-mini="true"/>
+
+            <label for="billing_country">Country</label>
+
+            <input for="text" name="billing_country" id="billing_country" placeholder="" data-mini="true"/>
+
           </form>
 
         </div>
         <div data-role="footer" data-position="fixed">
           <div data-role="navbar">
             <ul>
-              <li><a data-role="button" data-inline="true" id="edit_user_save" >Save</a></li>
-              <li><a href="#user_profile" data-role="button" data-inline="true">Cancel</a></li>
+              <li><a data-role="button" data-inline="true" id="add_new_creditcard" >Save</a></li>
+              <li><a href="#card_list" data-role="button" data-inline="true">Cancel</a></li>
             </ul>
           </div>
         </div>
@@ -1698,18 +1724,17 @@
       <label for="city">City:</label>
       <input type="text" name="city" id="city" placeholder="" data-mini="true"/>
       <label for="zipcode"> Zip Code: </label>
-      <input type="text" name="zipcode" id="zipcode" data-mini="true" />
+      <input type="text" name="zipcode" id="zipcode" placeholder="" data-mini="true"/>
+      <label for="zipcode"> State: </label>
+      <input type="text" name="state" id="state" data-mini="true" />
       <label for="country_address" class="select"> Country </label>
-      <select name="country" id="country_address" >
-
-
-      </select>
+      <input type="text" name="country" id="country" data-mini="true" />
     </form>
   </div>
   <div data-role="footer" data-position="fixed">
     <div data-role="navbar">
       <ul>
-        <li><a data-role="button" data-inline="true" id="add_mail_address" >Save</a></li>
+        <li><a href-"#" data-role="button" data-inline="true" id="add_mail_address">Save</a></li>
         <li><a href="#address_list" data-role="button" data-inline="true">Cancel</a></li>
       </ul>
     </div>
@@ -1752,6 +1777,29 @@
 
 <!-- end address list -->
 
+<div data-role="page" id="single_view_address">
+  <div data-role="content">
+    <h3 id="single_view_address1"></h3>
+    <h3 id="single_view_address2"></h3>
+    <h3 id="single_view_address_city"></h3>
+    <h3 id="single_view_address_zip"></h3>
+    <h3 id="single_view_country"></h3>
+    <br>
+      <a href="#" id="make_primary_address" data-role="button" data-theme="e">Make Primary</a>
+      <a href="#confirm_address_delete" data-rel="popup" data-role="button" data-theme="d">Delete</a>
+      <a href="#address_list" data-role="button" data-theme="b">Cancel</a>
+  </div>
+
+  <div data-role="popup" id="confirm_address_delete" data-position-to="window" style="width : 250px;" data-overlay-theme="a">
+    <h3 style="text-align : center;">Delete this address?</h3>
+    <br>
+    <div class="ui-grid-a">
+      <div class="ui-block-a"><a href="#" data-role="button" id="delete_address" data-theme="d">Yes</a></div>
+      <div class="ui-block-b"><a href="#" data-role="button" data-rel="back" data-theme="b">Cancel</a></div>
+    </div> 
+  </div>
+</div>
+
 <!-- credit card list -->
 
 <div data-role="page" id="credit_card_list">
@@ -1789,13 +1837,28 @@
 
 <!-- end credit card list -->
 
-<div data-role="page" id="address_confirmation_dialog">
+<div data-role="page" id="single_view_creditcard">
   <div data-role="content">
-    <h3 style="text-align : center;">Delete this address?</h3>
+    <h3 id="single_view_cardnumber">Number: xxxx-xxxx-xxxx-8592</h3>
+    <h3 id="single_view_cardtype">Type: VISA</h3>
+    <h3>Address:</h3>
+    <h3 id="single_view_card_address1">#311 Calle Ext. Los Robles</h3>
+    <h3 id="single_view_card_address2"></h3>
+    <h3 id="single_view_card_city">Rincon, PR</h3>
+    <h3 id="single_view_card_zip">00677</h3>
+    <h3 id="single_view_card_country">US</h3>
+    <br>
+    <a href="#" id="make_primary_creditcard" data-theme="e" data-role="button">Make Primary</a>
+    <a href="#confirm_creditcard_delete" data-rel="popup" data-role="button" data-theme="d">Delete</a>
+    <a href="#credit_card_list" data-role="button" data-theme="b">Cancel</a>
+  </div>
+
+  <div data-role="popup" id="confirm_creditcard_delete" data-position-to="window" style="width : 250px;" data-overlay-theme="a">
+    <h3 style="text-align : center;">Delete this Credit Card?</h3>
     <br>
     <div class="ui-grid-a">
-      <div class="ui-block-a"><a data-role="button" data-icon="delete" id="delete_address">Yes</a></div>
-      <div class="ui-block-b"><a href="#address_list" data-role="button" data-icon="minus">Cancel</a></div>
+      <div class="ui-block-a"><a href="#" data-role="button" id="delete_creditcard" data-theme="d">Yes</a></div>
+      <div class="ui-block-b"><a href="#" data-role="button" data-rel="back" data-theme="b">Cancel</a></div>
     </div> 
   </div>
 </div>
