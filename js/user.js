@@ -283,6 +283,7 @@ $(document).on('click', '#user_address_list li', function(event)
     $.ajax({
       type : "DELETE",
       url : "http://"+lb_server+"/delete_address/" + current_address,
+      data : { id : localStorage.getItem('id')},
       success : function(data)
       {
         $('#make_primary_address').off('click');
@@ -290,7 +291,8 @@ $(document).on('click', '#user_address_list li', function(event)
       },
       error : function(data)
       {
-        console.log('no brego');
+        console.log('Cannot delete address');
+        $.mobile.changePage('#credit_card_list');
       }
     })
   });
@@ -341,6 +343,7 @@ $(document).on('click', '#card_list li', function(event)
     $.ajax({
       type : "DELETE",
       url : "http://"+lb_server+"/delete_creditcard/" + current_creditcard,
+      data : { id : localStorage.getItem('id')},
       success : function(data)
       {
         $('#delete_creditcard').off('click');
