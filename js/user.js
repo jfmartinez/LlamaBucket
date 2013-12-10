@@ -160,12 +160,20 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
     contentType : "application/json",
     success : function(data)
     {
-      var list = $('#user_address_list')
+      var list = $('#user_address_list');
+
       list.empty();
 
       for(var i = 0; i < data.content.length; i++)
       {
-        list.append('<li><a href="#single_view_address" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_id+'"">'+data.content[i].address_1+'</a></li>');
+
+        if (data.content[i].is_primary === 1) {
+          list.append('<li data-theme="e"><a href="#single_view_address" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_id+'"">'+data.content[i].address_1+'</a></li>');
+        }
+
+        else {
+          list.append('<li><a href="#single_view_address" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_id+'"">'+data.content[i].address_1+'</a></li>');
+        }
       }
 
       list.listview('refresh');
@@ -190,7 +198,14 @@ $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 
         for(var i = 0; i < data.length; i++)
         {
-            list.append('<li><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');
+          if (data[i].primary === 1) {
+
+            list.append('<li data-theme="e"><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');  
+          }
+          else {
+
+            list.append('<li><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');         
+          }
         }
 
         //Refresh the list, this is so jQuery Mobile can apply its proper classes. 
@@ -270,6 +285,7 @@ $(document).on('click', '#user_address_list li', function(event)
       url : "http://"+lb_server+"/delete_address/" + current_address,
       success : function(data)
       {
+        $('#make_primary_address').off('click');
         $.mobile.changePage('#address_list');
       },
       error : function(data)
@@ -286,6 +302,7 @@ $(document).on('click', '#user_address_list li', function(event)
       url : "http://" + lb_server + "/make_primary_address/" + localStorage.getItem('id'),
       data : {current_address : current_address},
       success : function (data) {
+        $('#make_primary_address').off('click');
         $.mobile.changePage('#address_list');
       },
       error : function (data) {
@@ -326,6 +343,7 @@ $(document).on('click', '#card_list li', function(event)
       url : "http://"+lb_server+"/delete_creditcard/" + current_creditcard,
       success : function(data)
       {
+        $('#delete_creditcard').off('click');
         $.mobile.changePage('#credit_card_list');
       },
       error : function(data)
@@ -341,6 +359,8 @@ $(document).on('click', '#card_list li', function(event)
       url : "http://" + lb_server + "/make_primary_creditcard/" + localStorage.getItem('id'),
       data : { current_creditcard : current_creditcard },
       success : function (data) {
+        
+        $('#make_primary_creditcard').off('click');
         $.mobile.changePage('#credit_card_list');
       },
       error : function (data) {
