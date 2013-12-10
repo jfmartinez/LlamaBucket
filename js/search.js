@@ -10,7 +10,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 
 		
 		$.ajax({
-			url : lb_server+"/search/category="+parameter,
+			url : "http://" + lb_server+"/search/category="+parameter,
 			contentType : "application/json",
 			success : function(data){
 				var list = $('#category_items');
@@ -179,7 +179,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 
 	sessionStorage.setItem('type_filter', 'all');
 	$.ajax({
-		url : lb_server+"/search/item_name="+search_parameter,
+		url : "http://" + lb_server+"/search/item_name="+search_parameter,
 		contentType : "application/json",
 		success : function(data)
 		{

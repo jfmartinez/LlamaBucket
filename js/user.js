@@ -223,11 +223,7 @@ $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
     type : "POST",
-<<<<<<< HEAD
-    url : lb_server+"/add_mail_address",
-=======
     url : "http://"+lb_server+"/add_mail_address/" + localStorage.getItem('id'),
->>>>>>> 25d229d25c5f64106a94fe765e6cbaba9d860e0a
     data : $('#new_address').serializeArray(),
     success : function(data)
     {
@@ -284,7 +280,7 @@ $(document).on('click', '#user_address_list li', function(event)
 
   $('#delete_address').on('click', function()
   {
-
+    $.ajax({
       type : "DELETE",
       url : "http://"+lb_server+"/delete_address/" + current_address,
       success : function(data)
