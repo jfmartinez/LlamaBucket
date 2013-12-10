@@ -25,6 +25,7 @@
     <script src="js/bid.js"></script>
     <script src="js/edit_item.js"></script>
 
+    <script src="js/registration.js"></script>
     <script src="js/create_item.js"></script>
     <script src="js/user_store.js"></script>
 
@@ -1115,68 +1116,86 @@
        <a href="#home">Cancel </a>
 
        <h1> Register </h1>
-       <a href="#thanks_note">Save</a>
+       <a href="#" id="register_user">Save</a>
      </div>
      <div data-role="content">
-      <form action="" method="post">
+      <form id="new_user">
 
         <!-- Personal Information -->
         <ul data-role="listview" data-inset="true">
           <li data-role="list-divider">Personal Information</li>
-          <li data-role="fieldcontain"><input type="text" name="firstName" id="firstName" placeholder="First Name"/></li>
-          <li data-role="fieldcontain"><input type="text" name="lastName" id="lastName" placeholder="Last Name"/></li>
-          <li data-role="fieldcontain"><input type="text" name="email" id="lastName" placeholder="Email"/></li>
-          <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Password"/></li>
-          <li data-role="fieldcontain"><input type="password" name="password" id="password" placeholder="Verify Password"/></li>
+
+          <li data-role="fieldcontain"><input type="text" name="register_firstname" id="register_firstname" required="required" placeholder="First Name"/></li>
+
+          <li data-role="fieldcontain"><input type="text" name="register_lastname" id="register_lastname" placeholder="Last Name"/></li>
+
+          <li data-role="fieldcontain"><input type="email" name="register_email" id="register_email" placeholder="Email"/></li>
+
+          <li data-role="fieldcontain"><input type="text" name="register_phone" id="register_phone" placeholder="Phone"/></li>
+
+          <li data-role="fieldcontain"><input type="password" name="register_password" id="register_password" placeholder="Password"/></li>
+
         </ul>
-
-
 
 
         <!--Mailing Address -->
         <ul data-role="listview" data-inset="true">
 
           <li data-role="list-divider">Mailing Address</li>
-          <li data-role="fieldcontain"><input ng-model="addressOne" type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
-          <li data-role="fieldcontain"><input ng-model="addressTwo" type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
-          <li data-role="fieldcontain"><input  ng-model="theCity" type="text" name="city" id="cityForm" placeholder="City" /></li>
-          <li data-role="fieldcontain"><input ng-model="theZipcode" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
-          <li data-role="fieldcontain"><select ng-model="theCountry" name="country" id="country" >
 
+          <li data-role="fieldcontain"><input type="text" name="register_address1" id="register_address1" placeholder="Address One"/></li>
 
-          </select></li>
+          <li data-role="fieldcontain"><input type="text" name="register_address2" id="register_address2" placeholder="Address Two"/></li>
+
+          <li data-role="fieldcontain"><input type="text" name="register_city" id="register_city" placeholder="City" /></li>
+
+          <li data-role="fieldcontain"><input type="text" name="register_zipcode" id="register_zipcode" placeholder="Zip Code" /></li>
+
+          <li data-role="fieldcontain"><input type="text" name="register_state" id="register_state" placeholder="State"/></li>
+
+          <li data-role="fieldcontain"><input type="text" name="register_country" id="register_country" placeholder="Country"/></li>
+
         </ul>
+
+        <!--Credit Card Info -->
+       <ul data-role="listview" data-inset="true">
+
+        <li data-role="list-divider">Credit Card Information</li>
+
+        <li data-role="fieldcontain"><input type="text" name="register_creditcard_number" id="register_creditcard_number" placeholder="Credit Card Number"/></li>
+
+        <li data-role="fieldcontain"><select name="register_creditcard_type" id="register_creditcard_type">
+
+          <option value="VISA"> Visa</option>
+
+          <option value="AMEX"> Amex</option>
+
+          <option value="MASTER"> MasterCard</option>
+
+        </select>
+
+        <li data-role="fieldcontain"><input type="text" name="register_creditcard_expdate" id="register_creditcard_expdate" placeholder="Expiration Date: MM/YY"/></li>
+
+      </ul>
 
         <!-- Billing Address -->
         <ul data-role="listview" data-inset="true">
-         <li data-role="list-divider">Billing Address 
-         </li>
-         <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="equalAddress" id="equalAddress" class="custom" /></label></li>
-         <li data-role="fieldcontain"><input type="text" name="addressOne" id="addressOne" placeholder="Address One"/></li>
-         <li data-role="fieldcontain"><input type="text" name="addressTwo" id="addressTwo" placeholder="Address Two"/></li>
-         <li data-role="fieldcontain"><input type="text" name="city" id="cityForm" placeholder="City" /></li>
-         <li data-role="fieldcontain"><input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" /></li>
-         <li data-role="fieldcontain"><select name="country" id="country" >
 
-         </select></li>
+         <li data-role="list-divider">Billing Address</li>
+
+         <li data-role="fieldcontain"><label>Check the box if the mailing address is the same as the billing address <input type="checkbox" name="register_same_address" id="register_same_address" class="custom" /></label></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_address1" id="register_billing_address1" placeholder="Address One"/></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_address2" id="register_billing_address2" placeholder="Address Two"/></li>
+         <li data-role="fieldcontain"><input type="text" name="register_billing_city" id="register_billing_city" placeholder="City" /></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_zipcode" id="register_billing_zipcode" placeholder="Zip Code" /></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_state" id="register_billing_state" placeholder="State"/></li>
+
+         <li data-role="fieldcontain"><input type="text" name="register_billing_country" id="register_billing_country" placeholder="Country"/></li>
        </ul>
-
-       <!--Credit Card Info -->
-       <ul data-role="listview" data-inset="true">
-        <li data-role="list-divider">Credit Card Information</li>
-        <li data-role="fieldcontain"><input type="text" name="credit_card_number" id="credit_card_number" placeholder="Credit Card Number"/>
-        </li>
-        <li data-role="fieldcontain"><input type="text" name="cvs" id="cvs" placeholder="CVS"></li>
-        <li data-role="fieldcontain"><select name="cardType" id="cardType">
-          <option value="VISA"> Visa</option>
-          <option value="AMEX"> Amex</option>
-          <option value="MASTER"> MasterCard</option>
-        </select>
-        <li data-role="fieldcontain"><input type="text" name="expdate" id="expdate" placeholder="Expiration Date: MM/YY"/>
-        </li>
-      </ul>
-
-
 
     </form>
   </div>

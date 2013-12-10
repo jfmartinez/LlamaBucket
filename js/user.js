@@ -359,7 +359,7 @@ $(document).on('click', '#card_list li', function(event)
       url : "http://" + lb_server + "/make_primary_creditcard/" + localStorage.getItem('id'),
       data : { current_creditcard : current_creditcard },
       success : function (data) {
-        
+
         $('#make_primary_creditcard').off('click');
         $.mobile.changePage('#credit_card_list');
       },
