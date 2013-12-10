@@ -56,76 +56,6 @@ $(document).on('pagebeforeshow', '#item_offers_page', function(event)
 	});
 });
 
-$(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
-	
-	var item_id = sessionStorage.getItem('item_id');
-	$.ajax({
-		url : lb_server+"/item/"+item_id,
-		contentType : "application/json",
-		
-		success : function(data){
-			
-			description = data.item_description;
-			item_name = data.item_name;
-
-
-			$('#selling_price_tag').show();
-			$('#selling_current_bidding').show()
-			$('#selling_number_bids').show();
-			$('#selling_buy_item').show();
-			$('#selling_add_item_cart').show();
-			$('#selling_bid_item').show();
-
-			$('#selling_bid_price').html("US $"+ data.price);
-			$('#selling_number_bids_count').html(data.bid_count);
-			$('#selling_item_price').html("US $" + data.price);
-
-			if(data.is_auction == "bid")
-			{
-				//For bidding
-				$('#selling_price_tag').hide();
-				$('#selling_buy_item').hide();
-				$('#selling_add_item_cart').hide();
-				$('#item_offers_button').show();
-
-			}
-
-			else if(data.is_auction == "buy"){
-				$('#selling_current_bidding').hide()
-				$('#selling_number_bids').hide();
-				$('#selling_bid_item').hide();
-				$('#item_offers_button').hide();
-
-
-
-
-
-			}
-			
-
-
-
-
-
-
-			$('#selling_item_image').attr('src', data["item_image"]);
-			$('#selling_item_brand').html(data.item_brand);
-			$('#selling_item_category').html(data.category_name);
-			$('#selling_item_year').html(data.item_year);
-			$('#selling_item_id').html(data.item_id);
-			$('#selling_item_seller').html(data.client_firstname + " " + data.client_lastname);
-			$('#selling_item_header').html(data.item_name);
-			$('#selling_item_location').html(data.city +", " + data.state + ", " + data.country );
-
-
-		
-		},
-
-		error : function(data){
-			console.log("Item could not be loaded. (item.js)");
-		}
-	});
-});
 
 
 $(document).on('pagebeforeshow', '#store', function(event){
@@ -311,11 +241,9 @@ $(document).on('click', '#listings_list li', function(event)
 });
 
 
-$(document).on('pagebeforeshow', '#edit_item', function(event)
-{	
-
+$(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
+	
 	var item_id = sessionStorage.getItem('item_id');
-
 	$.ajax({
 		url : lb_server+"/item/"+item_id,
 		contentType : "application/json",
@@ -323,44 +251,55 @@ $(document).on('pagebeforeshow', '#edit_item', function(event)
 		success : function(data){
 			
 			description = data.item_description;
+			item_name = data.item_name;
 
-			 $('#edit_item_name' ).val(data.item_name);
-			 $('#edit_description').val(data.item_description);
-			 $('#edit_year').val(data.item_year);
-			 $('#edit_brand').val(data.item_brand);
 
-			if(data.is_auction =="bid" || data.is_auction== "both")
-			{	
-				$('#edit_bid_radio').trigger('click');
+			$('#selling_price_tag').show();
+			$('#selling_current_bidding').show()
+			$('#selling_number_bids').show();
+			$('#selling_buy_item').show();
+			$('#selling_add_item_cart').show();
+			$('#selling_bid_item').show();
 
-				$('#edit_auction_price').val(data.price);
+			$('#selling_bid_price').html("US $"+ data.price);
+			$('#selling_number_bids_count').html(data.bid_count);
+			$('#selling_item_price').html("US $" + data.price);
 
-				if(data.is_auction =="both")
-				{
+			if(data.is_auction == "bid")
+			{
+				//For bidding
+				$('#selling_price_tag').hide();
+				$('#selling_buy_item').hide();
+				$('#selling_add_item_cart').hide();
+				$('#item_offers_button').show();
 
-					$('#edit_buying_checkbox').trigger('click');
-					$('#edit_buyout_price').val(data.buyout_price);
-					$('#edit_buying_checkbox').checkboxradio('refresh');
+			}
 
-				}
+			else if(data.is_auction == "buy"){
+				$('#selling_current_bidding').hide()
+				$('#selling_number_bids').hide();
+				$('#selling_bid_item').hide();
+				$('#item_offers_button').hide();
+
+
 
 
 
 			}
-
-			else if(data.is_auction =="buy")
-			{
-				$('#edit_buy_radio').trigger('click');
-				$('#edit_selling_price').val(data.price);
+			
 
 
-			}			
+			$('#selling_item_image').attr('src', data["item_image"]);
+			$('#selling_item_brand').html(data.item_brand);
+			$('#selling_item_category').html(data.category_name);
+			$('#selling_item_year').html(data.item_year);
+			$('#selling_item_id').html(data.item_id);
+			$('#selling_item_seller').html(data.client_firstname + " " + data.client_lastname);
+			$('#selling_item_header').html(data.item_name);
+			$('#selling_item_location').html(data.city +", " + data.state + ", " + data.country );
 
 
-
-
-			$('input[name="edit_item_type"]').checkboxradio('refresh');
-
+		
 		},
 
 		error : function(data){
@@ -370,63 +309,6 @@ $(document).on('pagebeforeshow', '#edit_item', function(event)
 });
 
 
-  $( document ).ready( function() { 
-
-
-     $("input[name='edit_item_type']" ).bind( "click", edit_item_type_func );
-
-     $("input[name='edit_buyout_checkbox']" ).bind( "click", edit_buyout_option );
-
-
-
-
-  });
-
-
-  function edit_item_type_func()
-  {
-    if( $( this ).val() == "buy")
-    {
-      $('#edit_sell_option_div').show();
-      $('#edit_bid_option_div').hide();
-
-
-    }
-
-
-    else if( $( this ).val() == "bid")
-    {
-          $('#edit_sell_option_div').hide();
-      $('#edit_bid_option_div').show();
-
-     
-    }
-
-
-
-
-  } 
-
-  function edit_buyout_option()
-  { 
-
-
-    var buyout_field = $('#buyout_checkbox');
-    if(buyout_field[0].checked == true)
-    {
-      $('#buyout_price').show();
-
-    }
-
-    else
-    {
-      $('#buyout_price').hide();
-
-    }
-
-
-      
-  }
 
 
 $(document).on('pagebeforeshow', '#remove_listing_store', function(event, ui){

@@ -8,7 +8,7 @@
     <script src="js/jquery.mobile-1.3.2.js"></script>
 
     <script type='text/javascript' > 
-    window.lb_server = "http://74.213.79.108:5000";
+    window.lb_server = "http://localhost:5000";
     $.mobile.silentScroll(0);
 
     </script>
@@ -23,6 +23,7 @@
     <script src="js/item-upload.js"></script>
     <script src="js/checkout.js"></script>
     <script src="js/bid.js"></script>
+    <script src="js/edit_item.js"></script>
 
     <script src="js/create_item.js"></script>
     <script src="js/user_store.js"></script>
@@ -391,81 +392,7 @@
 
       <!--Listing View End -->
 
-      <!--Edit Item -->
-      <div data-role="page" id="edit_item">
-        <div data-role="header" data-position="fixed">
-          <h2>Edit an Item</h2>
-        </div>
-        <div data-role="content" style="color:gray;">
-          <form id="crete_item">
-            <label for="item_name">Item Name:</label>
-            <input type="text" name="edit_item_name" id="edit_item_name" value="" data-mini="true"/>
-            <label for="description">Description:</label>
-            <textarea name="textarea" id="edit_description"></textarea>
-            <label for="email">Category:</label>
-            <select  id="category" data-mini="true">
-              <option>Books</option>
-            </select>
-            <label for="email">Year:</label>
-            <input type="text" name="category" id="edit_year" placeholder="" data-mini="true"/>
-            <label for="email">Brand:</label>
-            <input type="text" name="category" id="edit_brand" placeholder="" data-mini="true"/>
-
-            <label>Type:</label>
-            <div data-role="fieldcontain">
-
-             <fieldset data-role="controlgroup">
-              <input type="radio" name="edit_item_type" data-theme="c" id="edit_buy_radio" value="buy"  />
-              <label for="edit_buy_radio" >Buy</label>
-
-              <input type="radio" name="edit_item_type" data-theme="c" id="edit_bid_radio" value="bid" />
-              <label for="edit_bid_radio">Bid</label>
-
-            </fieldset>
-          </div>
-
-          <div id="edit_bid_option_div">
-            <label id="auction_label">Starting Auction Price: <span class="money">US $</span></label>
-            <input type="text" name="auction_price" id="edit_auction_price"/>
-
-            <input type="checkbox" name="edit_buyout_checkbox" data-theme="c" id="edit_buyout_checkbox" checked="true"/>
-            <label for="edit_buyout_checkbox" id="buyout_label" >Add Buyout Price: <span class="money">US $</span></label>
-
-            <input type="text" name="price" id="edit_buyout_price"/>
-
-
-
-            <label id="time_label" for="bid_time">Bid Time <span style="color: #33CCFF
-              ;">(Days)</span></label>
-              <input type="range" data-theme="g" name="bid_time" id="edit_bid_time" value="7" min="3" max="14" />
-
-            </div>
-            <div id="edit_sell_option_div">
-
-              <label for="selling_price" id="sell_label">Selling Price: <span class="money">US $</span></label>
-              <input type="text" name="selling_price" id="edit_selling_price"/>
-            </div>
-
-
-
-
-
-
-
-            <label for="email">Image:</label>
-            <input type="file"  name="image" accept="image/*" capture>
-
-          </form>
-        </div>
-        <div data-role="footer" data-position="fixed">
-          <div data-role="navbar">
-            <ul>
-              <li><a data-role="button" data-inline="true" id="edit_item_save" >Save</a></li>
-              <li><a href="#store" data-role="button" data-inline="true">Cancel</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+     
       <!-- Profile addons -->
 
        <!-- invoice page -->
@@ -2030,6 +1957,107 @@
 
   </div>
 </div>
+
+<div data-role="page" id="edit_item">
+  <div data-role="header" data-position="fixed">
+    <a href="#" data-rel="back">Back</a>
+    <h2>List an Item</h2>
+  </div>
+  <div data-role="content" style="color:gray;">
+    
+
+      <label >Image:</label>
+      <hr>
+        <div class="ui-grid-a">
+   <div class="ui-block-a" style="width: 46%; height: 160px; border: 3px solid black; padding: 10px; align:center;">    <img id="edit_preview_image" width="100%" height="100%" src=""/>
+</div>
+   <div class="ui-block-b" style="margin-left: 10px; text-align:center;"><a data-theme="e"  id="edit_preview_pic" data-role="button">Take a <br> Picture</a><a data-theme="g"  id="edit_browse_pic" data-role="button">Browse<br> Your Photos </a></div>
+  
+</div>
+  <form id="item_edit_form">
+  <hr>
+      <label for="item_name">Item Name:</label>
+      <input type="text" name="edit_item_name" id="edit_item_name" value="" data-mini="true" placeholder=""/>
+      <label for="edit_item_description">Description:</label>
+      <textarea name="edit_item_description" id="edit_item_description"></textarea>
+     <div>
+      <label >Browser Categories:</label>
+      <select  name="edit_category" id="edit_category" data-mini="true">
+  
+
+      </select>
+       <div class="recursive_categories" id="category_browsing_edit">
+      </div>
+    </div>
+      <label >Year:</label>
+      <input type="text" name="edit_item_year" id="edit_item_year" placeholder="" data-mini="true"/>
+      <label>Brand:</label>
+      <input type="text" name="edit_brand" id="edit_brand" placeholder="" data-mini="true"/>
+
+      <label>Type:</label>
+      <div data-role="fieldcontain">
+
+       <fieldset data-role="controlgroup" id="edit_item_type_options">
+        <input type="radio" name="edit_item_type" data-theme="c" id="edit_buy_radio" value="buy"  />
+        <label for="edit_buy_radio">Buy</label>
+
+        <input type="radio" name="edit_item_type" data-theme="c" id="edit_bid_radio" value="bid" />
+        <label for="edit_bid_radio">Bid</label>
+
+      </fieldset>
+    </div>
+
+    <div id="edit_bid_option_div">
+      <label id="edit_auction_label">Starting Auction Price: <span class="money">US $</span></label>
+      <input type="text" name="edit_auction_price" id="edit_auction_price"/>
+
+      <input type="checkbox" name="edit_buyout_checkbox" data-theme="c" id="edit_buyout_checkbox" checked="true"/>
+      <label for="buyout_checkbox" id="editbuyout_label" >Add Buyout Price: <span class="money">US $</span></label>
+
+      <input type="text" name="edit_buyout_price" id="edit_buyout_price"/>
+
+
+
+      </div>
+      <div id="edit_sell_option_div">
+
+        <label for="selling_price" id="sell_label">Selling Price: <span class="money">US $</span></label>
+        <input type="text" name="edit_selling_price" id="edit_selling_price"/>
+      </div>
+        
+
+      <label id="time_label" for="bid_time">Listing Time: <span style="color: #33CCFF
+        ;">(Days)</span></label>
+        <input type="range" data-theme="g" name="edit_bid_time" id="edit_bid_time" value="7" min="3" max="14" />
+
+      <hr>
+
+
+
+      <label>Shipping Service: </label>
+
+      <select id="edit_shipService1" name="edit_shipService1"><option value="0">-</option><option value="-1" disabled="" class="disTxt">Economy services</option><option value="14">&nbsp;&nbsp;&nbsp;    Economy Shipping</option><option value="8">&nbsp;&nbsp;&nbsp;    USPS Parcel Select</option><option value="32">&nbsp;&nbsp;&nbsp;    USPS Standard Post</option><option value="9">&nbsp;&nbsp;&nbsp;    USPS Media Mail</option><option value="63">&nbsp;&nbsp;&nbsp;    FedEx SmartPost</option><option value="-1" disabled="" class="disTxt">Standard services</option><option value="1">&nbsp;&nbsp;&nbsp;    Standard Shipping</option><option value="3">&nbsp;&nbsp;&nbsp;    UPS Ground</option><option value="10">&nbsp;&nbsp;&nbsp;    USPS First Class Package</option><option value="62">&nbsp;&nbsp;&nbsp;    FedEx Ground or FedEx Home Delivery</option><option value="-1" disabled="" class="disTxt">Expedited services</option><option value="2">&nbsp;&nbsp;&nbsp;    Expedited Shipping</option><option value="7">&nbsp;&nbsp;&nbsp;    USPS Priority Mail</option><option value="19">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Flat Rate Envelope</option><option value="23">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Small Flat Rate Box</option><option value="20">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Medium Flat Rate Box</option><option value="22">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Large Flat Rate Box</option><option value="24">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Padded Flat Rate Envelope</option><option value="25">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Legal Flat Rate Envelope</option><option value="4">&nbsp;&nbsp;&nbsp;    UPS 3 Day Select</option><option value="5">&nbsp;&nbsp;&nbsp;    UPS 2nd Day Air</option><option value="64">&nbsp;&nbsp;&nbsp;    FedEx Express Saver</option><option value="65">&nbsp;&nbsp;&nbsp;    FedEx 2Day</option><option value="-1" disabled="" class="disTxt">One-day services</option><option value="18">&nbsp;&nbsp;&nbsp;    One-day Shipping</option><option value="11">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Express</option><option value="21">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Express Flat Rate Envelope</option><option value="26">&nbsp;&nbsp;&nbsp;    USPS Priority Mail Express Legal Flat Rate Envelope</option><option value="6">&nbsp;&nbsp;&nbsp;    UPS Next Day Air Saver</option><option value="12">&nbsp;&nbsp;&nbsp;    UPS Next Day Air</option><option value="66">&nbsp;&nbsp;&nbsp;    FedEx Priority Overnight</option><option value="67">&nbsp;&nbsp;&nbsp;    FedEx Standard Overnight</option><option value="-1" disabled="" class="disTxt">Other services</option><option value="161">&nbsp;&nbsp;&nbsp;    Economy Shipping from outside US</option><option value="162">&nbsp;&nbsp;&nbsp;    Standard Shipping from outside US</option><option value="163">&nbsp;&nbsp;&nbsp;    Expedited Shipping from outside US</option><option value="167">&nbsp;&nbsp;&nbsp;    FedEx International Economy</option><option value="150" selected="">&nbsp;&nbsp;&nbsp;    Local Pickup</option></select>
+
+      <label>Shipping Price: </label>
+      <input type="text" id="edit_shipping_price" name="edit_shipping_price"/>
+      
+
+      <label>Shipping Time:</label>
+      <select id="edit_shipsWithinDays" name="edit_shipsWithinDays"><option value="-1">Select a handling time</option><option value="0">Same business day</option><option value="1">1 business day</option><option value="2">2 business days</option><option value="3" selected="">3 business days</option><option value="4">4 business days</option><option value="5">5 business days</option><option value="10">10 business days</option><option value="15">15 business days</option><option value="20">20 business days</option><option value="30">30 business days</option></select>
+    
+    </form>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a data-role="button" data-inline="true" id="edit_item_save" >Save</a></li>
+        <li><a href="#store" data-role="button" data-inline="true">Cancel</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 
 
 
