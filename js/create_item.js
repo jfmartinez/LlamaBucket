@@ -127,7 +127,7 @@ function buyout_option()
   }
 }
 
-
+/////Phonegap libary for taking pictures and putting the device ready
 
     // Wait for device API libraries to load
     //
@@ -140,6 +140,8 @@ function buyout_option()
       pictureSource=navigator.camera.PictureSourceType;
       destinationType=navigator.camera.DestinationType;
     }
+
+
 
     //Takes the photo and previews it
     function previewPhoto(imageURI) {
@@ -253,7 +255,7 @@ function buyout_option()
       $.mobile.changePage('#success_item_creation_dialog');
       $('#success_item_creation').html(item_name);
 
-      $('#view_recent_item').bind('click', function(){
+      $('#view_recent_item').unbind('click').bind('click', function(){
 
         $.mobile.changePage('#manage_item_page');
 
@@ -318,7 +320,7 @@ function buyout_option()
 
     console.log("FAILED TO START CAMERA");
   }
-  
+
   function initialize_create_item_page()
 {
 
@@ -329,13 +331,13 @@ function buyout_option()
 
 
 
-  $('#preview_pic').bind('click', capturePhoto);
-  $('#browse_pic').bind('click', browsePhoto);
+  $('#preview_pic').unbind('click').bind('click', capturePhoto);
+  $('#browse_pic').unbind('click').bind('click', browsePhoto);
 
-  $("input[name='item_type']" ).bind( "click", item_type_func );
+  $("input[name='item_type']" ).unbind('click').bind( "click", item_type_func );
 
-  $("input[name='buyout_checkbox']" ).bind( "click", buyout_option );
-  $('#create_item_save').bind('click',upload_item);
+  $("input[name='buyout_checkbox']" ).unbind('click').bind( "click", buyout_option );
+  $('#create_item_save').unbind('click').bind('click',upload_item);
   $.mobile.showPageLoadingMsg(); 
 
   $.ajax({

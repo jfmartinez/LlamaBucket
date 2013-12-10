@@ -350,6 +350,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
 
             var bid = $('<p style="color: #1CB0D9;">US $</p>');
+            var bid_span = $('<span></span>');
             var bid_count = $('<p style="color:gray;"></p>');
             var bid_count_span = $('<span> bids</span>');
 
@@ -373,13 +374,14 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
             type.html("Bid");
             div.append(type);
+
             var bid = $('<p style="color: #1CB0D9;">US $</p>');
-            var bid_span = $('<span id="bid_'+data.content[i].item_id+'"></span>');
+            var bid_span = $('<span></span>');
             var bid_count = $('<p style="color:gray;"></p>');
             var bid_count_span = $('<span> bids</span>');
+            console.log("bid item");
 
-
-
+            console.log(data.content[i]);
 
 
             bid_count.html(data.content[i].bid_count);
@@ -427,11 +429,11 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
 
 
-
-          if(data.content[i].bid_amount >= data.content[i].price){
+          console.log(data);
+          if(data.content[i].bid_max >= data.content[i].price){
 
           winning_list.append(t);
-          $('#bid_'+data.content[i].item_id).html(data.content[i].bid_amount);
+          $('#bid_'+data.content[i].item_id).html(data.content[i].bid_max);
         }
         else{
 
@@ -452,7 +454,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
       },
       error : function(data){
-        console.log("Serach results not available");
+        console.log("Search results not available");
       }
 });
 
