@@ -280,9 +280,11 @@ $(document).on('click', '#user_address_list li', function(event)
   });
 
   $('#make_primary_address').on('click', function (){
+
     $.ajax({
       type : "PUT",
-      url : "http://" + lb_server + "/make_primary_address/" + current_address,
+      url : "http://" + lb_server + "/make_primary_address/" + localStorage.getItem('id'),
+      data : {current_address : current_address},
       success : function (data) {
         $.mobile.changePage('#address_list');
       },
@@ -336,7 +338,8 @@ $(document).on('click', '#card_list li', function(event)
   $('#make_primary_creditcard').on('click', function (){
     $.ajax({
       type : "PUT",
-      url : "http://" + lb_server + "/make_primrary_creditcard/" + current_creditcard,
+      url : "http://" + lb_server + "/make_primary_creditcard/" + localStorage.getItem('id'),
+      data : { current_creditcard : current_creditcard },
       success : function (data) {
         $.mobile.changePage('#credit_card_list');
       },
