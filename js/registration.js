@@ -12,14 +12,10 @@ $(document).on('click', '#register_user', function (event) {
 
     success : function (data) {
 
-      console.log(data);
-      
-      console.log('User has been signed in.');
-
       //Store the user in localStorage
       localStorage.setItem('id', data.id);
 
-      $.mobile.changePage('#user_profile');
+      $('#user_profile_trigger').trigger("click");
     },
 
     error : function (data) {
