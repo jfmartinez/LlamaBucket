@@ -208,7 +208,7 @@ $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/add_mail_address",
+    url : "http://"+lb_server+"/add_mail_address/" + localStorage.getItem('id'),
     data : $('#new_address').serializeArray(),
     success : function(data)
     {
@@ -220,6 +220,24 @@ $(document).on('click', '#add_mail_address', function(event)
       console.log('no brego');
     },
   });
+});
+
+$(document).on('click', '#add_new_creditcard', function (event)
+{
+  $.ajax({
+    type : 'POST',
+    url : 'http://' + lb_server + "/add_new_creditcard/" + localStorage.getItem('id'),
+    data : $('#new_creditcard').serializeArray(),
+    success : function (data)
+    {
+      console.log('Worked');
+      $.mobile.changePage('#card_list');
+    },
+    error : function (data)
+    {
+      console.log('no brego insertar la tarjeta nueva');
+    }
+  })
 });
 
 $(document).on('click', '#user_address_list li', function(event)
@@ -247,9 +265,8 @@ $(document).on('click', '#user_address_list li', function(event)
   $('#delete_address').on('click', function()
   {
     $.ajax({
-      type : "POST",
-      url : "http://"+lb_server+"/delete_address",
-      data : { address1 : address_to_delete},
+      type : "DELETE",
+      url : "http://"+lb_server+"/delete_address/" + current_address,
       success : function(data)
       {
         $.mobile.changePage('#address_list');
@@ -286,15 +303,14 @@ $(document).on('click', '#card_list li', function(event)
     }
   });
 
-  $('#delete_address').on('click', function()
+  $('#delete_creditcard').on('click', function()
   {
     $.ajax({
-      type : "POST",
-      url : "http://"+lb_server+"/delete_address",
-      data : { address1 : address_to_delete},
+      type : "DELETE",
+      url : "http://"+lb_server+"/delete_creditcard/" + current_creditcard,
       success : function(data)
       {
-        $.mobile.changePage('#address_list');
+        $.mobile.changePage('#credit_card_list');
       },
       error : function(data)
       {
