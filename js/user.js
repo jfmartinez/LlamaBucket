@@ -223,7 +223,7 @@ $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/add_mail_address/" + localStorage.getItem('id'),
+    url : lb_server+"/add_mail_address/" + localStorage.getItem('id'),
     data : $('#new_address').serializeArray(),
     success : function(data)
     {
@@ -241,7 +241,7 @@ $(document).on('click', '#add_new_creditcard', function (event)
 {
   $.ajax({
     type : 'POST',
-    url : 'http://' + lb_server + "/add_new_creditcard/" + localStorage.getItem('id'),
+    url : lb_server + "/add_new_creditcard/" + localStorage.getItem('id'),
     data : $('#new_creditcard').serializeArray(),
     success : function (data)
     {
@@ -261,7 +261,7 @@ $(document).on('click', '#user_address_list li', function(event)
   var current_address = $(this).children().children().children().attr('placeholder');
 
   $.ajax({
-    url : "http://" + lb_server + "/get_address/" + current_address,
+    url : lb_server + "/get_address/" + current_address,
     contentType : "application/json",
     success : function (data)
     {
@@ -282,7 +282,7 @@ $(document).on('click', '#user_address_list li', function(event)
   {
     $.ajax({
       type : "DELETE",
-      url : "http://"+lb_server+"/delete_address/" + current_address,
+      url : lb_server+"/delete_address/" + current_address,
       success : function(data)
       {
         $('#make_primary_address').off('click');
@@ -299,7 +299,7 @@ $(document).on('click', '#user_address_list li', function(event)
 
     $.ajax({
       type : "PUT",
-      url : "http://" + lb_server + "/make_primary_address/" + localStorage.getItem('id'),
+      url : lb_server + "/make_primary_address/" + localStorage.getItem('id'),
       data : {current_address : current_address},
       success : function (data) {
         $('#make_primary_address').off('click');
@@ -317,7 +317,7 @@ $(document).on('click', '#card_list li', function(event)
   var current_creditcard = $(this).children().children().children().attr('placeholder');
 
   $.ajax({
-    url : "http://" + lb_server + "/get_creditcard/" + current_creditcard,
+    url : lb_server + "/get_creditcard/" + current_creditcard,
     contentType : "application/json",
     success : function (data)
     {
@@ -340,7 +340,7 @@ $(document).on('click', '#card_list li', function(event)
   {
     $.ajax({
       type : "DELETE",
-      url : "http://"+lb_server+"/delete_creditcard/" + current_creditcard,
+      url : lb_server+"/delete_creditcard/" + current_creditcard,
       success : function(data)
       {
         $('#delete_creditcard').off('click');
@@ -356,7 +356,7 @@ $(document).on('click', '#card_list li', function(event)
   $('#make_primary_creditcard').on('click', function (){
     $.ajax({
       type : "PUT",
-      url : "http://" + lb_server + "/make_primary_creditcard/" + localStorage.getItem('id'),
+      url : lb_server + "/make_primary_creditcard/" + localStorage.getItem('id'),
       data : { current_creditcard : current_creditcard },
       success : function (data) {
 
