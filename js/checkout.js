@@ -217,7 +217,7 @@ $(document).on('click', '#ranks', function(event) {
     $.ajax({
       type : "POST",
       url : lb_server + "/rank_bucket_purchase/" + localStorage.getItem('id'),
-      data : { rating : $('#user_rating').val(), sessionStorage.getItem('item_id') },
+      data : { rating : $('#user_rating').val(), item_id : sessionStorage.getItem('item_id') },
       success : function (data) {
         console.log(data)
       },
