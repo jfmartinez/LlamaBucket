@@ -99,6 +99,8 @@ $(document).on('click', '#user_profile_trigger', function(event)
         $('#client_country').html(data.country);
         $('#card_number').html('<strong>Card Number: </strong> **** **** **** '+data.credit_card);
         $('#credit_card_type').html('<strong>Card Type: </strong>' + data.credit_card_type);
+        $('#sales_made').html('<strong> Items sold:   </strong> ' + data.total_sales);
+        $('#total_made_in_sales').html('<strong> Sales total:   </strong> $' + data.account_total);
 
       },
       error : function(data)
