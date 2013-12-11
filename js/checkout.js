@@ -1,5 +1,6 @@
 $(document).on('click', '#bucket_checkout', function(event){ $.mobile.changePage('#checkout');});
 $(document).on('click', '#buy_item', function(event){$.mobile.changePage('#checkout');});
+$(document).on('click', '#place_order_button', function(event){$.mobile.changePage('#place_order_dialog_confirmation');});
 
 $(document).on('click', '#bucket_checkout', function(event)
 {
