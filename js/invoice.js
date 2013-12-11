@@ -8,7 +8,7 @@ $(document).on('click', '#invoicelist li', function(event, ui){
 //Loads a page containing a list of invoices
 $(document).on('pagebeforeshow', '#invoicelistpage', function(event, ui){
 	$.ajax({
-		url : "http://"+lb_server+"/invoice",
+		url :lb_server+"/invoice",
 		contentType : "application/json",
 		success : function(data){
 			var list = $('#invoicelist');

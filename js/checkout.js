@@ -7,7 +7,7 @@ $(document).on('click', '#bucket_checkout', function(event)
 
   //Checkout was pressed from the bucket
   $.ajax({
-    url : "http://" + lb_server +"/checkout/bucket/" + localStorage.getItem('id'),
+    url : lb_server +"/checkout/bucket/" + localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {
@@ -55,7 +55,7 @@ $(document).on('click', '#buy_item', function(event)
 {
   //Checkout was pressed from the bucket
   $.ajax({
-    url : "http://" + lb_server +"/checkout/item/" + parseInt($('#buy_item').attr('val')) + '-' +localStorage.getItem('id'),
+    url : lb_server +"/checkout/item/" + parseInt($('#buy_item').attr('val')) + '-' +localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {
@@ -101,7 +101,7 @@ $(document).on('pagebeforeshow', '#invoice_page', function(event)
   if(sessionStorage.getItem('checkout_method') == 'bucket')
   {
     $.ajax({
-      url : "http://" + lb_server +"/order/bucket/" + localStorage.getItem('id'),
+      url : lb_server +"/order/bucket/" + localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {
@@ -140,7 +140,7 @@ $(document).on('pagebeforeshow', '#invoice_page', function(event)
   else if(sessionStorage.getItem('checkout_method') == 'buy_now')
   {
     $.ajax({
-      url : "http://" + lb_server +"/order/item/" + $('#checkout_items').children().next().attr('val') + '-' + localStorage.getItem('id'),
+      url : lb_server +"/order/item/" + $('#checkout_items').children().next().attr('val') + '-' + localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {

@@ -4,7 +4,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
 	$.ajax({
-		url : "http://" + lb_server + "/item/"+item_id,
+		url :lb_server + "/item/"+item_id,
 		contentType : "application/json",
 		
 		success : function(data){
@@ -16,7 +16,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 
 
 			$('#price_tag').show();
-			$('#current_bidding').show()
+			$('#current_bidding').show();
 			$('#number_bids').show();
 			$('#buy_item').show();
 			$('#add_item_cart').show();
@@ -65,7 +65,7 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 			$('#item_category').html(data.category_name);
 			$('#item_year').html(data.item_year);
 			$('#item_id').html(data.item_id);
-      $('#buy_item').attr('val', data.item_id);
+      		$('#buy_item').attr('val', data.item_id);
 			$('#item_seller').html(data.client_firstname + " " + data.client_lastname);
 			$('#item_header').html(data.item_name);
 			$('#item_location').html(data.city +", " + data.state + ", " + data.country );
@@ -121,7 +121,7 @@ $(document).on('click', '#buy_add_check', function(event)
 
 	$.ajax({
       type : "POST",
-      url : "http://"+lb_server+"/add_cart",
+      url : lb_server+"/add_cart",
       data : data_to_send,
       success : function(data)
       {
@@ -141,7 +141,7 @@ $(document).on('click', '#bucket_list li', function(event)
 	{
 		$.ajax({
       type : "POST",
-      url : "http://"+lb_server+"/remove_from_cart",
+      url : lb_server+"/remove_from_cart",
       data : {name : name_to_delete},
       success : function(data)
       {

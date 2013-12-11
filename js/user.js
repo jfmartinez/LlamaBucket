@@ -6,7 +6,7 @@ $(document).on('click', '#sign_in_submit', function(event)
 { 
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/sign_in",
+    url : lb_server+"/sign_in",
     data : { email : $('#sign_in_email').val(), password : $('#password').val()},
     success : function(data)
     {
@@ -84,7 +84,7 @@ $(document).on('click', '#user_profile_trigger', function(event)
     $.mobile.changePage('#user_profile');
     $.ajax
     ({
-      url : "http://"+lb_server+"/profile/" + localStorage.getItem('id'),
+      url : lb_server+"/profile/" + localStorage.getItem('id'),
       contentType : "application/json",
       success : function(data)
       {
@@ -130,7 +130,7 @@ $(document).on('click', '#edit_user_save', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/update_user_info",
+    url : lb_server+"/update_user_info",
     data : $('#user_info_edit').serializeArray(),
     success : function(data)
     {
@@ -156,16 +156,24 @@ $(document).on('click', '#edit_user_save', function(event)
 $(document).on('pagebeforeshow', '#address_list', function(event)
 {
   $.ajax({
-    url : "http://"+lb_server+"/get_addresses/"+localStorage.getItem('id'),
+    url : lb_server+"/get_addresses/"+localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {
-      var list = $('#user_address_list')
+      var list = $('#user_address_list');
+
       list.empty();
 
       for(var i = 0; i < data.content.length; i++)
       {
-        list.append('<li><a href="#address_confirmation_dialog" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_1+'"">'+data.content[i].address_1+'</a></li>');
+
+        if (data.content[i].is_primary === 1) {
+          list.append('<li data-theme="e"><a href="#single_view_address" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_id+'"">'+data.content[i].address_1+'</a></li>');
+        }
+
+        else {
+          list.append('<li><a href="#single_view_address" data-icon="delete" data-rel="dialog" placeholder="'+data.content[i].address_id+'"">'+data.content[i].address_1+'</a></li>');
+        }
       }
 
       list.listview('refresh');
@@ -181,7 +189,7 @@ $(document).on('pagebeforeshow', '#address_list', function(event)
 $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 {
   $.ajax({
-    url : "http://"+lb_server+"/get_credit_cards/"+localStorage.getItem('id'),
+    url : lb_server+"/get_credit_cards/"+localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data)
     {
@@ -190,7 +198,14 @@ $(document).on('pagebeforeshow', '#credit_card_list', function(event)
 
         for(var i = 0; i < data.length; i++)
         {
-            list.append('<li><a href="#delete_card" data-rel="dialog" placeholder="'+data[i].number+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');
+          if (data[i].primary === 1) {
+
+            list.append('<li data-theme="e"><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');  
+          }
+          else {
+
+            list.append('<li><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');         
+          }
         }
 
         //Refresh the list, this is so jQuery Mobile can apply its proper classes. 
@@ -208,7 +223,7 @@ $(document).on('click', '#add_mail_address', function(event)
 {
   $.ajax({
     type : "POST",
-    url : "http://"+lb_server+"/add_mail_address",
+    url : lb_server+"/add_mail_address/" + localStorage.getItem('id'),
     data : $('#new_address').serializeArray(),
     success : function(data)
     {
@@ -222,17 +237,55 @@ $(document).on('click', '#add_mail_address', function(event)
   });
 });
 
+$(document).on('click', '#add_new_creditcard', function (event)
+{
+  $.ajax({
+    type : 'POST',
+    url : lb_server + "/add_new_creditcard/" + localStorage.getItem('id'),
+    data : $('#new_creditcard').serializeArray(),
+    success : function (data)
+    {
+      console.log('Worked');
+      $.mobile.changePage('#card_list');
+    },
+    error : function (data)
+    {
+      console.log('no brego insertar la tarjeta nueva');
+    }
+  })
+});
+
+
 $(document).on('click', '#user_address_list li', function(event)
 {
-  var address_to_delete = $(this).children().children().children().attr('placeholder');
+  var current_address = $(this).children().children().children().attr('placeholder');
+
+  $.ajax({
+    url : lb_server + "/get_address/" + current_address,
+    contentType : "application/json",
+    success : function (data)
+    {
+      $('#single_view_address1').html(data.address_1);
+      $('#single_view_address2').html(data.address_2);
+      $('#single_view_address_city').html(data.city + ', ' + data.state);
+      $('#single_view_address_zip').html(data.zip_code);
+      $('#single_view_country').html(data.country);
+    },
+    error : function (data)
+    {
+      console.log('Single view address not working')
+      console.log(data);
+    }
+  });
+
   $('#delete_address').on('click', function()
   {
     $.ajax({
-      type : "POST",
-      url : "http://"+lb_server+"/delete_address",
-      data : { address1 : address_to_delete},
+      type : "DELETE",
+      url : lb_server+"/delete_address/" + current_address,
       success : function(data)
       {
+        $('#make_primary_address').off('click');
         $.mobile.changePage('#address_list');
       },
       error : function(data)
@@ -241,6 +294,81 @@ $(document).on('click', '#user_address_list li', function(event)
       }
     })
   });
+
+  $('#make_primary_address').on('click', function (){
+
+    $.ajax({
+      type : "PUT",
+      url : lb_server + "/make_primary_address/" + localStorage.getItem('id'),
+      data : {current_address : current_address},
+      success : function (data) {
+        $('#make_primary_address').off('click');
+        $.mobile.changePage('#address_list');
+      },
+      error : function (data) {
+        console.log('Make primary address did not work');
+      }
+    });
+  });
+});
+
+$(document).on('click', '#card_list li', function(event)
+{
+  var current_creditcard = $(this).children().children().children().attr('placeholder');
+
+  $.ajax({
+    url : lb_server + "/get_creditcard/" + current_creditcard,
+    contentType : "application/json",
+    success : function (data)
+    {
+      $('#single_view_cardnumber').html('Number: xxxx-xxxx-xxxx-' + data.number);
+      $('#single_view_cardtype').html('Type: ' + data.type);
+      $('#single_view_card_address1').html(data.address_1);
+      $('#single_view_card_address2').html(data.address_2);
+      $('#single_view_card_city').html(data.city + ', ' + data.state);
+      $('#single_view_card_zip').html(data.zip_code);
+      $('#single_view_card_country').html(data.country);
+    },
+    error : function (data)
+    {
+      console.log('Single view address not working')
+      console.log(data);
+    }
+  });
+
+  $('#delete_creditcard').on('click', function()
+  {
+    $.ajax({
+      type : "DELETE",
+      url : lb_server+"/delete_creditcard/" + current_creditcard,
+      success : function(data)
+      {
+        $('#delete_creditcard').off('click');
+        $.mobile.changePage('#credit_card_list');
+      },
+      error : function(data)
+      {
+        console.log('no brego');
+      }
+    })
+  });
+
+  $('#make_primary_creditcard').on('click', function (){
+    $.ajax({
+      type : "PUT",
+      url : lb_server + "/make_primary_creditcard/" + localStorage.getItem('id'),
+      data : { current_creditcard : current_creditcard },
+      success : function (data) {
+
+        $('#make_primary_creditcard').off('click');
+        $.mobile.changePage('#credit_card_list');
+      },
+      error : function (data) {
+        console.log('Make primary creditcard did not work');
+      }
+    });
+  });
+
 });
 
 
@@ -248,7 +376,7 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
 {
 
  $.ajax({
-  url : "http://"+lb_server+"/get_notifications/"+localStorage.getItem('id'),
+  url : lb_server+"/get_notifications/"+localStorage.getItem('id'),
   contentType : "application/json",
   success : function(data)
   {
@@ -288,7 +416,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
 
   $.ajax({
-    url : "http://"+lb_server+"/get_bids/"+localStorage.getItem('id'),
+    url : lb_server+"/get_bids/"+localStorage.getItem('id'),
     contentType : "application/json",
     success : function(data){
       var winning_list = $('#winning_bids_list');
@@ -350,6 +478,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
 
             var bid = $('<p style="color: #1CB0D9;">US $</p>');
+            var bid_span = $('<span></span>');
             var bid_count = $('<p style="color:gray;"></p>');
             var bid_count_span = $('<span> bids</span>');
 
@@ -373,13 +502,14 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
             type.html("Bid");
             div.append(type);
+
             var bid = $('<p style="color: #1CB0D9;">US $</p>');
-            var bid_span = $('<span id="bid_'+data.content[i].item_id+'"></span>');
+            var bid_span = $('<span></span>');
             var bid_count = $('<p style="color:gray;"></p>');
             var bid_count_span = $('<span> bids</span>');
+            console.log("bid item");
 
-
-
+            console.log(data.content[i]);
 
 
             bid_count.html(data.content[i].bid_count);
@@ -427,11 +557,11 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
 
 
-
-          if(data.content[i].bid_amount > data.content[i].price){
+          console.log(data);
+          if(data.content[i].bid_max >= data.content[i].price){
 
           winning_list.append(t);
-          $('#bid_'+data.content[i].item_id).html(data.content[i].bid_amount);
+          $('#bid_'+data.content[i].item_id).html(data.content[i].bid_max);
         }
         else{
 
@@ -452,7 +582,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
       },
       error : function(data){
-        console.log("Serach results not available");
+        console.log("Search results not available");
       }
 });
 
@@ -468,7 +598,7 @@ $(document).on('click', '#log_out_button', function(event)
 $(document).on('pagebeforeshow', '#my_invoices', function(event){
   var user_id = localStorage.getItem('id');
   $.ajax({
-    url : "http://"+lb_server+"/userinvoice/"+user_id,
+    url : lb_server+"/userinvoice/"+user_id,
     contentType : "application/json",
     success : function(data){
       var list = $("#my_invoice_list");
@@ -499,7 +629,7 @@ $(document).on('click', "#my_invoice_list li", function(event){
 $(document).on('pagebeforeshow', '#single_inv_page', function(event){
    var inv_id = sessionStorage.getItem('inv_id');
    $.ajax({
-       url : "http://"+lb_server+"/singleinvoice/"+inv_id,
+       url : lb_server+"/singleinvoice/"+inv_id,
        contentType : "application/json",
        success : function(data){
          var list = $('#invoice_content');
