@@ -272,7 +272,6 @@ function buyout_option()
     }
 
     function fail_upload(error) {
-      alert("An error has occurred: Code = " + error.code);
       console.log("upload error source " + error.source);
       console.log("upload error target " + error.target);
     }
