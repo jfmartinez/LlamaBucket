@@ -419,8 +419,8 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
                   var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
        console.log(date_fractions);
           var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
-    list.append('<li val='+data[i].listing_id+'>'+
-      '<a href="#store">'+
+    list.append('<li data-icon="false" >'+
+      '<a href="#">'+
       '<h4>'+data[i].title+'</h4>'+
       '<p>'+data[i].notification_message+'</p>'+
       '<p>' + notification_date+ '</p>'+

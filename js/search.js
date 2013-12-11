@@ -131,7 +131,7 @@ $(document).on('pagebeforeshow', '#category_results', function(event){
 					var time_left = $('<p style="color: #2ecc71;"></p>');
 
 					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
-					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+					var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
 
 					var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
@@ -299,7 +299,7 @@ $(document).on('pagebeforeshow', '#searchResults', function(event){
 					var time_left = $('<p style="color: #2ecc71;"></p>');
 					console.log("Date: " + data.content[i].exp_date);
 					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
-					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+					var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
 					console.log(exp_date);
 
@@ -684,7 +684,7 @@ $(document).on('click', '#filter_results', function(event)
 					var time_left = $('<p style="color: #2ecc71;"></p>');
 
 					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
-					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+					var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
 
 					var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
@@ -850,7 +850,7 @@ $(document).on('click', '#category_filter_results', function(event)
 					var time_left = $('<p style="color: #2ecc71;"></p>');
 
 					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
-					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+					var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
 
 					var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
