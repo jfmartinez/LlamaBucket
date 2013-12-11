@@ -397,16 +397,47 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
    list.empty();
 
    for(var i = 0; i < data.length; i++)
-   {
-       var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
+   {   
+
+       if(data[i].title == "Sold"){
+
+             var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
        console.log(date_fractions);
           var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
     list.append('<li val='+data[i].listing_id+'>'+
+      '<a href="#store">'+
+      '<h4>'+data[i].title+'</h4>'+
+      '<p>'+data[i].notification_message+'</p>'+
+      '<p>' + notification_date+ '</p>'+
+      '</a></li>');
+
+
+
+       }
+       else if(data[i].title == "Unlisted"){
+
+                  var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
+       console.log(date_fractions);
+          var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+    list.append('<li val='+data[i].listing_id+'>'+
+      '<a href="#store">'+
+      '<h4>'+data[i].title+'</h4>'+
+      '<p>'+data[i].notification_message+'</p>'+
+      '<p>' + notification_date+ '</p>'+
+      '</a></li>');
+
+       }
+       else{
+       var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
+       console.log(date_fractions);
+          var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+    list.append('<li class="item_links_notifications" val='+data[i].listing_id+'>'+
       '<a href="#">'+
       '<h4>'+data[i].title+'</h4>'+
       '<p>'+data[i].notification_message+'</p>'+
       '<p>' + notification_date+ '</p>'+
       '</a></li>');
+  }
 
     }
     list.listview('refresh');
@@ -417,7 +448,7 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
   }
 });
 
-$(document).on('click', '#notifications_list li', function(event)
+$(document).on('click', '.item_links_notifications', function(event)
 {
   $.ajax({
 
@@ -564,7 +595,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
           var your_amount = $('<p class="bidded_check" style="color: #1CB0D9;">Bidded: US $</p>');
           var your_amount_span = $('<span></span>');
-          your_amount_span.html(data.content[i].bid_amount);
+          your_amount_span.html(data.content[i].bid_max);
           your_amount.append(your_amount_span);
 
 

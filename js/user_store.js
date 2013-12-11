@@ -28,7 +28,7 @@ $(document).on('pagebeforeshow', '#item_offers_page', function(event)
 
 
 				var date_fractions  =data[i].datetime.replace(/[TZ\:]/g, '-').split('-');
-					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+					var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 				list.append('<li><p><strong >Amount: US $ </strong>'+ data[i].bid_amount +'</p>'+
 					'<p><strong>Email: </strong>' + data[i].email+'</p>'+
 					'<p><strong>Name: </strong>' + data[i].client_firstname + ' ' + data[i].client_lastname +'</p>' +
@@ -193,7 +193,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 					var time_left = $('<p style="color: #2ecc71;"></p>');
 
 					var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
-					var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+					var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 					var current_date = new Date();
 
 					var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
@@ -310,15 +310,41 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 
 
 
-
-$(document).on('pagebeforeshow', '#remove_listing_store', function(event, ui){
-
-
+$(document).on('pagebeforeshow', '#remove_listing_store', function()
+{
 		$('#item_name_removal').html(item_name);
+
+
+$("#delete_listing_from_store").unbind('click').bind('click', delete_item_from_store);
+
 });
+function delete_item_from_store()
+{	
+	console.log("HELLO WORLD");
+	var item_id = sessionStorage.getItem('item_id');
 
 
+	$.ajax({
 
+		type: "DELETE",
+		url: lb_server + "/delete_item",
+		data: {item_id : item_id},
+		success: function(data)
+		{
+
+			console.log(data);
+			$.mobile.changePage('#store');
+		},
+		error: function(data)
+		{
+
+			console.log(data);
+		}
+
+	})
+
+
+}
 
 
 

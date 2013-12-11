@@ -25,6 +25,7 @@
     <script src="js/item-upload.js"></script>
     <script src="js/checkout.js"></script>
     <script src="js/bid.js"></script>
+    <script src="js/delete.js"></script>
 
     <script src="js/registration.js"></script>
     <script src="js/create_item.js"></script>
@@ -224,7 +225,7 @@
     <div data-role="page" id="store">
       <div data-role="header">
 
-        <a href="" data-rel="back">Back</a>
+        <a href="#home">Back</a>
         <h2>Store </h2>
         <a href="#create_item" >Create</a>
 
@@ -819,7 +820,7 @@
 
           <div class="ui-grid-a">
             <div class="ui-block-a"><a data-rel="back" data-role="button" data-theme="g">Cancel</a></div>
-            <div class="ui-block-b"><a href="#store" data-role="button" id="sign_in_submit" data-iconpos="right" data-icon="check" data-theme="d">Delete</a></div>
+            <div class="ui-block-b"><a data-role="button" id="delete_listing_from_store" data-iconpos="right" data-icon="check" data-theme="d">Delete</a></div>
           </div>
 
 
@@ -1053,7 +1054,7 @@
         <div data-role="controlgroup">
           <a href="#" id="buy_item" data-role="button" data-theme="a">Buy</a>
           <a href="#bid_on_item" data-rel="dialog" id="bid_item" data-theme="a" data-role="button">Bid</a>
-          <a href="#" id="add_item_cart" data-theme="a" data-role="button">Add to Cart</a>
+          <a href="#" id="add_item_cart" data-theme="a" data-role="button" >Add to Cart</a>
         </div>
 
       </div>
