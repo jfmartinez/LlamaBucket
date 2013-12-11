@@ -102,6 +102,13 @@ $(document).on('click', '#user_profile_trigger', function(event)
         $('#sales_made').html('<strong> Items sold:   </strong> ' + data.total_sales);
         $('#total_made_in_sales').html('<strong> Sales total:   </strong> $' + data.account_total);
 
+        if(data.total_sales === 0) {
+          $('#sales').hide();
+        }
+        else {
+          $('#sales').show();
+        }
+
       },
       error : function(data)
       {
