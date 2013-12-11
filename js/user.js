@@ -402,7 +402,6 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
        if(data[i].title == "Sold"){
 
              var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
-       console.log(date_fractions);
           var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
     list.append('<li val='+data[i].listing_id+'>'+
       '<a href="#store">'+
@@ -417,7 +416,6 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
        else if(data[i].title == "Unlisted"){
 
                   var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
-       console.log(date_fractions);
           var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
     list.append('<li data-icon="false" >'+
       '<a href="#">'+
@@ -427,9 +425,9 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
       '</a></li>');
 
        }
+
        else{
        var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
-       console.log(date_fractions);
           var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
     list.append('<li class="item_links_notifications" val='+data[i].listing_id+'>'+
       '<a href="#">'+
@@ -603,7 +601,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
           var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
 
-          var exp_date = new Date(date_fractions[0], date_fractions[1], date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+          var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
           var current_date = new Date();
 
             console.log(exp_date);
