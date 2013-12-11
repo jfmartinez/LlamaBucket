@@ -1,9 +1,3 @@
-//Loads a page containing the invoice
-$(document).on('pagebeforeshow', '#invoicepage', function(event)
-{
-	
-});
-
 $(document).on('click', '#invoicelist li', function(event, ui){
 	var parameter = $(this).attr('id');
 	sessionStorage.setItem('invoice_id', parameter);

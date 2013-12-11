@@ -188,7 +188,7 @@
     <div data-role="page" id="items_bidded">
       <div data-role="header">
 
-        <a href="#home"  data-rel="back" >Back</a>
+        <a href="" data-rel="back" >Back</a>
         <h2>Bids </h2>
       </div>
       <div data-role="content" id="all_items_bidded">
@@ -217,7 +217,7 @@
     <div data-role="page" id="store">
       <div data-role="header">
 
-        <a href="#home"  >Back</a>
+        <a href="" data-rel="back">Back</a>
         <h2>Store </h2>
         <a href="#create_item" >Create</a>
 
@@ -879,7 +879,7 @@
         <div data-role="header">
           <a href="#"  data-rel="back">Back</a>
           <h2>Checkout</h2>
-          <a href="#invoice_page" data-role="button">Place Order</a>
+          <a href="#" data-role="button" id="place_order_button">Place Order</a>
         </div>
         <div data-role="content">
 
@@ -935,6 +935,16 @@
         </div>
       </div>
 
+      <!--Confirmation dialog-->
+      <div id="place_order_dialog_confirmation" data-role="dialog" data-theme="b">
+        <div data-role="header" data-theme="b">
+          <h2>Are you sure?</h2>
+        </div>
+        <div data-role="content">
+          <a href="#invoice_page" data-role="button" id="confirmation_yes">Yes</a>
+          <a href="#" data-role="button" data-rel="back" id="confirmation_no">No, take me back.</a>
+        </div>
+      </div>
 
 
 
