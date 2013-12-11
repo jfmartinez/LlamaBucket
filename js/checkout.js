@@ -213,13 +213,11 @@ $(document).on('click', '#place_order', function (event) {
 
 $(document).on('click', '#ranks', function(event) {
 
-  console.log($('#user_rating').val());
-
   if (sessionStorage.getItem('checkout_method') === 'bucket') {
     $.ajax({
       type : "POST",
       url : lb_server + "/rank_bucket_purchase/" + localStorage.getItem('id'),
-      data : { rating : $('#user_rating').val() },
+      data : { rating : $('#user_rating').val(), sessionStorage.getItem('item_id') },
       success : function (data) {
         console.log(data)
       },
@@ -233,8 +231,8 @@ $(document).on('click', '#ranks', function(event) {
 
     $.ajax({
       type : "POST",
-      url : lb_server + "/rank_single_purchase/" + sessionStorage.getItem('id'),
-      data : { rating : $('#user_rating').val() },
+      url : lb_server + "/rank_single_purchase/" + sessionStorage.getItem('item_id'),
+      data : { rating : $('#user_rating').val() , user_id : localStorage.getItem('id')},
       success : function (data) {
         console.log(data)
       },
