@@ -246,14 +246,23 @@ $(document).on('click', '#ranks', function(event) {
 
 
 $(document).on('click', '#add_item_cart', function(event){
+  
   var listing_id;
+  
   var client_id = localStorage.getItem('id');
+  
   $.ajax({
+  
     type : "GET",
+  
     url : lb_server + "/get_listing_from_item/" + sessionStorage.getItem('item_id'),
+  
     success : function(data){
+  
       listing_id = data[0].listing_id;
+  
       console.log("hello");
+  
       $.ajax({
         type : "POST",
         url : lb_server + "/insert_to_bucket/" + client_id + "_" + listing_id,
