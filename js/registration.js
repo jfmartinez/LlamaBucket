@@ -183,6 +183,7 @@ function registration_fail(r)
 function initialize_register_form()
 {
 
+        $('#new_profile_image').attr('src', '');
 
 
 
