@@ -53,10 +53,14 @@ $(document).on('click', '#bucket_checkout', function(event)
 
 $(document).on('click', '#buy_item', function(event)
 {
+
   //Checkout was pressed from the bucket
   $.ajax({
+
     url : lb_server +"/checkout/item/" + parseInt($('#buy_item').attr('val')) + '-' +localStorage.getItem('id'),
+
     contentType : "application/json",
+
     success : function(data)
     {
       $('#checkout_number_total').html('1');
@@ -173,3 +177,38 @@ $(document).on('pagebeforeshow', '#invoice_page', function(event)
     });
   }
 });
+
+$(document).on('click', '#place_order', function (event) {
+
+  if (sessionStorage.getItem('checkout_method') === 'bucket') {
+    $.ajax({
+      type : "POST",
+      url : lb_server + "/purchase_bucket/" + localStorage.getItem('id'),
+      success : function (data) {
+        console.log(data);
+      },
+
+      error : function (data) {
+
+      }
+    });
+  }
+
+  if (sessionStorage.getItem('checkout_method') === 'buy_now') {
+    $.ajax({
+      type : "POST",
+      url : lb_server + "/purchase_item/" + sessionStorage.getItem('item_id'),
+      data : { id : localStorage.getItem('id')},
+      success : function (data) {
+        console.log(data);
+      },
+
+      error : function (data) {
+        console.log('Buy single item did not work')
+      }
+    });
+  }
+});
+
+
+

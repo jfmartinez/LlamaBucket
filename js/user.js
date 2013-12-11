@@ -28,7 +28,7 @@ $(document).on('click', '#sign_in_submit', function(event)
     },
     error : function(data)
     {
-      console.log(data);
+      $.mobile.changePage('#home');
     }
   })
 });
@@ -99,6 +99,15 @@ $(document).on('click', '#user_profile_trigger', function(event)
         $('#client_country').html(data.country);
         $('#card_number').html('<strong>Card Number: </strong> **** **** **** '+data.credit_card);
         $('#credit_card_type').html('<strong>Card Type: </strong>' + data.credit_card_type);
+        $('#sales_made').html('<strong> Items sold:   </strong> ' + data.total_sales);
+        $('#total_made_in_sales').html('<strong> Sales total:   </strong> $' + data.account_total);
+
+        if(data.total_sales === 0) {
+          $('#sales').hide();
+        }
+        else {
+          $('#sales').show();
+        }
 
       },
       error : function(data)
@@ -283,6 +292,7 @@ $(document).on('click', '#user_address_list li', function(event)
     $.ajax({
       type : "DELETE",
       url : lb_server+"/delete_address/" + current_address,
+      data : { id : localStorage.getItem('id')},
       success : function(data)
       {
         $('#make_primary_address').off('click');
@@ -290,7 +300,8 @@ $(document).on('click', '#user_address_list li', function(event)
       },
       error : function(data)
       {
-        console.log('no brego');
+        console.log('Cannot delete address');
+        $.mobile.changePage('#credit_card_list');
       }
     })
   });
@@ -341,6 +352,7 @@ $(document).on('click', '#card_list li', function(event)
     $.ajax({
       type : "DELETE",
       url : lb_server+"/delete_creditcard/" + current_creditcard,
+      data : { id : localStorage.getItem('id')},
       success : function(data)
       {
         $('#delete_creditcard').off('click');
