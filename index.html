@@ -10,7 +10,7 @@
     <script type='text/javascript' > 
     // window.lb_server = "http://74.213.79.108:5000";
 
-    window.lb_server = "http://74.213.79.108:5000"
+    window.lb_server = "http://localhost:5000"
     $.mobile.silentScroll(0);
 
     </script>
@@ -867,6 +867,8 @@
 
       </div>
 
+      
+
 
       <!-- Checkout -->
       <div data-role="page" id="checkout">
@@ -926,6 +928,15 @@
               <li><a href="#user_bucket" data-icon="flat-menu" >Bucket</a></li>
             </ul>
           </div>
+        </div>
+        
+        <a href="#rate_user" data-rel="popup" id="trigger_rate_user" hidden="true" data-position-to="window"></a>
+        <div data-role="popup" id="rate_user" data-overlay-theme="a" style=" width : 300px; ">
+          <h3>Rate this transaction</h3>
+            <form>
+              <input type="range" name="user_rating" id="user_rating" value="3" min="0" max="5" />
+            </form>
+            <a href="#" id="ranks" data-role="button">Submit</a>
         </div>
       </div>
 

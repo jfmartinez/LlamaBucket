@@ -185,7 +185,7 @@ $(document).on('click', '#place_order', function (event) {
       type : "POST",
       url : lb_server + "/purchase_bucket/" + localStorage.getItem('id'),
       success : function (data) {
-        console.log(data);
+        $('#user_rating').popup('open');
       },
 
       error : function (data) {
@@ -200,7 +200,8 @@ $(document).on('click', '#place_order', function (event) {
       url : lb_server + "/purchase_item/" + sessionStorage.getItem('item_id'),
       data : { id : localStorage.getItem('id')},
       success : function (data) {
-        console.log(data);
+        $('#trigger_rate_user').trigger('click');
+
       },
 
       error : function (data) {
@@ -208,6 +209,41 @@ $(document).on('click', '#place_order', function (event) {
       }
     });
   }
+});
+
+$(document).on('click', '#ranks', function(event) {
+
+  console.log($('#user_rating').val());
+
+  if (sessionStorage.getItem('checkout_method') === 'bucket') {
+    $.ajax({
+      type : "POST",
+      url : lb_server + "/rank_bucket_purchase/" + localStorage.getItem('id'),
+      data : { rating : $('#user_rating').val() },
+      success : function (data) {
+        console.log(data)
+      },
+      error : function (data) {
+        console.log(data);
+      }
+    });
+  };
+
+  if (sessionStorage.getItem('checkout_method') === 'buy_now') {
+
+    $.ajax({
+      type : "POST",
+      url : lb_server + "/rank_single_purchase/" + sessionStorage.getItem('id'),
+      data : { rating : $('#user_rating').val() },
+      success : function (data) {
+        console.log(data)
+      },
+      error : function (data) {
+        console.log(data);
+      }
+    });
+  }
+
 });
 
 
