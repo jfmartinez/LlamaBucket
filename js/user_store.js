@@ -310,15 +310,41 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 
 
 
-
-$(document).on('pagebeforeshow', '#remove_listing_store', function(event, ui){
-
-
+$(document).on('pagebeforeshow', '#remove_listing_store', function()
+{
 		$('#item_name_removal').html(item_name);
+
+
+$("#delete_listing_from_store").unbind('click').bind('click', delete_item_from_store);
+
 });
+function delete_item_from_store()
+{	
+	console.log("HELLO WORLD");
+	var item_id = sessionStorage.getItem('item_id');
 
 
+	$.ajax({
 
+		type: "DELETE",
+		url: lb_server + "/delete_item",
+		data: {item_id : item_id},
+		success: function(data)
+		{
+
+			console.log(data);
+			$.mobile.changePage('#store');
+		},
+		error: function(data)
+		{
+
+			console.log(data);
+		}
+
+	})
+
+
+}
 
 
 
