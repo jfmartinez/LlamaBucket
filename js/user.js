@@ -28,7 +28,7 @@ $(document).on('click', '#sign_in_submit', function(event)
     },
     error : function(data)
     {
-      console.log(data);
+      $.mobile.changePage('#home');
     }
   })
 });

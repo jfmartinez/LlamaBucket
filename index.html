@@ -105,6 +105,11 @@
           </div>
         </div>
 
+        <a href="#sign_in_error" data-rel="popup" hidden="true" id="error_trigger">open</a>
+        <div data-role="popup" id="sign_in_error">
+          <p>Invalid Parameters</p>
+        </div>
+
       </div>
 
 
@@ -1066,6 +1071,7 @@
     <!--Sign In - Dialog -->
     <div data-role="dialog" id="sign_in">
       <div data-role="header" data-theme="b">
+        <a href="#" data-rel="back" id="sign_in_back"></a>
         <h1>Sign In</h1>
       </div>
       <div data-role="content">
