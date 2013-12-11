@@ -179,16 +179,21 @@ $(document).on('pagebeforeshow', '#invoice_page', function(event)
 });
 
 $(document).on('click', '#place_order', function (event) {
+  $.mobile.showPageLoadingMsg(); 
 
   if (sessionStorage.getItem('checkout_method') === 'bucket') {
     $.ajax({
       type : "POST",
       url : lb_server + "/purchase_bucket/" + localStorage.getItem('id'),
       success : function (data) {
-        $('#user_rating').popup('open');
+        $('#rate_user').popup('open');
+          $.mobile.hidePageLoadingMsg(); 
+
       },
 
       error : function (data) {
+          $.mobile.hidePageLoadingMsg(); 
+
 
       }
     });
@@ -201,11 +206,15 @@ $(document).on('click', '#place_order', function (event) {
       data : { id : localStorage.getItem('id')},
       success : function (data) {
         $('#trigger_rate_user').trigger('click');
+          $.mobile.hidePageLoadingMsg(); 
+
 
       },
 
       error : function (data) {
-        console.log('Buy single item did not work')
+        console.log('Buy single item did not work');
+          $.mobile.hidePageLoadingMsg(); 
+
       }
     });
   }
@@ -219,11 +228,15 @@ $(document).on('click', '#ranks', function(event) {
       url : lb_server + "/rank_bucket_purchase/" + localStorage.getItem('id'),
       data : { rating : $('#user_rating').val(), item_id : sessionStorage.getItem('item_id') },
       success : function (data) {
-        console.log(data)
+        console.log(data);
+        $.mobile.changePage("#home");
       },
       error : function (data) {
         console.log(data);
+                $.mobile.changePage("#home");
+
       }
+
     });
   };
 
@@ -234,9 +247,14 @@ $(document).on('click', '#ranks', function(event) {
       url : lb_server + "/rank_single_purchase/" + sessionStorage.getItem('item_id'),
       data : { rating : $('#user_rating').val() , user_id : localStorage.getItem('id')},
       success : function (data) {
+                $.mobile.changePage("#home");
+
         console.log(data)
       },
+
       error : function (data) {
+                $.mobile.changePage("#home");
+
         console.log(data);
       }
     });
