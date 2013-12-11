@@ -1,5 +1,10 @@
 
+$(document).on('click', '#bid_success', function()
+{
 
+
+	$.mobile.changePage('#itempage');
+})
 $(document).on('pagebeforeshow', '#bid_on_item', function()
 {
 

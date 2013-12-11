@@ -405,8 +405,27 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
 
 $(document).on('click', '#notifications_list li', function(event)
 {
-  sessionStorage.setItem('item_id', $(this).attr('val'));
-  $.mobile.changePage('#itempage');
+  $.ajax({
+
+    url: lb_server + "/get_item_by_listing/" + $(this).attr('val'),
+    success: function(data)
+    {
+
+
+      sessionStorage.setItem('item_id', data.item_id);
+      console.log("Received Data: ");
+      console.log(data);
+      $.mobile.changePage('#itempage');
+
+    }
+    ,
+    error: function(data)
+    {
+      console.log("Cannot find notification link");
+    }
+  })
+
+
 });
 
 
