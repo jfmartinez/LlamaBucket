@@ -16,7 +16,7 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 			//Go over all the items that were fetched and create the appropiate list items
 			for(var i = 0; i < data.items.length; i++)
 			{
-				list.append('<li data-icon="delete" id="'+data.items[i].listing_id+'">'+
+				list.append('<li data-icon="delete" id="'+data.items[i].listing_id+'" item_id="' + data.items[i].item_id +'" item_name="' + data.items[i].item_name+'">'+
 					'<a href="#item_confirmation_dialog" data-rel="dialog"><img src="'+ data.items[i].item_image +'"/>'+
 					'<p class="ui-li-aside"><strong>$'+ data.items[i].price+'</strong></p>'+
 					'<h5 style="font-size: 12px;">'+data.items[i].item_name+'</h5>'+
@@ -43,35 +43,59 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 
 
 
-$(document).on('click', '#user_bucket li', function()
-{
+$(document).on('click', '#bucket_list li', function()
+{	console.log("CLICKED");
 
+	$('#cart_prompt_title').html($(this).attr('item_name'));
 
-	$.ajax({
+	$.mobile.changePage('#delete_cart_prompt');
 
+		sessionStorage.setItem('item_id',$(this).attr('item_id'));
 
+	$('#view_cart_listing').unbind('click').bind('click', function()
+	{
+		$.mobile.changePage('#itempage');
+	});
 
-		type: "DELETE",
-		url: lb_server + "/drop_from_bucket",
-		data: {user_id : localStorage.getItem('id'), listing_id : $(this).attr('id')},
+	sessionStorage.setItem('delete_listing_cart', $(this).attr('id'));
 
-		success: function(data)
-		{
-			location.reload();
-
-		},
-		error: function(data)
-		{
-			//Nothing
-		}
-
-
-
-		});
+	$('#delete_cart_listing').unbind('click').bind('click', function()
+	{	
+		  $.mobile.showPageLoadingMsg(); 
 
 
 
+		$.ajax({
 
-})
+  type: "DELETE",
+                url: lb_server + "/drop_from_bucket",
+                data: {user_id : localStorage.getItem('id'), listing_id : sessionStorage.getItem('delete_listing_cart')},
+
+                success: function(data)
+                {
+                        console.log("ITEM DELETED");
+                        $('#open_bucket').click();
+                          $.mobile.hidePageLoadingMsg(); 
+
+
+                },
+                error: function(data)
+                {
+  $.mobile.hidePageLoadingMsg(); 
+                }
+
+
+
+                });
+
+	})
+
+
+
+
+
+
+
+});
 
 

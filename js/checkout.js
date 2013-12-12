@@ -268,7 +268,8 @@ $(document).on('click', '#add_item_cart', function(event){
   var listing_id;
   
   var client_id = localStorage.getItem('id');
-  
+    $.mobile.showPageLoadingMsg(); 
+
   $.ajax({
   
     type : "GET",
@@ -287,10 +288,14 @@ $(document).on('click', '#add_item_cart', function(event){
         success : function(data){
           console.log("Added listing number "+listing_id + " to client "+ client_id+"'s bucket.");
           $.mobile.changePage("#user_bucket");
+            $.mobile.hidePageLoadingMsg(); 
+
 
         },
         error : function(data){
           console.log("Could not add listing to bucket.");
+            $.mobile.hidePageLoadingMsg(); 
+
         }
       });
 
