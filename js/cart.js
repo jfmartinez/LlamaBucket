@@ -16,7 +16,7 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 			//Go over all the items that were fetched and create the appropiate list items
 			for(var i = 0; i < data.items.length; i++)
 			{
-				list.append('<li data-icon="delete" id="'+data.items[i].item_name+'">'+
+				list.append('<li data-icon="delete" id="'+data.items[i].listing_id+'">'+
 					'<a href="#item_confirmation_dialog" data-rel="dialog"><img src="'+ data.items[i].item_image +'"/>'+
 					'<p class="ui-li-aside"><strong>$'+ data.items[i].price+'</strong></p>'+
 					'<h5 style="font-size: 12px;">'+data.items[i].item_name+'</h5>'+
@@ -42,5 +42,36 @@ $(document).on('pagebeforeshow', '#user_bucket', function(event){
 
 
 
+
+$(document).on('click', '#user_bucket li', function()
+{
+
+
+	$.ajax({
+
+
+
+		type: "DELETE",
+		url: lb_server + "/drop_from_bucket",
+		data: {user_id : localStorage.getItem('id'), listing_id : $(this).attr('id')},
+
+		success: function(data)
+		{
+			location.reload();
+
+		},
+		error: function(data)
+		{
+			//Nothing
+		}
+
+
+
+		});
+
+
+
+
+})
 
 
