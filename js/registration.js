@@ -1,29 +1,6 @@
 
 //Register a user
 
-//   $.ajax({
-    
-//     type : "POST",
-
-//     url : "http://" + lb_server + "/register_user",
-
-//     data : $('#new_user').serializeArray(),
-
-//     success : function (data) {
-
-//       //Store the user in localStorage
-//       localStorage.setItem('id', data.id);
-
-//       $('#user_profile_trigger').trigger("click");
-//     },
-
-//     error : function (data) {
-//       console.log(data);
-
-//       $.mobile.changePage('#home')
-//     }
-//   });
-// });
 
 $(document).on('pagebeforeshow', '#registerForm', initialize_register_form);
 

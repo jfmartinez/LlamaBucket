@@ -1,5 +1,4 @@
-//Find search results and display them as a list
-
+//Script that manages the functionality of the user store
 
 var description;
 

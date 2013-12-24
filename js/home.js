@@ -25,3 +25,11 @@ $(document).on('click', '#my_profile', function(event)
     $.mobile.changePage('#sign_in');
   }
 });
+
+
+$(document).on('pagebeforeshow', '#server-error-dialog', function(event)
+{
+
+  $('#issue_tag').html(sessionStorage.getItem('error_message');
+
+})

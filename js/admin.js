@@ -1,4 +1,11 @@
+// Admin.js contains the scripts that contributes the functionality of the admin panel //
+
+
+/*
+ * Generates the list of users for the admin
+ */
 $(document).on('pagebeforeshow', '#adminuserlistpage', function(event){
+	
 	$.ajax({
 		url : lb_server+"/users",
 		contentType : "application/json",
@@ -8,7 +15,11 @@ $(document).on('pagebeforeshow', '#adminuserlistpage', function(event){
 			list.empty();
 			var admin = ["Client", "Admin"];
 			for(var i=0; i<data.length; i++){
-				list.append('<li id="' + data[i].client_id + '"><a href="#"><h2>' + data[i].client_firstname + " " + data[i].client_lastname + " - " + admin[data[i].isAdmin] + '</h2><p>Email: ' + data[i].email + '</p></a></li>');
+				list.append('<li id="' 
+					+ data[i].client_id 
+					+ '"><a href="#"><h2>'+ data[i].client_firstname 	+ " " + data[i].client_lastname 
+					+ " - " + admin[data[i].isAdmin] 
+					+ '</h2><p>Email: ' + data[i].email + '</p></a></li>');
 			}
 			list.listview('refresh');
 		},
