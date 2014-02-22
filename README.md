@@ -21,3 +21,6 @@ Username: `cesarcruz91@gmail.com`
 Password: `forkit`
 
 After log-in, `My Profile` button will take you to your actual profile.
+
+
+![alt tag](https://raw.github.com/joframart/LlamaBucket/master/mobile_images/home_screen.png)
