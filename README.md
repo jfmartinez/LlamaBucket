@@ -12,7 +12,7 @@ Server must be running beforehand
 Go to `/LlamaBucket` and click on `index.html`
 
 
-####LlamaBucket Home Screen:
+###LlamaBucket Home Screen:
 
 This is the typical homesceen of the llamabucket application.
 
