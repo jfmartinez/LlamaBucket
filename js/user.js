@@ -1,4 +1,8 @@
 
+//============================================================//
+// User.js is responsible for managing client side user logic //
+//============================================================//
+
 
 
 //Sign in the user.
@@ -33,13 +37,13 @@ $(document).on('click', '#sign_in_submit', function(event)
   })
 });
 
-
+//Manages the suer home page 
 $(document).on('pagebeforeshow', '#home', function(event)
 {
   if(localStorage.getItem('isAdmin') == 1)
   {
 
-      $.mobile.changePage('#admin_home');
+    $.mobile.changePage('#admin_home');
   }
 
 
@@ -205,17 +209,17 @@ $(document).on('pagebeforeshow', '#credit_card_list', function(event)
       var list = $('#card_list')
       list.empty();
 
-        for(var i = 0; i < data.length; i++)
-        {
-          if (data[i].primary === 1) {
+      for(var i = 0; i < data.length; i++)
+      {
+        if (data[i].primary === 1) {
 
-            list.append('<li data-theme="e"><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');  
-          }
-          else {
-
-            list.append('<li><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');         
-          }
+          list.append('<li data-theme="e"><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');  
         }
+        else {
+
+          list.append('<li><a href="#single_view_creditcard" data-rel="dialog" placeholder="'+data[i].id+'"> <strong>'+data[i].type+' Ending in: '+data[i].number+'</strong></a></li>');         
+        }
+      }
 
         //Refresh the list, this is so jQuery Mobile can apply its proper classes. 
         list.listview('refresh');
@@ -393,57 +397,57 @@ $(document).on('pagebeforeshow', '#notifications', function(event)
   success : function(data)
   {
     console.log(data);
-   var list = $('#notifications_list');
-   list.empty();
+    var list = $('#notifications_list');
+    list.empty();
 
-   for(var i = 0; i < data.length; i++)
-   {   
+    for(var i = 0; i < data.length; i++)
+    {   
 
-       if(data[i].title == "Sold"){
+     if(data[i].title == "Sold"){
 
-             var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
-          var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
-    list.append('<li val='+data[i].listing_id+'>'+
-      '<a href="#store">'+
-      '<h4>'+data[i].title+'</h4>'+
-      '<p>'+data[i].notification_message+'</p>'+
-      '<p>' + notification_date+ '</p>'+
-      '</a></li>');
-
-
-
-       }
-       else if(data[i].title == "Unlisted"){
-
-                  var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
-          var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
-    list.append('<li data-icon="false" >'+
-      '<a href="#">'+
-      '<h4>'+data[i].title+'</h4>'+
-      '<p>'+data[i].notification_message+'</p>'+
-      '<p>' + notification_date+ '</p>'+
-      '</a></li>');
-
-       }
-
-       else{
        var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
-          var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
-    list.append('<li class="item_links_notifications" val='+data[i].listing_id+'>'+
-      '<a href="#">'+
-      '<h4>'+data[i].title+'</h4>'+
-      '<p>'+data[i].notification_message+'</p>'+
-      '<p>' + notification_date+ '</p>'+
-      '</a></li>');
-  }
+       var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+       list.append('<li val='+data[i].listing_id+'>'+
+        '<a href="#store">'+
+        '<h4>'+data[i].title+'</h4>'+
+        '<p>'+data[i].notification_message+'</p>'+
+        '<p>' + notification_date+ '</p>'+
+        '</a></li>');
+
+
+
+     }
+     else if(data[i].title == "Unlisted"){
+
+      var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
+      var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+      list.append('<li data-icon="false" >'+
+        '<a href="#">'+
+        '<h4>'+data[i].title+'</h4>'+
+        '<p>'+data[i].notification_message+'</p>'+
+        '<p>' + notification_date+ '</p>'+
+        '</a></li>');
 
     }
-    list.listview('refresh');
-  },
-  error : function(data)
-  {
-    console.log('no brego notifications');
-  }
+
+    else{
+     var date_fractions  =data[i].notification_date.replace(/[TZ\:]/g, '-').split('-');
+     var notification_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+     list.append('<li class="item_links_notifications" val='+data[i].listing_id+'>'+
+      '<a href="#">'+
+      '<h4>'+data[i].title+'</h4>'+
+      '<p>'+data[i].notification_message+'</p>'+
+      '<p>' + notification_date+ '</p>'+
+      '</a></li>');
+   }
+
+ }
+ list.listview('refresh');
+},
+error : function(data)
+{
+  console.log('no brego notifications');
+}
 });
 
 $(document).on('click', '.item_links_notifications', function(event)
@@ -499,142 +503,142 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
 
         for(var i = 0; i < length; i++)
         { 
-                    var type_boolean = data.content[i].is_auction;
+          var type_boolean = data.content[i].is_auction;
 
           if(type_boolean == "both" || type_boolean =="bid"){
 
-          var t = $('<li id="' + data.content[i].item_id + '" ng-repeat="item in store | filter:search" ></li>');
-          
-          
-          var link = $('<a href="#"></a>');
-          
+            var t = $('<li id="' + data.content[i].item_id + '" ng-repeat="item in store | filter:search" ></li>');
+            
+            
+            var link = $('<a href="#"></a>');
+            
 
 
-          var img = $('<img height="100%" />');
-          img.attr('src', data.content[i].item_image);
-          
+            var img = $('<img height="100%" />');
+            img.attr('src', data.content[i].item_image);
+            
 
-          var div = $('<div class="search_div_attribute" style="width:66%;"></div>');
-          var heading = $('<p style="vertical-align: middle; color:black"></p>');
-          heading.html(data.content[i].item_name);
-          div.append(heading);
-
-
-
-          var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
-
-          var type = $('<p style="color: orange;"></p>');
-          var time_left = $('<p style="color: #2ecc71;"></p>');
-          
-          
+            var div = $('<div class="search_div_attribute" style="width:66%;"></div>');
+            var heading = $('<p style="vertical-align: middle; color:black"></p>');
+            heading.html(data.content[i].item_name);
+            div.append(heading);
 
 
 
+            var div2 = $('<div class="search_div_attribute" style="width: 33%;"></div>');
 
-          if(type_boolean == "both"){
-
-            type.html("Both");
-            div.append(type);
-            var buy = $('<p style="color: #1CB0D9;">US $</p>');
-            var buy_span = $('<span>></span>');
-            buy_span.html(data.content[i].buyout_price);
-            buy.append(buy_span);
-            div2.append(buy);
-
-
-            var bid = $('<p style="color: #1CB0D9;">US $</p>');
-            var bid_span = $('<span></span>');
-            var bid_count = $('<p style="color:gray;"></p>');
-            var bid_count_span = $('<span> bids</span>');
-
-           
-
-
-            bid_count.html(data.content[i].bid_count);
-            bid_count.append(bid_count_span);
-            bid_span.html(data.content[i].price);
-
-
-            bid.append(bid_span);
-
-            div2.append(bid);
-            div2.append(bid_count);
-
-          }
-
-          else if(type_boolean == "bid")
-          { 
-
-            type.html("Bid");
-            div.append(type);
-
-            var bid = $('<p style="color: #1CB0D9;">US $</p>');
-            var bid_span = $('<span></span>');
-            var bid_count = $('<p style="color:gray;"></p>');
-            var bid_count_span = $('<span> bids</span>');
-            console.log("bid item");
-
-            console.log(data.content[i]);
-
-
-            bid_count.html(data.content[i].bid_count);
-            bid_count.append(bid_count_span);
-            bid_span.html(data.content[i].price);
-
-
-            bid.append(bid_span);
-
-            div2.append(bid);
-
-
-          }
-
-      
-
-          var your_amount = $('<p class="bidded_check" style="color: #1CB0D9;">Bidded: US $</p>');
-          var your_amount_span = $('<span></span>');
-          your_amount_span.html(data.content[i].bid_max);
-          your_amount.append(your_amount_span);
+            var type = $('<p style="color: orange;"></p>');
+            var time_left = $('<p style="color: #2ecc71;"></p>');
+            
+            
 
 
 
 
-          var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
+            if(type_boolean == "both"){
 
-          var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
-          var current_date = new Date();
+              type.html("Both");
+              div.append(type);
+              var buy = $('<p style="color: #1CB0D9;">US $</p>');
+              var buy_span = $('<span>></span>');
+              buy_span.html(data.content[i].buyout_price);
+              buy.append(buy_span);
+              div2.append(buy);
+
+
+              var bid = $('<p style="color: #1CB0D9;">US $</p>');
+              var bid_span = $('<span></span>');
+              var bid_count = $('<p style="color:gray;"></p>');
+              var bid_count_span = $('<span> bids</span>');
+
+              
+
+
+              bid_count.html(data.content[i].bid_count);
+              bid_count.append(bid_count_span);
+              bid_span.html(data.content[i].price);
+
+
+              bid.append(bid_span);
+
+              div2.append(bid);
+              div2.append(bid_count);
+
+            }
+
+            else if(type_boolean == "bid")
+            { 
+
+              type.html("Bid");
+              div.append(type);
+
+              var bid = $('<p style="color: #1CB0D9;">US $</p>');
+              var bid_span = $('<span></span>');
+              var bid_count = $('<p style="color:gray;"></p>');
+              var bid_count_span = $('<span> bids</span>');
+              console.log("bid item");
+
+              console.log(data.content[i]);
+
+
+              bid_count.html(data.content[i].bid_count);
+              bid_count.append(bid_count_span);
+              bid_span.html(data.content[i].price);
+
+
+              bid.append(bid_span);
+
+              div2.append(bid);
+
+
+            }
+
+            
+
+            var your_amount = $('<p class="bidded_check" style="color: #1CB0D9;">Bidded: US $</p>');
+            var your_amount_span = $('<span></span>');
+            your_amount_span.html(data.content[i].bid_max);
+            your_amount.append(your_amount_span);
+
+
+
+
+            var date_fractions  =data.content[i].exp_date.replace(/[TZ\:]/g, '-').split('-');
+
+            var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+            var current_date = new Date();
 
             console.log(exp_date);
-          console.log(current_date);
-          var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
-          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-          console.log(current_date);
-          time_left.html(diffDays + " days left");
+            console.log(current_date);
+            var timeDiff = Math.abs(exp_date.getTime() - current_date.getTime());
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            console.log(current_date);
+            time_left.html(diffDays + " days left");
 
-          div.append(time_left);
-          div.append(your_amount);
-          link.append(img); 
+            div.append(time_left);
+            div.append(your_amount);
+            link.append(img); 
 
-          link.append(div);
-          link.append(div2);
+            link.append(div);
+            link.append(div2);
 
-          t.append(link);
+            t.append(link);
 
 
 
-          console.log(data);
-          if(data.content[i].bid_max >= data.content[i].price){
+            console.log(data);
+            if(data.content[i].bid_max >= data.content[i].price){
 
-          winning_list.append(t);
-          $('#bid_'+data.content[i].item_id).html(data.content[i].bid_max);
-        }
-        else{
+              winning_list.append(t);
+              $('#bid_'+data.content[i].item_id).html(data.content[i].bid_max);
+            }
+            else{
 
-          loosing_list.append(t);
+              loosing_list.append(t);
 
-          $('#loosing_bids_list').find('.bidded_check').attr('style', "color: red;");
+              $('#loosing_bids_list').find('.bidded_check').attr('style', "color: red;");
 
-        }
+            }
 
 
           }
@@ -649,7 +653,7 @@ $(document).on('pagebeforeshow', '#items_bidded', function(event)
       error : function(data){
         console.log("Search results not available");
       }
-});
+    });
 
 });
 
@@ -692,18 +696,18 @@ $(document).on('click', "#my_invoice_list li", function(event){
 });
 
 $(document).on('pagebeforeshow', '#single_inv_page', function(event){
-   var inv_id = sessionStorage.getItem('inv_id');
-   $.ajax({
-       url : lb_server+"/singleinvoice/"+inv_id,
-       contentType : "application/json",
-       success : function(data){
-         var list = $('#invoice_content');
-         list.empty();
-         list.append('<li><div data-role="content"><h3 style="margin-left : 33%">Order Processed</h3><div class="ui-grid-a"><div class="ui-block-a"><h3>Total:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_total_price">$' + data[0].final_price + '</p></div></div><div class="ui-grid-a"><div class="ui-block-a"><h3>Paid with:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_card_info">Credit Card Number:'+ data[0].cc_number +'</p></div></div><div class="ui-grid-a"><div class="ui-block-a"><h3>Date:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_date">' +  data[0].date + '</p></div></div><br><ul data-role="listview" data-inset="true"><li data-role="list-divider" >Shipping Information</li><li><p id="invoice_address_1">'+data[0].address_1+'</p><p id="invoice_address_2">'+data[0].address_2+'</p><p id="invoice_address_info">'+data[0].city+', '+data[0].state+'</p><p id="invoice_zip_code">'+data[0].zip_code+'</p></li></ul><ul data-role="listview" id="invoice_items" data-inset="true"><li data-role="list-divider" data-inset="true">Items</li><li><p style="float : right; padding-right : 15px; padding-top : 13%;"></p><h4 style="margin-top : 9%;">'+data[0].item_name+'</h4><p>Seller: '+data[0].seller_name+'</p></li></ul></div></li>');
-         list.listview('refresh');
-       },
-       error : function(data){
-         console.log("Failed to load invoice.");
-       }
-   });
+ var inv_id = sessionStorage.getItem('inv_id');
+ $.ajax({
+   url : lb_server+"/singleinvoice/"+inv_id,
+   contentType : "application/json",
+   success : function(data){
+     var list = $('#invoice_content');
+     list.empty();
+     list.append('<li><div data-role="content"><h3 style="margin-left : 33%">Order Processed</h3><div class="ui-grid-a"><div class="ui-block-a"><h3>Total:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_total_price">$' + data[0].final_price + '</p></div></div><div class="ui-grid-a"><div class="ui-block-a"><h3>Paid with:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_card_info">Credit Card Number:'+ data[0].cc_number +'</p></div></div><div class="ui-grid-a"><div class="ui-block-a"><h3>Date:</h3></div><div class="ui-block-b"><p style="float : right;" id="invoice_date">' +  data[0].date + '</p></div></div><br><ul data-role="listview" data-inset="true"><li data-role="list-divider" >Shipping Information</li><li><p id="invoice_address_1">'+data[0].address_1+'</p><p id="invoice_address_2">'+data[0].address_2+'</p><p id="invoice_address_info">'+data[0].city+', '+data[0].state+'</p><p id="invoice_zip_code">'+data[0].zip_code+'</p></li></ul><ul data-role="listview" id="invoice_items" data-inset="true"><li data-role="list-divider" data-inset="true">Items</li><li><p style="float : right; padding-right : 15px; padding-top : 13%;"></p><h4 style="margin-top : 9%;">'+data[0].item_name+'</h4><p>Seller: '+data[0].seller_name+'</p></li></ul></div></li>');
+     list.listview('refresh');
+   },
+   error : function(data){
+     console.log("Failed to load invoice.");
+   }
  });
+});

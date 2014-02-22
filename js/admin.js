@@ -4,37 +4,40 @@
 /*
  * Generates the list of users for the admin
  */
-$(document).on('pagebeforeshow', '#adminuserlistpage', function(event){
-	
-	$.ajax({
-		url : lb_server+"/users",
-		contentType : "application/json",
-		success : function(data){
-			var list = $('#userlist');
-			console.log("on it");
-			list.empty();
-			var admin = ["Client", "Admin"];
-			for(var i=0; i<data.length; i++){
-				list.append('<li id="' 
-					+ data[i].client_id 
-					+ '"><a href="#"><h2>'+ data[i].client_firstname 	+ " " + data[i].client_lastname 
-					+ " - " + admin[data[i].isAdmin] 
-					+ '</h2><p>Email: ' + data[i].email + '</p></a></li>');
-			}
-			list.listview('refresh');
-		},
-		error : function(data){
-			console.log("Failed to load user list");
-		}
-	});
-});
+ $(document).on('pagebeforeshow', '#adminuserlistpage', function(event){
 
+ 	$.ajax({
+ 		url : lb_server+"/users",
+ 		contentType : "application/json",
+ 		success : function(data){
+ 			var list = $('#userlist');
+ 			console.log("on it");
+ 			list.empty();
+ 			var admin = ["Client", "Admin"];
+ 			for(var i=0; i<data.length; i++){
+ 				list.append('<li id="' 
+ 					+ data[i].client_id 
+ 					+ '"><a href="#"><h2>'+ data[i].client_firstname 	+ " " + data[i].client_lastname 
+ 					+ " - " + admin[data[i].isAdmin] 
+ 					+ '</h2><p>Email: ' + data[i].email + '</p></a></li>');
+ 			}
+ 			list.listview('refresh');
+ 		},
+ 		error : function(data){
+ 			console.log("Failed to load user list");
+ 		}
+ 	});
+ });
+
+
+//Admin Page for viewing users
 $(document).on('click', '#userlist li', function(event){
 	var parameter = $(this).attr('id');
 	sessionStorage.setItem('user_id', parameter);
 	$.mobile.changePage('#userinfopage');
 });
 
+//See the user info function
 $(document).on('pagebeforeshow', '#userinfopage', function(event){
 	var user_id = sessionStorage.getItem('user_id');
 	console.log(user_id);
@@ -87,6 +90,8 @@ $(document).on('pagebeforeshow', '#reportday', function(event){
 		}
 	});
 });
+
+//View the report per week
 $(document).on('pagebeforeshow', '#reportweek', function(event){
 	$.ajax({
 		url : lb_server+"/reportweek", 
@@ -114,6 +119,8 @@ $(document).on('pagebeforeshow', '#reportweek', function(event){
 		}
 	});
 });
+
+//VIew monthly reports
 $(document).on('pagebeforeshow', '#reportmonth', function(event){
 	$.ajax({
 		url : lb_server+"/reportmonth", 
@@ -143,40 +150,36 @@ $(document).on('pagebeforeshow', '#reportmonth', function(event){
 });
 
 
-																	/////////
-//By product
-																	/////////
-
 
 $(document).on('pagebeforeshow', '#reportdayprod', function(event){
-	var parameter = $('#search-product').val();
-	sessionStorage.setItem('search_entry', parameter);
+var parameter = $('#search-product').val();
+sessionStorage.setItem('search_entry', parameter);
 
-	$.ajax({
-		url : lb_server+"/reportday/"+parameter, 
-		contentType : "application/json",
-		success : function(data){
-			console.log(data);
-			var list = $('#reptodayprod');
-			list.empty();
-			for(var i=0; i<data.length; i++){
-				list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
-					'<br>Seller: ' + data[i].Seller_Name + 
-					'<br>Buyer: ' + data[i].Buyer_Name + 
-					'<br>Date: ' + data[i].Date + 
-					'<br><strong>Item: ' + data[i].Item_Name + '</strong>' +
-					'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
-					'<br>Final Price: ' + data[i].Final_Price +
-					'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
-					'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
-			}
-			list.listview('refresh');
-
-		},
-		error : function(data){
-			console.log("Failed to load report.");
+$.ajax({
+	url : lb_server+"/reportday/"+parameter, 
+	contentType : "application/json",
+	success : function(data){
+		console.log(data);
+		var list = $('#reptodayprod');
+		list.empty();
+		for(var i=0; i<data.length; i++){
+			list.append('<li><p><h2>Sale ' + (i+1) + '</h2>' + 
+				'<br>Seller: ' + data[i].Seller_Name + 
+				'<br>Buyer: ' + data[i].Buyer_Name + 
+				'<br>Date: ' + data[i].Date + 
+				'<br><strong>Item: ' + data[i].Item_Name + '</strong>' +
+				'<br><h5>Listing ID: ' + data[i].Listing_ID + '</h5>' +
+				'<br>Final Price: ' + data[i].Final_Price +
+				'<br><br>Address: ' + data[i].Shipping_Address_1 + '<br>' + data[i].Shipping_Address_2 + '<br>' + data[i].City + '<br>' + data[i].State + '<br>' + data[i].Zip_Code + '<br>' + data[i].Country + 
+				'<br><br>Payed with: ' + data[i].Credit_Card_Number + '<br>' + data[i].Type + '<br>' + data[i].Holder +'</p></li>');
 		}
-	});
+		list.listview('refresh');
+
+	},
+	error : function(data){
+		console.log("Failed to load report.");
+	}
+});
 });
 $(document).on('pagebeforeshow', '#reportweekprod', function(event){
 	var parameter = $('#search-product').val();
@@ -303,12 +306,12 @@ $(document).on('click', '#save_category', function(event)
 
 
 	$.ajax({
-      type : "POST",
+		type : "POST",
 		url: lb_server+"/add_category",
-      data : new_category_data,
-     success: function(data)
+		data : new_category_data,
+		success: function(data)
 		{
-        $.mobile.changePage('#view_categories');
+			$.mobile.changePage('#view_categories');
 
 
 
@@ -318,7 +321,7 @@ $(document).on('click', '#save_category', function(event)
 			console.log("Add category failed");
 			console.log(new_category_data);
 		}
-    });
+	});
 
 });
 

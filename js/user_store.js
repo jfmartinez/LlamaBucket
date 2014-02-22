@@ -1,7 +1,11 @@
-//Script that manages the functionality of the user store
+
+//=======================================================================//
+// User_store.js is responsible for managing client side user storelogic //
+//=======================================================================//
 
 var description;
 
+//Displays the currently owned items and their respective offers to the user
 $(document).on('pagebeforeshow', '#item_offers_page', function(event)
 {
 
@@ -27,7 +31,7 @@ $(document).on('pagebeforeshow', '#item_offers_page', function(event)
 
 
 				var date_fractions  =data[i].datetime.replace(/[TZ\:]/g, '-').split('-');
-					var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
+				var exp_date = new Date(date_fractions[0], date_fractions[1]-1, date_fractions[2], date_fractions[3], date_fractions[4], date_fractions[5]);
 				list.append('<li><p><strong >Amount: US $ </strong>'+ data[i].bid_amount +'</p>'+
 					'<p><strong>Email: </strong>' + data[i].email+'</p>'+
 					'<p><strong>Name: </strong>' + data[i].client_firstname + ' ' + data[i].client_lastname +'</p>' +
@@ -41,7 +45,7 @@ $(document).on('pagebeforeshow', '#item_offers_page', function(event)
 
 
 			}
-							list.listview('refresh');
+			list.listview('refresh');
 
 
 
@@ -56,7 +60,7 @@ $(document).on('pagebeforeshow', '#item_offers_page', function(event)
 });
 
 
-
+//Initilizes the user store
 $(document).on('pagebeforeshow', '#store', function(event){
 
 		//Filtering by categories.
@@ -71,8 +75,8 @@ $(document).on('pagebeforeshow', '#store', function(event){
 			url : lb_server+"/get_listings/"+parameter,
 			contentType : "application/json",
 			success : function(data){
-			var list = $('#listings_list');
-			var length = data.content.length;
+				var list = $('#listings_list');
+				var length = data.content.length;
 
 				//Clear the list beforehand
 				list.empty();
@@ -87,7 +91,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 				{	
 
 
-			
+					
 					var t = $('<li id="' + data.content[i].item_id + '" ng-repeat="item in store | filter:search" ></li>');
 					
 					
@@ -151,7 +155,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 						type.html("Bid");
 						div.append(type);
-					var bid = $('<p style="color: #1CB0D9;">US $</p>');
+						var bid = $('<p style="color: #1CB0D9;">US $</p>');
 						var bid_span = $('<span></span>');
 						var bid_count = $('<p style="color:gray;"></p>');
 						var bid_count_span = $('<span> bids</span>');
@@ -207,7 +211,7 @@ $(document).on('pagebeforeshow', '#store', function(event){
 					link.append(div2);
 
 					t.append(link);
-				
+					
 
 
 
@@ -215,23 +219,24 @@ $(document).on('pagebeforeshow', '#store', function(event){
 
 					// list.append('<li id="'+ data.content[i].item_id + '"><a href=')
 					list.append(t);
-				
+					
 
-}
+				}
 
 				//Refresh the ul so that all elements are views properly.
 				list.listview('refresh');
 
 
-		},
-		error : function(data){
-			console.log("Serach results not available");
-		}
-	});
+			},
+			error : function(data){
+				console.log("Serach results not available");
+			}
+		});
 
 
 });
 
+//Adds listeners to the items in the list
 $(document).on('click', '#listings_list li', function(event)
 {
 	var parameter = $(this).attr('id');
@@ -239,7 +244,7 @@ $(document).on('click', '#listings_list li', function(event)
 	$.mobile.changePage('#manage_item_page');
 });
 
-
+//Initializes the item management page for the user
 $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
@@ -298,7 +303,7 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 			$('#selling_item_location').html(data.city +", " + data.state + ", " + data.country );
 
 
-		
+			
 		},
 
 		error : function(data){
@@ -308,13 +313,14 @@ $(document).on('pagebeforeshow', '#manage_item_page', function(event, ui){
 });
 
 
-
+//Remove option for the item
 $(document).on('pagebeforeshow', '#remove_listing_store', function()
 {
-		$('#item_name_removal').html(item_name);
+	$('#item_name_removal').html(item_name);
 
 
-$("#delete_listing_from_store").unbind('click').bind('click', delete_item_from_store);
+
+	$("#delete_listing_from_store").unbind('click').bind('click', delete_item_from_store);
 
 });
 function delete_item_from_store()
@@ -322,7 +328,7 @@ function delete_item_from_store()
 	console.log("HELLO WORLD");
 	var item_id = sessionStorage.getItem('item_id');
 
-
+	
 	$.ajax({
 
 		type: "DELETE",

@@ -1,7 +1,13 @@
-//Find search results and display them as a list
+
+//================================================================//
+// Search.js is responsible for managing client side search logic //
+//================================================================//
+
+
+//Displays category navigation for the user
 $(document).on('pagebeforeshow', '#category_results', function(event){
 
-		sessionStorage.setItem('type_filter', 'all');
+	sessionStorage.setItem('type_filter', 'all');
 
 		//Filtering by categories.
 		var parameter = sessionStorage.getItem('parameter');
@@ -527,7 +533,7 @@ $( document ).ready( function() {
 		sessionStorage.setItem('type_filter', $(this).val());
 		console.log($(this).val());
 		$('#filter_results').trigger('click');
-$('#filter_panel').panel('close');
+		$('#filter_panel').panel('close');
 
 
 
@@ -555,7 +561,7 @@ $('#filter_panel').panel('close');
 
 });
 
-
+//Result filtering option
 $(document).on('click', '#filter_results', function(event)
 {	
 	var search_parameter = sessionStorage.getItem('search_parameter');
@@ -571,7 +577,7 @@ $(document).on('click', '#filter_results', function(event)
 		data : {min_price: sessionStorage.getItem('minPrice'), max_price: sessionStorage.getItem('maxPrice'), item_type: sessionStorage.getItem('type_filter'), search: search_parameter, sort_by: sessionStorage.getItem('sort_by')},
 		success : function(data)
 		{	var list = $('#results');
-			var length = data.content.length;
+		var length = data.content.length;
 
 				//Clear the list beforehand
 				list.empty();
@@ -714,12 +720,13 @@ $(document).on('click', '#filter_results', function(event)
 
 				console.log(data);
 			}
-		
-		
 
-	});
+
+
+		});
 });
 
+//Search by category filtering options
 $(document).on('click', '#category_filter_results', function(event)
 {	
 	var category_name = $('#category_heading').html();
@@ -737,7 +744,7 @@ $(document).on('click', '#category_filter_results', function(event)
 		data: request_data,
 		success : function(data)
 		{	var list = $('#category_items');
-			var length = data.content.length;
+		var length = data.content.length;
 
 				//Clear the list beforehand
 				list.empty();
@@ -880,14 +887,14 @@ $(document).on('click', '#category_filter_results', function(event)
 
 				console.log(data);
 			}
-		
-		
 
-	});
+
+
+		});
 });
 
 
-
+//Sorting for category item options
 $(document).on('click', '#category_sort_options li', function(event)
 {
 	console.log($(this).attr('id'));
@@ -911,7 +918,7 @@ $( document ).ready( function() {
 
 
 
-
+	//SEtsup the filter button
 	$('#category_item_type_filter_button').bind('click', function(event)
 	{	
 
@@ -935,7 +942,7 @@ $( document ).ready( function() {
 
 	});
 
-
+	//Setsup the category item type filter input
 	$("input[name='category_item_type_filter']" ).bind( "click", function(event)
 	{
 
@@ -949,6 +956,7 @@ $( document ).ready( function() {
 
 	});
 
+	//Setups the filter by price filter button
 	$("#category_filter_by_price" ).bind( "click", function(event)
 	{
 

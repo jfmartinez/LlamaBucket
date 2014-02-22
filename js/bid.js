@@ -1,4 +1,8 @@
 
+//==========================================================//
+// Bid.js is responsible for managing client side bid logic //
+//==========================================================//
+
 /*
  * On successful bid take the user back to the item page
  */

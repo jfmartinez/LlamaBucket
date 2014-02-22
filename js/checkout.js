@@ -1,7 +1,18 @@
+
+//====================================================================//
+// Checkout.js is responsible for managing client side checkout logic //
+//====================================================================//
+
+//Checkout button
 $(document).on('click', '#bucket_checkout', function(event){ $.mobile.changePage('#checkout');});
+
+//If you click the buy button in an item page, you get redirected to checkout
 $(document).on('click', '#buy_item', function(event){$.mobile.changePage('#checkout');});
+
+//Place the order is the final process of the checkout
 $(document).on('click', '#place_order_button', function(event){$.mobile.changePage('#place_order_dialog_confirmation');});
 
+//Checkout the bucket button
 $(document).on('click', '#bucket_checkout', function(event)
 {
 
@@ -51,6 +62,7 @@ $(document).on('click', '#bucket_checkout', function(event)
   });
 });
 
+//Buy an item
 $(document).on('click', '#buy_item', function(event)
 {
 
@@ -100,6 +112,7 @@ $(document).on('click', '#buy_item', function(event)
   });
 });
 
+//Redirect and show the invoice page
 $(document).on('pagebeforeshow', '#invoice_page', function(event)
 {
   if(sessionStorage.getItem('checkout_method') == 'bucket')
@@ -178,6 +191,7 @@ $(document).on('pagebeforeshow', '#invoice_page', function(event)
   }
 });
 
+//Place an order on the item
 $(document).on('click', '#place_order', function (event) {
   $.mobile.showPageLoadingMsg(); 
 
@@ -220,6 +234,7 @@ $(document).on('click', '#place_order', function (event) {
   }
 });
 
+//Displays the option to rank the user who sold the item
 $(document).on('click', '#ranks', function(event) {
 
   if (sessionStorage.getItem('checkout_method') === 'bucket') {
@@ -262,7 +277,7 @@ $(document).on('click', '#ranks', function(event) {
 
 });
 
-
+//Enables the add to cart item in the itempage
 $(document).on('click', '#add_item_cart', function(event){
   
   var listing_id;

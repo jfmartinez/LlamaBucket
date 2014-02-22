@@ -1,3 +1,9 @@
+
+//==========================================================//
+// Home.js is responsible for managing client side bid logic //
+//==========================================================//
+
+//Manages home page content with respect to the user, if he's logged in or not
 $(document).on('pagebeforeshow', '#home', function(event)
 {
 
@@ -27,6 +33,7 @@ $(document).on('click', '#my_profile', function(event)
 });
 
 
+//Server dialog error message if home page contenti s not available
 $(document).on('pagebeforeshow', '#server-error-dialog', function(event)
 {
 

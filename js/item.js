@@ -1,5 +1,12 @@
+
+//=================================================================//
+// Item.js is responsible for managing client side item page logic //
+//=================================================================//
+
+
 var description;
 
+//Initializes the item page content for the client side 
 $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	
 	var item_id = sessionStorage.getItem('item_id');
@@ -65,13 +72,13 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 			$('#item_category').html(data.category_name);
 			$('#item_year').html(data.item_year);
 			$('#item_id').html(data.item_id);
-      		$('#buy_item').attr('val', data.item_id);
+			$('#buy_item').attr('val', data.item_id);
 			$('#item_seller').html(data.client_firstname + " " + data.client_lastname);
 			$('#item_header').html(data.item_name);
 			$('#item_location').html(data.city +", " + data.state + ", " + data.country );
 
 
-		
+
 		},
 
 		error : function(data){
@@ -80,13 +87,16 @@ $(document).on('pagebeforeshow', '#itempage', function(event, ui){
 	});
 });
 
+
+
+//Displays a popup with the item description
 $(document).on('pagebeforeshow', '#item_desc', function(event, ui){
 
 
-		$('#item_desc_text').html(description);
+	$('#item_desc_text').html(description);
 });
 
-
+//Add listeners for the items in a list
 $(document).on('click', '#results li', function(event)
 {
 	var parameter = $(this).attr('id');
@@ -94,6 +104,7 @@ $(document).on('click', '#results li', function(event)
 	$.mobile.changePage('#itempage');
 });
 
+//Add lsiteners for the items sorted by categories
 $(document).on('click', '#category_items li', function(event)
 {
 	var parameter = $(this).attr('id');
@@ -101,15 +112,17 @@ $(document).on('click', '#category_items li', function(event)
 	$.mobile.changePage('#itempage');
 });
 
-
+//Add listner for the items bidded
 $(document).on('click', '#all_items_bidded li', function(event)
 {
 
-		var parameter = $(this).attr('id');
+	var parameter = $(this).attr('id');
 	sessionStorage.setItem('item_id', parameter);
 	$.mobile.changePage('#itempage');
 });
 
+
+//Manages add to bucket option in the itempage
 $(document).on('click', '#buy_add_check', function(event)
 {
 	var data_to_send = {
@@ -120,37 +133,39 @@ $(document).on('click', '#buy_add_check', function(event)
 	}
 
 	$.ajax({
-      type : "POST",
-      url : lb_server+"/add_cart",
-      data : data_to_send,
-      success : function(data)
-      {
-        $.mobile.changePage('#user_bucket');
-      },
-      error : function(data)
-      {
-        console.log('no brego');
-      }
-    })
+		type : "POST",
+		url : lb_server+"/add_cart",
+		data : data_to_send,
+		success : function(data)
+		{
+			$.mobile.changePage('#user_bucket');
+		},
+		error : function(data)
+		{
+			console.log('no brego');
+		}
+	})
 });
 
+
+//Manages item viewing in the bucket
 $(document).on('click', '#bucket_list li', function(event)
 {
 	var name_to_delete = $(this).attr('id');
 	$('#remove_item').on('click', function(event)
 	{
 		$.ajax({
-      type : "POST",
-      url : lb_server+"/remove_from_cart",
-      data : {name : name_to_delete},
-      success : function(data)
-      {
-        $.mobile.changePage('#user_bucket');
-      },
-      error : function(data)
-      {
-        console.log('no brego');
-      }
-    })
+			type : "POST",
+			url : lb_server+"/remove_from_cart",
+			data : {name : name_to_delete},
+			success : function(data)
+			{
+				$.mobile.changePage('#user_bucket');
+			},
+			error : function(data)
+			{
+				console.log('no brego');
+			}
+		})
 	})
 })

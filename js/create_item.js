@@ -1,7 +1,11 @@
 
+//============================================================================//
+// Create_item.js is responsible for managing client side item creation logic //
+//============================================================================//
+
 var final_category_options;
 
-
+//Initializes the form page for the item creation
 $(document).on('pagebeforeshow', '#create_item', initialize_create_item_page);
 
 
@@ -156,70 +160,70 @@ function buyout_option()
 
     function upload_item()
     {
-          console.log("Uploading Item");
+      console.log("Uploading Item");
 
 
-          var imageURI = sessionStorage.getItem('item_image');
+      var imageURI = sessionStorage.getItem('item_image');
 
-          var options = new FileUploadOptions();
-          options.fileKey="file";
-          options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-          options.mimeType="image/jpeg";
+      var options = new FileUploadOptions();
+      options.fileKey="file";
+      options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+      options.mimeType="image/jpeg";
 
-          var server_name = lb_server + "/upload_item";
-          console.log("Setting up Params");
-          var params = {};
-          console.log(localStorage.getItem('id'));
-
-
-          params.user_id = localStorage.getItem('id');
-          params.item_name = $('input[name=create_item_name]').val();
-          params.item_description= $('textarea[name=create_item_description]').val();
-          params.item_category = final_category_options.val();
-          params.shipping_time = $('#shipsWithinDays').find('option:selected').text();
-          params.shipping_price = $('#create_shipping_price').val();
-          params.shipping_service = $('#shipService1').find('option:selected').text();
-          params.item_time = $('#create_bid_time').val();
-          params.item_year = $('input[name=create_item_year]').val();
-          params.item_brand = $('input[name=create_brand]').val();
+      var server_name = lb_server + "/upload_item";
+      console.log("Setting up Params");
+      var params = {};
+      console.log(localStorage.getItem('id'));
 
 
-
-
-          console.log("Filtering Item Type");
-
-          var item_type, start_bid, buyout_price, item_price;
-          var type = $("#item_type_options :radio:checked").val();
-
-          if(type == "bid"){
-            params.start_bid = $('#create_auction_price').val();
-            params.buyout_price = '0';
-            params.item_price = $('#create_auction_price').val();
-
-
-            params.item_type = "bid";
-            if( $("input[name=buyout_checkbox]" )[0].checked == true){
-              params.buyout_price = $('#create_buyout_price').val();
-
-              params.item_type = "both";
-
-            }
-
-          }
-
-          else if(type == "buy"){
-            params.item_price = $('input[name=create_selling_price]').val();
-            params.buyout_price = '0';
-
-            params.item_type = "buy";  params.buyout_price = '0';
+      params.user_id = localStorage.getItem('id');
+      params.item_name = $('input[name=create_item_name]').val();
+      params.item_description= $('textarea[name=create_item_description]').val();
+      params.item_category = final_category_options.val();
+      params.shipping_time = $('#shipsWithinDays').find('option:selected').text();
+      params.shipping_price = $('#create_shipping_price').val();
+      params.shipping_service = $('#shipService1').find('option:selected').text();
+      params.item_time = $('#create_bid_time').val();
+      params.item_year = $('input[name=create_item_year]').val();
+      params.item_brand = $('input[name=create_brand]').val();
 
 
 
 
-          }
-          else{
-            console.log("NONE");
-          }
+      console.log("Filtering Item Type");
+
+      var item_type, start_bid, buyout_price, item_price;
+      var type = $("#item_type_options :radio:checked").val();
+
+      if(type == "bid"){
+        params.start_bid = $('#create_auction_price').val();
+        params.buyout_price = '0';
+        params.item_price = $('#create_auction_price').val();
+
+
+        params.item_type = "bid";
+        if( $("input[name=buyout_checkbox]" )[0].checked == true){
+          params.buyout_price = $('#create_buyout_price').val();
+
+          params.item_type = "both";
+
+        }
+
+      }
+
+      else if(type == "buy"){
+        params.item_price = $('input[name=create_selling_price]').val();
+        params.buyout_price = '0';
+
+        params.item_type = "buy";  params.buyout_price = '0';
+
+
+
+
+      }
+      else{
+        console.log("NONE");
+      }
 
 
       //Add Shipping info
@@ -320,62 +324,63 @@ function buyout_option()
     console.log("FAILED TO START CAMERA");
   }
 
+  //Item creation page form initialization
   function initialize_create_item_page()
-{
+  {
 
 
-  $('#item_create_form')[0].reset();
+    $('#item_create_form')[0].reset();
 
-  $('#preview_image').attr('src', '');
-
-
-
-  $('#preview_pic').unbind('click').bind('click', capturePhoto);
-  $('#browse_pic').unbind('click').bind('click', browsePhoto);
-
-  $("input[name='item_type']" ).unbind('click').bind( "click", item_type_func );
-
-  $("input[name='buyout_checkbox']" ).unbind('click').bind( "click", buyout_option );
-  $('#create_item_save').unbind('click').bind('click',upload_item);
-  $.mobile.showPageLoadingMsg(); 
-
-  $.ajax({
-
-
-    type: "GET",
-    url : lb_server + "/get_category_options",
-    success: function(data)
-    { 
-
-      var category_options = $('#create_category');
-      var option = $(document.createElement('option'));
-      option.html("Choose...");
-      category_options.append(option);
-      for(var i = 0; i < data.length; i ++){
+    $('#preview_image').attr('src', '');
 
 
 
+    $('#preview_pic').unbind('click').bind('click', capturePhoto);
+    $('#browse_pic').unbind('click').bind('click', browsePhoto);
 
-        option = $(document.createElement('option'));
-        option.html(data[i].category_name);
-        option.attr('value', data[i].cat_id);
+    $("input[name='item_type']" ).unbind('click').bind( "click", item_type_func );
+
+    $("input[name='buyout_checkbox']" ).unbind('click').bind( "click", buyout_option );
+    $('#create_item_save').unbind('click').bind('click',upload_item);
+    $.mobile.showPageLoadingMsg(); 
+
+    $.ajax({
+
+
+      type: "GET",
+      url : lb_server + "/get_category_options",
+      success: function(data)
+      { 
+
+        var category_options = $('#create_category');
+        var option = $(document.createElement('option'));
+        option.html("Choose...");
         category_options.append(option);
+        for(var i = 0; i < data.length; i ++){
+
+
+
+
+          option = $(document.createElement('option'));
+          option.html(data[i].category_name);
+          option.attr('value', data[i].cat_id);
+          category_options.append(option);
+
+        }
+        category_options.trigger("create");
+        $('#create_category').on('change', recursive_category_population);
+
+        $.mobile.hidePageLoadingMsg(); 
+
+      },
+      error: function(data)
+      {
+
 
       }
-      category_options.trigger("create");
-      $('#create_category').on('change', recursive_category_population);
-
-      $.mobile.hidePageLoadingMsg(); 
-
-    },
-    error: function(data)
-    {
-
-
-    }
-  })
+    })
 
 
 
-}
+  }
 

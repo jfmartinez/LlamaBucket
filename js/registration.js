@@ -1,12 +1,14 @@
 
-//Register a user
+//============================================================================//
+// Registration.js is responsible for managing client side registration logic //
+//============================================================================//
 
-
+//Initializs the registration form
 $(document).on('pagebeforeshow', '#registerForm', initialize_register_form);
 
 
 
-
+//Option for adding the same address as the billing address
 $(document).on('change', '#register_same_address', function(event) {
   
   if ($('#register_same_address').is(':checked')){
@@ -41,7 +43,7 @@ $(document).on('change', '#register_same_address', function(event) {
       destinationType=navigator.camera.DestinationType;
     }
 
-
+//Phonegap function for capturing photos
 function capture_profile_photo()
 {
   console.log("CAPTURING PHOTO");
@@ -147,6 +149,7 @@ function registration_success(r)
 
 
 }
+
 function registration_fail(r)
 {
       $.mobile.hidePageLoadingMsg(); 
@@ -157,6 +160,7 @@ function registration_fail(r)
 
 
 }
+
 function initialize_register_form()
 {
 
